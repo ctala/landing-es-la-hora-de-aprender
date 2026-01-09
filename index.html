@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es la hora de aprender | Tech Podcast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --acid-green: #ccff00;
+            --electric-blue: #2d5bff;
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .brutal-title {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Neo-brutalismo puro */
+        .brutal-card {
+            background: var(--white);
+            border: 4px solid var(--black);
+            box-shadow: 6px 6px 0px 0px var(--black);
+            transition: all 0.15s ease-in-out;
+        }
+
+        @media (min-width: 768px) {
+            .brutal-card {
+                box-shadow: 10px 10px 0px 0px var(--black);
+            }
+        }
+
+        .brutal-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px var(--black);
+        }
+
+        @media (min-width: 768px) {
+            .brutal-card:hover {
+                transform: translate(-4px, -4px);
+                box-shadow: 14px 14px 0px 0px var(--black);
+            }
+        }
+
+        .brutal-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--acid-green);
+            border: 3px solid var(--black);
+            box-shadow: 4px 4px 0px 0px var(--black);
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.1s;
+            text-decoration: none;
+            color: var(--black);
+            letter-spacing: -0.05em;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .brutal-btn {
+                padding: 16px 32px;
+                border: 4px solid var(--black);
+                box-shadow: 6px 6px 0px 0px var(--black);
+            }
+        }
+
+        .brutal-btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px 0px var(--black);
+        }
+
+        .btn-disabled {
+            background: #e5e5e5;
+            color: #a3a3a3;
+            cursor: not-allowed;
+            box-shadow: 4px 4px 0px 0px #737373;
+        }
+
+        .bg-acid {
+            background-color: var(--acid-green);
+        }
+
+        .bg-electric {
+            background-color: var(--electric-blue);
+        }
+
+        .text-electric {
+            color: var(--electric-blue);
+        }
+
+        /* Marquee */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--electric-blue);
+            color: var(--white);
+            padding: 10px 0;
+            border-bottom: 4px solid var(--black);
+            transform: rotate(-1deg) scale(1.02);
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .marquee {
+                padding: 15px 0;
+                border-bottom: 5px solid var(--black);
+                transform: rotate(-1deg) scale(1.05);
+                margin-bottom: 40px;
+            }
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .marquee-content {
+                font-size: 1.5rem;
+            }
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .name-tag {
+            background-color: var(--black);
+            color: var(--acid-green);
+            padding: 4px 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+            border: 2px solid var(--black);
+            font-size: 0.875rem;
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(var(--black) 1px, transparent 0);
+            background-size: 15px 15px;
+            background-color: #f0f0f0;
+        }
+
+        .coming-soon-banner {
+            background: repeating-linear-gradient(45deg,
+                    var(--acid-green),
+                    var(--acid-green) 20px,
+                    #b8e600 20px,
+                    #b8e600 40px);
+            border: 4px solid black;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8 hero-pattern">
+
+    <!-- Marquee Principal -->
+    <div class="marquee brutal-card z-10 relative">
+        <div class="marquee-content uppercase tracking-tight">
+            ES LA HORA DE APRENDER ⚡️ CRISTIAN TALA ⚡️ DIEGO ARIAS ⚡️ RODRIGO ROJO ⚡️ NUEVO EPISODIO CADA SEMANA ⚡️ TECH
+            & STARTUPS ⚡️ ES LA HORA DE APRENDER ⚡️ CRISTIAN TALA ⚡️ DIEGO ARIAS ⚡️ RODRIGO ROJO ⚡️
+        </div>
+    </div>
+
+    <header class="max-w-6xl mx-auto mb-12 md:mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch">
+            <div class="lg:col-span-8 brutal-card bg-acid p-6 md:p-16">
+                <h1
+                    class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-6 md:mb-8 tracking-tighter break-words">
+                    ES LA HORA<br>DE <span class="text-white" style="text-shadow: 4px 4px 0px #000;">APRENDER</span>
+                </h1>
+                <div class="flex flex-wrap gap-2 md:gap-4 mb-6 md:mb-8">
+                    <span class="name-tag">Cristian Tala</span>
+                    <span class="name-tag">Diego Arias</span>
+                    <span class="name-tag">Rodrigo Rojo</span>
+                </div>
+                <p
+                    class="text-lg md:text-2xl font-bold max-w-2xl border-l-4 md:border-l-8 border-black pl-4 md:pl-6 mb-8 md:mb-10">
+                    Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la
+                    cancha.
+                </p>
+
+                <!-- Botones de Suscripción -->
+                <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                    <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1" target="_blank"
+                        class="brutal-btn bg-white hover:bg-red-500 hover:text-white flex items-center justify-center gap-2">
+                        <span class="text-xl md:text-2xl">📺</span> Suscribirse en YouTube
+                    </a>
+                    <div class="brutal-btn btn-disabled flex items-center justify-center gap-2 relative group">
+                        <span class="text-xl md:text-2xl grayscale">🎧</span> Pronto en Spotify
+                        <span
+                            class="absolute -top-3 -right-3 bg-black text-white text-[10px] px-2 py-1 rotate-12 border border-white uppercase tracking-tighter">Próximamente</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 flex flex-col gap-6">
+                <div class="brutal-card bg-electric p-6 md:p-8 flex-grow text-white flex flex-col justify-center">
+                    <div class="text-4xl md:text-5xl font-black mb-4 tracking-tighter">ÚNETE</div>
+                    <p class="font-bold text-base md:text-lg opacity-90 leading-tight">Suscríbete en YouTube para no
+                        perderte el primer episodio en vivo.</p>
+                </div>
+                <div class="brutal-card bg-white p-6 md:p-8">
+                    <div class="text-4xl md:text-5xl font-black mb-2 tracking-tighter uppercase">Estreno</div>
+                    <p
+                        class="uppercase font-bold tracking-widest text-xs md:text-sm text-gray-500 italic text-electric">
+                        Enero 2026 • Temporada 1</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-6">
+            <div>
+                <h2 class="text-4xl md:text-6xl tracking-tighter italic">Últimos <br><span
+                        class="bg-electric text-white px-2 not-italic">Episodios</span></h2>
+            </div>
+            <div id="status-tag"
+                class="brutal-btn bg-white cursor-default text-[10px] md:text-xs tracking-[0.2em] py-2 px-4">
+                LAUNCH_MODE_ON
+            </div>
+        </div>
+
+        <div id="episodes-container" class="w-full">
+            <div
+                class="coming-soon-banner p-8 md:p-24 text-center brutal-card flex flex-col items-center justify-center gap-6 md:gap-8">
+                <div class="text-6xl md:text-9xl animate-bounce">🚀</div>
+                <div>
+                    <h3 class="text-3xl md:text-7xl mb-4 tracking-tighter leading-none">EL PRIMER EPISODIO<br>ESTÁ
+                        LLEGANDO</h3>
+                    <p
+                        class="text-sm md:text-2xl font-black uppercase tracking-widest bg-black text-white inline-block px-3 py-1 md:px-4 md:py-2">
+                        Sincronizando con YouTube y Spotify
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="max-w-6xl mx-auto mt-20 md:mt-32 mb-12">
+        <div class="brutal-card bg-black text-white p-8 md:p-20 relative overflow-hidden">
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                    <div class="max-w-2xl">
+                        <h2 class="text-4xl md:text-7xl mb-6 tracking-tighter uppercase italic leading-none">Conecta y
+                            <br><span class="text-acid">Pide Temas</span></h2>
+                        <p class="text-lg md:text-2xl font-bold mb-8 opacity-80">¿Quieres que analicemos algo
+                            específico? ¿Tienes una duda existencial sobre IA o Startups? ¡Escríbenos!</p>
+
+                        <a href="https://www.linkedin.com/in/ctala/" target="_blank"
+                            class="brutal-btn bg-acid hover:bg-white text-sm md:text-lg mb-4 w-full md:w-auto md:mr-4">
+                            Proponer Tema
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4 w-full md:w-auto">
+                        <p class="text-xs uppercase tracking-widest font-black opacity-50 mb-2">Perfiles de LinkedIn:
+                        </p>
+                        <a href="https://www.linkedin.com/in/ctala/" target="_blank"
+                            class="hover:text-acid flex items-center justify-between gap-4 border-b border-gray-800 pb-2 transition-all group min-w-[200px]">
+                            <span class="font-bold">Cristian Tala</span> <span
+                                class="group-hover:translate-x-1 transition-transform inline-block">↗</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rodrigorojo/" target="_blank"
+                            class="hover:text-acid flex items-center justify-between gap-4 border-b border-gray-800 pb-2 transition-all group min-w-[200px]">
+                            <span class="font-bold">Rodrigo Rojo</span> <span
+                                class="group-hover:translate-x-1 transition-transform inline-block">↗</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/godiegoarias/" target="_blank"
+                            class="hover:text-acid flex items-center justify-between gap-4 border-b border-gray-800 pb-2 transition-all group min-w-[200px]">
+                            <span class="font-bold">Diego Arias</span> <span
+                                class="group-hover:translate-x-1 transition-transform inline-block">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Elemento decorativo brutalista -->
+            <div
+                class="absolute right-[-30px] bottom-[-30px] md:right-[-50px] md:bottom-[-50px] text-[10rem] md:text-[20rem] font-black opacity-10 leading-none select-none pointer-events-none">
+                TOPIC
+            </div>
+        </div>
+        <div class="mt-12 text-center font-black uppercase tracking-widest text-xs md:text-sm text-gray-400">
+            Es la hora de aprender • Enero 2026 • Santiago de Chile
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const statusTag = document.getElementById('status-tag');
+            setInterval(() => {
+                statusTag.style.opacity = statusTag.style.opacity === '0.5' ? '1' : '0.5';
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>
