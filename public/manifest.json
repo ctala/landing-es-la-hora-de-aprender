@@ -1,0 +1,49 @@
+{
+  "name": "Es la Hora de Aprender",
+  "short_name": "EHDA",
+  "description": "Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la cancha.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2d5bff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "technology", "news"],
+  "lang": "es-CL",
+  "dir": "ltr",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Episodios",
+      "short_name": "Episodios",
+      "description": "Ver todos los episodios",
+      "url": "/#episodes-container",
+      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "YouTube",
+      "short_name": "YouTube",
+      "description": "Suscribirse en YouTube",
+      "url": "https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1"
+    },
+    {
+      "name": "Spotify",
+      "short_name": "Spotify",
+      "description": "Escuchar en Spotify",
+      "url": "https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C"
+    }
+  ]
+}
