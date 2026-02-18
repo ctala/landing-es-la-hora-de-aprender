@@ -42,14 +42,14 @@ if ! grep -q "OpenClaw y el Futuro del Trabajo" dist/index.html; then
     exit 1
 fi
 
-# 7. Verificar que los embeddings están presentes
+# 7. Verificar que los embeddings/links están presentes
 if ! grep -q "youtube.com/embed" dist/index.html; then
     echo "❌ ERROR: Embedding de YouTube no encontrado"
     exit 1
 fi
 
-if ! grep -q "spotify.com/embed" dist/index.html; then
-    echo "❌ ERROR: Embedding de Spotify no encontrado"
+if ! grep -q "spotify.com" dist/index.html; then
+    echo "❌ ERROR: Link de Spotify no encontrado"
     exit 1
 fi
 

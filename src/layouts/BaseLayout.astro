@@ -44,8 +44,15 @@ const { title, description = "Tecnologías, IA y el futuro del ecosistema digita
             background-color: var(--white);
             color: var(--black);
             margin: 0;
-            padding: 0;
+            padding: 0 1rem 2rem 1rem;
             overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        @media (min-width: 768px) {
+            body {
+                padding: 0 2rem 3rem 2rem;
+            }
         }
 
         h1, h2, h3, .brutal-title {

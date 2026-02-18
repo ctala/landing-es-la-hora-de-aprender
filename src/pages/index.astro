@@ -48,7 +48,7 @@ const episodes = [
                         class="brutal-btn bg-white hover:bg-red-500 hover:text-white flex items-center justify-center gap-2">
                         <span class="text-xl md:text-2xl">📺</span> Suscribirse en YouTube
                     </a>
-                    <a href="https://open.spotify.com/show/YOUR_SHOW_ID" target="_blank"
+                    <a href="https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53" target="_blank"
                         class="brutal-btn bg-electric text-white hover:bg-black flex items-center justify-center gap-2">
                         <span class="text-xl md:text-2xl">🎧</span> Escuchar en Spotify
                     </a>
@@ -88,24 +88,13 @@ const episodes = [
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
                         <!-- Video Section -->
                         <div class="lg:col-span-7">
-                            <div class="video-embed brutal-card mb-4">
+                            <div class="video-embed brutal-card">
                                 <iframe 
                                     src={episode.youtube}
                                     title={episode.title}
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen
-                                ></iframe>
-                            </div>
-                            <div class="video-embed brutal-card">
-                                <iframe 
-                                    src={episode.spotify}
-                                    width="100%" 
-                                    height="152" 
-                                    frameborder="0" 
-                                    allowfullscreen="" 
-                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                                    loading="lazy"
                                 ></iframe>
                             </div>
                         </div>
@@ -140,11 +129,13 @@ const episodes = [
 
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <a href={episode.youtube.replace('/embed/', '/watch?v=')} target="_blank" 
-                                   class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-sm flex-1">
+                                   class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-sm flex-1 flex items-center justify-center gap-2">
+                                    <span class="text-xl">📺</span>
                                     Ver en YouTube
                                 </a>
-                                <a href={episode.spotify.replace('/embed/', '/')} target="_blank"
-                                   class="brutal-btn bg-electric text-white hover:bg-black text-sm flex-1">
+                                <a href={episode.spotify.replace('/embed/episode/', '/episode/')} target="_blank"
+                                   class="brutal-btn bg-electric text-white hover:bg-black text-sm flex-1 flex items-center justify-center gap-2">
+                                    <span class="text-xl">🎧</span>
                                     Escuchar en Spotify
                                 </a>
                             </div>
