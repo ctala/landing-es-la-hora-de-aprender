@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout 
+    title="404 - Página No Encontrada" 
+    description="La página que buscas no existe. Vuelve al inicio para explorar episodios de Es la Hora de Aprender."
+>
+    <SiteHeader />
+
+    <main id="main-content" class="max-w-4xl mx-auto text-center py-12 md:py-20">
+        <div class="brutal-card bg-white p-8 md:p-16">
+            <!-- Error Code -->
+            <div class="mb-8">
+                <h1 class="text-8xl md:text-[12rem] font-black leading-none text-electric">
+                    404
+                </h1>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-8">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 tracking-tighter uppercase">
+                    Página No <span class="text-acid">Encontrada</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+                    Lo sentimos, la página que buscas no existe o fue movida. 
+                    ¿Qué tal si exploras nuestros episodios?
+                </p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="/" 
+                   aria-label="Volver a la página principal"
+                   class="brutal-btn bg-acid hover:bg-electric hover:text-white text-base md:text-lg">
+                    ← Volver al Inicio
+                </a>
+                <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Suscribirse al canal de YouTube"
+                   class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-base md:text-lg flex items-center gap-2">
+                    <span aria-hidden="true">📺</span> Ver en YouTube
+                </a>
+            </div>
+
+            <!-- Decoration -->
+            <div class="mt-12 opacity-20">
+                <p class="text-xs uppercase tracking-widest font-black text-gray-500">
+                    Error 404 • Página no encontrada
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <SiteFooter />
+</BaseLayout>
