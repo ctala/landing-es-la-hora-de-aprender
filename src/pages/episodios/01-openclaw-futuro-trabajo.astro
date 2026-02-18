@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 
 const episode = {
     id: 1,
@@ -29,6 +31,9 @@ const ogImage = `https://eslahoradeaprender.com/episodes/01-thumbnail.jpg`;
     description={episode.description}
     image={ogImage}
 >
+    <!-- Site Header -->
+    <SiteHeader />
+
     <!-- Breadcrumbs -->
     <nav class="max-w-6xl mx-auto mb-6 text-sm">
         <ol class="flex items-center gap-2 text-gray-600">
@@ -150,6 +155,9 @@ const ogImage = `https://eslahoradeaprender.com/episodes/01-thumbnail.jpg`;
             ← Volver al Inicio
         </a>
     </div>
+
+    <!-- Site Footer -->
+    <SiteFooter />
 
     <!-- VideoObject Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
