@@ -4,6 +4,80 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [2.0.1] - 2026-02-18
+
+### 🐛 Critical Fix: Tailwind CSS Integration
+
+**PROBLEMA RESUELTO:** El sitio se veía sin estilos en producción.
+
+**Causa:** Tailwind CSS cargaba desde CDN (`<script src="https://cdn.tailwindcss.com"></script>`), pero Astro genera HTML estático sin ejecutar ese script.
+
+**Solución:**
+- ✅ Instalado `@tailwindcss/vite` + `tailwindcss` como dependencias
+- ✅ Creado `src/styles/global.css` con `@import "tailwindcss";`
+- ✅ Removido script CDN de `index.astro`
+- ✅ CSS ahora se genera correctamente en `dist/_astro/`
+
+### ✨ Nueva Feature: Validación Pre-Deploy
+
+**Script de validación:** `scripts/validate-build.sh`
+
+Verifica automáticamente:
+- ✓ Build exitoso
+- ✓ CSS generado en `dist/_astro/`
+- ✓ Episodio 1 presente en HTML
+- ✓ Embeddings YouTube + Spotify
+
+**Uso:**
+```bash
+npm run validate
+```
+
+### 📚 Nueva Documentación
+
+**Cloudflare Pages Deployment:**
+- `docs/CLOUDFLARE-PAGES.md` - Guía completa de deployment
+- Setup inicial paso a paso
+- Troubleshooting común
+- Configuración de custom domain
+- Headers de seguridad
+- Monitoreo y analytics
+
+### 🔧 Cambios Técnicos
+
+**package.json:**
+- Nuevo script: `"validate": "bash scripts/validate-build.sh"`
+
+**README.md:**
+- Agregada sección "Deployment (Cloudflare Pages)"
+- Agregada sección "Validación Pre-Deploy"
+- Instrucciones de preview local
+
+### 📦 Nuevas Dependencias
+
+```json
+"@tailwindcss/vite": "^4.1.18",
+"tailwindcss": "^4.1.18"
+```
+
+### ⚠️ Breaking Changes
+
+**ANTES (NO FUNCIONA EN PRODUCCIÓN):**
+```html
+<script src="https://cdn.tailwindcss.com"></script>
+```
+
+**AHORA (CORRECTO):**
+```astro
+---
+import '../styles/global.css';
+---
+```
+
+**Migración:** No se requiere acción si usas el build de Astro. El CSS se genera automáticamente.
+
+---
+
 ## [2.0.0] - 2026-02-18
 
 ### 🚀 Migración Completa a Astro
