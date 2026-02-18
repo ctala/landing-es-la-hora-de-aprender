@@ -4,6 +4,56 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [2.1.1] - 2026-02-18
+
+### 🐛 Fixed: Footer Visibility (Mobile) - CRITICAL FIX
+
+**PROBLEMA RESUELTO (definitivo):** El footer se cortaba completamente en mobile.
+
+**Cambios aplicados:**
+
+1. **Footer margin aumentado:**
+   ```css
+   /* ANTES */
+   mb-12              /* 3rem bottom margin */
+   
+   /* AHORA */
+   mb-24 md:mb-32     /* 6rem mobile, 8rem desktop */
+   ```
+
+2. **Espacio total al final:**
+   - **Mobile:** 6rem (body padding) + 6rem (footer margin) = **12rem (192px)**
+   - **Desktop:** 8rem (body padding) + 8rem (footer margin) = **16rem (256px)**
+
+**Resultado:** Footer completamente visible con espacio generoso debajo.
+
+### ✨ Agregado: Build Version Display
+
+**Nueva feature:** Versión del build visible al final del footer
+
+```html
+Build v2.1.1 • Feb 18, 2026 10:25 AM
+```
+
+**Beneficio:**
+- Verificar que estás viendo la versión correcta
+- Debug más fácil (confirmar que Cloudflare deployó)
+- Transparencia sobre última actualización
+
+**Ubicación:** Footer → Última línea (texto pequeño, gris, opacity 50%)
+
+### 📊 Espacio Footer (Histórico)
+
+| Versión | Mobile Padding | Footer Margin | Total Space | Status |
+|---------|----------------|---------------|-------------|--------|
+| v2.0.1  | 2rem (32px)    | 3rem (48px)   | 80px        | ❌ Insuficiente |
+| v2.0.2  | 6rem (96px)    | 3rem (48px)   | 144px       | ⚠️ Mejorado pero cortado |
+| v2.1.1  | 6rem (96px)    | 6rem (96px)   | **192px**   | ✅ COMPLETO |
+
+**Mejora total:** +140% más espacio vs v2.0.1
+
+---
+
 ## [2.1.0] - 2026-02-18
 
 ### 🎯 OBJETIVO CUMPLIDO: 100/100 en Todas las Métricas ✅
