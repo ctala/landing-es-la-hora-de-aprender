@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const episode = {
+    id: 1,
+    slug: "01-openclaw-futuro-trabajo",
+    title: "OpenClaw y el Futuro del Trabajo",
+    date: "2026-02-18",
+    description: "En nuestro episodio inaugural exploramos OpenClaw, agentes de IA personalizados y cómo la automatización está transformando el mercado laboral. Cristian, Diego y Rodrigo comparten sus experiencias implementando asistentes virtuales y discuten el impacto social que se viene.",
+    youtube: "https://www.youtube.com/embed/4hm_iLJu7RQ",
+    youtubeId: "4hm_iLJu7RQ",
+    spotify: "https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53",
+    duration: "59:39",
+    durationSeconds: 3579,
+    topics: ["OpenClaw", "IA Generativa", "Automatización", "Futuro del Trabajo", "Agentes de IA", "N8N", "Productividad"],
+    hosts: [
+        { name: "Cristian Tala", linkedin: "https://www.linkedin.com/in/ctala/" },
+        { name: "Diego Arias", linkedin: "https://www.linkedin.com/in/godiegoarias/" },
+        { name: "Rodrigo Rojo", linkedin: "https://www.linkedin.com/in/rodrigorojo/" }
+    ]
+};
+
+const episodeUrl = `https://eslahoradeaprender.com/episodios/${episode.slug}`;
+const ogImage = `https://eslahoradeaprender.com/og-image.jpg`;
+---
+
+<BaseLayout 
+    title={episode.title} 
+    description={episode.description}
+    image={ogImage}
+>
+    <!-- Breadcrumbs -->
+    <nav class="max-w-6xl mx-auto mb-6 text-sm">
+        <ol class="flex items-center gap-2 text-gray-600">
+            <li><a href="/" class="hover:text-electric font-bold">Inicio</a></li>
+            <li>/</li>
+            <li><a href="/#episodios" class="hover:text-electric font-bold">Episodios</a></li>
+            <li>/</li>
+            <li class="text-black font-black">Episodio {episode.id}</li>
+        </ol>
+    </nav>
+
+    <!-- Episode Header -->
+    <article class="max-w-6xl mx-auto mb-12">
+        <div class="brutal-card bg-white p-6 md:p-10">
+            <!-- Meta -->
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-black text-acid px-4 py-2 text-sm uppercase font-black tracking-wider">
+                    Episodio {episode.id}
+                </span>
+                <span class="text-gray-500 font-bold">{episode.duration}</span>
+                <span class="text-gray-500">•</span>
+                <time datetime={episode.date} class="text-gray-500 font-bold">
+                    {new Date(episode.date).toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tighter">
+                {episode.title}
+            </h1>
+
+            <!-- Description -->
+            <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed border-l-4 border-electric pl-6">
+                {episode.description}
+            </p>
+
+            <!-- Hosts -->
+            <div class="mb-8">
+                <h3 class="text-sm uppercase tracking-wider font-black text-gray-500 mb-3">Con:</h3>
+                <div class="flex flex-wrap gap-3">
+                    {episode.hosts.map(host => (
+                        <a href={host.linkedin} target="_blank" 
+                           class="name-tag hover:bg-electric transition-colors">
+                            {host.name}
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Topics -->
+            <div class="mb-8">
+                <h3 class="text-sm uppercase tracking-wider font-black text-gray-500 mb-3">Temas:</h3>
+                <div class="flex flex-wrap gap-2">
+                    {episode.topics.map(topic => (
+                        <span class="bg-acid text-black px-3 py-1 text-xs font-bold uppercase border-2 border-black">
+                            {topic}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="flex flex-wrap gap-3 pt-6 border-t-2 border-black">
+                <span class="text-sm font-black uppercase text-gray-500 mr-2">Compartir:</span>
+                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(episode.title)}&url=${encodeURIComponent(episodeUrl)}`}
+                   target="_blank"
+                   class="brutal-btn bg-white hover:bg-black hover:text-white text-xs py-2 px-4">
+                    Twitter
+                </a>
+                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(episodeUrl)}`}
+                   target="_blank"
+                   class="brutal-btn bg-white hover:bg-electric hover:text-white text-xs py-2 px-4">
+                    LinkedIn
+                </a>
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(episodeUrl)}`}
+                   target="_blank"
+                   class="brutal-btn bg-white hover:bg-blue-600 hover:text-white text-xs py-2 px-4">
+                    Facebook
+                </a>
+                <button onclick="navigator.clipboard.writeText(window.location.href); alert('¡Link copiado!')"
+                        class="brutal-btn bg-acid text-xs py-2 px-4">
+                    Copiar Link
+                </button>
+            </div>
+        </div>
+    </article>
+
+    <!-- Video Player -->
+    <div class="max-w-6xl mx-auto mb-12">
+        <div class="brutal-card bg-white p-4 md:p-6">
+            <div class="video-embed brutal-card mb-6">
+                <iframe 
+                    src={episode.youtube}
+                    title={episode.title}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href={`https://www.youtube.com/watch?v=${episode.youtubeId}`} target="_blank"
+                   class="brutal-btn bg-white hover:bg-red-500 hover:text-white flex items-center justify-center gap-2 flex-1">
+                    <span class="text-xl">📺</span>
+                    Ver en YouTube
+                </a>
+                <a href={episode.spotify} target="_blank"
+                   class="brutal-btn bg-electric text-white hover:bg-black flex items-center justify-center gap-2 flex-1">
+                    <span class="text-xl">🎧</span>
+                    Escuchar en Spotify
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="max-w-6xl mx-auto mb-12 text-center">
+        <a href="/" class="brutal-btn bg-acid hover:bg-electric hover:text-white inline-flex items-center gap-2">
+            ← Volver al Inicio
+        </a>
+    </div>
+
+    <!-- VideoObject Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": episode.title,
+        "description": episode.description,
+        "thumbnailUrl": `https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`,
+        "uploadDate": episode.date,
+        "duration": `PT${Math.floor(episode.durationSeconds / 60)}M${episode.durationSeconds % 60}S`,
+        "contentUrl": `https://www.youtube.com/watch?v=${episode.youtubeId}`,
+        "embedUrl": episode.youtube,
+        "publisher": {
+            "@type": "Organization",
+            "name": "Es la Hora de Aprender",
+            "logo": {
+                "@type": "ImageObject",
+                "url": ogImage
+            }
+        },
+        "creator": episode.hosts.map(host => ({
+            "@type": "Person",
+            "name": host.name,
+            "url": host.linkedin
+        }))
+    })} />
+
+    <!-- PodcastEpisode Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "PodcastEpisode",
+        "url": episodeUrl,
+        "name": episode.title,
+        "description": episode.description,
+        "datePublished": episode.date,
+        "duration": `PT${Math.floor(episode.durationSeconds / 60)}M${episode.durationSeconds % 60}S`,
+        "episodeNumber": episode.id,
+        "partOfSeries": {
+            "@type": "PodcastSeries",
+            "name": "Es la Hora de Aprender",
+            "url": "https://eslahoradeaprender.com"
+        },
+        "actor": episode.hosts.map(host => ({
+            "@type": "Person",
+            "name": host.name,
+            "url": host.linkedin
+        }))
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://eslahoradeaprender.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Episodios",
+                "item": "https://eslahoradeaprender.com/#episodios"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": episode.title,
+                "item": episodeUrl
+            }
+        ]
+    })} />
+</BaseLayout>

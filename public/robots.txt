@@ -3,8 +3,12 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap Index (incluye main sitemap + video sitemap)
+Sitemap: https://eslahoradeaprender.com/sitemap-index.xml
+
+# Individual Sitemaps (también accesibles)
 Sitemap: https://eslahoradeaprender.com/sitemap.xml
+Sitemap: https://eslahoradeaprender.com/video-sitemap.xml
 
 # Crawl-delay (opcional, para bots agresivos)
 # Crawl-delay: 1

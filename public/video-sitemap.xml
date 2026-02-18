@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Episodio 1: OpenClaw y el Futuro del Trabajo -->
+  <url>
+    <loc>https://eslahoradeaprender.com/episodios/01-openclaw-futuro-trabajo</loc>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/4hm_iLJu7RQ/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>OpenClaw y el Futuro del Trabajo - Es la Hora de Aprender EP01</video:title>
+      <video:description>En nuestro episodio inaugural exploramos OpenClaw, agentes de IA personalizados y cómo la automatización está transformando el mercado laboral. Cristian, Diego y Rodrigo comparten sus experiencias implementando asistentes virtuales y discuten el impacto social que se viene.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=4hm_iLJu7RQ</video:content_loc>
+      <video:player_loc allow_embed="yes" autoplay="autoplay=1">https://www.youtube.com/embed/4hm_iLJu7RQ</video:player_loc>
+      <video:duration>3579</video:duration>
+      <video:publication_date>2026-02-18</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:uploader info="https://www.youtube.com/@EsLaHoraDeAprender_com">Es la Hora de Aprender</video:uploader>
+      <video:live>no</video:live>
+      
+      <!-- Tags (keywords) -->
+      <video:tag>OpenClaw</video:tag>
+      <video:tag>IA</video:tag>
+      <video:tag>Inteligencia Artificial</video:tag>
+      <video:tag>Automatización</video:tag>
+      <video:tag>Futuro del Trabajo</video:tag>
+      <video:tag>Agentes de IA</video:tag>
+      <video:tag>N8N</video:tag>
+      <video:tag>Productividad</video:tag>
+      <video:tag>Startups</video:tag>
+      <video:tag>Tecnología</video:tag>
+      <video:tag>Chile</video:tag>
+      <video:tag>LATAM</video:tag>
+      
+      <!-- Category -->
+      <video:category>Technology</video:category>
+    </video:video>
+  </url>
+  
+  <!-- Futuros episodios se agregan aquí -->
+  
+</urlset>
