@@ -4,9 +4,17 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = "Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la cancha." } = Astro.props;
+const { 
+  title, 
+  description = "Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la cancha.",
+  image = "https://eslahoradeaprender.com/og-image.jpg"
+} = Astro.props;
+
+const siteUrl = "https://eslahoradeaprender.com";
+const fullTitle = title === "Tech Podcast" ? "Es la Hora de Aprender - Tech Podcast sobre IA y Startups" : `${title} | Es la Hora de Aprender`;
 ---
 
 <!DOCTYPE html>
@@ -14,19 +22,33 @@ const { title, description = "Tecnologías, IA y el futuro del ecosistema digita
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | Es la hora de aprender</title>
+    <title>{fullTitle}</title>
     <meta name="description" content={description}>
+    <link rel="canonical" href={siteUrl}>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content={siteUrl}>
+    <meta property="og:title" content={fullTitle}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={image}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:site_name" content="Es la Hora de Aprender">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content={title}>
+    <meta name="twitter:url" content={siteUrl}>
+    <meta name="twitter:title" content={fullTitle}>
     <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={image}>
+    <meta name="twitter:creator" content="@naitus">
+    
+    <!-- Additional Meta -->
+    <meta name="author" content="Cristian Tala, Diego Arias, Rodrigo Rojo">
+    <meta name="keywords" content="podcast, tecnología, IA, inteligencia artificial, startups, emprendimiento, OpenClaw, automatización, Chile, LATAM">
 </head>
 <body class="p-4 md:p-8 hero-pattern">
     <slot />
