@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const episodes = [
+    {
+        id: 1,
+        title: "OpenClaw y el Futuro del Trabajo",
+        date: "2026-02-18",
+        description: "En nuestro episodio inaugural exploramos OpenClaw, agentes de IA personalizados y cómo la automatización está transformando el mercado laboral. Cristian, Diego y Rodrigo comparten sus experiencias implementando asistentes virtuales y discuten el impacto social que se viene.",
+        youtube: "https://www.youtube.com/embed/4hm_iLJu7RQ",
+        spotify: "https://open.spotify.com/embed/episode/5PbJqqJMZCzYFewlnqFs53",
+        duration: "59:39",
+        topics: ["OpenClaw", "IA Generativa", "Automatización", "Futuro del Trabajo", "Agentes de IA", "N8N", "Productividad"]
+    }
+];
+---
+
+<BaseLayout title="Tech Podcast">
+    <!-- Marquee Principal -->
+    <div class="marquee brutal-card z-10 relative">
+        <div class="marquee-content uppercase tracking-tight">
+            ES LA HORA DE APRENDER ⚡️ CRISTIAN TALA ⚡️ DIEGO ARIAS ⚡️ RODRIGO ROJO ⚡️ NUEVO EPISODIO CADA SEMANA ⚡️ TECH
+            & STARTUPS ⚡️ ES LA HORA DE APRENDER ⚡️ CRISTIAN TALA ⚡️ DIEGO ARIAS ⚡️ RODRIGO ROJO ⚡️
+        </div>
+    </div>
+
+    <header class="max-w-6xl mx-auto mb-12 md:mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch">
+            <div class="lg:col-span-8 brutal-card bg-acid p-6 md:p-16">
+                <h1
+                    class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-6 md:mb-8 tracking-tighter break-words">
+                    ES LA HORA<br>DE <span class="text-white" style="text-shadow: 4px 4px 0px #000;">APRENDER</span>
+                </h1>
+                <div class="flex flex-wrap gap-2 md:gap-4 mb-6 md:mb-8">
+                    <a href="https://www.linkedin.com/in/ctala/" target="_blank" class="name-tag hover:bg-electric transition-colors">Cristian Tala</a>
+                    <a href="https://www.linkedin.com/in/godiegoarias/" target="_blank" class="name-tag hover:bg-electric transition-colors">Diego Arias</a>
+                    <a href="https://www.linkedin.com/in/rodrigorojo/" target="_blank" class="name-tag hover:bg-electric transition-colors">Rodrigo Rojo</a>
+                </div>
+                <p
+                    class="text-lg md:text-2xl font-bold max-w-2xl border-l-4 md:border-l-8 border-black pl-4 md:pl-6 mb-8 md:mb-10">
+                    Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la
+                    cancha.
+                </p>
+
+                <!-- Botones de Suscripción -->
+                <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                    <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1" target="_blank"
+                        class="brutal-btn bg-white hover:bg-red-500 hover:text-white flex items-center justify-center gap-2">
+                        <span class="text-xl md:text-2xl">📺</span> Suscribirse en YouTube
+                    </a>
+                    <a href="https://open.spotify.com/show/YOUR_SHOW_ID" target="_blank"
+                        class="brutal-btn bg-electric text-white hover:bg-black flex items-center justify-center gap-2">
+                        <span class="text-xl md:text-2xl">🎧</span> Escuchar en Spotify
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 flex flex-col gap-6">
+                <div class="brutal-card bg-electric p-6 md:p-8 flex-grow text-white flex flex-col justify-center">
+                    <div class="text-4xl md:text-5xl font-black mb-4 tracking-tighter">ÚNETE</div>
+                    <p class="font-bold text-base md:text-lg opacity-90 leading-tight">Suscríbete en YouTube y Spotify para no
+                        perderte ningún episodio.</p>
+                </div>
+                <div class="brutal-card bg-white p-6 md:p-8">
+                    <div class="text-4xl md:text-5xl font-black mb-2 tracking-tighter uppercase">Episodio 1</div>
+                    <p
+                        class="uppercase font-bold tracking-widest text-xs md:text-sm text-gray-500 italic text-electric">
+                        Febrero 2026 • Temporada 1</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-6">
+            <div>
+                <h2 class="text-4xl md:text-6xl tracking-tighter italic">Últimos <br><span
+                        class="bg-electric text-white px-2 not-italic">Episodios</span></h2>
+            </div>
+            <div class="brutal-btn bg-acid cursor-default text-[10px] md:text-xs tracking-[0.2em] py-2 px-4">
+                EP_01_LIVE
+            </div>
+        </div>
+
+        <div id="episodes-container" class="grid gap-8 md:gap-12">
+            {episodes.map((episode) => (
+                <article class="brutal-card p-6 md:p-10 episode-card">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+                        <!-- Video Section -->
+                        <div class="lg:col-span-7">
+                            <div class="video-embed brutal-card mb-4">
+                                <iframe 
+                                    src={episode.youtube}
+                                    title={episode.title}
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                ></iframe>
+                            </div>
+                            <div class="video-embed brutal-card">
+                                <iframe 
+                                    src={episode.spotify}
+                                    width="100%" 
+                                    height="152" 
+                                    frameborder="0" 
+                                    allowfullscreen="" 
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                    loading="lazy"
+                                ></iframe>
+                            </div>
+                        </div>
+
+                        <!-- Info Section -->
+                        <div class="lg:col-span-5">
+                            <div class="mb-4">
+                                <span class="bg-black text-acid px-3 py-1 text-xs uppercase font-black tracking-wider">
+                                    Episodio {episode.id}
+                                </span>
+                                <span class="text-sm text-gray-500 ml-3">{episode.duration}</span>
+                            </div>
+                            
+                            <h3 class="text-3xl md:text-4xl font-black mb-4 leading-tight tracking-tighter">
+                                {episode.title}
+                            </h3>
+                            
+                            <p class="text-gray-700 text-base md:text-lg mb-6 leading-relaxed">
+                                {episode.description}
+                            </p>
+
+                            <div class="mb-6">
+                                <h4 class="text-sm font-black uppercase tracking-wider mb-3 text-gray-500">Temas tratados</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    {episode.topics.map((topic) => (
+                                        <span class="bg-acid text-black px-3 py-1 text-xs font-bold uppercase border-2 border-black">
+                                            {topic}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href={episode.youtube.replace('/embed/', '/watch?v=')} target="_blank" 
+                                   class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-sm flex-1">
+                                    Ver en YouTube
+                                </a>
+                                <a href={episode.spotify.replace('/embed/', '/')} target="_blank"
+                                   class="brutal-btn bg-electric text-white hover:bg-black text-sm flex-1">
+                                    Escuchar en Spotify
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </main>
+
+    <footer class="max-w-6xl mx-auto mt-20 md:mt-32 mb-12">
+        <div class="brutal-card bg-black text-white p-8 md:p-20 relative overflow-hidden">
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                    <div class="max-w-2xl">
+                        <h2 class="text-4xl md:text-7xl mb-6 tracking-tighter uppercase italic leading-none">Conecta y
+                            <br><span class="text-acid">Pide Temas</span></h2>
+                        <p class="text-lg md:text-2xl font-bold mb-8 opacity-80">¿Quieres que analicemos algo
+                            específico? ¿Tienes una duda existencial sobre IA o Startups? ¡Escríbenos!</p>
+
+                        <a href="https://www.linkedin.com/in/ctala/" target="_blank"
+                            class="brutal-btn bg-acid hover:bg-white text-sm md:text-lg mb-4 w-full md:w-auto md:mr-4">
+                            Proponer Tema
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4 w-full md:w-auto">
+                        <p class="text-xs uppercase tracking-widest font-black opacity-50 mb-2">Perfiles de LinkedIn:
+                        </p>
+                        <a href="https://www.linkedin.com/in/ctala/" target="_blank"
+                            class="hover:text-acid flex items-center justify-between gap-4 border-b border-gray-800 pb-2 transition-all group min-w-[200px]">
+                            <span class="font-bold">Cristian Tala</span> <span
+                                class="group-hover:translate-x-1 transition-transform inline-block">↗</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rodrigorojo/" target="_blank"
+                            class="hover:text-acid flex items-center justify-between gap-4 border-b border-gray-800 pb-2 transition-all group min-w-[200px]">
+                            <span class="font-bold">Rodrigo Rojo</span> <span
+                                class="group-hover:translate-x-1 transition-transform inline-block">↗</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/godiegoarias/" target="_blank"
+                            class="hover:text-acid flex items-center justify-between gap-4 border-b border-gray-800 pb-2 transition-all group min-w-[200px]">
+                            <span class="font-bold">Diego Arias</span> <span
+                                class="group-hover:translate-x-1 transition-transform inline-block">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="absolute right-[-30px] bottom-[-30px] md:right-[-50px] md:bottom-[-50px] text-[10rem] md:text-[20rem] font-black opacity-10 leading-none select-none pointer-events-none">
+                TOPIC
+            </div>
+        </div>
+        <div class="mt-12 text-center font-black uppercase tracking-widest text-xs md:text-sm text-gray-400">
+            Es la hora de aprender • 2026 • Santiago de Chile
+        </div>
+    </footer>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</BaseLayout>

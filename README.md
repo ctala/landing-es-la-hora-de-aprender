@@ -1,48 +1,138 @@
-# Es la hora de aprender - Landing Page
+# Es la hora de aprender - Podcast Tech
 
-Este repositorio contiene el código fuente de la página oficial de lanzamiento del podcast **"Es la hora de aprender"**, un espacio semanal dedicado a la tecnología, la inteligencia artificial y el ecosistema de startups en Latinoamérica.
+> 🎙️ Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la cancha.
 
-## 🎙️ El Proyecto
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1)
+[![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://open.spotify.com/show/YOUR_SHOW_ID)
 
-"Es la hora de aprender" es un conversatorio liderado por tres referentes de la industria tech:
+---
 
-- **Cristian Tala**: Inversionista y emprendedor (Startup & VC).
-- **Diego Arias**: Experto en educación y talento digital.
-- **Rodrigo Rojo**: Estratega en IA y curador de tendencias.
+## 🎯 El Proyecto
 
-La plataforma sirve como punto de encuentro inicial para la comunidad, permitiendo suscripciones a YouTube, seguimiento del lanzamiento en Spotify y un canal abierto para proponer temas de discusión.
+**"Es la hora de aprender"** es un conversatorio semanal dedicado a la tecnología, la inteligencia artificial y el ecosistema de startups en Latinoamérica.
+
+### 🎤 Anfitriones
+
+- **[Cristian Tala](https://www.linkedin.com/in/ctala/)** - Inversionista y emprendedor (Startup & VC)
+- **[Diego Arias](https://www.linkedin.com/in/godiegoarias/)** - Experto en educación y talento digital  
+- **[Rodrigo Rojo](https://www.linkedin.com/in/rodrigorojo/)** - Estratega en IA y curador de tendencias
+
+---
+
+## 🚀 Stack Tecnológico
+
+- **[Astro](https://astro.build)** - Framework web moderno y rápido
+- **TypeScript** - Tipado estático para mayor confiabilidad
+- **Tailwind CSS** - Diseño responsivo mediante clases de utilidad
+- **Neo-Brutalismo** - Estética visual con alto contraste y sombras duras
+
+---
 
 ## 🎨 Diseño: Neo-Brutalismo Moderno
 
-El sitio utiliza una estética Neo-brutalista, caracterizada por:
+El sitio utiliza una estética Neo-brutalista caracterizada por:
 
-- **Alto contraste**: Uso de Acid Green (`#ccff00`) y Electric Blue (`#2d5bff`).
-- **Sombras duras**: Bordes negros gruesos y sombras sin difuminado.
-- **Tipografía masiva**: Uso de fuentes Archivo Black y Space Grotesk.
-- **Mobile-First**: Optimización total para dispositivos móviles con escalado fluido de tipografía.
+- **Alto contraste**: Acid Green (`#ccff00`) + Electric Blue (`#2d5bff`)
+- **Sombras duras**: Bordes negros gruesos sin difuminado
+- **Tipografía masiva**: Archivo Black + Space Grotesk
+- **Mobile-First**: Optimización total para dispositivos móviles
 
-## 🛠️ Stack Tecnológico
+---
 
-- **HTML5**: Estructura semántica.
-- **Tailwind CSS**: Framework de utilidades para el diseño responsivo y estilos personalizados.
-- **Google Fonts**: Integración de fuentes especializadas para el look brutalista.
-- **JavaScript**: Lógica ligera para el manejo de estados de lanzamiento y animaciones.
+## 📂 Estructura del Proyecto
 
-## 🚀 Características
+```
+/
+├── public/              # Assets estáticos
+│   └── images/          # Imágenes del podcast
+├── src/
+│   ├── layouts/         # Plantillas base
+│   │   └── BaseLayout.astro
+│   ├── pages/           # Rutas del sitio
+│   │   └── index.astro
+│   └── content/         # Contenido estructurado
+│       └── episodes/    # Metadata de episodios
+├── astro.config.mjs     # Configuración de Astro
+└── package.json
+```
 
-- **Marquee Animado**: Cinta de noticias en constante movimiento.
-- **Responsive Design**: Diseño adaptativo que corrige el desbordamiento de texto en pantallas pequeñas.
-- **Call to Action (CTA)**: Integración directa con YouTube (`sub_confirmation=1`) y preparación para Spotify.
-- **Sección de Contacto**: Integración con LinkedIn para los anfitriones y sección de sugerencia de temas.
+---
 
-## 📅 Estado del Proyecto
+## 🛠️ Comandos
 
-Lanzamiento programado para **Enero 2026**. Actualmente en modo **Pre-launch**.
+| Comando              | Acción                                      |
+| :------------------- | :------------------------------------------ |
+| `npm install`        | Instalar dependencias                       |
+| `npm run dev`        | Servidor de desarrollo en `localhost:4321` |
+| `npm run build`      | Compilar sitio para producción en `./dist/` |
+| `npm run preview`    | Vista previa local del build                |
 
-Desarrollado con una visión matemática y tech desde Santiago de Chile.
+---
+
+## 📺 Episodios
+
+### Episodio 1: "OpenClaw y el Futuro del Trabajo" (2026-02-18)
+
+En nuestro episodio inaugural exploramos:
+
+- ✅ **OpenClaw** y agentes de IA personalizados
+- ✅ **Automatización** con herramientas como N8N
+- ✅ **Impacto laboral** de la IA generativa
+- ✅ **VPS vs Hardware físico** (Mac Mini)
+- ✅ **Costos reales** de implementación ($6-100/mes)
+- ✅ **One-person billion dollar companies**
+
+**🎬 Ver:** [YouTube](https://www.youtube.com/watch?v=4hm_iLJu7RQ) | [Spotify](https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53)
+
+---
+
+## 🌐 SEO & Posicionamiento
+
+**Keywords principales:**
+- OpenClaw tutorial español
+- Agentes de IA personales
+- Automatización con inteligencia artificial
+- Futuro del trabajo con IA
+- Herramientas de automatización 2026
+- Asistente virtual IA Chile
+
+**Estrategia de contenido:**
+- 📝 Transcripciones completas (SEO long-tail)
+- 🎯 Timestamped chapters (retención YouTube)
+- 🔗 Backlinks desde blogs personales (cristiantala.com + ecosistemastartup.com)
+- 📊 Análisis de keywords con tendencias LATAM
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la **Licencia MIT**. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+**Open Source** - El código fuente está disponible públicamente para que otros puedan aprender de nuestra implementación.
+
+---
+
+## 🤝 Contribuir
+
+¿Tienes sugerencias para mejorar el sitio o ideas para futuros episodios?
+
+1. 🍴 Fork el repositorio
+2. 🌿 Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 Push a la rama (`git push origin feature/AmazingFeature`)
+5. 🔀 Abre un Pull Request
+
+---
+
+## 📬 Contacto
+
+¿Quieres proponer un tema para el podcast?
+
+- 📧 Escríbenos directamente en [LinkedIn](https://www.linkedin.com/in/ctala/)
+- 💬 Deja un comentario en nuestros videos de [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com)
+
+---
+
+<p align="center">
+  <strong>Desarrollado con ⚡️ desde Santiago de Chile</strong>
+</p>
