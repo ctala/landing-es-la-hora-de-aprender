@@ -4,6 +4,45 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [2.2.1] - 2026-02-18
+
+### ⚡ Performance: Lazy Loading + YouTube Preconnect
+
+**Problema identificado:**
+- Lighthouse Mobile score: 47/100 (Speed Index: 15.8s con score 0/100)
+- YouTube iframe cargaba 1.9 MB de recursos al cargar la página
+- Bloqueaba el renderizado visual completo
+
+**Optimizaciones implementadas:**
+
+**1. Lazy Loading en iframes**
+```astro
+<!-- index.astro + episodios/*.astro -->
+<iframe loading="lazy" ... />
+```
+
+**2. YouTube Preconnect**
+```html
+<!-- BaseLayout.astro -->
+<link rel="preconnect" href="https://www.youtube.com">
+<link rel="dns-prefetch" href="https://i.ytimg.com">
+```
+
+**Impacto esperado:**
+- Speed Index: 15.8s → ~3.5s (-78%)
+- FCP: 2.5s → ~1.8s (-28%)
+- Performance Score: 47/100 → 85+/100 (+80%)
+
+**Documentación:**
+- Plan completo: `docs/LIGHTHOUSE-OPTIMIZATION-PLAN.md`
+- Análisis de causas y próximos pasos
+
+**Testing:**
+- Validar en Chrome Incognito (sin extensiones)
+- Mobile + Desktop separados
+
+---
+
 ## [2.2.0] - 2026-02-18
 
 ### ✨ UX Decision: Header + Footer Consistentes
