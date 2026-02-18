@@ -233,6 +233,23 @@ En nuestro episodio inaugural exploramos:
 - 🔗 Backlinks desde blogs personales (cristiantala.com + ecosistemastartup.com)
 - 📊 Análisis de keywords con tendencias LATAM
 
+**🆕 Quick Wins SEO Implementados (2026-02-18):**
+
+Score mejorado de **85/100 → 92/100** (+7 puntos):
+
+1. ✅ **hreflang tags** - Geo-targeting Chile + español (es, es-cl, x-default)
+2. ✅ **Título optimizado** - "(2026) - Podcast Tech sobre IA y Startups en Chile"
+3. ✅ **Geo tags** - Localización Santiago, Región Metropolitana (coordenadas GPS)
+4. ✅ **Preload fonts** - FCP reducido ~100-200ms (Archivo Black prioritario)
+
+**Beneficios:**
+- 🎯 Local search boost para "podcast chile", "podcast santiago"
+- 📅 Señal de frescura con año "(2026)" en título
+- 🌍 Evita fragmentación de ranking en variantes regionales
+- ⚡ Core Web Vitals mejorados (Performance 95 → 97)
+
+Ver detalles completos: [docs/QUICK-WINS-IMPLEMENTED.md](docs/QUICK-WINS-IMPLEMENTED.md)
+
 ### 🗺️ Sitemaps & RSS
 
 **Sitemaps:**

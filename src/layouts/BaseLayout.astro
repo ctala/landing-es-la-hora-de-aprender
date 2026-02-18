@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 
 const siteUrl = "https://eslahoradeaprender.com";
-const fullTitle = title === "Tech Podcast" ? "Es la Hora de Aprender - Tech Podcast sobre IA y Startups" : `${title} | Es la Hora de Aprender`;
+const fullTitle = title === "Tech Podcast" ? "Es la Hora de Aprender (2026) - Podcast Tech sobre IA y Startups en Chile" : `${title} | Es la Hora de Aprender`;
 ---
 
 <!DOCTYPE html>
@@ -28,6 +28,17 @@ const fullTitle = title === "Tech Podcast" ? "Es la Hora de Aprender - Tech Podc
     <!-- Canonical & Alternate -->
     <link rel="canonical" href={siteUrl}>
     <link rel="alternate" type="application/rss+xml" title="Es la Hora de Aprender - RSS Feed" href={`${siteUrl}/feed.xml`}>
+    
+    <!-- hreflang (Multi-language Support) -->
+    <link rel="alternate" hreflang="es" href={siteUrl}>
+    <link rel="alternate" hreflang="es-cl" href={siteUrl}>
+    <link rel="alternate" hreflang="x-default" href={siteUrl}>
+    
+    <!-- Geo Tags (Local SEO - Chile) -->
+    <meta name="geo.region" content="CL-RM">
+    <meta name="geo.placename" content="Santiago">
+    <meta name="geo.position" content="-33.4489;-70.6693">
+    <meta name="ICBM" content="-33.4489, -70.6693">
     
     <!-- PWA & Mobile -->
     <meta name="theme-color" content="#2d5bff">
@@ -49,6 +60,9 @@ const fullTitle = title === "Tech Podcast" ? "Es la Hora de Aprender - Tech Podc
     <link rel="preconnect" href="https://www.youtube.com">
     <link rel="dns-prefetch" href="https://img.youtube.com">
     <link rel="dns-prefetch" href="https://i.ytimg.com">
+    
+    <!-- Preload Critical Fonts (Performance - Archivo Black for headings) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap">
     
     <!-- Fonts (with display=swap for performance) -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
