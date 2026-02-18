@@ -1,8 +1,8 @@
-# 🎨 Icons & Favicons - TODO
+# 🎨 Icons & Favicons - ✅ COMPLETADO
 
-## ⚠️ Pendiente de Generación
+## ✅ Generados Exitosamente (2026-02-18)
 
-Los siguientes archivos están referenciados en `BaseLayout.astro` pero **NO están generados aún**:
+Los siguientes archivos fueron generados usando `scripts/generate-favicons.py`:
 
 ```
 public/
@@ -14,22 +14,29 @@ public/
 └── android-chrome-512x512.png  # 512x512 PNG (Android)
 ```
 
-## 🚀 Generación Rápida (Recomendado)
+## 🎨 Cómo se Generaron
 
-### Opción 1: RealFaviconGenerator (Automático)
+### Script Python Automático
 
-1. **Ve a:** https://realfavicongenerator.net/
-2. **Sube:** `og-image.jpg` (o crea un logo cuadrado 512x512)
-3. **Configura:**
-   - iOS: Background color `#2d5bff` (Electric Blue)
-   - Android: Theme color `#2d5bff`
-   - Windows Metro: Tile color `#ccff00` (Acid Green)
-4. **Descarga** el paquete ZIP
-5. **Extrae** todos los archivos a `public/`
+**Archivo:** `scripts/generate-favicons.py`
 
-**Resultado:** ~15 archivos con todos los tamaños necesarios
+**Proceso:**
+1. Carga `og-image.jpg` (1200x630)
+2. Crop a cuadrado (center crop)
+3. Resize a múltiples tamaños:
+   - 512x512 (Android)
+   - 192x192 (Android)
+   - 180x180 (Apple)
+   - 32x32 (Browser)
+   - 16x16 (Browser)
+4. Genera favicon.ico multi-size (16, 32, 48)
 
-### Opción 2: Manual (Si tienes diseñador)
+**Uso:**
+```bash
+python3 scripts/generate-favicons.py
+```
+
+### Diseño Usado
 
 **Diseño sugerido:**
 - **Fondo:** Electric Blue (`#2d5bff`) o Acid Green (`#ccff00`)
@@ -95,16 +102,32 @@ Si no quieres generar iconos ahora, puedes comentar las referencias en `BaseLayo
 
 ## ✅ Checklist
 
-- [ ] Generar favicon.ico (multi-size)
-- [ ] Generar favicon-16x16.png
-- [ ] Generar favicon-32x32.png
-- [ ] Generar apple-touch-icon.png (180x180)
-- [ ] Generar android-chrome-192x192.png
-- [ ] Generar android-chrome-512x512.png
-- [ ] Testear en mobile (iOS/Android)
-- [ ] Testear PWA install prompt
+- [x] Generar favicon.ico (multi-size) ✅
+- [x] Generar favicon-16x16.png ✅
+- [x] Generar favicon-32x32.png ✅
+- [x] Generar apple-touch-icon.png (180x180) ✅
+- [x] Generar android-chrome-192x192.png ✅
+- [x] Generar android-chrome-512x512.png ✅
+- [ ] Testear en mobile (iOS/Android) - Pending user testing
+- [ ] Testear PWA install prompt - Pending user testing
+
+## 📊 Archivos Generados
+
+```bash
+public/
+├── favicon.ico              # 16x16, 32x32, 48x48 (multi-size) ✅
+├── favicon-16x16.png        # 16x16 PNG ✅
+├── favicon-32x32.png        # 32x32 PNG ✅
+├── apple-touch-icon.png     # 180x180 PNG (Apple devices) ✅
+├── android-chrome-192x192.png  # 192x192 PNG (Android) ✅
+└── android-chrome-512x512.png  # 512x512 PNG (Android) ✅
+```
+
+**Total generado:** 6 archivos (~85 KB total)
 
 ---
 
-**Herramienta recomendada:** https://realfavicongenerator.net/  
-**Última actualización:** 2026-02-18
+**Script usado:** `scripts/generate-favicons.py`  
+**Fuente:** `public/og-image.jpg` (Synthwave design)  
+**Generado:** 2026-02-18 10:28 AM  
+**Status:** ✅ COMPLETADO

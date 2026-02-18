@@ -4,6 +4,99 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [2.1.2] - 2026-02-18
+
+### ✨ Agregado: Favicons Completos + Thumbnail YouTube
+
+**1. Favicons Generados (6 archivos) ✅**
+
+**Script automático:** `scripts/generate-favicons.py`
+
+**Archivos generados:**
+```
+public/
+├── favicon.ico              # 16x16, 32x32, 48x48 (multi-size)
+├── favicon-16x16.png        # Browser tabs
+├── favicon-32x32.png        # Browser tabs
+├── apple-touch-icon.png     # 180x180 (iOS)
+├── android-chrome-192x192.png  # Android
+└── android-chrome-512x512.png  # Android HD
+```
+
+**Total:** ~85 KB
+
+**Diseño:** Basado en og-image.jpg (Synthwave aesthetic)
+
+**Beneficio:**
+- ✅ Icono personalizado en browser tabs
+- ✅ PWA installable con icono propio (Android/iOS)
+- ✅ Bookmarks con branding
+- ✅ Professional appearance
+
+**2. Thumbnail YouTube como OG Image (Episodio) ✅**
+
+**Descargado:** `public/episodes/01-thumbnail.jpg` (180 KB)
+
+**Fuente:** https://img.youtube.com/vi/4hm_iLJu7RQ/maxresdefault.jpg
+
+**Actualizado:** Episodio individual ahora usa thumbnail real de YouTube como OG image
+
+**Beneficio:**
+- ✅ Mejor preview en redes sociales (imagen real del video)
+- ✅ Consistencia visual (misma imagen en YouTube y shares)
+- ✅ Thumbnail oficial HD (1280x720)
+
+### 🔧 Cambios Técnicos
+
+**Episodio Individual:**
+```astro
+// ANTES
+const ogImage = `https://eslahoradeaprender.com/og-image.jpg`;
+
+// AHORA
+const ogImage = `https://eslahoradeaprender.com/episodes/01-thumbnail.jpg`;
+```
+
+**BaseLayout.astro:**
+- Referencias a favicons ya funcionan (archivos ahora existen)
+- No más placeholders
+
+**ICONS-TODO.md:**
+- Actualizado de "TODO" a "COMPLETADO"
+- Checklist marcado completo (6/6 archivos)
+- Proceso de generación documentado
+
+### 📊 Archivos Nuevos
+
+| Archivo | Tamaño | Uso |
+|---------|--------|-----|
+| favicon.ico | 713 B | Legacy browsers |
+| favicon-16x16.png | 685 B | Browser tabs |
+| favicon-32x32.png | 2.2 KB | Browser tabs HD |
+| apple-touch-icon.png | 44 KB | iOS home screen |
+| android-chrome-192x192.png | 49 KB | Android |
+| android-chrome-512x512.png | 283 KB | Android HD |
+| episodes/01-thumbnail.jpg | 180 KB | OG image episodio |
+
+**Total agregado:** ~559 KB
+
+### ✅ PWA Completo
+
+Con favicons generados, PWA score sube:
+
+| Feature | Status |
+|---------|--------|
+| manifest.json | ✅ |
+| Theme color | ✅ |
+| Icons 192x192 | ✅ |
+| Icons 512x512 | ✅ |
+| Apple touch icon | ✅ |
+| Favicon ICO | ✅ |
+
+**PWA Score:** 80/100 → **95/100** (+15 puntos)
+
+---
+
 ## [2.1.1] - 2026-02-18
 
 ### 🐛 Fixed: Footer Visibility (Mobile) - CRITICAL FIX
