@@ -4,6 +4,80 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [2.0.2] - 2026-02-18
+
+### 🐛 Fixed: Footer Visibility Issue
+
+**PROBLEMA RESUELTO:** El footer se cortaba en mobile y no era visible completamente.
+
+**Causa:** Padding inferior del body insuficiente (2rem mobile, 3rem desktop).
+
+**Solución:**
+```css
+/* ANTES */
+padding: 0 1rem 2rem 1rem;    /* Mobile */
+padding: 0 2rem 3rem 2rem;    /* Desktop */
+
+/* AHORA */
+padding: 0 1rem 6rem 1rem;    /* Mobile - 3x más espacio */
+padding: 0 2rem 8rem 2rem;    /* Desktop - ~2.5x más espacio */
+```
+
+### ✨ Sitemaps Implementados
+
+**3 sitemaps creados y documentados:**
+
+1. **Sitemap Index** (`sitemap-index.xml`)
+   - Índice principal que referencia ambos sitemaps
+   - URL: `https://eslahoradeaprender.com/sitemap-index.xml`
+
+2. **Main Sitemap** (`sitemap.xml`)
+   - URLs de páginas del sitio
+   - Homepage + páginas de episodios
+   - URL: `https://eslahoradeaprender.com/sitemap.xml`
+
+3. **Video Sitemap** (`video-sitemap.xml`)
+   - Metadata específica para videos YouTube
+   - Incluye: thumbnail, duración, tags, categoría
+   - URL: `https://eslahoradeaprender.com/video-sitemap.xml`
+
+**robots.txt actualizado:**
+- Referencias a los 3 sitemaps
+- Permite crawling completo
+
+**README.md actualizado:**
+- Nueva sección "🗺️ Sitemaps" en SEO
+- URLs documentadas para fácil referencia
+- Instrucciones para Google Search Console
+
+### 📚 Archivos Agregados
+
+```
+public/
+├── sitemap-index.xml      # Sitemap principal (indexa ambos)
+├── sitemap.xml            # Páginas del sitio
+├── video-sitemap.xml      # Videos YouTube (metadata completa)
+└── robots.txt             # Actualizado con referencias a sitemaps
+```
+
+### 🔍 Google Search Console Setup
+
+**Para enviar a GSC:**
+1. Añadir propiedad: `eslahoradeaprender.com`
+2. Ir a Sitemaps
+3. Enviar: `sitemap-index.xml` (indexa automáticamente ambos)
+
+**Video Sitemap incluye:**
+- Thumbnail URL (maxresdefault.jpg)
+- Título y descripción
+- Duración (3579 segundos = 59:39)
+- Tags (OpenClaw, IA Generativa, etc.)
+- Categoría (Technology)
+- Uploader info
+- Family friendly: yes
+
+---
+
 ## [2.0.1] - 2026-02-18
 
 ### 🐛 Critical Fix: Tailwind CSS Integration

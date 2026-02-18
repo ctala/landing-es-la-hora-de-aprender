@@ -152,6 +152,37 @@ En nuestro episodio inaugural exploramos:
 - 🔗 Backlinks desde blogs personales (cristiantala.com + ecosistemastartup.com)
 - 📊 Análisis de keywords con tendencias LATAM
 
+### 🗺️ Sitemaps
+
+El sitio incluye tres sitemaps para optimizar el rastreo por buscadores:
+
+**Sitemap Index (Principal):**
+```
+https://eslahoradeaprender.com/sitemap-index.xml
+```
+
+**Sitemaps Individuales:**
+```
+https://eslahoradeaprender.com/sitemap.xml         # Páginas del sitio
+https://eslahoradeaprender.com/video-sitemap.xml   # Videos de YouTube
+```
+
+**Robots.txt:**
+```
+https://eslahoradeaprender.com/robots.txt
+```
+
+**Cómo enviar a Google Search Console:**
+1. Ve a [Google Search Console](https://search.google.com/search-console)
+2. Añade la propiedad: `eslahoradeaprender.com`
+3. **Sitemaps** → **Añadir un nuevo sitemap**
+4. Envía: `sitemap-index.xml` (indexa automáticamente ambos)
+
+**Actualización:**
+- Los sitemaps se deben actualizar manualmente al agregar nuevos episodios
+- Ubicación: `public/sitemap.xml` y `public/video-sitemap.xml`
+- Después de actualizar, reenviar a GSC
+
 ---
 
 ## 📄 Licencia
