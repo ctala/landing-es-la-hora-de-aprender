@@ -1,0 +1,14 @@
+# Robots.txt - Es la Hora de Aprender
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://eslahoradeaprender.com/sitemap.xml
+
+# Crawl-delay (opcional, para bots agresivos)
+# Crawl-delay: 1
+
+# Disallow admin/testing paths (si existen en futuro)
+# Disallow: /admin/
+# Disallow: /test/

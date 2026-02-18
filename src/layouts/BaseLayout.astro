@@ -49,6 +49,50 @@ const fullTitle = title === "Tech Podcast" ? "Es la Hora de Aprender - Tech Podc
     <!-- Additional Meta -->
     <meta name="author" content="Cristian Tala, Diego Arias, Rodrigo Rojo">
     <meta name="keywords" content="podcast, tecnología, IA, inteligencia artificial, startups, emprendimiento, OpenClaw, automatización, Chile, LATAM">
+    
+    <!-- Schema.org JSON-LD for Podcast -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PodcastSeries",
+      "name": "Es la Hora de Aprender",
+      "description": "Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la cancha.",
+      "url": "https://eslahoradeaprender.com",
+      "image": "https://eslahoradeaprender.com/og-image.jpg",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Cristian Tala",
+          "url": "https://www.linkedin.com/in/ctala/",
+          "sameAs": [
+            "https://www.linkedin.com/in/ctala/",
+            "https://twitter.com/naitus",
+            "https://cristiantala.com"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Diego Arias",
+          "url": "https://www.linkedin.com/in/godiegoarias/"
+        },
+        {
+          "@type": "Person",
+          "name": "Rodrigo Rojo",
+          "url": "https://www.linkedin.com/in/rodrigorojo/"
+        }
+      ],
+      "genre": ["Technology", "Business", "Education"],
+      "inLanguage": "es-CL",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Es la Hora de Aprender",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://eslahoradeaprender.com/og-image.jpg"
+        }
+      }
+    }
+    </script>
 </head>
 <body class="p-4 md:p-8 hero-pattern">
     <slot />
