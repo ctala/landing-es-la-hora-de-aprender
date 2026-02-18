@@ -66,6 +66,56 @@ El sitio utiliza una estética Neo-brutalista caracterizada por:
 | `npm run dev`        | Servidor de desarrollo en `localhost:4321` |
 | `npm run build`      | Compilar sitio para producción en `./dist/` |
 | `npm run preview`    | Vista previa local del build                |
+| `npm run validate`   | ✅ Validar build antes de deploy (recomendado) |
+
+### ✅ Validación Pre-Deploy
+
+**Antes de hacer push**, ejecuta:
+
+```bash
+npm run validate
+```
+
+Esto verifica:
+- ✓ Build exitoso
+- ✓ CSS generado correctamente  
+- ✓ Episodio 1 integrado
+- ✓ Embeddings YouTube + Spotify presentes
+
+**Para previsualizar localmente:**
+
+```bash
+npm run build
+npm run preview
+# Abre http://localhost:4321
+# Verifica que se vea correctamente
+# Ctrl+C para salir
+```
+
+---
+
+## 🚀 Deployment (Cloudflare Pages)
+
+### Quick Start
+
+1. **Ve a:** https://dash.cloudflare.com/
+2. **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**
+3. **Selecciona repo:** `ctala/landing-es-la-hora-de-aprender`
+4. **Configuración:**
+   ```
+   Framework preset: Astro (o None)
+   Build command: npm run build
+   Build output directory: dist
+   Root directory: / (vacío)
+   ```
+5. **Save and Deploy** → Espera 2-3 min
+6. **URL:** `https://landing-es-la-hora-de-aprender.pages.dev`
+
+### Deployment Automático
+
+Cada `git push origin main` dispara deploy automático.
+
+**Documentación completa:** Ver [docs/CLOUDFLARE-PAGES.md](docs/CLOUDFLARE-PAGES.md)
 
 ---
 
