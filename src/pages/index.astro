@@ -89,11 +89,13 @@ const latest = episodes[0];
                         <div class="lg:col-span-7">
                             <div class="video-embed brutal-card youtube-facade" data-id={ep.data.youtubeId}>
                                 <img 
-                                    src={ep.data.thumbnail || `https://img.youtube.com/vi/${ep.data.youtubeId}/maxresdefault.jpg`}
+                                    src={ep.data.thumbnail?.replace('.webp', '-sm.webp') || `https://img.youtube.com/vi/${ep.data.youtubeId}/maxresdefault.jpg`}
+                                    srcset={ep.data.thumbnail ? `${ep.data.thumbnail.replace('.webp', '-sm.webp')} 648w, ${ep.data.thumbnail} 1280w` : undefined}
+                                    sizes="(max-width: 1024px) 100vw, 648px"
                                     alt={`Thumbnail del episodio: ${ep.data.title}`}
                                     loading="lazy"
-                                    width="1280"
-                                    height="720"
+                                    width="648"
+                                    height="365"
                                     style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;cursor:pointer;"
                                 />
                                 <button class="yt-play-btn" aria-label={`Reproducir ${ep.data.title}`}>
