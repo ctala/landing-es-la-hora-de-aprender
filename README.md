@@ -1,390 +1,128 @@
-# Es la hora de aprender - Podcast Tech
+# Es la Hora de Aprender - Podcast Tech
 
 > 🎙️ Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la cancha.
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1)
 [![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C)
 
-**🏆 Lighthouse Score: 100/100 en TODO** | **⚡ Zero JavaScript** | **🌐 PWA Completa** | **♿ WCAG AAA**
+**🌐 Live:** [eslahoradeaprender.com](https://eslahoradeaprender.com) | **v3.1.0**
 
-![Lighthouse Performance](https://img.shields.io/badge/Performance-100-brightgreen?style=flat-square)
-![Lighthouse SEO](https://img.shields.io/badge/SEO-100-brightgreen?style=flat-square)
-![Lighthouse Accessibility](https://img.shields.io/badge/Accessibility-100-brightgreen?style=flat-square)
-![Lighthouse Best Practices](https://img.shields.io/badge/Best_Practices-100-brightgreen?style=flat-square)
-![Lighthouse PWA](https://img.shields.io/badge/PWA-100-brightgreen?style=flat-square)
-
----
-
-## 🎯 El Proyecto
-
-**"Es la hora de aprender"** es un conversatorio semanal dedicado a la tecnología, la inteligencia artificial y el ecosistema de startups en Latinoamérica.
-
-### 🎤 Anfitriones
-
-- **[Cristian Tala](https://www.linkedin.com/in/ctala/)** - Inversionista y emprendedor (Startup & VC)
-- **[Diego Arias](https://www.linkedin.com/in/godiegoarias/)** - Experto en educación y talento digital  
-- **[Rodrigo Rojo](https://www.linkedin.com/in/rodrigorojo/)** - Estratega en IA y curador de tendencias
+![Performance](https://img.shields.io/badge/Performance-94-brightgreen?style=flat-square)
+![Accessibility](https://img.shields.io/badge/Accessibility-95-brightgreen?style=flat-square)
+![Best Practices](https://img.shields.io/badge/Best_Practices-96-brightgreen?style=flat-square)
+![SEO](https://img.shields.io/badge/SEO-92-brightgreen?style=flat-square)
 
 ---
 
-## 🏆 Performance & Scores
+## 🎤 Anfitriones
 
-**Lighthouse Score: 100/100 en TODAS las Categorías**
+- **[Cristian Tala](https://cristiantala.com)** — Inversionista y emprendedor (Startup & VC)
+- **[Diego Arias](https://godiegoarias.com)** — Experto en educación y talento digital
+- **[Rodrigo Rojo](https://www.rojo.me)** — Estratega en IA y curador de tendencias
+
+---
+
+## 🚀 Stack
+
+- **[Astro 5](https://astro.build)** — Content Collections + SSG
+- **Tailwind CSS v4** — `@theme` con colores custom
+- **TypeScript + Zod** — Schema tipado
+- **Cloudflare Pages** — Deploy automático on push
+- **Neo-Brutalismo** — Acid Green `#ccff00` + Electric Blue `#2d5bff`
+
+---
+
+## 📺 Episodios
+
+| # | Título | Fecha | Links |
+|---|--------|-------|-------|
+| 2 | Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más | 2026-02-26 | [YouTube](https://www.youtube.com/watch?v=43nvC-1fxKY) · [Spotify](https://open.spotify.com/episode/5muA5rtP0sWEwxZgt12dF9) · [Web](https://eslahoradeaprender.com/episodios/02-herramientas-ia-build-vs-buy) |
+| 1 | OpenClaw y el Futuro del Trabajo | 2026-02-18 | [YouTube](https://www.youtube.com/watch?v=4hm_iLJu7RQ) · [Spotify](https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53) · [Web](https://eslahoradeaprender.com/episodios/01-openclaw-futuro-trabajo) |
+
+### Agregar un episodio
+
+Crear `src/content/episodes/XX-slug.md` con frontmatter → push. Se genera automáticamente: página, sitemap, video-sitemap, RSS, navegación prev/next.
+
+Ver checklist completo: [`skills/podcast-eslahoradeaprender/SKILL.md`](../../skills/podcast-eslahoradeaprender/SKILL.md)
+
+---
+
+## 📂 Estructura
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Performance      ████████████ 100/100 ✅
-  SEO              ████████████ 100/100 ✅
-  Best Practices   ████████████ 100/100 ✅
-  Accessibility    ████████████ 100/100 ✅
-  PWA              ████████████ 100/100 ✅
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  TOTAL: 600/600 (100% absoluto) 🏆
-  Top 0.1% mundial de sitios web
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+src/
+├── content.config.ts              # Schema Zod (Content Collections)
+├── content/episodes/              # Un .md por episodio
+├── components/
+│   ├── SiteHeader.astro
+│   └── SiteFooter.astro
+├── layouts/BaseLayout.astro       # SEO, schemas, fonts
+├── pages/
+│   ├── index.astro                # Homepage (YouTube facade pattern)
+│   ├── episodios/[...slug].astro  # Ruta dinámica
+│   ├── feed.xml.ts                # RSS dinámico
+│   ├── video-sitemap.xml.ts       # Video sitemap dinámico
+│   └── 404.astro
+└── styles/global.css
 
-### 📊 Métricas Core Web Vitals
-
-| Métrica | Target  | Actual | Percentile |
-|---------|---------|--------|------------|
-| **LCP** (Largest Contentful Paint) | <2.5s   | ~0.8s  | Top 5% |
-| **FID** (First Input Delay) | <100ms  | <10ms  | Top 1% |
-| **CLS** (Cumulative Layout Shift) | <0.1    | 0.0    | Top 1% |
-
-### ✅ Standards Compliance
-
-- ✅ **WCAG 2.1 Level AAA** - Accesibilidad perfecta
-- ✅ **PWA Checklist** - 100% completo
-- ✅ **Nielsen Norman Heuristics** - Aplicados
-- ✅ **Google Best Practices** - Cumplidas
-- ✅ **Zero JavaScript** - Máxima velocidad
-
-### 🎯 Features Implementadas
-
-**SEO Técnico:**
-- ✅ Schema markup (5 tipos: PodcastSeries, Episode, VideoObject, BreadcrumbList, Person)
-- ✅ Sitemaps (3 archivos: index, páginas, video)
-- ✅ RSS Feed completo (Apple Podcasts + Google Podcasts ready)
-- ✅ Open Graph + Twitter Cards
-- ✅ IndexNow (Bing/Yandex instant indexing)
-
-**Accessibility:**
-- ✅ ARIA labels en todos los links
-- ✅ Skip to content link (keyboard navigation)
-- ✅ Custom focus states (Acid Green)
-- ✅ Screen reader compatible
-
-**PWA:**
-- ✅ Service Worker (offline support)
-- ✅ manifest.json completo
-- ✅ Installable en Android/iOS
-- ✅ Cache strategy optimizada
-
-**UX:**
-- ✅ 404 page custom con branding
-- ✅ Header + Footer consistentes
-- ✅ Loading <1s (Zero JS)
-- ✅ Mobile-first responsive
-
-**Documentación completa:**
-- 📄 [100-PERCENT-IMPLEMENTATION.md](docs/100-PERCENT-IMPLEMENTATION.md) - Implementación detallada
-- 📄 [PERFORMANCE-OPTIMIZATION.md](docs/PERFORMANCE-OPTIMIZATION.md) - Performance deep dive
-- 📄 [UX-DECISION-HEADER-FOOTER.md](docs/UX-DECISION-HEADER-FOOTER.md) - Decisiones UX
-
----
-
-## 🚀 Stack Tecnológico
-
-- **[Astro 5](https://astro.build)** - Framework web (Content Collections + SSG)
-- **TypeScript** - Schema tipado con Zod
-- **Tailwind CSS v4** - Diseño responsivo (`@theme` para colores custom)
-- **@astrojs/sitemap** - Sitemap automático
-- **@astrojs/rss** - RSS feed dinámico (iTunes/Spotify/Google)
-- **Neo-Brutalismo** - Estética visual con alto contraste
-
----
-
-## 🎨 Diseño: Neo-Brutalismo Moderno
-
-El sitio utiliza una estética Neo-brutalista caracterizada por:
-
-- **Alto contraste**: Acid Green (`#ccff00`) + Electric Blue (`#2d5bff`)
-- **Sombras duras**: Bordes negros gruesos sin difuminado
-- **Tipografía masiva**: Archivo Black + Space Grotesk
-- **Mobile-First**: Optimización total para dispositivos móviles
-
----
-
-## 📂 Estructura del Proyecto
-
-```
-/
-├── public/                          # Assets estáticos
-│   ├── robots.txt
-│   ├── manifest.json
-│   ├── sw.js
-│   └── og-image.jpg
-├── src/
-│   ├── content.config.ts            # Schema Zod (Content Collections)
-│   ├── content/
-│   │   └── episodes/                # ← Un .md por episodio
-│   │       ├── 01-openclaw-futuro-trabajo.md
-│   │       └── 02-herramientas-ia-build-vs-buy.md
-│   ├── components/
-│   │   ├── SiteHeader.astro
-│   │   └── SiteFooter.astro
-│   ├── layouts/
-│   │   └── BaseLayout.astro         # SEO meta, schemas, PWA
-│   ├── pages/
-│   │   ├── index.astro              # Homepage (lee collection)
-│   │   ├── feed.xml.ts              # RSS dinámico
-│   │   ├── video-sitemap.xml.ts     # Video sitemap dinámico
-│   │   ├── 404.astro
-│   │   └── episodios/
-│   │       └── [...slug].astro      # Ruta dinámica
-│   └── styles/
-│       └── global.css               # @theme con colores custom
-├── astro.config.mjs                 # Astro + @astrojs/sitemap
-└── package.json
+public/
+├── thumbnails/                    # WebP self-hosted (sm + full)
+├── robots.txt
+├── manifest.json
+├── sw.js
+└── og-image.jpg
 ```
 
 ---
 
 ## 🛠️ Comandos
 
-| Comando              | Acción                                      |
-| :------------------- | :------------------------------------------ |
-| `npm install`        | Instalar dependencias                       |
-| `npm run dev`        | Servidor de desarrollo en `localhost:4321` |
-| `npm run build`      | Compilar sitio para producción en `./dist/` |
-| `npm run preview`    | Vista previa local del build                |
-| `npm run validate`   | ✅ Validar build antes de deploy (recomendado) |
-
-### ✅ Validación Pre-Deploy
-
-**Antes de hacer push**, ejecuta:
-
 ```bash
-npm run validate
-```
-
-Esto verifica:
-- ✓ Build exitoso
-- ✓ CSS generado correctamente  
-- ✓ Episodio 1 integrado
-- ✓ Embeddings YouTube + Spotify presentes
-
-**Para previsualizar localmente:**
-
-```bash
-npm run build
-npm run preview
-# Abre http://localhost:4321
-# Verifica que se vea correctamente
-# Ctrl+C para salir
+npm install          # Instalar dependencias
+npm run dev          # Dev server en localhost:4321
+npm run build        # Build producción → ./dist/
+npm run preview      # Preview local del build
+npm run validate     # Validar build pre-deploy
 ```
 
 ---
 
-## 🚀 Deployment
+## ⚡ Performance (v3.1.0)
 
-### 🌐 Production URL
+| Métrica | Valor |
+|---------|-------|
+| FCP | 2.5s |
+| LCP | 2.5s |
+| TBT | 0ms |
+| CLS | 0.001 |
 
-**Live Site:** https://landing-es-la-hora-de-aprender.pages.dev
-
-**Hosting:** Cloudflare Pages (auto-deploy on push)
-
-### Cloudflare Pages Setup
-
-1. **Ve a:** https://dash.cloudflare.com/
-2. **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**
-3. **Selecciona repo:** `ctala/landing-es-la-hora-de-aprender`
-4. **Configuración:**
-   ```
-   Framework preset: Astro (o None)
-   Build command: npm run build
-   Build output directory: dist
-   Root directory: / (vacío)
-   ```
-5. **Save and Deploy** → Espera 2-3 min
-6. **URL:** `https://landing-es-la-hora-de-aprender.pages.dev`
-
-### Deployment Automático
-
-Cada `git push origin main` dispara deploy automático.
-
-**Documentación completa:** Ver [docs/CLOUDFLARE-PAGES.md](docs/CLOUDFLARE-PAGES.md)
+**Optimizaciones:**
+- YouTube facade pattern (0 iframes en carga inicial, click-to-play)
+- Google Fonts async (preload + onload, non-render-blocking)
+- Thumbnails self-hosted WebP (29-33KB por card)
+- Zero JavaScript bundle (solo facade script inline)
 
 ---
 
-## 📺 Episodios
+## 🌐 SEO
 
-### Agregar un episodio nuevo
-
-Crear `src/content/episodes/XX-slug.md` con el frontmatter y push. Se genera automáticamente: página, sitemap, video-sitemap, RSS, navegación. Ver [skill completo](../../skills/podcast-eslahoradeaprender/SKILL.md).
-
-### Episodio 2: "Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más" (2026-02-26)
-
-- ✅ **Stacks reales** de IA: Cloud, Perplexity, GenSpark, Granola, OpenClaw
-- ✅ **Build vs Buy 2026**: cuándo construir vs usar SaaS/open source
-- ✅ **Procesos > IA**: automatizar sin procesos claros es "más parche que otra cosa"
-- ✅ **Shadow AI** en empresas: el problema que nadie quiere ver
-- ✅ **Modelos nuevos**: Sonnet 4.6, Gemini 3.1 Pro, Opus 4.6
-
-**🎬 Ver:** [YouTube](https://www.youtube.com/watch?v=43nvC-1fxKY) | [Spotify](https://open.spotify.com/episode/5muA5rtP0sWEwxZgt12dF9) | [Web](https://eslahoradeaprender.com/episodios/02-herramientas-ia-build-vs-buy)
-
-### Episodio 1: "OpenClaw y el Futuro del Trabajo" (2026-02-18)
-
-- ✅ **OpenClaw** y agentes de IA personalizados
-- ✅ **Automatización** con herramientas como N8N
-- ✅ **Impacto laboral** de la IA generativa
-- ✅ **Costos reales** de implementación ($6-100/mes)
-
-**🎬 Ver:** [YouTube](https://www.youtube.com/watch?v=4hm_iLJu7RQ) | [Spotify](https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53) | [Web](https://eslahoradeaprender.com/episodios/01-openclaw-futuro-trabajo)
-
----
-
-## 🌐 SEO & Posicionamiento
-
-**Keywords principales:**
-- OpenClaw tutorial español
-- Agentes de IA personales
-- Automatización con inteligencia artificial
-- Futuro del trabajo con IA
-- Herramientas de automatización 2026
-- Asistente virtual IA Chile
-
-**Estrategia de contenido:**
-- 📝 Transcripciones completas (SEO long-tail)
-- 🎯 Timestamped chapters (retención YouTube)
-- 🔗 Backlinks desde blogs personales (cristiantala.com + ecosistemastartup.com)
-- 📊 Análisis de keywords con tendencias LATAM
-
-**🆕 Quick Wins SEO Implementados (2026-02-18):**
-
-Score mejorado de **85/100 → 92/100** (+7 puntos):
-
-1. ✅ **hreflang tags** - Geo-targeting Chile + español (es, es-cl, x-default)
-2. ✅ **Título optimizado** - "(2026) - Podcast Tech sobre IA y Startups en Chile"
-3. ✅ **Geo tags** - Localización Santiago, Región Metropolitana (coordenadas GPS)
-4. ✅ **Preload fonts** - FCP reducido ~100-200ms (Archivo Black prioritario)
-
-**Beneficios:**
-- 🎯 Local search boost para "podcast chile", "podcast santiago"
-- 📅 Señal de frescura con año "(2026)" en título
-- 🌍 Evita fragmentación de ranking en variantes regionales
-- ⚡ Core Web Vitals mejorados (Performance 95 → 97)
-
-Ver detalles completos: [docs/QUICK-WINS-IMPLEMENTED.md](docs/QUICK-WINS-IMPLEMENTED.md)
-
-### 🗺️ Sitemaps & RSS
-
-**Sitemaps:**
-
-El sitio incluye tres sitemaps para optimizar el rastreo por buscadores:
-
-| Tipo | URL |
-|------|-----|
-| **Index** | https://eslahoradeaprender.com/sitemap-index.xml |
-| **Páginas** | https://eslahoradeaprender.com/sitemap-0.xml |
-| **Videos** | https://eslahoradeaprender.com/video-sitemap.xml |
-| **Robots** | https://eslahoradeaprender.com/robots.txt |
-
-**RSS Feed (Podcasts):**
-
-| Plataforma | URL/Acción |
-|------------|------------|
-| **RSS** | https://eslahoradeaprender.com/feed.xml |
-| **Apple Podcasts** | [Submit con feed.xml](https://podcastsconnect.apple.com/) |
-| **Google Podcasts** | [Submit con feed.xml](https://podcastsmanager.google.com/) |
-| **Spotify** | Ya conectado (https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C) |
-
-**Cómo enviar a Google Search Console:**
-1. Ve a [Google Search Console](https://search.google.com/search-console)
-2. Añade la propiedad: `eslahoradeaprender.com`
-3. **Sitemaps** → **Añadir un nuevo sitemap**
-4. Envía: `sitemap-index.xml` (indexa automáticamente ambos)
-
-**Actualización:**
-- Sitemaps y RSS se generan automáticamente desde Content Collections (v3.0.0+)
-- Solo crear `.md` + push → todo se regenera
-
----
-
-### ⚡ Performance
-
-**Lighthouse Score: 100/100** en todas las métricas ✅
-
-| Métrica | Score | Detalles |
-|---------|-------|----------|
-| Performance | 100 | Zero JavaScript, Astro SSG |
-| Accessibility | 95 | WCAG AA compliant |
-| Best Practices | 100 | Security headers, HTTPS |
-| SEO | 100 | Schema, sitemaps, OG |
-
-**Core Web Vitals:**
-- LCP: <0.8s (Target: <2.5s) ✅
-- FID: <10ms (Target: <100ms) ✅
-- CLS: 0.0 (Target: <0.1) ✅
-
-**Optimizaciones implementadas:**
-- ✅ Preconnect hints (Google Fonts)
-- ✅ DNS-prefetch (YouTube)
-- ✅ Font display:swap
-- ✅ Lazy loading iframes
-- ✅ Brotli compression (Cloudflare)
-- ✅ Zero JavaScript bundle
-- ✅ Global CDN (270+ locations)
-
-Ver detalles completos: [docs/PERFORMANCE-OPTIMIZATION.md](docs/PERFORMANCE-OPTIMIZATION.md)
-
----
-
-### 📱 PWA (Progressive Web App)
-
-**Features implementadas:**
-- ✅ manifest.json (Android install prompt)
-- ✅ Theme color meta tags
-- ✅ Apple mobile web app support
-- ⏳ Favicons (pendiente generar - ver [public/ICONS-TODO.md](public/ICONS-TODO.md))
-
-**Instalar en mobile:**
-1. Abre el sitio en Chrome/Safari
-2. Toca menú → "Añadir a pantalla de inicio"
-3. Aparece icono como app nativa
+**Features:**
+- Schema markup: PodcastSeries, PodcastEpisode, VideoObject, BreadcrumbList
+- hreflang: es, es-cl, x-default
+- Geo tags: Santiago, Chile
+- RSS feed: [/feed.xml](https://eslahoradeaprender.com/feed.xml)
+- Sitemaps: [index](https://eslahoradeaprender.com/sitemap-index.xml) · [video](https://eslahoradeaprender.com/video-sitemap.xml)
+- Open Graph + Twitter Cards
+- Canonical URLs por página
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la **Licencia MIT**. Ver el archivo [LICENSE](LICENSE) para más detalles.
-
-**Open Source** - El código fuente está disponible públicamente para que otros puedan aprender de nuestra implementación.
-
----
-
-## 🤝 Contribuir
-
-¿Tienes sugerencias para mejorar el sitio o ideas para futuros episodios?
-
-1. 🍴 Fork el repositorio
-2. 🌿 Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 Push a la rama (`git push origin feature/AmazingFeature`)
-5. 🔀 Abre un Pull Request
-
----
-
-## 📬 Contacto
-
-¿Quieres proponer un tema para el podcast?
-
-- 📧 Escríbenos directamente en [LinkedIn](https://www.linkedin.com/in/ctala/)
-- 💬 Deja un comentario en nuestros videos de [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com)
+MIT — Ver [LICENSE](LICENSE).
 
 ---
 
 <p align="center">
-  <strong>Desarrollado con ⚡️ desde Santiago de Chile</strong>
+  <strong>Hecho con ⚡️ desde Santiago de Chile</strong>
 </p>
