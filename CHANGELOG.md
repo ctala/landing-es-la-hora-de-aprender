@@ -4,6 +4,27 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.1.0] - 2026-02-26
+
+### ⚡ Performance: Lighthouse Optimization
+
+**Scores:** 94/95/96/92 (Performance/Accessibility/Best Practices/SEO)
+
+#### Optimizaciones
+- **Google Fonts async** — preload + onload swap (eliminó ~1,060ms render-blocking)
+- **YouTube facade pattern** — thumbnails estáticas con click-to-play (0 iframes en carga inicial)
+- **Thumbnails self-hosted** — WebP local (75-85KB) en vez de YouTube CDN (180-195KB)
+- **Responsive images** — srcset con `-sm.webp` (29-33KB) para cards homepage (648x365)
+- **Preconnects podados** — de 5 a 2 (solo Google Fonts)
+- **Content schema** — campo `thumbnail` opcional para imágenes locales
+- **OG images** — usan thumbnails locales cuando disponibles
+
+#### Cloudflare Pages
+- Desactivado "Block AI training bots" (bloqueaba GPTBot, ClaudeBot, etc.)
+- Desactivado "Manage robots.txt" (inyectaba Content-Signal y Disallow para AI bots)
+
+---
+
 ## [3.0.0] - 2026-02-26
 
 ### 🏗️ BREAKING: Content Collections + Dynamic Routes
