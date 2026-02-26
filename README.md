@@ -96,10 +96,12 @@
 
 ## 🚀 Stack Tecnológico
 
-- **[Astro](https://astro.build)** - Framework web moderno y rápido
-- **TypeScript** - Tipado estático para mayor confiabilidad
-- **Tailwind CSS** - Diseño responsivo mediante clases de utilidad
-- **Neo-Brutalismo** - Estética visual con alto contraste y sombras duras
+- **[Astro 5](https://astro.build)** - Framework web (Content Collections + SSG)
+- **TypeScript** - Schema tipado con Zod
+- **Tailwind CSS v4** - Diseño responsivo (`@theme` para colores custom)
+- **@astrojs/sitemap** - Sitemap automático
+- **@astrojs/rss** - RSS feed dinámico (iTunes/Spotify/Google)
+- **Neo-Brutalismo** - Estética visual con alto contraste
 
 ---
 
@@ -118,16 +120,32 @@ El sitio utiliza una estética Neo-brutalista caracterizada por:
 
 ```
 /
-├── public/              # Assets estáticos
-│   └── images/          # Imágenes del podcast
+├── public/                          # Assets estáticos
+│   ├── robots.txt
+│   ├── manifest.json
+│   ├── sw.js
+│   └── og-image.jpg
 ├── src/
-│   ├── layouts/         # Plantillas base
-│   │   └── BaseLayout.astro
-│   ├── pages/           # Rutas del sitio
-│   │   └── index.astro
-│   └── content/         # Contenido estructurado
-│       └── episodes/    # Metadata de episodios
-├── astro.config.mjs     # Configuración de Astro
+│   ├── content.config.ts            # Schema Zod (Content Collections)
+│   ├── content/
+│   │   └── episodes/                # ← Un .md por episodio
+│   │       ├── 01-openclaw-futuro-trabajo.md
+│   │       └── 02-herramientas-ia-build-vs-buy.md
+│   ├── components/
+│   │   ├── SiteHeader.astro
+│   │   └── SiteFooter.astro
+│   ├── layouts/
+│   │   └── BaseLayout.astro         # SEO meta, schemas, PWA
+│   ├── pages/
+│   │   ├── index.astro              # Homepage (lee collection)
+│   │   ├── feed.xml.ts              # RSS dinámico
+│   │   ├── video-sitemap.xml.ts     # Video sitemap dinámico
+│   │   ├── 404.astro
+│   │   └── episodios/
+│   │       └── [...slug].astro      # Ruta dinámica
+│   └── styles/
+│       └── global.css               # @theme con colores custom
+├── astro.config.mjs                 # Astro + @astrojs/sitemap
 └── package.json
 ```
 
@@ -202,18 +220,28 @@ Cada `git push origin main` dispara deploy automático.
 
 ## 📺 Episodios
 
-### Episodio 1: "OpenClaw y el Futuro del Trabajo" (2026-02-18)
+### Agregar un episodio nuevo
 
-En nuestro episodio inaugural exploramos:
+Crear `src/content/episodes/XX-slug.md` con el frontmatter y push. Se genera automáticamente: página, sitemap, video-sitemap, RSS, navegación. Ver [skill completo](../../skills/podcast-eslahoradeaprender/SKILL.md).
+
+### Episodio 2: "Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más" (2026-02-26)
+
+- ✅ **Stacks reales** de IA: Cloud, Perplexity, GenSpark, Granola, OpenClaw
+- ✅ **Build vs Buy 2026**: cuándo construir vs usar SaaS/open source
+- ✅ **Procesos > IA**: automatizar sin procesos claros es "más parche que otra cosa"
+- ✅ **Shadow AI** en empresas: el problema que nadie quiere ver
+- ✅ **Modelos nuevos**: Sonnet 4.6, Gemini 3.1 Pro, Opus 4.6
+
+**🎬 Ver:** [YouTube](https://www.youtube.com/watch?v=43nvC-1fxKY) | [Spotify](https://open.spotify.com/episode/5muA5rtP0sWEwxZgt12dF9) | [Web](https://eslahoradeaprender.com/episodios/02-herramientas-ia-build-vs-buy)
+
+### Episodio 1: "OpenClaw y el Futuro del Trabajo" (2026-02-18)
 
 - ✅ **OpenClaw** y agentes de IA personalizados
 - ✅ **Automatización** con herramientas como N8N
 - ✅ **Impacto laboral** de la IA generativa
-- ✅ **VPS vs Hardware físico** (Mac Mini)
 - ✅ **Costos reales** de implementación ($6-100/mes)
-- ✅ **One-person billion dollar companies**
 
-**🎬 Ver:** [YouTube](https://www.youtube.com/watch?v=4hm_iLJu7RQ) | [Spotify](https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53)
+**🎬 Ver:** [YouTube](https://www.youtube.com/watch?v=4hm_iLJu7RQ) | [Spotify](https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53) | [Web](https://eslahoradeaprender.com/episodios/01-openclaw-futuro-trabajo)
 
 ---
 
@@ -259,7 +287,7 @@ El sitio incluye tres sitemaps para optimizar el rastreo por buscadores:
 | Tipo | URL |
 |------|-----|
 | **Index** | https://eslahoradeaprender.com/sitemap-index.xml |
-| **Páginas** | https://eslahoradeaprender.com/sitemap.xml |
+| **Páginas** | https://eslahoradeaprender.com/sitemap-0.xml |
 | **Videos** | https://eslahoradeaprender.com/video-sitemap.xml |
 | **Robots** | https://eslahoradeaprender.com/robots.txt |
 
@@ -279,9 +307,8 @@ El sitio incluye tres sitemaps para optimizar el rastreo por buscadores:
 4. Envía: `sitemap-index.xml` (indexa automáticamente ambos)
 
 **Actualización:**
-- Los sitemaps y RSS se deben actualizar manualmente al agregar nuevos episodios
-- Ubicación: `public/sitemap.xml`, `public/video-sitemap.xml`, `public/feed.xml`
-- Después de actualizar, reenviar a GSC
+- Sitemaps y RSS se generan automáticamente desde Content Collections (v3.0.0+)
+- Solo crear `.md` + push → todo se regenera
 
 ---
 

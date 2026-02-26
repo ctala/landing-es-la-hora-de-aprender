@@ -4,6 +4,49 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.0.0] - 2026-02-26
+
+### 🏗️ BREAKING: Content Collections + Dynamic Routes
+
+Refactor completo de arquitectura. Episodios ahora son Content Collections con schema Zod tipado.
+
+**Agregar episodio = crear `.md` + push. Cero código.**
+
+#### Nuevo
+- **Content Collections** con schema Zod tipado (`src/content.config.ts`)
+- **Ruta dinámica** `[...slug].astro` genera todas las páginas de episodios
+- **RSS dinámico** via `@astrojs/rss` (iTunes, Spotify, Google Podcasts metadata)
+- **Video sitemap dinámico** generado desde collection
+- **Sitemap automático** via `@astrojs/sitemap`
+- **Episodio 2** agregado: "Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más"
+- **Navegación prev/next** entre episodios (automática)
+- **Skill documentado** (`skills/podcast-eslahoradeaprender/SKILL.md`)
+
+#### SEO Fixes (Críticos)
+- **Canonical URL** ahora apunta a cada página (antes: siempre homepage ⚠️)
+- **og:url** y **twitter:url** ahora apuntan a cada página
+- **hreflang** tags ahora apuntan a cada página
+- **og:type** = `article` en episodios, `website` en homepage
+- **article:published_time** meta tag en episodios
+- **keywords** dinámicos por episodio + keywords base
+- **uploadDate** schema con timezone ISO 8601 (`-03:00`)
+
+#### Tailwind v4 Fix
+- Colores `acid` y `electric` registrados en `@theme` (antes no generaban utilidades)
+- Badge "EPISODIO" ahora visible (era negro sobre negro)
+
+#### Eliminado
+- Páginas manuales por episodio (reemplazadas por ruta dinámica)
+- Sitemaps estáticos en `/public` (reemplazados por generación dinámica)
+- `robots.txt` referencia a `/sitemap.xml` obsoleto
+
+#### Distribución Ep2
+- cristiantala.com CPT podcast_episodes (ID 9788)
+- ecosistemastartup.com blog post (ID 63617, cat: Podcasts)
+- IndexNow ejecutado en 3 dominios
+
+---
+
 ## [2.3.0] - 2026-02-18
 
 ### 🚀 SEO Quick Wins: +7 Puntos de Score
