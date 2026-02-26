@@ -90,8 +90,6 @@ const latest = episodes[0];
                             <div class="video-embed brutal-card youtube-facade" data-id={ep.data.youtubeId}>
                                 <img 
                                     src={ep.data.thumbnail?.replace('.webp', '-sm.webp') || `https://img.youtube.com/vi/${ep.data.youtubeId}/maxresdefault.jpg`}
-                                    srcset={ep.data.thumbnail ? `${ep.data.thumbnail.replace('.webp', '-sm.webp')} 648w, ${ep.data.thumbnail} 1280w` : undefined}
-                                    sizes="(max-width: 1024px) 100vw, 648px"
                                     alt={`Thumbnail del episodio: ${ep.data.title}`}
                                     loading="lazy"
                                     width="648"
