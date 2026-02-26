@@ -2,6 +2,7 @@
 title: "Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más"
 episode: 2
 season: 1
+thumbnail: "/thumbnails/ep02.webp"
 date: "2026-02-26"
 duration: "1:06:08"
 durationSeconds: 3968

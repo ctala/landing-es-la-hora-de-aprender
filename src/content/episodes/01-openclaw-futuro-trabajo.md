@@ -2,6 +2,7 @@
 title: "OpenClaw y el Futuro del Trabajo"
 episode: 1
 season: 1
+thumbnail: "/thumbnails/ep01.webp"
 date: "2026-02-18"
 duration: "59:39"
 durationSeconds: 3579

@@ -12,6 +12,7 @@ const episodes = defineCollection({
     durationSeconds: z.number(),
     youtube: z.string().url(),
     youtubeId: z.string(),
+    thumbnail: z.string().optional(), // local path e.g. /thumbnails/ep01.webp
     spotify: z.string().url(),
     description: z.string(),
     seoTitle: z.string().optional(),

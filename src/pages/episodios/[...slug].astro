@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
 const { episode, slug, prev, next } = Astro.props;
 const episodeUrl = `https://eslahoradeaprender.com/episodios/${slug}`;
-const ogImage = episode.ogImage || `https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`;
+const ogImage = episode.ogImage || (episode.thumbnail ? `https://eslahoradeaprender.com${episode.thumbnail}` : `https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`);
 const embedUrl = `https://www.youtube.com/embed/${episode.youtubeId}`;
 ---
 
