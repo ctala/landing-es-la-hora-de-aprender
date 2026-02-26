@@ -173,7 +173,7 @@ const ogImage = `https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.j
         "name": episode.title,
         "description": episode.description,
         "thumbnailUrl": `https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`,
-        "uploadDate": episode.date,
+        "uploadDate": `${episode.date}T00:00:00-03:00`,
         "duration": `PT${Math.floor(episode.durationSeconds / 60)}M${episode.durationSeconds % 60}S`,
         "contentUrl": `https://www.youtube.com/watch?v=${episode.youtubeId}`,
         "embedUrl": episode.youtube,
