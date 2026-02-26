@@ -4,17 +4,17 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 
 const episode = {
-    id: 1,
-    slug: "01-openclaw-futuro-trabajo",
-    title: "OpenClaw y el Futuro del Trabajo",
-    date: "2026-02-18",
-    description: "En nuestro episodio inaugural exploramos OpenClaw, agentes de IA personalizados y cómo la automatización está transformando el mercado laboral. Cristian, Diego y Rodrigo comparten sus experiencias implementando asistentes virtuales y discuten el impacto social que se viene.",
-    youtube: "https://www.youtube.com/embed/4hm_iLJu7RQ",
-    youtubeId: "4hm_iLJu7RQ",
-    spotify: "https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53",
-    duration: "59:39",
-    durationSeconds: 3579,
-    topics: ["OpenClaw", "IA Generativa", "Automatización", "Futuro del Trabajo", "Agentes de IA", "N8N", "Productividad"],
+    id: 2,
+    slug: "02-herramientas-ia-build-vs-buy",
+    title: "Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más",
+    date: "2026-02-26",
+    description: "¿Qué herramientas de IA usan realmente los que saben? ¿Cuándo construir vs comprar? Cristian, Diego y Rodrigo comparten sus stacks reales, debaten Build It vs Buy It en 2026, y explican por qué la IA no arregla tu empresa si no tienes procesos claros.",
+    youtube: "https://www.youtube.com/embed/43nvC-1fxKY",
+    youtubeId: "43nvC-1fxKY",
+    spotify: "https://open.spotify.com/episode/5muA5rtP0sWEwxZgt12dF9",
+    duration: "1:06:08",
+    durationSeconds: 3968,
+    topics: ["Herramientas IA", "Build vs Buy", "Procesos", "OpenClaw", "Modelos IA 2026", "Shadow AI", "CRM", "Adopción Empresarial"],
     hosts: [
         { name: "Cristian Tala", linkedin: "https://www.linkedin.com/in/ctala/" },
         { name: "Diego Arias", linkedin: "https://www.linkedin.com/in/godiegoarias/" },
@@ -23,7 +23,7 @@ const episode = {
 };
 
 const episodeUrl = `https://eslahoradeaprender.com/episodios/${episode.slug}`;
-const ogImage = `https://eslahoradeaprender.com/episodes/01-thumbnail.jpg`;
+const ogImage = `https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`;
 ---
 
 <BaseLayout 
@@ -61,7 +61,7 @@ const ogImage = `https://eslahoradeaprender.com/episodes/01-thumbnail.jpg`;
             </div>
 
             <!-- Title -->
-            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tighter">
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tighter text-black">
                 {episode.title}
             </h1>
 
@@ -153,12 +153,12 @@ const ogImage = `https://eslahoradeaprender.com/episodes/01-thumbnail.jpg`;
     <!-- Episode Navigation -->
     <div class="max-w-6xl mx-auto mb-12">
         <div class="flex justify-between items-center">
-            <a href="/" class="brutal-btn bg-acid hover:bg-electric hover:text-white inline-flex items-center gap-2">
-                ← Volver al Inicio
-            </a>
-            <a href="/episodios/02-herramientas-ia-build-vs-buy"
+            <a href="/episodios/01-openclaw-futuro-trabajo"
                class="brutal-btn bg-white hover:bg-acid inline-flex items-center gap-2 text-sm">
-                Episodio 2 →
+                ← Episodio 1
+            </a>
+            <a href="/" class="brutal-btn bg-acid hover:bg-electric hover:text-white inline-flex items-center gap-2">
+                Volver al Inicio
             </a>
         </div>
     </div>
@@ -182,7 +182,7 @@ const ogImage = `https://eslahoradeaprender.com/episodes/01-thumbnail.jpg`;
             "name": "Es la Hora de Aprender",
             "logo": {
                 "@type": "ImageObject",
-                "url": ogImage
+                "url": "https://eslahoradeaprender.com/og-image.jpg"
             }
         },
         "creator": episode.hosts.map(host => ({
