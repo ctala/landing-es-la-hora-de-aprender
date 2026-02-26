@@ -30,6 +30,10 @@ const embedUrl = `https://www.youtube.com/embed/${episode.youtubeId}`;
     title={episode.seoTitle || episode.title} 
     description={episode.seoDescription || episode.description}
     image={ogImage}
+    ogType="article"
+    keywords={episode.keywords || episode.topics}
+    canonicalUrl={episodeUrl}
+    datePublished={`${episode.date}T00:00:00-03:00`}
 >
     <SiteHeader />
 
