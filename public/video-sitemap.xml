@@ -28,6 +28,31 @@
     </video:video>
   </url>
   
-  <!-- Futuros episodios se agregan aquí -->
+  <!-- Episodio 2: Herramientas de IA, Build vs Buy -->
+  <url>
+    <loc>https://eslahoradeaprender.com/episodios/02-herramientas-ia-build-vs-buy</loc>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/43nvC-1fxKY/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más | Es la Hora de Aprender EP02</video:title>
+      <video:description>¿Qué herramientas de IA usan realmente los que saben? ¿Cuándo construir vs comprar? Cristian, Diego y Rodrigo comparten sus stacks reales, debaten Build It vs Buy It en 2026, y explican por qué la IA no arregla tu empresa si no tienes procesos claros.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=43nvC-1fxKY</video:content_loc>
+      <video:player_loc allow_embed="yes" autoplay="ap=1">https://www.youtube.com/embed/43nvC-1fxKY</video:player_loc>
+      <video:duration>3968</video:duration>
+      <video:publication_date>2026-02-26T00:00:00-03:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:tag>Herramientas IA</video:tag>
+      <video:tag>Build vs Buy</video:tag>
+      <video:tag>Procesos</video:tag>
+      <video:tag>OpenClaw</video:tag>
+      <video:tag>Modelos IA 2026</video:tag>
+      <video:tag>Shadow AI</video:tag>
+      <video:tag>CRM</video:tag>
+      <video:tag>Adopción Empresarial</video:tag>
+      <video:category>Technology</video:category>
+      <video:uploader info="https://www.youtube.com/@EsLaHoraDeAprender_com">Es la Hora de Aprender</video:uploader>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
   
 </urlset>
