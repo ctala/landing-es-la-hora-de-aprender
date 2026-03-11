@@ -4,6 +4,18 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.2.0] - 2026-03-11
+
+### 🎙️ Nuevo Episodio EP04
+
+- **EP04:** "Tu empresa va a tener más agentes que empleados"
+  - Agentes IA, Claude Opus vs Firefox ($4K vs $500K), Trillion Dollar Company
+  - API Design First para agentes, futuro del trabajo
+  - Thumbnail WebP local + sm.webp
+  - Duración: 1:01:45
+
+---
+
 ## [3.1.0] - 2026-02-26
 
 ### ⚡ Performance: Lighthouse Optimization
