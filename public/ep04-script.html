@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EP04 Script — Es la Hora de Aprender</title>
+<style>
+  :root {
+    --bg: #0f0f13;
+    --card: #1a1a24;
+    --border: #2a2a38;
+    --accent: #ccff00;
+    --accent2: #2d5bff;
+    --accent3: #ff6b35;
+    --text: #e2e2e8;
+    --muted: #7a7a90;
+    --c-color: #ccff00;
+    --d-color: #2d9cff;
+    --r-color: #ff6b35;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 2rem 1rem;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, #1a1a24 0%, #0f0f18 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+  .ep-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .header h1 { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+  .header .sub { color: var(--muted); font-size: 0.95rem; }
+  .hosts { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+  .host { padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; }
+  .host-c { background: rgba(204,255,0,0.15); color: var(--c-color); border: 1px solid rgba(204,255,0,0.3); }
+  .host-d { background: rgba(45,92,255,0.15); color: var(--d-color); border: 1px solid rgba(45,92,255,0.3); }
+  .host-r { background: rgba(255,107,53,0.15); color: var(--r-color); border: 1px solid rgba(255,107,53,0.3); }
+
+  /* IMPACT BOX — INTRO */
+  .impact-box {
+    background: linear-gradient(135deg, rgba(204,255,0,0.08) 0%, rgba(45,92,255,0.08) 100%);
+    border: 1px solid rgba(204,255,0,0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .impact-box h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  .compare-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .compare-card.human { border-color: rgba(255,107,53,0.4); }
+  .compare-card.ai { border-color: rgba(204,255,0,0.4); }
+  .compare-card .label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .compare-card.human .label { color: var(--r-color); }
+  .compare-card.ai .label { color: var(--accent); }
+  .compare-card .metric { margin-bottom: 0.5rem; }
+  .compare-card .metric-value { font-size: 1.5rem; font-weight: 800; }
+  .compare-card.human .metric-value { color: var(--r-color); }
+  .compare-card.ai .metric-value { color: var(--accent); }
+  .compare-card .metric-desc { font-size: 0.8rem; color: var(--muted); }
+
+  .savings-banner {
+    background: rgba(204,255,0,0.1);
+    border: 1px solid rgba(204,255,0,0.4);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .savings-banner span { color: var(--accent); font-size: 1.4rem; }
+
+  .footnote { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; font-style: italic; }
+
+  /* SECTIONS */
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-emoji { font-size: 1.4rem; }
+  .section-meta { flex: 1; }
+  .section-title { font-size: 1.1rem; font-weight: 800; color: #fff; }
+  .section-time { font-size: 0.78rem; color: var(--muted); }
+  .section-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .tag-intro { background: rgba(204,255,0,0.15); color: var(--accent); }
+  .tag-news { background: rgba(45,92,255,0.15); color: var(--d-color); }
+  .tag-debate { background: rgba(255,107,53,0.15); color: var(--r-color); }
+  .tag-practical { background: rgba(100,200,100,0.15); color: #6cc97f; }
+
+  /* SPEECH BLOCKS */
+  .speech {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .speaker-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .speaker-c { background: rgba(204,255,0,0.2); color: var(--c-color); border: 1px solid rgba(204,255,0,0.4); }
+  .speaker-d { background: rgba(45,92,255,0.2); color: var(--d-color); border: 1px solid rgba(45,92,255,0.4); }
+  .speaker-r { background: rgba(255,107,53,0.2); color: var(--r-color); border: 1px solid rgba(255,107,53,0.4); }
+  .speech-text { flex: 1; }
+  .speech-text p { font-size: 0.95rem; }
+  .speech-text .speaker-name { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .speaker-c .speaker-name { color: var(--c-color); }
+
+  /* QUESTION BOX */
+  .question-box {
+    background: rgba(45,92,255,0.08);
+    border: 1px solid rgba(45,92,255,0.3);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .question-box .q-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--d-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+  .question-box p { font-size: 0.9rem; color: #c0c0d8; font-style: italic; }
+
+  /* KEY POINT */
+  .key-point {
+    background: rgba(204,255,0,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  .key-point strong { color: var(--accent); }
+
+  /* PRACTICAL CHECKLIST */
+  .checklist { list-style: none; margin: 1rem 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-icon { color: var(--accent); font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+
+  /* QUOTE */
+  .quote-block {
+    border-left: 3px solid var(--accent2);
+    padding: 0.75rem 1.25rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: #c0c0d8;
+    font-size: 0.95rem;
+  }
+  .quote-source { font-size: 0.75rem; color: var(--muted); font-style: normal; margin-top: 0.3rem; }
+
+  /* TAM TABLE */
+  .tam-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.875rem; }
+  .tam-table th { background: rgba(45,92,255,0.15); color: var(--d-color); padding: 0.5rem 0.75rem; text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tam-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+  .tam-table tr:last-child td { border-bottom: none; }
+  .tam-value { color: var(--accent); font-weight: 700; }
+
+  /* CODE BLOCK */
+  .code-block {
+    background: #0a0a10;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.82rem;
+    color: #a0ffa0;
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
+
+  /* CHEAT SHEET */
+  .cheat-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .cheat-table th { background: rgba(204,255,0,0.1); color: var(--accent); padding: 0.6rem 0.75rem; text-align: left; }
+  .cheat-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .cheat-table tr:last-child td { border-bottom: none; }
+  .cheat-table td:first-child { font-weight: 700; color: #c0c0d8; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  /* MUSIC CUE */
+  .music-cue {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-style: italic;
+    padding: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* SUMMARY CARDS */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  .summary-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .summary-card .num { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+  .summary-card .desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+  /* FOOTER */
+  .footer { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="ep-badge">EPISODIO 04 · TEMPORADA 1</div>
+    <h1>Los Agentes Ya Trabajan.<br>¿Y Tú?</h1>
+    <p class="sub">Es la Hora de Aprender · Marzo 2026 · ~60 minutos</p>
+    <div class="hosts">
+      <span class="host host-c">C Cristian Tala</span>
+      <span class="host host-d">D Diego Arias</span>
+      <span class="host host-r">R Rodrigo Rojo</span>
+    </div>
+  </div>
+
+  <!-- IMPACTO INTRO: COMPARACIÓN FIREFOX -->
+  <div class="impact-box">
+    <h2>⚡ El número que abre el episodio</h2>
+    <div class="compare-grid">
+      <div class="compare-card human">
+        <div class="label">🧑 Equipo Tradicional</div>
+        <div class="metric">
+          <div class="metric-value">~$150.000 – $350.000</div>
+          <div class="metric-desc">3–4 researchers senior × $200/hr × 8–16 semanas</div>
+        </div>
+        <div class="metric" style="margin-top:0.75rem">
+          <div class="metric-value">2 meses</div>
+          <div class="metric-desc">Tiempo normal de auditoría de esta profundidad</div>
+        </div>
+        <div class="metric" style="margin-top:0.75rem">
+          <div class="metric-value">+$42.000–$280.000</div>
+          <div class="metric-desc">Bug bounties Mozilla: $3K–$20K por bug crítico × 14</div>
+        </div>
+      </div>
+      <div class="compare-card ai">
+        <div class="label">🤖 Claude (Anthropic)</div>
+        <div class="metric">
+          <div class="metric-value">$4.000</div>
+          <div class="metric-desc">Gasto total en API credits</div>
+        </div>
+        <div class="metric" style="margin-top:0.75rem">
+          <div class="metric-value">2 semanas</div>
+          <div class="metric-desc">Tiempo total del experimento</div>
+        </div>
+        <div class="metric" style="margin-top:0.75rem">
+          <div class="metric-value">22 bugs · 14 críticos</div>
+          <div class="metric-desc">Más bugs críticos que en 2 meses de canales normales</div>
+        </div>
+      </div>
+    </div>
+    <div class="savings-banner">
+      Equivalente a <span>37x – 87x</span> más barato que una auditoría tradicional equivalente
+    </div>
+    <p class="footnote">* Costo auditoría tradicional estimado. Bug bounty Mozilla: $3K–$20K por critical/high. Fuente: Anthropic + Mozilla, Feb 2026 | mozilla.org/security/client-bug-bounty</p>
+  </div>
+
+  <!-- BLOQUE 0: INTRO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-emoji">🎙️</span>
+      <div class="section-meta">
+        <div class="section-title">Intro / Cold Open</div>
+        <div class="section-time">~3 minutos</div>
+      </div>
+      <span class="section-tag tag-intro">INTRO</span>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Bienvenidos a Es la Hora de Aprender. Soy Cristian Tala, estoy con Diego Arias y Rodrigo Rojo. Esta semana arrancamos directo con un número:</p>
+        <br>
+        <p><strong>$4.000 dólares. Dos semanas. 22 vulnerabilidades críticas en Firefox.</strong></p>
+        <br>
+        <p>Para contexto: un equipo de 3 o 4 security researchers senior trabajando 2 meses costaría entre $150.000 y $350.000. Los bug bounties de Mozilla pagan hasta $20.000 por cada bug crítico — y Claude encontró 14 de esos. En solo dos semanas. Por $4.000 en créditos de API.</p>
+        <br>
+        <p>Eso es trabajo real. No un demo. No un experimento de laboratorio. Firefox lo usan cientos de millones de personas — es uno de los proyectos open source más auditados del mundo. Y aún así tenía 14 vulnerabilidades críticas sin detectar.</p>
+        <br>
+        <p>Si eso no les dice que algo cambió — que los agentes ya no son el futuro sino el presente — nada de lo que veamos hoy los va a convencer.</p>
+      </div>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-d">D</div>
+      <div class="speech-text">
+        <p>Y lo más importante: no fue una búsqueda automática. Claude leyó el código, entendió el contexto histórico de las vulnerabilidades anteriores y buscó patrones similares en código nuevo. Eso es trabajo de analista senior.</p>
+      </div>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-r">R</div>
+      <div class="speech-text">
+        <p>Lo que me impacta es la velocidad. Dos meses de trabajo humano comprimido en dos semanas. Eso no es mejora incremental — es un orden de magnitud diferente.</p>
+      </div>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Exacto. Y eso es el hilo de todo el episodio de hoy: los agentes ya ejecutan trabajo real. Con implicancias enormes para los modelos de negocio, para los equipos, y para lo que <em>tú</em> puedes hacer con tu empresa o proyecto esta semana.</p>
+      </div>
+    </div>
+
+    <div class="music-cue">[ 🎵 MÚSICA DE INTRO ]</div>
+  </div>
+
+  <!-- BLOQUE 0B: LO QUE NOS LLAMÓ LA ATENCIÓN -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-emoji">📰</span>
+      <div class="section-meta">
+        <div class="section-title">Lo que nos llamó la atención esta semana</div>
+        <div class="section-time">~10 minutos</div>
+      </div>
+      <span class="section-tag tag-news">NOTICIAS</span>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Esta semana fue semana de modelos nuevos. Qwen 3.5 de Alibaba, GPT 5.4, y varios más. Yo lo miro y me pregunto: ¿importa cuál modelo eliges, o importa más cómo lo estás integrando?</p>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta para Diego</div>
+      <p>"Diego, ¿la velocidad de lanzamientos está acelerando la adopción o paralizando a la gente porque no saben qué elegir?"</p>
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta para Rodrigo</div>
+      <p>"Rodrigo, ¿cuándo tiene sentido cambiar de modelo y cuándo es ruido?"</p>
+    </div>
+
+    <div class="key-point">
+      <strong>Punto de cierre del bloque:</strong> El modelo importa cada vez menos si tienes buena arquitectura. Lo que importa es poder cambiar de modelo sin reescribir todo. Y eso nos lleva directo al primer tema grande.
+    </div>
+  </div>
+
+  <!-- BLOQUE 1: SEQUOIA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-emoji">💡</span>
+      <div class="section-meta">
+        <div class="section-title">Sequoia: La próxima empresa de $1T no vende software</div>
+        <div class="section-time">~15 minutos</div>
+      </div>
+      <span class="section-tag tag-debate">DEBATE</span>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>El 5 de marzo, Julien Bek, socio de Sequoia Capital, publicó un artículo que se está citando en todos lados. La tesis central:</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      "La próxima empresa de 1 trillion de dólares va a ser una empresa de software disfrazada de firma de servicios."
+      <div class="quote-source">— Julien Bek, Sequoia Capital · sequoiacap.com/article/services-the-new-software · 5 Mar 2026</div>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>No van a vender el software. Van a vender el <em>trabajo</em> que el software hace. Él lo llama <strong>Copilot vs Autopilot</strong>:</p>
+        <br>
+        <ul style="margin-left:1.25rem; margin-top:0.5rem; font-size:0.9rem;">
+          <li style="margin-bottom:0.4rem"><strong>Copilot</strong> → te vende la herramienta. Tú la usas, tú te responsabilizas del resultado.</li>
+          <li><strong>Autopilot</strong> → te vende el resultado. Le dices qué necesitas, ellos lo entregan.</li>
+        </ul>
+        <br>
+        <p><strong>Ejemplo concreto:</strong> Una empresa gasta $10.000/año en QuickBooks y $120.000 en el contador. La próxima empresa grande no te vende software contable mejor. Te dice: <em>"nosotros cerramos tus libros"</em> — con IA, más barato, más rápido.</p>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta para Diego y Rodrigo</div>
+      <p>"¿Están viendo autopilots en Chile o LATAM ya? ¿Conocen casos concretos donde alguien ya esté vendiendo el trabajo y no la herramienta?"</p>
+    </div>
+
+    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.5rem;">El dato que le da peso a todo esto: por cada $1 en software → $6 en servicios. El TAM real son los presupuestos de labor.</p>
+
+    <table class="tam-table">
+      <tr>
+        <th>Vertical</th>
+        <th>TAM outsourced (USA)</th>
+        <th>Relevancia LATAM</th>
+      </tr>
+      <tr><td>Recruitment & Staffing</td><td class="tam-value">$200B+</td><td>Alta — fragmentado</td></tr>
+      <tr><td>Supply Chain & Procurement</td><td class="tam-value">$200B+</td><td>Media-alta</td></tr>
+      <tr><td>Management Consulting</td><td class="tam-value">$300-400B</td><td>Alta — LATAM creciendo</td></tr>
+      <tr><td>IT Managed Services</td><td class="tam-value">$100B+</td><td>Muy alta — SMBs sin IT interno</td></tr>
+      <tr><td>Accounting & Audit</td><td class="tam-value">$50-80B</td><td>Alta — outsourcing maduro</td></tr>
+      <tr><td>Legal transaccional</td><td class="tam-value">$20-25B</td><td>Alta — estudios pequeños</td></tr>
+    </table>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta debate</div>
+      <p>"Rodrigo, si fueras a lanzar un autopilot en Chile hoy — ¿por qué vertical empezarías y por qué?"</p>
+    </div>
+
+    <div class="key-point">
+      <strong>Playbook Sequoia:</strong> Empieza donde ya existe outsourcing. Si el cliente ya paga externamente, ya aceptó que puede hacerse afuera. El autopilot de IA es un <em>vendor swap</em>, no una reestructuración. Eso reduce la fricción de venta al mínimo.
+    </div>
+  </div>
+
+  <!-- BLOQUE 2: API-FIRST PRÁCTICO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-emoji">🔌</span>
+      <div class="section-meta">
+        <div class="section-title">API-First: si los agentes no pueden usar tu plataforma, no existes</div>
+        <div class="section-time">~15 minutos</div>
+      </div>
+      <span class="section-tag tag-practical">PRÁCTICO</span>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Aaron Levie, CEO de Box, publicó un ensayo esta semana con una frase que sintetiza todo:</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      "Si no tienes API para una feature, es como si esa feature no existiera para los agentes."
+      <div class="quote-source">— Aaron Levie, CEO de Box · Mar 2026</div>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Y acá me toca ser honesto: esto no es nuevo para mí. En Pago Fácil, hace 8 o 9 años, tomamos la decisión de ser API-first desde el día uno. No porque anticipara los agentes — sino porque era buena ingeniería. Cada funcionalidad tenía que poder consumirse por API antes de que existiera la UI.</p>
+        <br>
+        <p>¿El resultado hoy? Cualquier agente se puede integrar sin fricción. Una decisión de 2016 resulta ser la jugada correcta para 2026.</p>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta para Diego</div>
+      <p>"¿Cuántas startups que ves están pensando en API-first desde el día cero, o siguen construyendo la UI primero y la API como afterthought?"</p>
+    </div>
+
+    <hr class="divider">
+    <p style="font-weight:700; margin-bottom:0.75rem; color:#fff;">✅ ¿Qué significa ser "amigable con los agentes"? — Checklist práctico</p>
+    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:1rem;">No es solo tener una API. Es que esa API permita que un agente haga el trabajo completo, sin necesitar un humano en el medio.</p>
+
+    <ul class="checklist">
+      <li>
+        <span class="check-icon">✅</span>
+        <div>
+          <strong>Signup por API</strong> — Jared Friedman (YCombinator): <em>"La mayoría de las mejores herramientas de developers todavía no dejan crear una cuenta vía API. En la era de Claude Code, eso es un error fatal."</em> Si un agente no puede registrarse solo, no existe para él.
+        </div>
+      </li>
+      <li>
+        <span class="check-icon">✅</span>
+        <div>
+          <strong>Webhooks y eventos</strong> — El agente necesita saber cuándo algo cambió. Sin webhooks, tiene que preguntar cada 5 minutos. Ineficiente y caro.
+        </div>
+      </li>
+      <li>
+        <span class="check-icon">✅</span>
+        <div>
+          <strong>Documentación estructurada (OpenAPI spec)</strong> — Los agentes consumen tu documentación para entender cómo usar tu API. Si está mal organizada, alucina. Ejemplos reales + errores bien documentados son obligatorios.
+        </div>
+      </li>
+      <li>
+        <span class="check-icon">✅</span>
+        <div>
+          <strong>Rate limits razonables + pricing por consumo</strong> — Un agente puede hacer 10.000 llamadas donde un humano haría 10. Si solo tienes seats, estás bloqueando la adopción y dejando plata sobre la mesa.
+        </div>
+      </li>
+      <li>
+        <span class="check-icon">✅</span>
+        <div>
+          <strong>MCP Server (Model Context Protocol)</strong> — El estándar de Anthropic que ya adoptaron la mayoría de herramientas de agentes. Si tienes un MCP server, cualquier coding agent se integra en minutos con tu plataforma.
+        </div>
+      </li>
+    </ul>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta para Rodrigo</div>
+      <p>"Desde el punto de vista de producto — ¿cómo priorizarías esto? ¿Es una decisión técnica o de negocio?"</p>
+    </div>
+
+    <div class="key-point">
+      <strong>Punto de acción:</strong> No tienes que reescribir tu producto. El primer paso es auditar lo que ya tienes: ¿qué puede hacer un agente HOY con tu API actual? ¿Puede autenticarse? ¿Puede hacer las operaciones principales? ¿Dónde se rompe? Con eso ya tienes el roadmap.
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta para debate</div>
+      <p>"¿Alguno de ustedes revisó su propio stack esta semana pensando en esta óptica? ¿Qué encontraron?"</p>
+    </div>
+  </div>
+
+  <!-- BLOQUE 3: GALPERIN -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-emoji">🦁</span>
+      <div class="section-meta">
+        <div class="section-title">Galperin y Mercado Libre: el attrition como estrategia</div>
+        <div class="section-time">~10 minutos</div>
+      </div>
+      <span class="section-tag tag-debate">DEBATE</span>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Marcos Galperin — fundador de Mercado Libre, la empresa de tech más valiosa de América Latina — dijo algo esta semana que quiero procesar con ustedes:</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      "Tenemos 20.000 desarrolladores y es muy probable que en cinco años tengamos 10.000 — no porque los hayamos despedido, sino porque no estamos contratando a nadie."
+      <div class="quote-source">— Marcos Galperin · Podcast "Founder's Mentality: The CEO Sessions" (Bain & Co.) · Mar 2026</div>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-d">D</div>
+      <div class="speech-text">
+        <p>Es elegante. Políticamente mucho más fácil que un despido masivo. No hay titulares, no hay crisis de imagen. La gente simplemente no se reemplaza.</p>
+      </div>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-r">R</div>
+      <div class="speech-text">
+        <p>Pero el resultado final es el mismo — la mitad del equipo.</p>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta debate abierto</div>
+      <p>"¿Es la estrategia de attrition responsable o es evitar el problema? ¿Y qué le dices al developer de 25 años que empieza hoy?"</p>
+    </div>
+
+    <div class="quote-block">
+      "Hace 10 años les hubiera dicho que necesitan aprender a desarrollar. Hoy digo que necesitan saber matemáticas."
+      <div class="quote-source">— Marcos Galperin</div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta directa a Diego y Rodrigo</div>
+      <p>"¿Están de acuerdo? ¿O el que sabe programar bien sigue teniendo ventaja enorme sobre el que solo le pide cosas a la IA?"</p>
+    </div>
+
+    <div class="key-point">
+      <strong>Ángulo sugerido:</strong> Galperin tiene razón en el espíritu pero se equivoca en la literalidad. Lo que dice es: el pensamiento computacional importa más que la sintaxis. Entender qué puede hacer un sistema, cuáles son sus límites, cómo se diseña — eso no lo reemplaza la IA. Lo que sí reemplaza es escribir el for loop.
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta mundo agéntico</div>
+      <p>"Galperin habló de un 'mundo agéntico' donde los asistentes actúan en tu nombre. ¿Lo están viviendo ya? ¿Tienen agentes que trabajan por ustedes hoy?"</p>
+    </div>
+  </div>
+
+  <!-- BLOQUE 4: CIERRE PRÁCTICO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-emoji">🚀</span>
+      <div class="section-meta">
+        <div class="section-title">Tu propia agencia de IA, hoy, gratis</div>
+        <div class="section-time">~8 minutos</div>
+      </div>
+      <span class="section-tag tag-practical">ACCIÓN</span>
+    </div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Todo lo que hablamos hoy puede sonar muy "big tech". Quiero cerrar con algo que cualquiera puede usar esta semana.</p>
+        <br>
+        <p>Alguien publicó en Reddit un repositorio llamado <strong>Agency Agents</strong> — en 12 horas tenía 50 requests. La idea: 80 agentes especializados, con personalidad, procesos y entregables concretos, que se instalan en Claude Code con un comando.</p>
+      </div>
+    </div>
+
+    <div class="code-block">
+# Instalar en Claude Code (una línea)
+cp -r agency-agents/* ~/.claude/agents/
+
+# Con instalador interactivo (detecta tus herramientas)
+./scripts/install.sh</div>
+
+    <div class="speech">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Abres Claude Code y le dices: <em>"Usa el Backend Architect para diseñar esta API"</em> o <em>"Activa el Security Engineer y revisa este código"</em>. Tienes Frontend Developer, Growth Hacker, UX Researcher, Legal Compliance — todos disponibles, todos gratis.</p>
+        <br>
+        <p>Funciona también en Cursor, Gemini CLI, Windsurf y Aider. Repo: <strong>github.com/msitarzewski/agency-agents</strong></p>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-label">🎤 Pregunta práctica final</div>
+      <p>"¿Están usando Claude Code o herramientas similares en su día a día? ¿Cuál es el caso de uso donde más tiempo les ahorra?"</p>
+    </div>
+
+    <div class="key-point">
+      <strong>Mensaje de cierre:</strong> Los agentes ya hacen trabajo. El que entiende cómo estructurarlo — qué darles, cómo pedirlo, cómo verificarlo — tiene ventaja enorme. La tecnología ya maduró. La pregunta es si tú te adaptaste.
+    </div>
+  </div>
+
+  <!-- CIERRE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-emoji">🎙️</span>
+      <div class="section-meta">
+        <div class="section-title">Cierre del Episodio</div>
+        <div class="section-time">~4 minutos</div>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="num">$4K</div>
+        <div class="desc">Claude auditó Firefox en 2 semanas. 14 bugs críticos. 37–87x más barato que un equipo humano.</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">$1T</div>
+        <div class="desc">Sequoia: la próxima gran empresa vende el trabajo, no el software. Copilot → Autopilot.</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">API</div>
+        <div class="desc">Si tu plataforma no es amigable con agentes (signup, webhooks, MCP), eres invisible para ellos.</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">10K</div>
+        <div class="desc">Galperin: de 20.000 a 10.000 devs por attrition natural. El cambio ya está ocurriendo.</div>
+      </div>
+      <div class="summary-card">
+        <div class="num">80</div>
+        <div class="desc">Agency Agents: 80 agentes especializados, gratis, open source, disponibles esta semana.</div>
+      </div>
+    </div>
+
+    <div class="speech" style="margin-top:1.5rem">
+      <div class="speaker-badge speaker-c">C</div>
+      <div class="speech-text">
+        <p>Si te gustó el episodio, compártelo con alguien que necesite escuchar esto. Encuéntranos en Spotify, YouTube, y en <strong>eslahoradeaprender.com</strong>.</p>
+        <br>
+        <p>Soy Cristian Tala — <span style="color:var(--d-color)">Diego Arias</span> — <span style="color:var(--r-color)">Rodrigo Rojo</span>. <strong>¡Es la Hora de Aprender!</strong></p>
+      </div>
+    </div>
+
+    <div class="music-cue">[ 🎵 MÚSICA DE CIERRE ]</div>
+  </div>
+
+  <!-- CHEAT SHEET -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-emoji">📋</span>
+      <div class="section-meta">
+        <div class="section-title">Cheat Sheet — Datos clave para tener a mano</div>
+      </div>
+    </div>
+    <table class="cheat-table">
+      <tr>
+        <th>Dato</th>
+        <th>Fuente</th>
+      </tr>
+      <tr>
+        <td>Claude: 22 bugs en Firefox, 14 críticos, 2 semanas, $4K API</td>
+        <td>Anthropic + Mozilla · Feb 2026</td>
+      </tr>
+      <tr>
+        <td>Auditoría tradicional equivalente: $150K–$350K + $42K–$280K en bounties</td>
+        <td>Estimado · mozilla.org/security/client-bug-bounty</td>
+      </tr>
+      <tr>
+        <td>Sequoia: "$1T company vende el trabajo, no el software"</td>
+        <td>Julien Bek · sequoiacap.com · 5 Mar 2026</td>
+      </tr>
+      <tr>
+        <td>Ratio: $1 software = $6 servicios</td>
+        <td>Sequoia Capital</td>
+      </tr>
+      <tr>
+        <td>Levie: "Sin API, la feature no existe para los agentes"</td>
+        <td>Aaron Levie (Box CEO) · Mar 2026</td>
+      </tr>
+      <tr>
+        <td>YC Friedman: "Si el agente no puede hacer signup, estás muerto"</td>
+        <td>Jared Friedman · YCombinator</td>
+      </tr>
+      <tr>
+        <td>Galperin: 20.000 → 10.000 devs por attrition. "Estudia matemáticas."</td>
+        <td>La Nación Argentina · 3 Mar 2026</td>
+      </tr>
+      <tr>
+        <td>Agency Agents: 80 agentes open source para Claude Code</td>
+        <td>github.com/msitarzewski/agency-agents</td>
+      </tr>
+      <tr>
+        <td>Modelos semana: Qwen 3.5 (Alibaba), GPT 5.4</td>
+        <td>—</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    Script EP04 · Es la Hora de Aprender · Generado por Nyx · 10 Mar 2026
+  </div>
+
+</div>
+</body>
+</html>
