@@ -6,6 +6,8 @@ import SiteFooter from '../components/SiteFooter.astro';
 const allEpisodes = await getCollection('episodes');
 const episodes = allEpisodes.sort((a, b) => b.data.episode - a.data.episode); // newest first
 const latest = episodes[0];
+const olderEpisodes = episodes.slice(1);
+const TOPICS_VISIBLE = 5;
 ---
 
 <BaseLayout title="Tech Podcast">
@@ -71,89 +73,162 @@ const latest = episodes[0];
     </header>
 
     <main class="max-w-6xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-6">
+        <!-- Section: Último Episodio (Featured) -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-12 gap-6">
             <div>
-                <h2 class="text-4xl md:text-6xl tracking-tighter italic">Últimos <br><span
-                        class="bg-electric text-white px-2 not-italic">Episodios</span></h2>
+                <h2 class="text-4xl md:text-6xl tracking-tighter italic">Último <br><span
+                        class="bg-electric text-white px-2 not-italic">Episodio</span></h2>
             </div>
             <div class="brutal-btn bg-acid cursor-default text-[10px] md:text-xs tracking-[0.2em] py-2 px-4">
                 EP_{String(latest.data.episode).padStart(2, '0')}_LIVE
             </div>
         </div>
 
-        <div id="episodes-container" class="grid gap-8 md:gap-12">
-            {episodes.map((ep) => (
-                <article class="brutal-card p-6 md:p-10 episode-card">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
-                        <!-- Video Thumbnail (click to play) -->
-                        <div class="lg:col-span-7">
-                            <div class="video-embed brutal-card youtube-facade" data-id={ep.data.youtubeId}>
-                                <img 
-                                    src={ep.data.thumbnail?.replace('.webp', '-sm.webp') || `https://img.youtube.com/vi/${ep.data.youtubeId}/maxresdefault.jpg`}
-                                    alt={`Thumbnail del episodio: ${ep.data.title}`}
-                                    loading="lazy"
-                                    width="648"
-                                    height="365"
-                                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;cursor:pointer;"
-                                />
-                                <button class="yt-play-btn" aria-label={`Reproducir ${ep.data.title}`}>
-                                    <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
-                                </button>
-                            </div>
-                        </div>
+        <!-- Featured Episode Card (Full Size) -->
+        <article class="brutal-card p-6 md:p-10 episode-card mb-16 md:mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+                <!-- Video Thumbnail (click to play) -->
+                <div class="lg:col-span-7">
+                    <div class="video-embed brutal-card youtube-facade" data-id={latest.data.youtubeId}>
+                        <img 
+                            src={latest.data.thumbnail?.replace('.webp', '-sm.webp') || `https://img.youtube.com/vi/${latest.data.youtubeId}/maxresdefault.jpg`}
+                            alt={`Thumbnail del episodio: ${latest.data.title}`}
+                            loading="eager"
+                            width="648"
+                            height="365"
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;cursor:pointer;"
+                        />
+                        <button class="yt-play-btn" aria-label={`Reproducir ${latest.data.title}`}>
+                            <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
+                        </button>
+                    </div>
+                </div>
 
-                        <!-- Info Section -->
-                        <div class="lg:col-span-5">
-                            <div class="mb-4">
-                                <span class="bg-black text-acid px-3 py-1 text-xs uppercase font-black tracking-wider">
-                                    Episodio {ep.data.episode}
+                <!-- Info Section -->
+                <div class="lg:col-span-5">
+                    <div class="mb-4">
+                        <span class="bg-black text-acid px-3 py-1 text-xs uppercase font-black tracking-wider">
+                            Episodio {latest.data.episode}
+                        </span>
+                        <span class="text-sm text-gray-500 ml-3">{latest.data.duration}</span>
+                    </div>
+                    
+                    <h3 class="text-3xl md:text-4xl font-black mb-4 leading-tight tracking-tighter text-black">
+                        {latest.data.title}
+                    </h3>
+                    
+                    <p class="text-gray-700 text-base md:text-lg mb-6 leading-relaxed">
+                        {latest.data.description}
+                    </p>
+
+                    <div class="mb-6 topics-container" data-total={latest.data.topics.length}>
+                        <h4 class="text-sm font-black uppercase tracking-wider mb-3 text-gray-500">Temas tratados</h4>
+                        <div class="flex flex-wrap gap-2 topics-list">
+                            {latest.data.topics.map((topic, i) => (
+                                <span class={`bg-acid text-black px-3 py-1 text-xs font-bold uppercase border-2 border-black topic-tag ${i >= TOPICS_VISIBLE ? 'hidden' : ''}`} data-index={i}>
+                                    {topic}
                                 </span>
-                                <span class="text-sm text-gray-500 ml-3">{ep.data.duration}</span>
-                            </div>
-                            
-                            <h3 class="text-3xl md:text-4xl font-black mb-4 leading-tight tracking-tighter text-black">
-                                {ep.data.title}
-                            </h3>
-                            
-                            <p class="text-gray-700 text-base md:text-lg mb-6 leading-relaxed">
-                                {ep.data.description}
-                            </p>
+                            ))}
+                        </div>
+                        {latest.data.topics.length > TOPICS_VISIBLE && (
+                            <button class="topics-toggle text-xs font-bold uppercase mt-3 text-electric hover:text-black transition-colors">
+                                Ver {latest.data.topics.length - TOPICS_VISIBLE} temas más ↓
+                            </button>
+                        )}
+                    </div>
 
-                            <div class="mb-6">
-                                <h4 class="text-sm font-black uppercase tracking-wider mb-3 text-gray-500">Temas tratados</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    {ep.data.topics.map((topic) => (
-                                        <span class="bg-acid text-black px-3 py-1 text-xs font-bold uppercase border-2 border-black">
+                    <div class="mb-4">
+                        <a href={`/episodios/${latest.id}`}
+                           class="brutal-btn bg-acid hover:bg-electric hover:text-white w-full flex items-center justify-center gap-2 text-sm font-black">
+                            Ver Episodio Completo →
+                        </a>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href={latest.data.youtube} target="_blank" rel="noopener noreferrer"
+                           class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-sm flex-1 flex items-center justify-center gap-2">
+                            <span class="text-xl">📺</span>
+                            Ver en YouTube
+                        </a>
+                        <a href={latest.data.spotify} target="_blank" rel="noopener noreferrer"
+                           class="brutal-btn bg-electric text-white hover:bg-black text-sm flex-1 flex items-center justify-center gap-2">
+                            <span class="text-xl">🎧</span>
+                            Escuchar en Spotify
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Section: Episodios Anteriores -->
+        {olderEpisodes.length > 0 && (
+            <>
+                <div class="mb-8 md:mb-10">
+                    <h2 class="text-3xl md:text-4xl tracking-tighter italic">Episodios <span class="bg-black text-acid px-2 not-italic">Anteriores</span></h2>
+                </div>
+
+                <div id="episodes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    {olderEpisodes.map((ep) => (
+                        <article class="brutal-card episode-card-compact group">
+                            <!-- Thumbnail -->
+                            <a href={`/episodios/${ep.id}`} class="block">
+                                <div class="relative aspect-video overflow-hidden">
+                                    <img 
+                                        src={ep.data.thumbnail?.replace('.webp', '-sm.webp') || `https://img.youtube.com/vi/${ep.data.youtubeId}/mqdefault.jpg`}
+                                        alt={`Thumbnail: ${ep.data.title}`}
+                                        loading="lazy"
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                    <div class="absolute top-3 left-3">
+                                        <span class="bg-black text-acid px-2 py-1 text-[10px] uppercase font-black tracking-wider">
+                                            EP {ep.data.episode}
+                                        </span>
+                                    </div>
+                                    <div class="absolute bottom-3 right-3">
+                                        <span class="bg-black/80 text-white px-2 py-1 text-[10px] font-bold">
+                                            {ep.data.duration}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <!-- Info -->
+                            <div class="p-5">
+                                <h3 class="text-lg font-black mb-2 leading-tight tracking-tight text-black line-clamp-2">
+                                    <a href={`/episodios/${ep.id}`} class="hover:text-electric transition-colors">
+                                        {ep.data.title}
+                                    </a>
+                                </h3>
+                                
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                    {ep.data.description}
+                                </p>
+
+                                <!-- Topics (compact, max 3) -->
+                                <div class="flex flex-wrap gap-1 mb-4">
+                                    {ep.data.topics.slice(0, 3).map((topic) => (
+                                        <span class="bg-acid/60 text-black px-2 py-0.5 text-[10px] font-bold uppercase border border-black">
                                             {topic}
                                         </span>
                                     ))}
+                                    {ep.data.topics.length > 3 && (
+                                        <span class="text-[10px] text-gray-500 font-bold self-center">
+                                            +{ep.data.topics.length - 3}
+                                        </span>
+                                    )}
                                 </div>
-                            </div>
 
-                            <div class="mb-4">
+                                <!-- CTA -->
                                 <a href={`/episodios/${ep.id}`}
-                                   class="brutal-btn bg-acid hover:bg-electric hover:text-white w-full flex items-center justify-center gap-2 text-sm font-black">
-                                    Ver Episodio Completo →
+                                   class="brutal-btn bg-white hover:bg-acid w-full text-xs py-2 flex items-center justify-center">
+                                    Ver Episodio →
                                 </a>
                             </div>
-                            
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <a href={ep.data.youtube} target="_blank" rel="noopener noreferrer"
-                                   class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-sm flex-1 flex items-center justify-center gap-2">
-                                    <span class="text-xl">📺</span>
-                                    Ver en YouTube
-                                </a>
-                                <a href={ep.data.spotify} target="_blank" rel="noopener noreferrer"
-                                   class="brutal-btn bg-electric text-white hover:bg-black text-sm flex-1 flex items-center justify-center gap-2">
-                                    <span class="text-xl">🎧</span>
-                                    Escuchar en Spotify
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            ))}
-        </div>
+                        </article>
+                    ))}
+                </div>
+            </>
+        )}
     </main>
 
     <SiteFooter />
@@ -179,9 +254,35 @@ const latest = episodes[0];
         .youtube-facade:hover .yt-play-btn {
             opacity: 1;
         }
+        
+        /* Compact episode cards */
+        .episode-card-compact {
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .episode-card-compact:hover {
+            transform: translateY(-4px);
+        }
+        
+        /* Line clamp for text truncation */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        /* Topics toggle */
+        .topic-tag.hidden {
+            display: none;
+        }
+        .topics-container.expanded .topic-tag.hidden {
+            display: inline-block;
+        }
     </style>
 
     <script is:inline>
+        // YouTube facade click handler
         document.querySelectorAll('.youtube-facade').forEach(el => {
             el.addEventListener('click', function() {
                 const id = this.dataset.id;
@@ -194,6 +295,22 @@ const latest = episodes[0];
                 iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
                 this.innerHTML = '';
                 this.appendChild(iframe);
+            });
+        });
+        
+        // Topics toggle handler
+        document.querySelectorAll('.topics-toggle').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const container = this.closest('.topics-container');
+                const isExpanded = container.classList.toggle('expanded');
+                const total = parseInt(container.dataset.total);
+                const visible = 5;
+                
+                if (isExpanded) {
+                    this.textContent = 'Ver menos ↑';
+                } else {
+                    this.textContent = `Ver ${total - visible} temas más ↓`;
+                }
             });
         });
     </script>
