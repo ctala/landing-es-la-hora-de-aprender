@@ -84,21 +84,24 @@ const TOPICS_VISIBLE = 5;
                         )}
                     </div>
 
+                    <!-- CTAs: principal full-width + secundarios lado a lado -->
                     <div class="flex flex-col gap-3 mb-4">
                         <a href={`/episodios/${latest.id}`}
                            class="brutal-btn bg-acid hover:bg-electric hover:text-white w-full flex items-center justify-center gap-2 text-sm font-black">
                             Ver Episodio Completo →
                         </a>
-                        <a href={latest.data.youtube} target="_blank" rel="noopener noreferrer"
-                           class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-sm flex items-center justify-center gap-2">
-                            <span class="text-xl">📺</span>
-                            Ver en YouTube
-                        </a>
-                        <a href={latest.data.spotify} target="_blank" rel="noopener noreferrer"
-                           class="brutal-btn bg-electric text-white hover:bg-black text-sm flex items-center justify-center gap-2">
-                            <span class="text-xl">🎧</span>
-                            Escuchar en Spotify
-                        </a>
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href={latest.data.youtube} target="_blank" rel="noopener noreferrer"
+                               class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-xs flex items-center justify-center gap-1.5">
+                                <svg width="14" height="10" viewBox="0 0 68 48" fill="currentColor"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z"/><path d="M45 24L27 14v20" fill="white"/></svg>
+                                YouTube
+                            </a>
+                            <a href={latest.data.spotify} target="_blank" rel="noopener noreferrer"
+                               class="brutal-btn bg-electric text-white hover:bg-black text-xs flex items-center justify-center gap-1.5">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                                Spotify
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -273,11 +276,15 @@ const TOPICS_VISIBLE = 5;
         }
 
         /* Topics toggle */
+        .topic-tag {
+            display: inline-block !important;
+            width: auto !important;
+        }
         .topic-tag.hidden {
-            display: none;
+            display: none !important;
         }
         .topics-container.expanded .topic-tag.hidden {
-            display: inline-block;
+            display: inline-block !important;
         }
     </style>
 
