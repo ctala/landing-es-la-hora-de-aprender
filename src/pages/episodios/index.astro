@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const allEpisodes = await getCollection('episodes');
+const episodes = allEpisodes.sort((a, b) => b.data.episode - a.data.episode); // newest first
+---
+
+<BaseLayout 
+    title="Todos los Episodios"
+    description="Archivo completo del podcast Es la Hora de Aprender. Tecnología, IA, startups y automatización con Cristian Tala, Diego Arias y Rodrigo Rojo."
+>
+    <SiteHeader />
+
+    <main class="max-w-6xl mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm font-bold uppercase tracking-wider" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2">
+                <li><a href="/" class="text-electric hover:text-black transition-colors">Inicio</a></li>
+                <li class="text-gray-400">›</li>
+                <li class="text-gray-500">Todos los Episodios</li>
+            </ol>
+        </nav>
+
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-10 gap-4">
+            <div>
+                <h1 class="text-3xl md:text-5xl tracking-tighter italic">Todos los <span class="bg-black text-acid px-2 not-italic">Episodios</span></h1>
+            </div>
+            <div class="brutal-btn bg-acid cursor-default text-[10px] md:text-xs tracking-[0.2em] py-2 px-4">
+                {episodes.length} EP_{String(episodes[0].data.episode).padStart(2, '0')}_ARCHIVE
+            </div>
+        </div>
+
+        <!-- Grid completa -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {episodes.map((ep) => (
+                <article class="brutal-card episode-card-compact group">
+                    <!-- Thumbnail -->
+                    <a href={`/episodios/${ep.id}`} class="block">
+                        <div class="relative aspect-video overflow-hidden">
+                            <img 
+                                src={ep.data.thumbnail?.replace('.webp', '-xs.webp') || `https://img.youtube.com/vi/${ep.data.youtubeId}/mqdefault.jpg`}
+                                srcset={ep.data.thumbnail ? `${ep.data.thumbnail.replace('.webp', '-xs.webp')} 400w, ${ep.data.thumbnail.replace('.webp', '-sm.webp')} 648w` : undefined}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                alt={`Thumbnail: ${ep.data.title}`}
+                                width="400"
+                                height="225"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-black text-acid px-2 py-1 text-[10px] uppercase font-black tracking-wider">
+                                    EP {ep.data.episode}
+                                </span>
+                            </div>
+                            <div class="absolute bottom-3 right-3">
+                                <span class="bg-black/80 text-white px-2 py-1 text-[10px] font-bold">
+                                    {ep.data.duration}
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Info -->
+                    <div class="p-5">
+                        <h2 class="text-lg font-black mb-2 leading-tight tracking-tight text-black line-clamp-2">
+                            <a href={`/episodios/${ep.id}`} class="hover:text-electric transition-colors">
+                                {ep.data.title}
+                            </a>
+                        </h2>
+                        
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                            {ep.data.description}
+                        </p>
+
+                        <!-- Topics (compact, max 3) -->
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            {ep.data.topics.slice(0, 3).map((topic) => (
+                                <span class="bg-acid/60 text-black px-2 py-0.5 text-[10px] font-bold uppercase border border-black">
+                                    {topic}
+                                </span>
+                            ))}
+                            {ep.data.topics.length > 3 && (
+                                <span class="text-[10px] text-gray-500 font-bold self-center">
+                                    +{ep.data.topics.length - 3}
+                                </span>
+                            )}
+                        </div>
+
+                        <!-- CTA -->
+                        <a href={`/episodios/${ep.id}`}
+                           class="brutal-btn bg-white hover:bg-acid w-full text-xs py-2 flex items-center justify-center">
+                            Ver Episodio →
+                        </a>
+                    </div>
+                </article>
+            ))}
+        </div>
+
+    </main>
+
+    <SiteFooter />
+
+    <style>
+        .episode-card-compact {
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .episode-card-compact:hover {
+            transform: translateY(-4px);
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</BaseLayout>

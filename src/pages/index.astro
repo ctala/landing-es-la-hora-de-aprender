@@ -7,7 +7,8 @@ import SiteFooter from '../components/SiteFooter.astro';
 const allEpisodes = await getCollection('episodes');
 const episodes = allEpisodes.sort((a, b) => b.data.episode - a.data.episode); // newest first
 const latest = episodes[0];
-const olderEpisodes = episodes.slice(1);
+const olderEpisodes = episodes.slice(1, 7); // máx 6 en home
+const hasMoreEpisodes = episodes.length > 7;
 const TOPICS_VISIBLE = 5;
 ---
 
@@ -179,6 +180,15 @@ const TOPICS_VISIBLE = 5;
                         </article>
                     ))}
                 </div>
+
+                <!-- Ver todos si hay más de 6 anteriores -->
+                {hasMoreEpisodes && (
+                    <div class="mt-10 text-center">
+                        <a href="/episodios" class="brutal-btn bg-black text-acid hover:bg-electric hover:text-white inline-flex items-center gap-2 text-sm">
+                            Ver todos los episodios →
+                        </a>
+                    </div>
+                )}
             </>
         )}
     </main>
