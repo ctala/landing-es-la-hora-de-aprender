@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 
 export async function getStaticPaths() {
@@ -17,46 +18,19 @@ const TOPICS_VISIBLE = 5;
 ---
 
 <BaseLayout title={episodeData.data.title}>
-    <!-- Header Compacto -->
-    <header class="max-w-6xl mx-auto mb-4">
-        <div class="brutal-card bg-acid p-4 md:p-5">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <!-- Logo + Tagline -->
-                <div class="flex items-center gap-4">
-                    <a href="/" class="text-2xl md:text-3xl font-black tracking-tighter hover:text-electric transition-colors whitespace-nowrap">
-                        ES LA HORA DE <span class="text-white" style="text-shadow: 2px 2px 0px #000;">APRENDER</span>
-                    </a>
-                </div>
-                
-                <!-- Hosts + CTAs -->
-                <div class="flex flex-wrap items-center gap-3">
-                    <div class="hidden lg:flex gap-2">
-                        <a href="https://www.linkedin.com/in/ctala/" target="_blank" class="name-tag-sm hover:bg-electric transition-colors">Cristian</a>
-                        <a href="https://www.linkedin.com/in/godiegoarias/" target="_blank" class="name-tag-sm hover:bg-electric transition-colors">Diego</a>
-                        <a href="https://www.linkedin.com/in/rodrigorojo/" target="_blank" class="name-tag-sm hover:bg-electric transition-colors">Rodrigo</a>
-                    </div>
-                    <div class="flex gap-2">
-                        <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1" 
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           aria-label="Suscribirse en YouTube"
-                           class="brutal-btn-sm bg-white hover:bg-red-500 hover:text-white">
-                            <span aria-hidden="true">📺</span> <span class="hidden sm:inline">YouTube</span>
-                        </a>
-                        <a href="https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C" 
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           aria-label="Escuchar en Spotify"
-                           class="brutal-btn-sm bg-electric text-white hover:bg-black">
-                            <span aria-hidden="true">🎧</span> <span class="hidden sm:inline">Spotify</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <SiteHeader />
 
     <main class="max-w-6xl mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm font-bold uppercase tracking-wider" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2">
+                <li><a href="/" class="text-electric hover:text-black transition-colors">Inicio</a></li>
+                <li class="text-gray-400">›</li>
+                <li class="text-gray-500 truncate max-w-[260px]">Episodio {episodeData.data.episode}</li>
+            </ol>
+        </nav>
+
         <article class="brutal-card p-6 md:p-10 episode-card">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
                 <!-- Video Thumbnail (click to play) -->
@@ -64,7 +38,7 @@ const TOPICS_VISIBLE = 5;
                     <div class="video-embed brutal-card youtube-facade" data-id={episodeData.data.youtubeId}>
                         <img 
                             src={episodeData.data.thumbnail?.replace('.webp', '-sm.webp') || `https://img.youtube.com/vi/${episodeData.data.youtubeId}/maxresdefault.jpg`}
-                            alt=`Thumbnail del episodio: ${episodeData.data.title}`
+                            alt={`Thumbnail del episodio: ${episodeData.data.title}`}
                             loading="eager"
                             width="648"
                             height="365"
@@ -72,7 +46,8 @@ const TOPICS_VISIBLE = 5;
                         />
                         <button class="yt-play-btn" aria-label={`Reproducir ${episodeData.data.title}`}>
                             <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
-                    </button>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Info Section -->
@@ -84,16 +59,16 @@ const TOPICS_VISIBLE = 5;
                         <span class="text-sm text-gray-500 ml-3">{episodeData.data.duration}</span>
                     </div>
                     
-                    <h2 class="text-2xl md:text-3xl font-black mb-4 leading-tight tracking-tighter text-black">
+                    <h1 class="text-2xl md:text-3xl font-black mb-4 leading-tight tracking-tighter text-black">
                         {episodeData.data.title}
-                    </h2>
+                    </h1>
                     
                     <p class="text-gray-700 text-base md:text-lg mb-5 leading-relaxed">
                         {episodeData.data.description}
                     </p>
 
                     <div class="mb-5 topics-container" data-total={episodeData.data.topics.length}>
-                        <h3 class="text-sm font-black uppercase tracking-wider mb-3 text-gray-500">Temas tratados</h3>
+                        <h2 class="text-sm font-black uppercase tracking-wider mb-3 text-gray-500">Temas tratados</h2>
                         <div class="flex flex-wrap gap-2 topics-list">
                             {episodeData.data.topics.map((topic, i) => (
                                 <span class={`bg-acid text-black px-3 py-1 text-xs font-bold uppercase border-2 border-black topic-tag ${i >= TOPICS_VISIBLE ? 'hidden' : ''}`} data-index={i}>
@@ -108,14 +83,15 @@ const TOPICS_VISIBLE = 5;
                         )}
                     </div>
 
-                    <div class="mb-4">
+                    <!-- CTAs con gap correcto -->
+                    <div class="flex flex-col gap-3 mb-4">
                         <a href={episodeData.data.youtube} target="_blank" rel="noopener noreferrer"
-                           class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-sm flex-1 flex items-center justify-center gap-2">
+                           class="brutal-btn bg-white hover:bg-red-500 hover:text-white text-sm flex items-center justify-center gap-2">
                             <span class="text-xl">📺</span>
                             Ver en YouTube
                         </a>
                         <a href={episodeData.data.spotify} target="_blank" rel="noopener noreferrer"
-                           class="brutal-btn bg-electric text-white hover:bg-black text-sm flex-1 flex items-center justify-center gap-2">
+                           class="brutal-btn bg-electric text-white hover:bg-black text-sm flex items-center justify-center gap-2">
                             <span class="text-xl">🎧</span>
                             Escuchar en Spotify
                         </a>
@@ -124,100 +100,28 @@ const TOPICS_VISIBLE = 5;
             </div>
         </article>
 
+        <!-- Navegación entre episodios -->
         <div class="flex flex-row justify-between items-center mt-8 md:mt-10 gap-4">
-            {prevEpisode && (
-                <a href={`/episodios/${prevEpisode.id}`} class="text-lg font-bold text-electric transition-colors">
+            {prevEpisode ? (
+                <a href={`/episodios/${prevEpisode.id}`} class="brutal-btn bg-white hover:bg-acid text-xs py-2 px-4">
                     ← Episodio {prevEpisode.data.episode}
                 </a>
-            )}
-            {nextEpisode && (
-                <a href={`/episodios/${nextEpisode.id}`} class="text-lg font-bold text-electric transition-colors">
+            ) : <span />}
+            <a href="/" class="text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-black transition-colors">
+                Ver todos →
+            </a>
+            {nextEpisode ? (
+                <a href={`/episodios/${nextEpisode.id}`} class="brutal-btn bg-white hover:bg-acid text-xs py-2 px-4">
                     Episodio {nextEpisode.data.episode} →
                 </a>
-            )}
+            ) : <span />}
         </div>
+
     </main>
 
     <SiteFooter />
 
     <style>
-        /* Compact header styles */
-        .name-tag-sm {
-            background-color: var(--black);
-            color: var(--acid-green);
-            padding: 2px 8px;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            border: 2px solid var(--black);
-        }
-        
-        .brutal-btn-sm {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 8px 12px;
-            border: 2px solid var(--black);
-            box-shadow: 3px 3px 0px 0px var(--black);
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.1s;
-            text-decoration: none;
-            color: var(--black);
-        }
-        
-        .brutal-btn-sm:active {
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px 0px var(--black);
-        }
-
-        /* Marquee */
-        .marquee {
-            overflow: hidden;
-            white-space: nowrap;
-            background: var(--electric-blue);
-            color: var(--white);
-            padding: 10px 0;
-            border-bottom: 4px solid var(--black);
-            transform: rotate(-1deg) scale(1.02);
-        }
-
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1rem;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* YouTube facade */
-        .youtube-facade {
-            position: relative;
-            cursor: pointer;
-        }
-        .yt-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            opacity: 0.9;
-            transition: opacity 0.2s;
-        }
-        .youtube-facade:hover .yt-play-btn {
-            opacity: 1;
-        }
-
         /* Topics toggle */
         .topic-tag.hidden {
             display: none;
@@ -235,7 +139,7 @@ const TOPICS_VISIBLE = 5;
                 const iframe = document.createElement('iframe');
                 iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
                 iframe.title = 'YouTube video player';
-                iframe.frameBorder = '0';
+                iframe.setAttribute('frameborder', '0');
                 iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
                 iframe.allowFullscreen = true;
                 iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
@@ -251,12 +155,7 @@ const TOPICS_VISIBLE = 5;
                 const isExpanded = container.classList.toggle('expanded');
                 const total = parseInt(container.dataset.total);
                 const visible = 5;
-                
-                if (isExpanded) {
-                    this.textContent = 'Ver menos ↑';
-                } else {
-                    this.textContent = `Ver ${total - visible} temas más ↓`;
-                }
+                this.textContent = isExpanded ? 'Ver menos ↑' : `Ver ${total - visible} temas más ↓`;
             });
         });
     </script>
