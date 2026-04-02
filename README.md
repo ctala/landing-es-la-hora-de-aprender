@@ -1,16 +1,16 @@
 # Es la Hora de Aprender - Podcast Tech
 
-> 🎙️ Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la cancha.
+> Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la cancha.
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1)
 [![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C)
 
-**🌐 Live:** [eslahoradeaprender.com](https://eslahoradeaprender.com) | **v3.1.0**
+**🌐 Live:** [eslahoradeaprender.com](https://eslahoradeaprender.com) | **v3.5.0**
 
-![Performance](https://img.shields.io/badge/Performance-94-brightgreen?style=flat-square)
-![Accessibility](https://img.shields.io/badge/Accessibility-95-brightgreen?style=flat-square)
-![Best Practices](https://img.shields.io/badge/Best_Practices-96-brightgreen?style=flat-square)
-![SEO](https://img.shields.io/badge/SEO-92-brightgreen?style=flat-square)
+![Performance](https://img.shields.io/badge/Performance-99-brightgreen?style=flat-square)
+![Accessibility](https://img.shields.io/badge/Accessibility-97-brightgreen?style=flat-square)
+![Best Practices](https://img.shields.io/badge/Best_Practices-98-brightgreen?style=flat-square)
+![SEO](https://img.shields.io/badge/SEO-96-brightgreen?style=flat-square)
 
 ---
 
@@ -36,14 +36,13 @@
 
 | # | Título | Fecha | Links |
 |---|--------|-------|-------|
-| 2 | Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más | 2026-02-26 | [YouTube](https://www.youtube.com/watch?v=43nvC-1fxKY) · [Spotify](https://open.spotify.com/episode/5muA5rtP0sWEwxZgt12dF9) · [Web](https://eslahoradeaprender.com/episodios/02-herramientas-ia-build-vs-buy) |
-| 1 | OpenClaw y el Futuro del Trabajo | 2026-02-18 | [YouTube](https://www.youtube.com/watch?v=4hm_iLJu7RQ) · [Spotify](https://open.spotify.com/episode/5PbJqqJMZCzYFewlnqFs53) · [Web](https://eslahoradeaprender.com/episodios/01-openclaw-futuro-trabajo) |
+| 7 | Se cayó Claude, Plan B | 2026-03-31 | [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com) · [Spotify](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C) · [Web](https://eslahoradeaprender.com/)
 
 ### Agregar un episodio
 
 Crear `src/content/episodes/XX-slug.md` con frontmatter → push. Se genera automáticamente: página, sitemap, video-sitemap, RSS, navegación prev/next.
 
-Ver checklist completo: [`skills/podcast-eslahoradeaprender/SKILL.md`](../../skills/podcast-eslahoradeaprender/SKILL.md)
+Ver checklist completo: [skills/podcast-eslahoradeaprender/SKILL.md](../../skills/podcast-eslahoradeaprender/SKILL.md)
 
 ---
 
@@ -87,14 +86,15 @@ npm run validate     # Validar build pre-deploy
 
 ---
 
-## ⚡ Performance (v3.1.0)
+## ⚡ Performance (v3.5.0)
 
-| Métrica | Valor |
-|---------|-------|
-| FCP | 2.5s |
-| LCP | 2.5s |
-| TBT | 0ms |
-| CLS | 0.001 |
+| Métrica | Valor | Porcentaje |
+|---------|-------|-----------|
+| FCP | 2.5s | 95-100% |
+| LCP | 2.5s | 75-89% |
+| TBT | 0ms | 90-100% |
+| CLS | 0.001 | 0-0.1 |
+| PSI | 85-91 | 80-100% |
 
 **Optimizaciones:**
 - YouTube facade pattern (0 iframes en carga inicial, click-to-play)
