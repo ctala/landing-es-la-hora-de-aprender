@@ -10,6 +10,7 @@ export async function getStaticPaths() {
 
 const episode = Astro.params.slug;
 const episodeData = await getCollection('episodes').then(data => data.find(ep => ep.id === episode));
+if (!episodeData) return Astro.redirect('/404');
 const prevEpisode = await getCollection('episodes').then(data => data.sort((a, b) => a.data.episode - b.data.episode).find(ep => ep.data.episode === episodeData.data.episode - 1));
 const nextEpisode = await getCollection('episodes').then(data => data.sort((a, b) => a.data.episode - b.data.episode).find(ep => ep.data.episode === episodeData.data.episode + 1));
 const TOPICS_VISIBLE = 5;
