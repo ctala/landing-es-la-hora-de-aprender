@@ -11,73 +11,57 @@ const TOPICS_VISIBLE = 5;
 ---
 
 <BaseLayout title="Tech Podcast">
-    <!-- Marquee Principal -->
-    <div class="marquee brutal-card z-10 relative">
-        <div class="marquee-content uppercase tracking-tight">
-            ES LA HORA DE APRENDER ⚡️ CRISTIAN TALA ⚡️ DIEGO ARIAS ⚡️ RODRIGO ROJO ⚡️ NUEVO EPISODIO CADA SEMANA ⚡️ TECH
-            & STARTUPS ⚡️ ES LA HORA DE APRENDER ⚡️ CRISTIAN TALA ⚡️ DIEGO ARIAS ⚡️ RODRIGO ROJO ⚡️
-        </div>
-    </div>
-
-    <header id="main-content" class="max-w-6xl mx-auto mb-12 md:mb-20">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch">
-            <div class="lg:col-span-8 brutal-card bg-acid p-6 md:p-16">
-                <h1
-                    class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-6 md:mb-8 tracking-tighter break-words">
-                    ES LA HORA<br>DE <span class="text-white" style="text-shadow: 4px 4px 0px #000;">APRENDER</span>
-                </h1>
-                <div class="flex flex-wrap gap-2 md:gap-4 mb-6 md:mb-8">
-                    <a href="https://www.linkedin.com/in/ctala/" target="_blank" class="name-tag hover:bg-electric transition-colors">Cristian Tala</a>
-                    <a href="https://www.linkedin.com/in/godiegoarias/" target="_blank" class="name-tag hover:bg-electric transition-colors">Diego Arias</a>
-                    <a href="https://www.linkedin.com/in/rodrigorojo/" target="_blank" class="name-tag hover:bg-electric transition-colors">Rodrigo Rojo</a>
-                </div>
-                <p
-                    class="text-lg md:text-2xl font-bold max-w-2xl border-l-4 md:border-l-8 border-black pl-4 md:pl-6 mb-8 md:mb-10">
-                    Tecnologías, IA y el futuro del ecosistema digital analizado semanalmente por quienes están en la
-                    cancha.
-                </p>
-
-                <!-- Botones de Suscripción -->
-                <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
-                    <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1" 
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Suscribirse al canal de YouTube de Es la Hora de Aprender"
-                       class="brutal-btn bg-white hover:bg-red-500 hover:text-white flex items-center justify-center gap-2">
-                        <span class="text-xl md:text-2xl" aria-hidden="true">📺</span> Suscribirse en YouTube
-                    </a>
-                    <a href="https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C" 
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Escuchar el podcast Es la Hora de Aprender en Spotify"
-                       class="brutal-btn bg-electric text-white hover:bg-black flex items-center justify-center gap-2">
-                        <span class="text-xl md:text-2xl" aria-hidden="true">🎧</span> Escuchar en Spotify
+    <!-- Header Compacto -->
+    <header class="max-w-6xl mx-auto mb-4">
+        <div class="brutal-card bg-acid p-4 md:p-5">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <!-- Logo + Tagline -->
+                <div class="flex items-center gap-4">
+                    <a href="/" class="text-2xl md:text-3xl font-black tracking-tighter hover:text-electric transition-colors whitespace-nowrap">
+                        ES LA HORA DE <span class="text-white" style="text-shadow: 2px 2px 0px #000;">APRENDER</span>
                     </a>
                 </div>
-            </div>
-
-            <div class="lg:col-span-4 flex flex-col gap-6">
-                <div class="brutal-card bg-electric p-6 md:p-8 flex-grow text-white flex flex-col justify-center">
-                    <div class="text-4xl md:text-5xl font-black mb-4 tracking-tighter">ÚNETE</div>
-                    <p class="font-bold text-base md:text-lg opacity-90 leading-tight">Suscríbete en YouTube y Spotify para no
-                        perderte ningún episodio.</p>
-                </div>
-                <div class="brutal-card bg-white p-6 md:p-8">
-                    <div class="text-4xl md:text-5xl font-black mb-2 tracking-tighter uppercase text-black">Episodio {latest.data.episode}</div>
-                    <p class="uppercase font-bold tracking-widest text-xs md:text-sm italic text-electric">
-                        {new Date(latest.data.date + 'T12:00:00').toLocaleDateString('es-CL', { month: 'long' })} {new Date(latest.data.date + 'T12:00:00').getFullYear()} • Temporada {latest.data.season}
-                    </p>
+                
+                <!-- Hosts + CTAs -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="hidden lg:flex gap-2">
+                        <a href="https://www.linkedin.com/in/ctala/" target="_blank" class="name-tag-sm hover:bg-electric transition-colors">Cristian</a>
+                        <a href="https://www.linkedin.com/in/godiegoarias/" target="_blank" class="name-tag-sm hover:bg-electric transition-colors">Diego</a>
+                        <a href="https://www.linkedin.com/in/rodrigorojo/" target="_blank" class="name-tag-sm hover:bg-electric transition-colors">Rodrigo</a>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1" 
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Suscribirse en YouTube"
+                           class="brutal-btn-sm bg-white hover:bg-red-500 hover:text-white">
+                            <span aria-hidden="true">📺</span> <span class="hidden sm:inline">YouTube</span>
+                        </a>
+                        <a href="https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C" 
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Escuchar en Spotify"
+                           class="brutal-btn-sm bg-electric text-white hover:bg-black">
+                            <span aria-hidden="true">🎧</span> <span class="hidden sm:inline">Spotify</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto">
+    <!-- Marquee -->
+    <div class="marquee-slim brutal-card z-10 relative mb-8 md:mb-10">
+        <div class="marquee-content-slim uppercase tracking-tight">
+            TECH & STARTUPS ⚡️ NUEVO EPISODIO CADA SEMANA ⚡️ IA Y AUTOMATIZACIÓN ⚡️ TECH & STARTUPS ⚡️ NUEVO EPISODIO CADA SEMANA ⚡️ IA Y AUTOMATIZACIÓN ⚡️
+        </div>
+    </div>
+
+    <main id="main-content" class="max-w-6xl mx-auto">
         <!-- Section: Último Episodio (Featured) -->
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-12 gap-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-10 gap-4">
             <div>
-                <h2 class="text-4xl md:text-6xl tracking-tighter italic">Último <br><span
-                        class="bg-electric text-white px-2 not-italic">Episodio</span></h2>
+                <h1 class="text-3xl md:text-5xl tracking-tighter italic">Último <span class="bg-electric text-white px-2 not-italic">Episodio</span></h1>
             </div>
             <div class="brutal-btn bg-acid cursor-default text-[10px] md:text-xs tracking-[0.2em] py-2 px-4">
                 EP_{String(latest.data.episode).padStart(2, '0')}_LIVE
@@ -85,7 +69,7 @@ const TOPICS_VISIBLE = 5;
         </div>
 
         <!-- Featured Episode Card (Full Size) -->
-        <article class="brutal-card p-6 md:p-10 episode-card mb-16 md:mb-20">
+        <article class="brutal-card p-6 md:p-10 episode-card mb-14 md:mb-16">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
                 <!-- Video Thumbnail (click to play) -->
                 <div class="lg:col-span-7">
@@ -113,16 +97,16 @@ const TOPICS_VISIBLE = 5;
                         <span class="text-sm text-gray-500 ml-3">{latest.data.duration}</span>
                     </div>
                     
-                    <h3 class="text-3xl md:text-4xl font-black mb-4 leading-tight tracking-tighter text-black">
+                    <h2 class="text-2xl md:text-3xl font-black mb-4 leading-tight tracking-tighter text-black">
                         {latest.data.title}
-                    </h3>
+                    </h2>
                     
-                    <p class="text-gray-700 text-base md:text-lg mb-6 leading-relaxed">
+                    <p class="text-gray-700 text-base md:text-lg mb-5 leading-relaxed">
                         {latest.data.description}
                     </p>
 
-                    <div class="mb-6 topics-container" data-total={latest.data.topics.length}>
-                        <h4 class="text-sm font-black uppercase tracking-wider mb-3 text-gray-500">Temas tratados</h4>
+                    <div class="mb-5 topics-container" data-total={latest.data.topics.length}>
+                        <h3 class="text-sm font-black uppercase tracking-wider mb-3 text-gray-500">Temas tratados</h3>
                         <div class="flex flex-wrap gap-2 topics-list">
                             {latest.data.topics.map((topic, i) => (
                                 <span class={`bg-acid text-black px-3 py-1 text-xs font-bold uppercase border-2 border-black topic-tag ${i >= TOPICS_VISIBLE ? 'hidden' : ''}`} data-index={i}>
@@ -164,7 +148,7 @@ const TOPICS_VISIBLE = 5;
         {olderEpisodes.length > 0 && (
             <>
                 <div class="mb-8 md:mb-10">
-                    <h2 class="text-3xl md:text-4xl tracking-tighter italic">Episodios <span class="bg-black text-acid px-2 not-italic">Anteriores</span></h2>
+                    <h2 class="text-2xl md:text-4xl tracking-tighter italic">Episodios <span class="bg-black text-acid px-2 not-italic">Anteriores</span></h2>
                 </div>
 
                 <div id="episodes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -234,6 +218,62 @@ const TOPICS_VISIBLE = 5;
     <SiteFooter />
 
     <style>
+        /* Compact header styles */
+        .name-tag-sm {
+            background-color: var(--black);
+            color: var(--acid-green);
+            padding: 2px 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            border: 2px solid var(--black);
+        }
+        
+        .brutal-btn-sm {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 12px;
+            border: 2px solid var(--black);
+            box-shadow: 3px 3px 0px 0px var(--black);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.1s;
+            text-decoration: none;
+            color: var(--black);
+        }
+        
+        .brutal-btn-sm:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px 0px var(--black);
+        }
+
+        /* Slim marquee */
+        .marquee-slim {
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--electric-blue);
+            color: var(--white);
+            padding: 6px 0;
+            border-bottom: 3px solid var(--black);
+            transform: rotate(-0.5deg) scale(1.01);
+        }
+
+        .marquee-content-slim {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.75rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* YouTube facade */
         .youtube-facade {
             position: relative;
             cursor: pointer;
