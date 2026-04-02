@@ -121,9 +121,14 @@ const TOPICS_VISIBLE = 5;
                             <a href={`/episodios/${ep.id}`} class="block">
                                 <div class="relative aspect-video overflow-hidden">
                                     <img 
-                                        src={ep.data.thumbnail?.replace('.webp', '-sm.webp') || `https://img.youtube.com/vi/${ep.data.youtubeId}/mqdefault.jpg`}
+                                        src={ep.data.thumbnail?.replace('.webp', '-xs.webp') || `https://img.youtube.com/vi/${ep.data.youtubeId}/mqdefault.jpg`}
+                                        srcset={ep.data.thumbnail ? `${ep.data.thumbnail.replace('.webp', '-xs.webp')} 400w, ${ep.data.thumbnail.replace('.webp', '-sm.webp')} 648w` : undefined}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         alt={`Thumbnail: ${ep.data.title}`}
+                                        width="400"
+                                        height="225"
                                         loading="lazy"
+                                        decoding="async"
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     />
                                     <div class="absolute top-3 left-3">
