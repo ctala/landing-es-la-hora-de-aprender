@@ -39,7 +39,7 @@ const TOPICS_VISIBLE = 5;
                 <div class="lg:col-span-7">
                     <div class="video-embed brutal-card youtube-facade" data-id={latest.data.youtubeId}>
                         <img 
-                            src={`https://img.youtube.com/vi/${latest.data.youtubeId}/maxresdefault.jpg`}
+                            src={latest.data.ogImage || `/thumbnails/${latest.data.thumbnail?.replace('/thumbnails/', '').replace('.webp', '-sm.webp')}?v=${latest.data.episode}` || `https://img.youtube.com/vi/${latest.data.youtubeId}/maxresdefault.jpg`}
                             alt={`Thumbnail del episodio: ${latest.data.title}`}
                             loading="eager"
                             width="648"
