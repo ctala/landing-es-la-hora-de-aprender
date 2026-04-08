@@ -3,7 +3,7 @@ title: "Crisis Anthropic: ¿Qué hacer cuando se cae Claude? Modelos alternativo
 slug: "08-crisis-anthropic-modelos-alternativos-ia-local"
 episode: 8
 season: 1
-thumbnail: "/thumbnails/ep08.webp"
+thumbnail: "/thumbnails/ep08-sm-v2.webp"
 date: "2026-04-07"
 duration: "64:00"
 durationSeconds: 3840
