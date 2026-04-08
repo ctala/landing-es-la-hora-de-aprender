@@ -17,7 +17,15 @@ const nextEpisode = await getCollection('episodes').then(data => data.sort((a, b
 const TOPICS_VISIBLE = 5;
 ---
 
-<BaseLayout title={episodeData.data.title}>
+<BaseLayout 
+  title={episodeData.data.title}
+  description={episodeData.data.description}
+  image={episodeData.data.ogImage || `https://eslahoradeaprender.com${episodeData.data.thumbnail}`}
+  ogType="article"
+  keywords={episodeData.data.keywords}
+  datePublished={episodeData.data.date}
+  canonicalUrl={`https://eslahoradeaprender.com/episodios/${episodeData.data.slug}`}
+>
     <SiteHeader />
 
     <main class="max-w-6xl mx-auto">

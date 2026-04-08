@@ -1,5 +1,6 @@
 ---
 title: "Crisis Anthropic: ¿Qué hacer cuando se cae Claude? Modelos alternativos y IA local"
+slug: "08-crisis-anthropic-modelos-alternativos-ia-local"
 episode: 8
 season: 1
 thumbnail: "/thumbnails/ep08.webp"
