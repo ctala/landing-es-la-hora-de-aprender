@@ -1,0 +1,8 @@
+# Ignorar todos los transcripts crudos y procesados
+# El README.md sí se versiona (esta regla solo aplica a transcripts).
+*.txt
+*.vtt
+*.srt
+*.md
+!README.md
+raw/

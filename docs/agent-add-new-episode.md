@@ -102,64 +102,117 @@ keywords:
 
 ---
 
-## Paso 4 — Escribir el body del episodio
+## Paso 4 — Escribir el body del episodio (estándar editorial)
 
 Después del frontmatter, escribe el cuerpo Markdown. **Este contenido sí se renderiza** — es lo que Google indexa y los usuarios leen.
 
-### Estructura recomendada
+**Decisión editorial del proyecto**: usamos **"editorial destilado"** — NO transcript crudo, NO muro de texto. Cada episodio se refactoriza a una pieza editorial de alta densidad semántica usando la conversación como fuente.
+
+### Por qué no transcript crudo
+
+- Signal-to-noise bajo (~40% contenido de valor, ~60% conversación de relleno) diluye señales temáticas.
+- Duplicación con los auto-captions ya indexados en YouTube.
+- AI Overviews (ChatGPT, Perplexity, Google AI) extraen mejor respuestas de H2/H3 + bullets + tablas que de diálogo.
+- Mala UX: nadie escanea 10k palabras; sí escanea 1.800 bien estructuradas.
+- Helpful Content System de Google premia densidad editorial y voz curada, no volumen de texto.
+
+Si el usuario necesita el transcript textual, se ofrece vía YouTube captions (accesible, cumple WCAG, sin carga de mantenimiento).
+
+### Estructura estándar — usar las 8 secciones
 
 ```markdown
-[Párrafo de introducción: 60-100 palabras. Gancho editorial + promesa del episodio. Responde "¿por qué escuchar esto?"]
+[Intro: 60–100 palabras. Hook + promesa. Responde "¿por qué escuchar esto?"
+No reuses el `description` del frontmatter; este es más extenso y con voz editorial.]
 
-## 🎙️ Lo que traemos esta semana
+## Lo que vas a aprender
 
-[Para episodios tipo recap/news: 1 párrafo por host explicando qué trae cada uno. Tono conversacional.]
+- Takeaway 1 — frase accionable, 15–25 palabras
+- Takeaway 2 — ...
+- Takeaway 3 — ...
+- (3 a 5 bullets total, concretos, sin "hablamos sobre X" — usar "aprenderás a X")
 
-## [Sección temática 1 — usa H2 en forma de pregunta cuando aplique]
+## [Sección temática 1 — H2 en forma de pregunta]
 
-[Contenido de la sección. Cita a los hosts con bullet o blockquote cuando corresponda.]
+[2–4 párrafos destilados. Cita hosts con blockquote cuando una frase sea fuerte.
+Usa listas, negritas en términos clave, enlaces a otros episodios cuando apliquen.]
 
-### [Subsección H3 si aplica]
+> "Cita literal de uno de los hosts que vale la pena preservar." — Cristian Tala
 
-[Tablas, listas, citas, negritas. Markdown estándar.]
-
-## [Sección temática 2]
+## [Sección temática 2 — otra pregunta o afirmación fuerte]
 
 ...
 
-## [Sección de conclusión o insight clave]
+## [Sección temática 3]
 
 ...
+
+[Entre 3 y 6 secciones temáticas. Cada sección cubre una idea distinta del episodio.]
+
+## Tabla comparativa
+
+[Incluir **solo** si el episodio compara herramientas, precios, modelos, opciones.
+Si no aplica, omitir la sección.]
+
+| Opción | Cuándo conviene | Costo |
+|---|---|---|
+| ... | ... | ... |
+
+## Capítulos del episodio
+
+- **00:02** — Introducción y bienvenida
+- **05:30** — [Título del bloque]
+- **12:45** — [Título del bloque]
+- ... (8 a 15 marcas de tiempo, distribuidas a lo largo del episodio)
+
+## Preguntas frecuentes
+
+### ¿Pregunta 1 en formato literal de búsqueda?
+
+[Respuesta de 40–80 palabras. Responde directo. Va a FAQ schema cuando exista el campo `faq[]`.]
+
+### ¿Pregunta 2?
+
+...
+
+[3 a 6 FAQs. Son preguntas que alguien googlea. Usa intent real, no "¿De qué trata el episodio?".]
+
+## Recursos mencionados
+
+- **[Nombre de la herramienta/artículo](https://url)** — 1 línea de qué es y por qué es relevante.
+- ...
+
+[Agrupa por tipo si hay muchos: herramientas, artículos, libros, papers, videos.]
 
 ---
 
-## 🔗 Links Mencionados
+🌐 [eslahoradeaprender.com](https://eslahoradeaprender.com) · 🎧 [Spotify](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C) · 📺 [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com)
 
-- **[Nombre descriptivo](https://url)** — qué es y por qué es relevante.
-- ...
-
-🌐 [eslahoradeaprender.com](https://eslahoradeaprender.com)
-🎧 [Spotify](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C)
-📺 [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com)
+_Accesibilidad: activa los subtítulos en el reproductor de YouTube para leer la conversación completa._
 ```
 
 ### Reglas del body
 
-- **Longitud mínima**: 1.200 palabras. Ideal: 2.500–4.500 (incluyendo transcript colapsado cuando exista).
-- **Jerarquía**: solo H2 (`##`) y H3 (`###`) dentro del body. El H1 lo genera el template.
-- **Los H2 en formato pregunta funcionan mejor** para Google AI Overviews. Ejemplo: `## ¿Qué herramientas conviene a una PYME?` en lugar de `## Herramientas para PYMEs`.
-- **Escanabilidad**: usa listas, negritas, tablas y blockquotes. Evita párrafos largos sin anclas visuales.
-- **Enlaces internos**: enlaza a otros episodios con `/episodios/XX-slug` cuando el contenido esté relacionado. Es SEO oro.
-- **Enlaces externos**: libres, descriptivos. No usar `click aquí` como anchor.
-- **Imágenes extra**: si agregas, guárdalas en `public/images/epXX/` y usa `![alt descriptivo](/images/epXX/foo.webp)`.
-- **Emojis en H2**: opcional, usados con moderación para señalización visual. No obligatorios.
+- **Longitud objetivo**: 1.500–2.500 palabras. Denso, escaneable, sin relleno.
+- **No transcript crudo**. Si necesitas apoyar accesibilidad, enlaza a YouTube captions.
+- **Jerarquía**: solo H2 (`##`) y H3 (`###`) — el H1 lo genera el template.
+- **H2 en formato pregunta cuando aplique** ("¿Qué X conviene para Y?") — captura AI Overviews y featured snippets.
+- **Primeros 60–100 palabras after H2**: idealmente respuesta directa a la pregunta (patrón de extracción para AI).
+- **Escanabilidad**: listas, negritas en keywords, tablas, blockquotes. Evita párrafos largos sin anclas visuales.
+- **Nombres propios técnicos**: verificar spelling — los transcripts automáticos fallan con "Qwen" (no "Cuen"), "Kimi", "OpenClaw" (no "Open Claw"), "MiniMax", "Anthropic", "Gemma", "Claude Opus", "Claude Sonnet", "GenSpark", "HeyGen", "Ollama", "Jensen Huang", nombres LATAM específicos, etc.
+- **Enlaces internos**: enlaza a otros episodios con `/episodios/XX-slug` cuando el contenido esté relacionado.
+- **Enlaces externos**: descriptivos en el anchor. No usar "click aquí".
+- **Blockquotes**: `> "..." — Nombre Host` para citas textuales. Aportan textura editorial y señal de autoría.
+- **Imágenes extra**: `public/images/epXX/foo.webp` + `![alt descriptivo](/images/epXX/foo.webp)` con `width`/`height` o Astro Image cuando se migre.
+- **Privacidad**: no publicar nombres completos de terceros mencionados off-record, números de teléfono, emails, datos personales de invitados sin consentimiento explícito. Si el transcript fuente incluye algo así, anonimizar o remover.
 
-### Cuándo agregar secciones específicas
+### Qué NO incluir
 
-- **"Recursos mencionados" al final**: obligatorio si se citan herramientas/libros/papers. Ayuda SEO y UX.
-- **Tablas comparativas**: muy valiosas para featured snippets. Úsalas cuando compares herramientas, precios, opciones.
-- **Blockquotes**: usa `>` para citar a hosts textualmente. Da textura editorial.
-- **Timestamps**: por ahora como texto (`00:12:34 — Tema`). Cuando se agregue el campo `timestamps[]` al schema serán estructurados y clicables.
+- Transcript completo.
+- Muletillas ("eh", "o sea", "cachai" repetitivos, "claro, claro, claro").
+- Chistes internos sin contexto.
+- Referencias circulares de la conversación ("como decía antes", "volviendo a lo de hace rato").
+- Nombres propios de personas mencionadas que no son hosts ni figuras públicas, salvo consentimiento.
+- Información comercial/legal/privada que alguno de los hosts haya compartido off-record.
 
 ---
 
@@ -240,16 +293,50 @@ Después del deploy, **no olvidar**:
 
 ## Checklist final
 
+**Archivo y frontmatter**
+
 - [ ] Archivo `.md` creado con el naming correcto (`XX-slug.md`)
 - [ ] Frontmatter completo y válido
-- [ ] Body Markdown con ≥1.200 palabras
-- [ ] Thumbnails generados en `public/thumbnails/`
+- [ ] `seoTitle` ≤ 65 chars, `seoDescription` 120–155 chars
+- [ ] Thumbnails `epXX.webp`, `epXX-sm.webp`, `epXX-xs.webp` en `public/thumbnails/`
+- [ ] URLs de YouTube y Spotify correctas y apuntan al episodio real
+- [ ] `topics` y `keywords` específicos, no genéricos
+
+**Body editorial (estándar modo B)**
+
+- [ ] Intro 60–100 palabras (hook + promesa), distinta del `description` del frontmatter
+- [ ] Sección "Lo que vas a aprender" con 3–5 takeaways accionables
+- [ ] 3–6 secciones temáticas con H2 preferentemente en formato pregunta
+- [ ] Tabla comparativa si el episodio compara herramientas/precios/opciones
+- [ ] Sección "Capítulos del episodio" con 8–15 timestamps
+- [ ] Al menos 2 blockquotes citando textualmente a los hosts
+- [ ] Sección "Preguntas frecuentes" con 3–6 FAQs (intent real de búsqueda)
+- [ ] Sección "Recursos mencionados" con links externos + internos cuando apliquen
+- [ ] Longitud total del body: 1.500–2.500 palabras
+- [ ] Nombres técnicos verificados (Qwen, Kimi, OpenClaw, MiniMax, Anthropic, etc.)
+- [ ] Sin transcript crudo, sin muletillas, sin datos privados de terceros
+
+**Build y validación**
+
 - [ ] `npm run build` pasa con 0 errores y 0 warnings
 - [ ] HTML generado incluye `PodcastEpisode`, `VideoObject`, `BreadcrumbList`
-- [ ] URLs de YouTube y Spotify son válidas y apuntan al episodio correcto
-- [ ] Topics y keywords son específicos, no genéricos
+- [ ] Shownotes renderizados (verificar que el body aparece en el HTML, no solo el frontmatter)
+
+**Docs sincronizadas**
+
+- [ ] `CHANGELOG.md` actualizado con entrada del episodio
+- [ ] `package.json` con bump de versión según semver
+- [ ] `README.md` si la publicación cambia algo visible desde fuera
+- [ ] `ROADMAP.md` con items marcados como `done` si aplican
+
+**Commit y post-deploy**
+
 - [ ] Commit con mensaje `feat: add Episode XX - <título>`
-- [ ] Después del deploy: validar en schema.org validator y probar social preview
+- [ ] Push a `main` → deploy automático en Cloudflare Pages
+- [ ] Validar schema con https://validator.schema.org/
+- [ ] Rich Results Test https://search.google.com/test/rich-results
+- [ ] Probar social preview (X, LinkedIn, WhatsApp)
+- [ ] Actualizar `scripts/indexnow.sh` con la URL nueva (hoy tiene lista hardcodeada)
 
 ---
 

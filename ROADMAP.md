@@ -32,7 +32,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 
 ## Siguientes (quick wins, alto impacto)
 
-- [ ] **Rellenar body editorial de episodios 01–04** — hoy son solo frontmatter (0 palabras). Son las URLs más antiguas con más potencial de link equity acumulado. Cada uno: intro/hook (60 palabras), 3–5 key takeaways, 3 FAQs, recursos. Objetivo mínimo 1.200 palabras cada uno. Impacto: MUY ALTO · Esfuerzo: 2 días.
+- [x] **Rellenar body editorial de episodios 01–04 y refactorizar 05–09 al estándar modo B** — hecho en v3.8.0 usando los transcripts de Riverside como fuente. Los 9 episodios ahora renderizan 2.000–3.300 palabras cada uno con las 8 secciones obligatorias.
 - [ ] **Extender schema Zod** en `src/content.config.ts` con campos opcionales para soportar la plantilla ideal sin romper los 9 `.md` actuales:
   - `excerpt` (hook corto distinto al description largo)
   - `keyTakeaways: z.array(z.string())`
@@ -46,6 +46,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
   Impacto: habilitador de todo lo demás · Esfuerzo: bajo.
 - [ ] **Renderizar key takeaways + FAQs desde frontmatter** en la página de episodio, cuando los campos existan. Emitir `FAQPage` JSON-LD automáticamente si hay FAQs.
 - [ ] **Topic chips clickables** — hoy `topics[]` solo se muestra como pills decorativas. Hacer que cada chip linkee a `/temas/{slug}` (ver siguiente).
+- [ ] **Links internos de episodios resueltos por número** — hoy los enlaces tipo `/episodios/XX-slug` dentro del body Markdown son hardcoded y pueden romperse si el autor/agente escribe el slug incorrecto. Dos opciones: (a) campo `relatedEpisodes: number[]` en el schema + render automático en el template (resuelve slugs por número de episodio en build), (b) build-time validator que grepea todos los `/episodios/*` del contenido renderizado y falla el build si algún link apunta a un slug inexistente. Ideal las dos. Impacto: evita 404s silenciosos en cada publicación.
 
 ---
 

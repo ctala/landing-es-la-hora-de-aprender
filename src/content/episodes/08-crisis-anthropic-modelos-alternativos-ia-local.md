@@ -41,147 +41,146 @@ keywords:
   - "openclaw modelos alternativos"
 ---
 
-En el episodio 8 de **Es la Hora de Aprender**, conversamos sobre la crisis que vivimos cuando Anthropic canceló la membresía Max para OpenClaw, obligándonos a buscar alternativas urgentes.
+Anthropic mandó un correo el sábado diciendo que sus sistemas **no están optimizados para uso con agentes externos como OpenClaw**, solo para Claude y Claude Code. Si quieres seguir conectando Opus o Sonnet a tu propio agente, pagas por token. Cristian calcula que eso es la diferencia entre $200 al mes (plan Max) y $100 por día. En este episodio, los tres hosts documentan en vivo cómo están migrando: qué modelos alternativos funcionan, qué pasa con la latencia de los modelos open source en la nube, cuándo tiene sentido correr modelos locales y por qué la documentación es la única estrategia que escala entre migraciones.
 
-## 🔴 La Crisis Anthropic
+## Lo que vas a aprender
 
-Anthropic envió un correo diciendo que sus sistemas no están optimizados para uso con agentes externos como OpenClaw, solo para Claude Code y Claude.ai. A partir de ahora, si quieres usar Opus o Sonnet con tu propio agente, **pagas por cada token extra** — lo que se vuelve extremadamente caro.
+- Qué cambió exactamente con Anthropic y cuál es el impacto real en costos (spoiler: 15x)
+- Cómo evaluar alternativas a Opus y Sonnet: Qwen 3.5, Gemma 4, MiniMax 2.7 y modelos locales
+- Por qué un modelo open source en la nube puede ser más lento que correrlo en tu Mac Mini
+- Cuándo conviene hardware local (DGX Spark, Mac Studio, mini-PC) versus seguir pagando APIs
+- Cómo documentar tu forma de trabajar para no perder meses de setup entre cambios de framework
 
-Cristian comparte su experiencia: con la suscripción Max de $200 USD/mes, podía usar Sonnet y Opus ilimitadamente. Ahora, usando los mismos modelos directamente por API, **gastaría $100 USD por día**. La diferencia es brutal.
+## ¿Qué cambió con Anthropic y por qué duele tanto?
 
-## 📉 Problemas de Disponibilidad
+El mail del viernes fue claro: la suscripción Max de $200 deja de alimentar agentes externos. Anthropic dice que sus sistemas están optimizados para las aplicaciones propias (Claude y Claude Code), no para que OpenClaw u otros agentes las consuman por detrás. El uso "extra" ahora se factura por token directamente.
 
-Rodrigo muestra el uptime de Claude en los últimos 90 días:
-- **Claude.ai:** 98% (cortes diarios de ~1 hora)
-- **API:** 99% (pero con caídas parciales)
-- **Claude Code:** Múltiples errores diarios
+La aritmética que Cristian puso sobre la mesa:
 
-La experiencia es horrible: entras a trabajar, le pides ayuda a tu IA y falla. Pierdes confianza del usuario.
+- **Antes (plan Max):** $200/mes, uso ilimitado de Opus y Sonnet desde OpenClaw
+- **Ahora (API directa):** ~$100/día con el mismo volumen de uso
+- **Diferencia neta:** ~15x más caro al mes
 
-**Buena noticia:** Anthropic anunció ampliación de capacidad con servidores de Google. Ojalá lo hagan rápido.
+En paralelo hay un problema de calidad: los propios modelos empezaron a responder peor mientras Anthropic optimiza capacidad. Hay días con servicio parcial, días con latencia alta, días con respuestas más tontas. Rodrigo mostró la página pública de status de Claude: en los últimos 90 días, Claude.ai está en ~98% de uptime, la API en ~99%, y Claude Code tiene errores parciales casi diarios.
 
-## 🚀 Modelos Alternativos
+> "Nosotros ya estamos en el mundo en que dije: bacán, puedo usar mis agentes de IA para sustituir trabajo operativo. ¿Y nos hacen más tontas las IAs? ¿En serio?" — Cristian Tala
 
-### **Qwen3.5-27B** (Recomendado por Cristian)
-- Funciona increíble con OpenClaw
-- **100x más barato** que Sonnet
-- Tool use nativo optimizado
-- Bug reportado: cuando thinking está activado, no recibe la lista de herramientas
+Hay buena noticia en medio: Anthropic anunció ampliación de capacidad con servidores de Google. Se espera que mejore en semanas.
 
-### **Gemini 4 (Gemma 4)**
-- Modelo open source de Google (lanzado fines de marzo 2026)
-- Funciona muy bien en Android y local
-- **Problema:** Lentísimo en la nube (10 segundos local → 1 minuto en API)
-- Nivel de inteligencia comparable a GPT-4o y Gemini 2.5 de hace 2 años
+## ¿Qué modelos alternativos están funcionando de verdad?
 
-### **Modelos Locales**
-Rodrigo corre **Gemma 26B** en su mini PC (AMD Ryzen, 64GB RAM):
-- Clasificación de posts para su sitio de noticias
-- Prevalidación antes de enviar a GPT-5.4 para redacción final
-- **Velocidad:** 15 tokens/segundo (aceptable para tareas específicas)
+Cristian corrió un benchmark con 8 modelos usando los mismos 20 inputs de su pipeline de noticias en EcosistemaStartup. Varios modelos igualaron o superaron a Sonnet — con precios 20 a 100 veces menores. Lo que funciona hoy para agentes:
 
-## 💰 Costos y Optimización
+- **Qwen 3.5 (vía OpenRouter)** — Funciona excelente con OpenClaw para tool use. ~100x más barato que Sonnet. Tiene un bug reportado: cuando el modo thinking está activado, no recibe la lista de herramientas. Cristian perdió horas en ese bug.
+- **Kimi K2 / Kimi 2.6** — Contexto largo, 6x más barato que Opus. Buen candidato para tareas pesadas en contexto.
+- **MiniMax 2.7** — Muy buen uso de herramienta, comportamiento agéntico sólido. Diego lo está usando como default porque consume menos tokens.
+- **Gemma 4 (Google, open source)** — Salió a fines de la semana pasada. Nivel comparable a GPT-4o y Gemini 2.5 de hace dos años. Corre bien local (Android, Mac, mini-PC) pero en la nube de Google está brutalmente lento: tareas de 10 segundos local se demoran 1 minuto por API.
 
-Cristian comparte el impacto real:
-- **Antes (Max subscription):** $200 USD/mes ilimitado
-- **Ahora (API directa):** $100 USD/día = $3,000 USD/mes
-- **Diferencia:** 15x más caro
+La conclusión operativa del trío: **no existe un reemplazo 1:1 de Opus**. Lo que existe es una estrategia de modelos mezclados — el modelo caro para lo que realmente lo necesita, el modelo barato para el resto.
 
-Diego menciona el caso de Meta:
-- Supuestamente gastan **$5 millones USD/mes por persona** en tokens
-- Tienen un "Claude Board" mostrando quién consume más tokens
-- **Problema:** El incentivo es gastar, no optimizar
+## ¿Cuándo conviene correr modelos locales en lugar de API?
 
-Rodrigo: *"¿Qué estás optimizando? ¿Tokens porque sí? ¿O productividad real?"*
+Rodrigo está corriendo **Gemma 26B** en un mini-PC AMD Ryzen 7 con 64 GB de RAM (~$1.000 USD) y lo usa para la clasificación editorial de su sitio de noticias de IA. El modelo clasifica si un post pasa el criterio editorial, le hace scoring, y recién ahí pasa a GPT-5.4 (o antes, a Sonnet) para redacción final. Velocidad de escritura en ese mini-PC: ~15 tokens/seg — aceptable para tareas cortas, lento para redacción larga.
 
-## 🖥️ Hardware para IA Local
+Los casos donde correr local tiene sentido claro:
 
-### **DGX Spark (NVIDIA)**
-- Cristian intentó comprarlo, pero **cancelaron su orden** (solo disponible en EE.UU.)
-- Hardware para desarrolladores, misma arquitectura que servidores NVIDIA
-- Precio: Alto, pero justificado para uso intensivo
+- **Datos sensibles** — Salud, banca, data personal. En Chile, la Ley de Protección de Datos Personales entra en vigencia en diciembre de 2026. Para muchos rubros, el modelo nunca puede salir del datacenter.
+- **Latencia crítica** — IoT con sensores, visión computacional en tiempo real, clasificación de contenido a volumen alto.
+- **Recursos ociosos** — En una startup todos tienen un MacBook capaz de correr modelos locales aceptables en paralelo a su trabajo. Tokens gratis si los gestionas bien.
+- **Prevalidación** — Filtrar qué llega a un modelo caro. El local hace el gate; el modelo grande hace el trabajo fino.
 
-### **Mac Studio M3 Ultra**
-- 512GB RAM disponibles (pero Apple solo vende 256GB ahora)
-- **Entrega:** 4-5 meses de espera
-- Crisis de RAM global por demanda de IA
+Un ejemplo de Rodrigo (con actores cambiados para proteger al cliente): una empresa que dependía de la calidad del agua tenía a una persona mirando un tanque 24/7. Sensores baratos + modelo local que corre en una cajita IoT + alerta por internet cuando hay anomalía. La persona deja de hacer la tarea; interviene solo cuando el sistema dispara.
 
-### **Mini PC de Rodrigo**
-- AMD Ryzen 7 5700G, 64GB RAM
-- Corre Gemma 26B y Qwen3.5-9B
-- Costo: ~$1,000 USD
-- **Uso:** Clasificación de contenido, tareas específicas
+## ¿Qué hardware conviene para correr modelos locales en 2026?
 
-## 🏢 Casos de Uso Empresarial
+La demanda global de RAM por IA disparó precios y esperas. Los tres hosts compararon opciones en vivo:
 
-### **Seguridad y Privacidad**
-- Empresas de salud, banca, datos sensibles
-- **Ventaja IA local:** La data nunca sale del datacenter
-- **Chile:** Ley de protección de datos personales entra en vigencia diciembre 2026
+| Opción | Precio aproximado | Disponibilidad | Para qué conviene |
+|---|---|---|---|
+| **Mini-PC AMD Ryzen + 64 GB RAM** | ~$1.000 USD | Inmediata | Modelos 7B-26B, tareas específicas, clasificación, prevalidación |
+| **NVIDIA DGX Spark** | Alto, rango developer | Solo EE.UU.; Cristian intentó y le cancelaron la orden desde Chile | Desarrollo IA, múltiples modelos en paralelo, arquitectura de servidores NVIDIA a escala personal |
+| **Mac Studio M3 Ultra (512 GB RAM)** | Top de gama | 4–5 meses de espera; Apple ya solo vende el de 256 GB | Modelos grandes, velocidad de tokens alta, setup silencioso |
+| **Mac Mini 64 GB** | Medio | Mejor que el M3 Ultra hoy | Tokens/seg aceptables, footprint bajo, conectable a OpenClaw |
 
-### **IoT + Modelos Locales**
-Rodrigo comparte un caso (anonimizado):
-- Empresa dependiente de calidad del agua
-- Sensores + modelo local → alerta por IoT si detecta anomalías
-- **Antes:** Persona sentada mirando el agua 24/7
-- **Ahora:** Automatizado, solo interviene cuando hay problema
+La regla pragmática que salió: si puedes esperar 3–4 meses, espera. Viene Mac Studio M5, probablemente un DGX Spark 2, y la crisis de RAM debería aflojar. Si no puedes esperar, un mini-PC bien configurado con Gemma o Qwen local te deja operativo hoy por ~$1.000.
 
-### **Visión Computacional**
-- Cámaras + modelos open source para detectar patrones
-- Ejemplo: Restaurante → analizar flujo de clientes → optimizar distribución de mesas
-- LLM multimodal sugiere mejoras de layout
+## ¿Por qué el incentivo de "quemar más tokens" está roto?
 
-## 📊 Madurez de Adopción
+Diego mencionó una conversación con un contacto en Meta: la política interna es gastar ~$5 millones al mes por ingeniero en tokens. Tienen un dashboard público — el "Claude Board" o similar — mostrando quién consumió más. Apple, según la misma fuente, tiene un tope muy inferior y una estrategia más dirigida.
 
-Cristian: *"Solo el 6% de las personas usan IA activamente hoy. El 94% está atrás."*
+> "¿Qué estás optimizando? ¿Tokens porque sí? ¿Son tokens de exploración y aprendizaje? ¿O son tokens para llenar la barra y ganarle al resto? No sé si ese es el incentivo correcto." — Rodrigo Rojo
 
-Rodrigo observa un cambio en sus talleres:
-- **Antes:** "¿Cómo funciona esto?"
-- **Ahora:** "¿Cómo hago este documento específico?"
+La crítica de los tres fue unánime: maximizar tokens consumidos es el incentivo equivalente a que un CEO se premie por facturación y no por margen. Termina vendiendo bajo costo, cobrando bono y desangrando a la empresa. Los tokens tienen que traducirse en output con valor medible — ingreso, código útil, decisiones mejores, tiempo ahorrado.
 
-La gente ya no quiere aprender prompting, quiere **recetas listas para usar**.
+## ¿Qué pasa con la madurez de adopción en el mercado real?
 
-## 🤖 Agentes como Colaboradores
+Cristian tiró un dato crudo: **solo ~6% de las personas usan IA activamente hoy**. El 94% restante está atrás. Rodrigo lo complementó desde sus talleres: hasta hace meses, la pregunta era "¿cómo funciona esto?". Ahora es "¿cómo hago este documento específico?" — la gente quiere recetas, no clases de prompting.
 
-Cristian: *"Cuando te acostumbras a interactuar en tiempo real con un asistente que hace las cosas por ti, y después te dicen 'la API se cayó', es horrible."*
+Esto tiene dos implicancias:
 
-Diego: *"Todos los empleados deberían estar aumentados — con un agente o con tecnología agéntica por detrás. Si no se adaptan, están fuera."*
+- **Para early adopters:** la ventaja competitiva sigue creciendo, no disminuyendo. Mientras otros preguntan cómo prender la herramienta, tú estás documentando agentes.
+- **Para empresas:** el plan de adopción no puede ser "metan las manos en Claude Code". Necesitas habilitación masiva con la herramienta más simple (Copilot Chat gratis en Microsoft, Gemini en Google Workspace), capacitación de prompting, programa de Champions internos, y recién ahí proyectos específicos con agentes.
 
-Rodrigo: *"La IA es el asistente, pero alguien tiene que darle dirección y contexto. Eso lo hace una persona."*
+## ¿Cómo documentar para sobrevivir a la próxima migración?
 
-## 📝 Documentación como Estrategia
+Rodrigo llevaba dos "reencarnaciones" de su agente Sheldon antes de este episodio. La lección que sacó: **la única forma de migrar sin perder meses es documentar todo en formatos livianos que la IA pueda leer.**
 
-Rodrigo comparte su aprendizaje tras dos "reencarnaciones" de su agente Sheldon:
+> "Le digo a mi agente: 'creemos este procedimiento, documéntalo'. Si después cambio de framework o de agente, le paso la documentación y dice 'acá está el way of work, lo adapto'. Lo mismo con un computador: si muere, agarro otro, pongo Dropbox y sigo." — Rodrigo Rojo
 
-> *"Documenté todo. Le digo: 'creemos este procedimiento, documentalo'. Si después cambio de framework o agente, le paso la documentación y dice: 'aca está el way of work, lo adapto'. Lo mismo con un computador: si muere, agarro otro, pongo Dropbox y sigo."*
+El patrón aplica también a empresas. Documentar procesos en Markdown, Obsidian, Notion — cualquier formato que el agente pueda ingerir — es lo que te permite cambiar de OpenClaw a GenSpark, de Claude a Qwen, o de un framework a otro sin reescribir todo desde cero. Si tu conocimiento vive solo en la cabeza de las personas, cada cambio de herramienta te cuesta semanas.
 
-**Lección para empresas:** Documentar en formatos livianos y simples es crucial para migrar entre herramientas sin perder conocimiento.
+## Capítulos del episodio
 
-## 🎯 Próximos Pasos
+- **00:01** — Bienvenida y qué han estado jugando esta semana
+- **03:48** — Benchmark de 8 modelos para el pipeline de noticias de Cristian
+- **05:09** — Qué pasó con Anthropic: mail del sábado y cancelación del uso con agentes
+- **10:06** — Gemma 4: funciona increíble local, lentísimo en la nube
+- **14:03** — Por qué Meta usa Claude para desarrollar Llama (y qué pasó con Llama 4)
+- **21:05** — Cristian compró un NVIDIA DGX Spark y se lo cancelaron desde Chile
+- **27:49** — Debate: MiniMax 2.7 vs Opus en costo/beneficio
+- **29:35** — Gemma 26B corriendo local en mini-PC a 15 tokens/seg
+- **33:32** — Cuándo conviene IA local: datos sensibles, IoT, visión computacional
+- **39:42** — Solo el 6% usa IA activamente: la brecha con el mainstream
+- **50:37** — Dos reencarnaciones de Sheldon: documentar como estrategia de migración
+- **55:51** — El problema de incentivos en Meta: $5M/mes por persona en tokens
+- **1:00:42** — Próximos proyectos: instancia óptima de OpenClaw sin Anthropic
 
-**Cristian:** *"Voy a generar la mejor instancia de OpenClaw posible sin usar modelos de Anthropic. Lo voy a documentar porque hice pruebas el fin de semana y tengo una configuración temporal que espero optimizar."*
+## Preguntas frecuentes
 
-**Diego:** *"Tengo prometida una competencia de agentes para hacer conversiones de leads, no solo generación. Voy a estar comentando eso."*
+### ¿Por qué Anthropic cortó el uso de Opus con OpenClaw si pagué el plan Max?
 
-**Rodrigo:** *"Sigo documentando. Tuve sesiones con Sofia Chan (coach WAI de Simon Sinek) para definir mi propósito y alinear a mi agente Sheldon con eso."*
+La explicación oficial es que sus servidores no están optimizados para ese patrón de consumo — agentes externos que mantienen sesiones largas, múltiples tool calls por tarea, y contexto grande persistente. El uso esperado del plan Max es desde Claude.ai y Claude Code, donde Anthropic controla cliente y servidor. Si quieres seguir usando Opus o Sonnet desde OpenClaw, tienes que pagar tokens directamente por API — lo que para uso agéntico intensivo resulta ~15x más caro.
+
+### ¿Qué alternativa real tengo si Sonnet ya no me conviene por costo?
+
+MiniMax 2.7 y Qwen 3.5 son los dos más mencionados por la comunidad para uso agéntico con OpenClaw en 2026. MiniMax tiene mejor uso de herramienta out-of-the-box. Qwen 3.5 es 100x más barato que Sonnet vía OpenRouter, pero tiene un bug conocido: si activas el modo thinking, no le pasa la lista de herramientas. Si necesitas escritura larga con calidad alta, GPT-5.4 o Gemini 3.1 son razonables. Para tareas sensibles a privacidad, Gemma 26B corre bien local en un mini-PC de ~$1.000.
+
+### ¿Vale la pena comprarme hardware para correr modelos locales?
+
+Depende del volumen y la sensibilidad. Si estás pagando más de ~$300 al mes en APIs de IA para tareas que podrían correr en un modelo 7B-26B (clasificación, prevalidación, resúmenes cortos, generación de descripciones), el mini-PC se paga solo en 3-4 meses. Si además manejas datos sensibles (salud, banca, data personal), el argumento de compliance vale más que el ahorro. Lo que no conviene hoy es comprar hardware top (Mac Studio M3 Ultra, DGX Spark) solo por curiosidad — espera 3-4 meses a que salga la próxima generación y ceda la crisis de RAM.
+
+### ¿Cómo sé si una empresa está usando mal los incentivos de tokens?
+
+Pregunta qué está optimizando. Si el KPI visible es "tokens consumidos por persona" sin una métrica de output real — código mergeado, clientes atendidos, decisiones acertadas, tiempo ahorrado medido — el incentivo está desalineado. Los tokens son insumo, no resultado. La pregunta correcta es: "¿ese gasto en tokens cuánto ingreso, cuánto ahorro o cuánta velocidad me devolvió?" Si no hay respuesta clara, estás quemando plata con un dashboard bonito.
+
+### ¿Qué es lo mínimo que debo documentar para sobrevivir a la próxima migración?
+
+Cuatro cosas, todas en Markdown plano: (1) tu way of work — cómo abordas las tareas habituales, (2) las herramientas que usas y por qué, (3) tus reglas de negocio internas — criterios editoriales, políticas de respuesta, tono, (4) las integraciones activas — qué servicios externos tocas, con qué credenciales, qué hacen. Si tu agente puede leer esos cuatro archivos, puedes cambiar de framework en un fin de semana en lugar de dos meses.
+
+## Recursos mencionados
+
+- **[OpenClaw](https://openclaw.ai)** — Framework open source de agentes, base de muchos de los setups comentados.
+- **[OpenRouter](https://openrouter.ai/)** — Ruteo unificado para consumir modelos open source como Qwen, Gemma, Kimi.
+- **[Gemma 4 (Google)](https://ai.google.dev/gemma)** — Nuevo modelo open source de Google, corre local en Android, Mac, mini-PC.
+- **[NVIDIA DGX Spark](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)** — Hardware para desarrolladores de IA, arquitectura server en formato personal.
+- **[Mac Studio](https://www.apple.com/shop/buy-mac/mac-studio)** — Top de gama Apple para correr modelos grandes local.
+- **[Ollama](https://ollama.com/)** — Runtime simple para correr LLMs open source en tu computador.
+- **[LM Studio](https://lmstudio.ai/)** — Interfaz gráfica para probar modelos open source local.
+- Episodio anterior: [EP07 — Se cayó Claude y no pude trabajar](/episodios/07-se-cayo-claude-plan-b-ia)
+- Episodio siguiente: [EP09 — Estrategia de IA según el tamaño de tu empresa](/episodios/09-estrategia-ia-tamano-empresa-solo-entrepreneur)
 
 ---
 
-## 🔗 Links Mencionados
+🌐 [eslahoradeaprender.com](https://eslahoradeaprender.com) · 🎧 [Spotify](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C) · 📺 [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com)
 
-- **OpenClaw:** https://openclaw.ai
-- **Qwen en OpenRouter:** https://openrouter.ai/qwen
-- **Gemini 4 (Google):** https://gemini.google
-- **DGX Spark (NVIDIA):** https://www.nvidia.com/dgx-spark
-- **Mac Studio M3 Ultra:** https://www.apple.com/mac-studio
-- **Claude System Card (Maitos):** [Link en descripción de YouTube]
-
----
-
-## 🎧 Suscríbete
-
-🌐 [eslahoradeaprender.com](https://eslahoradeaprender.com)  
-🎧 [Spotify](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C)  
-📺 [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com)
-
-**Únete a Cágala, Aprende, Repite** — [skool.com/cagala-aprende-repite](https://www.skool.com/cagala-aprende-repite/about)
+_Accesibilidad: activa los subtítulos en el reproductor de YouTube para leer la conversación completa._

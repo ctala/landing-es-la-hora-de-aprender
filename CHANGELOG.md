@@ -4,6 +4,39 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.8.0] - 2026-04-22
+
+### 📝 Shownotes editoriales completos para los 9 episodios
+
+Usando transcripts originales de Riverside como fuente, cada episodio pasó a tener un body editorial denso siguiendo el estándar "modo B" (ver `docs/agent-add-new-episode.md`): intro con hook, key takeaways, 3-6 secciones temáticas con H2 en formato pregunta, tabla comparativa cuando aplica, capítulos con timestamps, FAQs con intent real, recursos mencionados, y footer de accesibilidad.
+
+#### Contenido
+
+- **EP01–EP04** reconstruidos desde cero: pasaron de 0 palabras visibles a ~2.000 cada uno.
+- **EP05–EP08** refactorizados al estándar preservando ideas y citas del body anterior.
+- **EP09** completado con las secciones faltantes (FAQs, capítulos, tabla).
+- **Total agregado**: ~22.000 palabras de contenido editorial indexable.
+- **Privacy**: scrub manual de nombres propios off-record, datos personales, comentarios privados. Fuentes de verdad (nombres técnicos, cifras) verificadas contra el transcript.
+
+#### Workflow
+
+- Auditoría del contenido generado por el sub-agente `seo-strategist` antes del commit: 0 links internos rotos, 8 secciones obligatorias presentes en los 9 episodios, FAQs listas para emitir `FAQPage` JSON-LD a futuro.
+- Corrección automática de nombres técnicos mal transcritos (Qwen, OpenClaw, MiniMax, Claude Cowork, Anthropic, Jensen Huang, Andrej Karpathy, GenSpark, HeyGen, Ollama, etc.).
+- Verificación del nombre real del creador de OpenClaw: **Peter Steinberger** (austríaco, ex-Clawdbot/Moltbot, se sumó a OpenAI en febrero 2026). El transcript original contenía "Pete Stinberg" por error ASR.
+
+#### Archive de transcripts
+
+- Nuevo directorio `transcripts/` con `README.md` versionado y `.gitignore` local que excluye los archivos crudos (`.txt`, `.vtt`, `.srt`, `.md`). Los transcripts originales se mantienen fuera del repo público por privacidad; el directorio documenta el protocolo.
+
+#### Validación
+
+- `npm run build`: 0 errores, 0 warnings.
+- HTML generado verificado: los body de los 9 episodios ahora renderizan 2.000–3.300 palabras cada uno (antes 80–1.500).
+- URLs preservadas — los 9 slugs de los episodios son idénticos a los previos.
+- JSON-LD `PodcastEpisode` + `VideoObject` + `BreadcrumbList` presentes en las 9 páginas.
+
+---
+
 ## [3.7.0] - 2026-04-22
 
 ### 🔍 SEO + discoverability: fix mayor de contenido invisible

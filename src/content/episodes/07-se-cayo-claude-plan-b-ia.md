@@ -55,97 +55,135 @@ keywords:
   - "qwen 3.5 omni audio"
 ---
 
-Cristian abre el episodio con una confesión: **se casó con Anthropic** y cuando Claude se cayó, no pudo trabajar. Un día entero de baja productividad porque decidió no usar su plan B. El debate que sigue toca fibras sensibles: ¿cuánta dependencia es demasiada?
+Cristian abre este episodio con una confesión dura: **se casó con Anthropic** y cuando Claude se cayó, no pudo trabajar. Un día entero improductivo porque decidió no usar su plan B. La conversación que sigue toca fibras sensibles — dependencia de LLMs, SLAs que nadie está midiendo, la filtración del código de Claude Code, el CEO de JP Morgan pidiendo regulación para "salvar la sociedad", y por qué el cuello de botella de la IA seguimos siendo los humanos.
 
-## El mea culpa de Cristian
+## Lo que vas a aprender
 
-> "Tomé la decisión a propósito de casarme con Anthropic. Tengo el plan de $200 dólares, Cloud Code, Cowork, OpenClaw... y ayer falló. El último mes se cayó como cinco veces."
+- Cómo diseñar un plan de contingencia real cuando tu productividad depende de un LLM específico
+- Por qué un SLA de 93,7% en tu proveedor crítico equivale a una semana laboral completa sin servicio al mes
+- Qué pasó con la filtración del código de Claude Code y por qué la competencia acaba de recibir años de trabajo gratis
+- Cómo leer la señal política de que un CEO de banco grande pida regulación post-despidos por IA
+- Qué proyectos concretos están ejecutando los hosts esta semana y por qué pueden servirte de template
 
-La pregunta obvia: ¿por qué no usó Gemini o GPT como fallback? La respuesta es reveladora — **no quería**. La calidad de Claude para su flujo de trabajo es tan superior que prefirió hacer reuniones, llamar por teléfono, cualquier cosa menos usar otro modelo.
+## ¿Qué hacer cuando tu LLM favorito se cae en medio del día laboral?
 
-Rodrigo confirma: le pasa lo mismo. La personalidad de Claude, cómo resuelve, cómo escribe... es un compañero de trabajo que tiene estilo propio.
+La respuesta corta: tener al menos un fallback funcional antes de que lo necesites. La respuesta larga es más incómoda. Cristian confesó que sí tenía un plan de contingencia técnico — Gemini, GPT, OpenRouter para ciertos modelos — pero **no quiso usarlo**. La calidad de Claude para su flujo de trabajo es tan superior que prefirió hacer reuniones, llamar por teléfono, cualquier cosa menos cambiar de modelo.
 
-## GitHub: 93.7% de SLA en marzo
+> "Tomé la decisión a propósito de casarme con Anthropic. Tengo el plan de $200, Claude Code, Claude Cowork, OpenClaw. Ayer falló. El último mes se cayó como cinco veces." — Cristian Tala
 
-Cristian trae el dato duro: GitHub tuvo un SLA de **93.7%** en marzo. Suena bien (está sobre 90%), pero la matemática es brutal:
-- 99.9% SLA = 43 minutos de downtime permitido al mes
-- 93.7% SLA = **45 horas** de downtime
+Rodrigo confirmó que le pasa lo mismo: la personalidad del modelo importa. Claude escribe distinto, resuelve distinto, tiene un estilo propio. Diego — que está usando MiniMax 2.7 para gastar menos tokens — fue el único que defendió la rotación pragmática entre modelos.
 
-45 horas es una semana laboral completa. Si tu productividad depende de estas herramientas, ya no eres productivo.
+La lección operativa es más dura que la emocional: en ambientes productivos **consume Claude por la API de AWS Bedrock o Azure, no directo de Anthropic**. Mismo modelo, infraestructura distinta. Si se cae una, consumes de la otra.
 
-## El riesgo que nadie quiere ver
+## ¿Por qué un SLA de 99% ya no alcanza?
 
-Diego plantea lo esencial: siempre hay que tener un proveedor backup. Se cae el internet, llamas a otro ISP. Se cae Claude, usas GPT. No puedes parar.
+Cristian trajo el dato duro del capítulo: GitHub tuvo un SLA de **93,7% en marzo**. Suena bien — está sobre 90%. Pero la matemática es brutal:
 
-Rodrigo va más profundo: el problema no es solo técnico. **Hay empresas que colapsan cuando Notion se cae**. No pueden ver la lista de tareas, no saben qué hacer. La dependencia se volvió patológica.
+- 99,9% SLA permite 43 minutos de downtime mensual
+- 93,7% SLA equivale a **45 horas** de downtime
 
-> "Estos son sistemas que te multiplican, pero uno debería ser capaz de hacer su pega solo."
+45 horas es una semana laboral completa. Si tu productividad depende de una herramienta con ese uptime, no eres productivo: eres rehén. Rodrigo llevó el punto más lejos: **hay empresas que colapsan cuando Notion se cae**. No es que la herramienta ejecute trabajo; es que toda la lista de tareas vive ahí. Sin Notion, giran en círculo.
 
-## La filtración de Claude Code
+> "Estos son sistemas que te multiplican, pero uno debería ser capaz de hacer su pega solo." — Rodrigo Rojo
 
-El giro del episodio: Anthropic filtró **todo el código fuente de Claude Code** por un error humano (alguien lo sacó del .gitignore). La competencia recibió años de trabajo gratis.
+## La filtración del código de Claude Code: ¿error o jugada de marketing?
 
-Lo más loco:
-- **44 funcionalidades ocultas** con flags para no mostrar en la versión oficial
+El giro del episodio. Hace dos días Anthropic publicó **todo el código fuente del cliente de Claude Code** — no el modelo, pero sí el arnés con el que se conducía — porque alguien lo sacó del `.gitignore`. En horas la comunidad descubrió:
+
+- **44 funcionalidades ocultas** detrás de feature flags
 - Una llamada **Kairos**: agente autónomo de largo plazo
-- La comunidad ya tiene clones en Rust
-- Anthropic **no ha dicho nada** — de hecho, los desarrolladores reaccionan orgullosos a los hallazgos
+- Clones en Rust ya publicados en Twitter
+- Un archivo interno con una lista enorme de palabras inventadas (`flavorgusting`, etc.) que aparecen mientras Claude "piensa"
 
-¿Error o marketing? Rodrigo especula que quizás están aprovechando la situación. Dado que pasó, mejor que la gente aprenda.
+Lo más raro: Anthropic **no se ha pronunciado**. Los propios desarrolladores del equipo Claude están reaccionando orgullosos a lo que se encontró, en lugar de pedir que bajen los repos. Diego especuló con una posible jugada de marketing previa a un IPO. Rodrigo lo dejó abierto: dado que pasó, mejor aprovechar el momento.
 
-## Claude Maitos y Claude Capibara
+En paralelo se filtraron rumores de dos modelos: **Claude Maitos** y **Claude Capibara**, supuestamente más potentes que Opus. Coincidencia sospechosa.
 
-Se filtraron rumores de dos modelos nuevos: **Claude Maitos** y **Claude Capibara**, supuestamente más potentes que Opus. Justo cuando se filtró el código. Coincidencia sospechosa.
+En la misma ventana de noticias, Qwen lanzó **Qwen 3.5 Omni** con capacidades de audio nativo — un recordatorio de que la frontera de modelos no se detiene mientras Anthropic arregla su infraestructura.
 
-Diego agrega: Anthropic podría estar bajando el perfil porque viene un IPO.
+## ¿OpenClaw local, GenSpark Cloud o NemoClaw de NVIDIA?
 
-## GenSpark Cloud y NemoClaw: OpenClaw empresarial
+Para quienes están cansados de pelear con errores de OpenClaw instalado a pulso, aparecieron dos alternativas empresariales que vale la pena nombrar:
 
-Para los que están cansados de pelear con errores de OpenClaw local, hay opciones:
+**GenSpark Cloud** — Diego lleva varias semanas usándolo y es el único OpenClaw suyo que "no se ha muerto". El arnés que GenSpark monta encima hace que el modelo se comporte mejor. El trade-off: no eliges todos los modelos, pero tampoco peleas con API keys ni credenciales.
 
-**GenSpark Cloud:** Diego lo recomienda. Has matado varios OpenClaw en diferentes servidores, pero el de GenSpark ha sobrevivido. El arnés que ponen encima hace que el modelo se comporte mejor.
+**NemoClaw de NVIDIA** — Rodrigo lo resumió así: es OpenClaw con corbata y maletín. Mismo código por debajo, pero con ambiente Docker privado, hardware validado, capas de seguridad enterprise. "Le pone trajecito para que pueda ir a la oficina sin que nadie hable de problemas de seguridad." NVIDIA entró como patrocinador oficial del proyecto OpenClaw.
 
-**NemoClaw de NVIDIA:** Básicamente OpenClaw con corbata y maletín. Mismo código por debajo, pero con capas de seguridad enterprise, ambiente Docker privado, hardware validado. La analogía de Rodrigo: "Le pone trajecito para que pueda ir a la oficina sin que nadie hable de problemas de seguridad."
+El contrapunto crítico también salió: las últimas actualizaciones de OpenClaw endurecieron tanto los permisos que **rompieron flujos que funcionaban hace dos semanas**. Rodrigo tuvo que reinstalar su setup; el flujo Readwise → Reader → Obsidian que tenía armado dejó de poder crear archivos. Trabajar en tecnología experimental implica aceptar que cada release puede romperte algo.
 
-## CEO de JP Morgan: "Salvar la sociedad"
+## ¿Es sensato pedir regulación para "salvar la sociedad"?
 
-El dato más provocador del episodio: el CEO del banco más grande de Estados Unidos, después de despedir a mucha gente por IA, dijo que **apoyaría regulación para proteger empleos** si el gobierno la impusiera. Para "salvar la sociedad".
+El CEO del banco más grande de Estados Unidos — JP Morgan — después de una ola de despidos atribuida a IA, declaró en una entrevista que **apoyaría regulación gubernamental que protegiera empleos**, "para salvar la sociedad".
 
-Cristian lo interpreta generosamente: quizás es un llamado a ir paso a paso, a que el cambio no genere caos social.
+Cristian lo leyó con generosidad: quizás es un llamado a moderar la velocidad del cambio y evitar caos social. Rodrigo fue más duro. Recordó la carta de 2023 firmada por Elon Musk, Yuval Noah Harari y otros científicos pidiendo pausar el desarrollo de IA — no pasó nada, el campo aceleró más que nunca.
 
-Rodrigo es más duro: cada cambio tecnológico cambió la sociedad. No podemos frenar esto, ya está suelto en código abierto. La pregunta no es cómo parar, es **cómo preparar a la sociedad para navegar el nuevo mundo**.
+> "El camino no es frenar esto. Es cómo hago para que la sociedad sepa navegar en este nuevo mundo. Si alguien quisiera hacer el mal, el código abierto ya está suelto. Un computador potente en una cabaña con un pendrive puede correrlo." — Rodrigo Rojo
 
-## El tsunami y los haters
+La segunda parte del debate fue más local: en redes sociales los hosts están recibiendo hate de gente que niega cosas que están públicamente documentadas ("estás mintiendo", "esto es falso"). Las fuentes están en el post. La resistencia no es racional; es supervivencia psicológica.
 
-Cristian comparte que está recibiendo hate en LinkedIn. Gente que le dice que miente, que exagera. Incluso cuando los posts tienen las fuentes abajo.
+## ¿En qué están trabajando los hosts esta semana?
 
-> "Viene un tsunami gigante. Puedes aprender a surfear o quedarte tomando sol en la playa. Pero el tsunami va a pasar igual."
+Cada uno cerró con un proyecto concreto. Vale la pena listarlos porque son casos de uso reales, no teóricos:
 
-La resistencia al cambio es humana, pero el cambio no espera. Las empresas que ya están experimentando van a sobrevivir. Las que dicen "eso no puede ser" van a despertar con el agua al cuello.
+**Cristian** — Mantiene Anthropic como modelo prioritario y levantó un servidor Git espejo en su VPS con Docker para no depender de GitHub. Redundancia de infraestructura para la capa que más le dolió.
 
-## Proyectos para las próximas semanas
+**Rodrigo** — "Vector Rodrigo": documentar en Obsidian (archivos Markdown puros, lo que más le gusta a la IA) quién es, sus proyectos, cursos, herramientas, preferencias, frameworks que le gustan, reglas de negocio internalizadas. Todo en formato consumible por agente. Además, usa QMD — la herramienta de Tobi Lütke (CEO de Shopify) — para búsqueda vectorial local sobre esos archivos. En paralelo está haciendo auditoría de tools: qué está pagando que ya no usa. Ya llegó dos veces al límite de tokens de su cuenta Max de Claude este mes.
 
-**Cristian:**
-- Mantiene Anthropic como modelo prioritario (con fallbacks)
-- Servidor Git espejo para no depender de GitHub
+**Diego** — MiniMax 2.7 como modelo principal para ahorrar tokens. Lanzó un blog nuevo, **empresasaumentadas.com**, para documentar cómo las empresas están implementando IA. Y para Revenue Summit está armando un experimento: tres agentes compitiendo para generar leads, con reglas claras y un ranking público de desempeño.
 
-**Rodrigo:**
-- "Vector Rodrigo": documentar todo sobre sí mismo en Obsidian para que la IA lo consulte
-- Auditoría de herramientas: qué estoy pagando que ya no uso
-- Ya llegó al límite de tokens de Claude 2 veces este mes
+## ¿Cuál es la frase que resume este episodio?
 
-**Diego:**
-- Minimax 2.7 para ahorrar tokens
-- Nuevo blog: **empresasaumentadas.com** (IA para empresas)
-- Experimento para Revenue Summit: 3 agentes compitiendo
+Rodrigo citó a Andrej Karpathy (ex-Tesla, OpenAI), en una entrevista reciente:
 
-## La frase del episodio
+> "El cuello de botella hoy somos los humanos. La IA está esperando que le digamos 'sigue' o 'haz esto'. Pero nosotros tenemos que dormir." — Andrej Karpathy, citado por Rodrigo Rojo
 
-Rodrigo cita a Andrej Karpathy:
+La implicancia práctica: hoy tienes todo para armar cosas. La pregunta ya no es "¿puedo?", es "¿qué quiero probar?". Y hacerlo rápido, con más o menos riesgo según tu contexto.
 
-> "El cuello de botella hoy somos nosotros, los humanos. La IA está esperando que le digamos 'sigue'. Pero tenemos que dormir."
+## Capítulos del episodio
+
+- **00:02** — Mea culpa: Cristian se casó con Anthropic y no pudo trabajar
+- **03:42** — GitHub con SLA de 93,7% en marzo (45 horas de downtime)
+- **07:53** — Plan de contingencia: por qué Cristian no quiso usar otro modelo
+- **13:47** — Consume Claude vía AWS Bedrock o Azure, no directo
+- **16:51** — NemoClaw de NVIDIA: OpenClaw con corbata y seguridad enterprise
+- **18:19** — Hate en LinkedIn: negación de lo que está pasando
+- **35:20** — CEO de JP Morgan pide regulación para "salvar la sociedad"
+- **41:25** — Filtración del código de Claude Code: 44 flags ocultos, Kairos, clones en Rust
+- **47:26** — Claude Maitos y Claude Capibara: rumores previos a IPO
+- **52:13** — OpenClaw endureció permisos y rompió automatizaciones existentes
+- **56:56** — Vector Rodrigo: documentar en Obsidian para que lo consuma el agente
+- **1:00:17** — Diego llegó a $400 en GenSpark y lanza empresasaumentadas.com
+- **1:03:14** — Andrej Karpathy: "el cuello de botella somos los humanos"
+
+## Preguntas frecuentes
+
+### ¿Cómo diseño un plan de contingencia si mi agente depende de Claude?
+
+Tres capas: primero, consume el modelo desde una API alternativa (AWS Bedrock o Azure OpenAI Service para Anthropic) para que una caída de Anthropic directa no te deje muerto. Segundo, define qué tareas puedes hacer a mano sin catástrofe y cuáles necesitan IA sí o sí. Tercero, ten una segunda suscripción viva en otro proveedor (GPT, Gemini) aunque sea el plan básico, para tareas donde la calidad no es crítica y solo necesitas avanzar.
+
+### ¿Qué es Kairos en el código filtrado de Claude Code?
+
+Es una de las 44 funcionalidades que Anthropic tenía detrás de feature flags y que se filtraron junto con el resto del código cliente. Está descrita como un agente autónomo de largo plazo — la jugada que la comunidad interpretó como la dirección final de Claude Code hacia operación sin supervisión continua. No está disponible públicamente; solo existe en el repo filtrado.
+
+### ¿Qué diferencia hay entre OpenClaw, GenSpark Cloud y NemoClaw?
+
+OpenClaw es el framework base, open source, que instalas en tu VPS o computador. GenSpark Cloud lo empaqueta como servicio: pagas un fee mensual, ellos corren el agente, eliminas la fricción del terminal pero pierdes control total. NemoClaw es la versión de NVIDIA: mismo OpenClaw por debajo más capas de seguridad enterprise, Docker privado y hardware validado — pensado para corporaciones que necesitan compliance.
+
+### ¿Por qué el CEO de JP Morgan pide regulación después de despedir gente por IA?
+
+La lectura caritativa es que busca moderar la velocidad del cambio para evitar caos social. La lectura cínica es que ya capturó las ganancias de la automatización y ahora quiere frenar la competencia que aún no lo hizo. Históricamente, este tipo de declaraciones (como la carta de Musk y Harari en 2023) no han frenado el campo: el código abierto está suelto y el ritmo lo marca la frontera técnica, no la política.
+
+## Recursos mencionados
+
+- **[OpenClaw](https://openclaw.ai)** — Framework open source de agentes, base de muchos de los flujos comentados.
+- **[Obsidian](https://obsidian.md/)** — App de notas en Markdown puro que Rodrigo usa como base de conocimiento para su agente.
+- **[Readwise y Reader](https://readwise.io/)** — El flujo de captura de contenido que Rodrigo conecta con Obsidian.
+- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — Comunidad de Cristian para seguir aprendiendo en grupo.
+- Episodio anterior: [EP06 — Cuánto invertir en IA, Agent Teams y construir en público](/episodios/06-cuanto-invertir-ia-agentes-construir-publico)
+- Episodio siguiente: [EP08 — Crisis Anthropic, alternativas y modelos locales](/episodios/08-crisis-anthropic-modelos-alternativos-ia-local)
 
 ---
 
-*Únete a **Cágala, Aprende, Repite** — la comunidad donde seguimos aprendiendo juntos:*
-*[skool.com/cagala-aprende-repite/about](https://www.skool.com/cagala-aprende-repite/about)*
+🌐 [eslahoradeaprender.com](https://eslahoradeaprender.com) · 🎧 [Spotify](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C) · 📺 [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com)
+
+_Accesibilidad: activa los subtítulos en el reproductor de YouTube para leer la conversación completa._
