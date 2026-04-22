@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # Astro
 .astro/
+
+# Claude Code — local machine settings (NOT shared)
+.claude/settings.local.json

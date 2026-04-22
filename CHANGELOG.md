@@ -4,6 +4,57 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.7.0] - 2026-04-22
+
+### 🔍 SEO + discoverability: fix mayor de contenido invisible
+
+Auditoría multiagente → implementación de los items de mayor impacto y menor esfuerzo.
+
+#### Contenido
+
+- **Renderizado del body Markdown** en `src/pages/episodios/[...slug].astro` usando `<Content />` de `astro:content`. Antes, el cuerpo `.md` de los episodios (hasta ~1.700 palabras en EP09) **no se emitía al HTML** — era invisible para Google y lectores. Este era el bug SEO dominante del sitio.
+- **Estilos prose scoped** para los shownotes (h2/h3, listas, tablas con acid-green headers, blockquotes, código, links electric-blue con hover acid). Max-width 70ch + line-height 1.7 para legibilidad sin romper el neo-brutalismo.
+
+#### Metadata
+
+- `BaseLayout.astro` ahora acepta props `seoTitle` y `seoDescription`. La página de episodio pasa los campos del frontmatter, que antes estaban definidos pero nunca se usaban.
+- **Meta robots** nueva: `index, follow, max-image-preview:large, max-snippet:-1` — habilita rich cards y snippets largos en SERP.
+- **Hreflang simplificado**: se quitó `es-cl` redundante. Ahora solo `es` + `x-default`.
+- **Título LATAM-neutral** del home: se removió "en Chile" del default. Audiencia es LATAM + España. Geo tags intactas (el podcast es factualmente de Chile).
+- **Keywords default** sin "Chile" hardcoded — los episodios que lo necesiten lo agregan en su `keywords[]`.
+- `console.log` del service worker eliminado — ruido en producción.
+
+#### Schema / JSON-LD
+
+- **Slot `head-extra`** en `BaseLayout.astro` para inyectar JSON-LD por página.
+- **`PodcastEpisode` + `VideoObject` + `BreadcrumbList`** emitidos por cada episodio en `/episodios/[...slug].astro`, alimentados desde el frontmatter (incluye conversión de `durationSeconds` a ISO 8601).
+- `webFeed` añadido al `PodcastSeries` global.
+
+#### Accesibilidad
+
+- `<main id="main-content">` ahora está en todas las páginas. Antes, el skip-link estaba roto fuera del home (solo apuntaba a un `id` que no existía en `/episodios/` ni `/episodios/[slug]`).
+- **Breadcrumb completo** en episodios: `Inicio › Episodios › EP N: Título` (antes saltaba el nivel `/episodios/` y decía solo "Episodio N").
+
+#### Documentación y governance
+
+- **`ROADMAP.md`** nuevo en la raíz — build-in-public, roadmap vivo con principios, priorización y registro de decisiones.
+- **`docs/agent-add-new-episode.md`** nuevo — skill completo para agregar un episodio (pensado para OpenClaw, Claude Code o humanos).
+- **`.claude/commands/new-episode.md`** nuevo — slash command `/new-episode` que dispara el workflow editorial en Claude Code.
+- **`CLAUDE.md`** extendido con: objetivo del sitio, prioridades (performance > SEO), restricciones duras de performance, reglas de repo público, formato esperado de auditorías, y disciplina de sincronización (CHANGELOG / versión / README).
+- **`.claude/settings.json`** nuevo — enforcement real de `permissions.deny` para archivos sensibles (`.env*`, `credentials*`, `*.key`, `*.pem`, `~/.ssh`, etc.) vía el harness de Claude Code. Complementa las reglas escritas en CLAUDE.md.
+- **Gotcha corregido en CLAUDE.md** sobre el routing: el campo `slug` del frontmatter (si existe) gana sobre el filename — comportamiento verificado en el build (EP09 genera `/episodios/09-...-solo-entrepreneur/` aunque el archivo se llame sin ese sufijo).
+
+#### Performance
+
+- **Sin cambios de performance**. Zero JS adicional. Build sigue produciendo 12 páginas estáticas en <1s. Verificado `0 errors, 0 warnings` en `astro check`.
+- **URLs preservadas**: las 9 URLs de episodios generadas son idénticas a las anteriores al commit.
+
+### Notas de versiones intermedias
+
+Las versiones entre `3.2.0` y `3.6.0` (que incluyen los episodios 05, 06, 07, 08, 09) no fueron documentadas en este archivo. Para detalle, revisar `git log` y los archivos `src/content/episodes/*.md`.
+
+---
+
 ## [3.2.0] - 2026-03-11
 
 ### 🎙️ Nuevo Episodio EP04

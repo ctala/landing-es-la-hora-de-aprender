@@ -5,7 +5,7 @@
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1)
 [![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C)
 
-**🌐 Live:** [eslahoradeaprender.com](https://eslahoradeaprender.com) | **v3.5.0**
+**🌐 Live:** [eslahoradeaprender.com](https://eslahoradeaprender.com) | **v3.7.0**
 
 ![Performance](https://img.shields.io/badge/Performance-99-brightgreen?style=flat-square)
 ![Accessibility](https://img.shields.io/badge/Accessibility-97-brightgreen?style=flat-square)
@@ -34,15 +34,13 @@
 
 ## 📺 Episodios
 
-| # | Título | Fecha | Links |
-|---|--------|-------|-------|
-| 7 | Se cayó Claude, Plan B | 2026-03-31 | [YouTube](https://www.youtube.com/@EsLaHoraDeAprender_com) · [Spotify](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C) · [Web](https://eslahoradeaprender.com/)
+9 episodios publicados. Ver todos: [eslahoradeaprender.com/episodios](https://eslahoradeaprender.com/episodios).
 
 ### Agregar un episodio
 
 Crear `src/content/episodes/XX-slug.md` con frontmatter → push. Se genera automáticamente: página, sitemap, video-sitemap, RSS, navegación prev/next.
 
-Ver checklist completo: [skills/podcast-eslahoradeaprender/SKILL.md](../../skills/podcast-eslahoradeaprender/SKILL.md)
+Workflow completo: [`docs/agent-add-new-episode.md`](docs/agent-add-new-episode.md) (también disponible como slash command `/new-episode` en Claude Code).
 
 ---
 
@@ -86,7 +84,7 @@ npm run validate     # Validar build pre-deploy
 
 ---
 
-## ⚡ Performance (v3.5.0)
+## ⚡ Performance
 
 | Métrica | Valor | Porcentaje |
 |---------|-------|-----------|
@@ -107,13 +105,17 @@ npm run validate     # Validar build pre-deploy
 ## 🌐 SEO
 
 **Features:**
-- Schema markup: PodcastSeries, PodcastEpisode, VideoObject, BreadcrumbList
-- hreflang: es, es-cl, x-default
+- Schema markup: PodcastSeries (global), PodcastEpisode + VideoObject + BreadcrumbList (por episodio)
+- hreflang: es, x-default
 - Geo tags: Santiago, Chile
+- Meta robots: `index, follow, max-image-preview:large, max-snippet:-1`
 - RSS feed: [/feed.xml](https://eslahoradeaprender.com/feed.xml)
 - Sitemaps: [index](https://eslahoradeaprender.com/sitemap-index.xml) · [video](https://eslahoradeaprender.com/video-sitemap.xml)
 - Open Graph + Twitter Cards
 - Canonical URLs por página
+- Body Markdown de cada episodio indexable (renderizado via `<Content />`)
+
+Roadmap público: [`ROADMAP.md`](ROADMAP.md).
 
 ---
 
