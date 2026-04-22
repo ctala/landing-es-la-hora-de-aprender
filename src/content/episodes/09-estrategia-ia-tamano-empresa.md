@@ -9,7 +9,7 @@ duration: "55:30"
 durationSeconds: 3330
 youtube: "https://www.youtube.com/watch?v=ozDNdQKrKAo"
 youtubeId: "ozDNdQKrKAo"
-spotify: "https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C"
+spotify: "https://open.spotify.com/episode/4OMjx20sQc7URU9ZxMN3U5?si=5013c6d5ee294558"
 description: "¿Qué herramientas de IA debe usar un solo entrepreneur? ¿Y una PYME? ¿Y una empresa de 2.000 personas? Cristian, Diego y Rodrigo discuten estrategias de IA por tamaño de empresa, desde OpenClaw local hasta agentes corporativos, latencia, documentación como ventaja competitiva, y la tesis de Young Ventures."
 seoTitle: "Estrategia de IA por Tamaño de Empresa: Solo, PYME, Corporación | EP09"
 seoDescription: "¿Qué IA usar si eres solo entrepreneur, PYME o empresa grande? OpenClaw, Claude Code, MiniMax, latencia, documentación, adopción — Podcast EP09."
