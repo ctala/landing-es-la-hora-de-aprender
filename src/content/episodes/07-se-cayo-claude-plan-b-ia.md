@@ -54,6 +54,78 @@ keywords:
   - "dependencia llm empresas"
   - "jp morgan despidos ia regulacion"
   - "qwen 3.5 omni audio"
+keyTakeaways:
+  - "Cómo diseñar un plan de contingencia real cuando tu productividad depende de un LLM específico"
+  - "Por qué un SLA de 93,7% en tu proveedor crítico equivale a una semana laboral completa sin servicio al mes"
+  - "Qué pasó con la filtración del código de Claude Code y por qué la competencia acaba de recibir años de trabajo gratis"
+  - "Cómo leer la señal política de que un CEO de banco grande pida regulación post-despidos por IA"
+  - "Qué proyectos concretos están ejecutando los hosts esta semana y por qué pueden servirte de template"
+timestamps:
+  - time: "00:02"
+    seconds: 2
+    label: "Mea culpa: Cristian se casó con Anthropic y no pudo trabajar"
+  - time: "03:42"
+    seconds: 222
+    label: "GitHub con SLA de 93,7% en marzo (45 horas de downtime)"
+  - time: "07:53"
+    seconds: 473
+    label: "Plan de contingencia: por qué Cristian no quiso usar otro modelo"
+  - time: "13:47"
+    seconds: 827
+    label: "Consume Claude vía AWS Bedrock o Azure, no directo"
+  - time: "16:51"
+    seconds: 1011
+    label: "NemoClaw de NVIDIA: OpenClaw con corbata y seguridad enterprise"
+  - time: "18:19"
+    seconds: 1099
+    label: "Hate en LinkedIn: negación de lo que está pasando"
+  - time: "35:20"
+    seconds: 2120
+    label: "CEO de JP Morgan pide regulación para \"salvar la sociedad\""
+  - time: "41:25"
+    seconds: 2485
+    label: "Filtración del código de Claude Code: 44 flags ocultos, Kairos, clones en Rust"
+  - time: "47:26"
+    seconds: 2846
+    label: "Claude Maitos y Claude Capibara: rumores previos a IPO"
+  - time: "52:13"
+    seconds: 3133
+    label: "OpenClaw endureció permisos y rompió automatizaciones existentes"
+  - time: "56:56"
+    seconds: 3416
+    label: "Vector Rodrigo: documentar en Obsidian para que lo consuma el agente"
+  - time: "1:00:17"
+    seconds: 3617
+    label: "Diego llegó a $400 en GenSpark y lanza empresasaumentadas.com"
+  - time: "1:03:14"
+    seconds: 3794
+    label: "Andrej Karpathy: \"el cuello de botella somos los humanos\""
+resources:
+  - title: "OpenClaw"
+    url: "https://openclaw.ai"
+    type: "tool"
+    description: "Framework open source de agentes, base de muchos de los flujos comentados."
+  - title: "Obsidian"
+    url: "https://obsidian.md/"
+    type: "tool"
+    description: "App de notas en Markdown puro que Rodrigo usa como base de conocimiento para su agente."
+  - title: "Readwise y Reader"
+    url: "https://readwise.io/"
+    type: "tool"
+    description: "El flujo de captura de contenido que Rodrigo conecta con Obsidian."
+  - title: "Cágala, Aprende, Repite"
+    url: "https://www.skool.com/cagala-aprende-repite/about"
+    type: "other"
+    description: "Comunidad de Cristian para seguir aprendiendo en grupo."
+faq:
+  - question: "¿Cómo diseño un plan de contingencia si mi agente depende de Claude?"
+    answer: "Tres capas: primero, consume el modelo desde una API alternativa (AWS Bedrock o Azure OpenAI Service para Anthropic) para que una caída de Anthropic directa no te deje muerto. Segundo, define qué tareas puedes hacer a mano sin catástrofe y cuáles necesitan IA sí o sí. Tercero, ten una segunda suscripción viva en otro proveedor (GPT, Gemini) aunque sea el plan básico, para tareas donde la calidad no es crítica y solo necesitas avanzar."
+  - question: "¿Qué es Kairos en el código filtrado de Claude Code?"
+    answer: "Es una de las 44 funcionalidades que Anthropic tenía detrás de feature flags y que se filtraron junto con el resto del código cliente. Está descrita como un agente autónomo de largo plazo — la jugada que la comunidad interpretó como la dirección final de Claude Code hacia operación sin supervisión continua. No está disponible públicamente; solo existe en el repo filtrado."
+  - question: "¿Qué diferencia hay entre OpenClaw, GenSpark Cloud y NemoClaw?"
+    answer: "OpenClaw es el framework base, open source, que instalas en tu VPS o computador. GenSpark Cloud lo empaqueta como servicio: pagas un fee mensual, ellos corren el agente, eliminas la fricción del terminal pero pierdes control total. NemoClaw es la versión de NVIDIA: mismo OpenClaw por debajo más capas de seguridad enterprise, Docker privado y hardware validado — pensado para corporaciones que necesitan compliance."
+  - question: "¿Por qué el CEO de JP Morgan pide regulación después de despedir gente por IA?"
+    answer: "La lectura caritativa es que busca moderar la velocidad del cambio para evitar caos social. La lectura cínica es que ya capturó las ganancias de la automatización y ahora quiere frenar la competencia que aún no lo hizo. Históricamente, este tipo de declaraciones (como la carta de Musk y Harari en 2023) no han frenado el campo: el código abierto está suelto y el ritmo lo marca la frontera técnica, no la política."
 ---
 
 Cristian abre este episodio con una confesión dura: **se casó con Anthropic** y cuando Claude se cayó, no pudo trabajar. Un día entero improductivo porque decidió no usar su plan B. La conversación que sigue toca fibras sensibles — dependencia de LLMs, SLAs que nadie está midiendo, la filtración del código de Claude Code, el CEO de JP Morgan pidiendo regulación para "salvar la sociedad", y por qué el cuello de botella de la IA seguimos siendo los humanos.

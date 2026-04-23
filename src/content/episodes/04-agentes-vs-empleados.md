@@ -40,6 +40,84 @@ keywords:
   - "openclaw vs claude code diferencias"
   - "como ganar dinero con ia agentes"
   - "despidos ia mercadolibre"
+keyTakeaways:
+  - "Cómo Claude Opus encontró 22 bugs en Firefox (14 críticos) por 4.000 USD en dos semanas, cuando equivalentes humanos costaban medio millón."
+  - "Por qué el diseño de API Design First ya no es opcional: si tu plataforma no la puede consumir un agente, estás invisibilizado."
+  - "Cuándo conviene usar OpenClaw orquestando Claude Code y cuándo ir directo al modelo sin capas intermedias."
+  - "Qué pinta tiene el primer trillion dollar company según Sequoia y por qué no va a ser ni un SaaS ni una app."
+  - "Cómo empezar a emprender hoy sin dejar tu trabajo, aprovechando que las barreras de entrada están por el suelo."
+timestamps:
+  - time: "00:01"
+    seconds: 1
+    label: "Bienvenida, contexto de la semana y lanzamientos (Perplexity Computer, Copilot Cowork)"
+  - time: "05:45"
+    seconds: 345
+    label: "Claude Code vs OpenClaw: qué es el harness y por qué importa"
+  - time: "08:55"
+    seconds: 535
+    label: "El experimento Anthropic + Firefox: 22 bugs por 4.000 USD"
+  - time: "14:29"
+    seconds: 869
+    label: "Cómo valorizar estas capacidades desde el negocio, no desde la función"
+  - time: "19:42"
+    seconds: 1182
+    label: "Repensar procesos: la \"gomita de Tesla\" aplicada a IA"
+  - time: "22:42"
+    seconds: 1362
+    label: "API Design First: por qué los agentes son el nuevo cliente"
+  - time: "26:45"
+    seconds: 1605
+    label: "Ventaja del segundo: por qué empezar hoy gana aunque no seas pionero"
+  - time: "31:49"
+    seconds: 1909
+    label: "Sequoia y el primer trillion dollar company de servicios"
+  - time: "38:00"
+    seconds: 2280
+    label: "Empaquetar contenido orgánico como producto B2B"
+  - time: "41:27"
+    seconds: 2487
+    label: "SEO orgánico vs performance paid: el tema de los 3 meses"
+  - time: "48:21"
+    seconds: 2901
+    label: "Mercado Libre (20K devs), Block y dos escuelas de despido"
+  - time: "51:26"
+    seconds: 3086
+    label: "Non-competes y cultura Silicon Valley"
+  - time: "56:58"
+    seconds: 3418
+    label: "¿Qué va a ser de nosotros? Terminator, Grecia o algo intermedio"
+resources:
+  - title: "Anthropic — experimento con Firefox"
+    url: "https://www.anthropic.com/"
+    type: "tool"
+    description: "Reporte del estudio de detección y corrección automática de bugs con Claude Opus 4.6."
+  - title: "OpenClaw"
+    url: "https://openclaw.ai"
+    type: "tool"
+    description: "Framework de agentes open source que usamos como base en el podcast."
+  - title: "Claude Code"
+    url: "https://www.anthropic.com/claude-code"
+    type: "tool"
+    description: "CLI oficial de Anthropic para desarrollo asistido con agentes."
+  - title: "Perplexity Computer"
+    url: "https://www.perplexity.ai/"
+    type: "tool"
+    description: "Agente empaquetado de Perplexity, la versión \"con corbata\" del patrón tipo OpenClaw."
+  - title: "Sequoia — The $1 Trillion Dollar Opportunity"
+    url: "https://www.sequoiacap.com/"
+    type: "tool"
+    description: "Tesis del fondo sobre la próxima generación de empresas apalancadas en IA."
+faq:
+  - question: "¿Cuánto cuesta hoy arreglar bugs con un agente tipo Claude Opus?"
+    answer: "En el experimento reportado de Anthropic con Firefox, 22 bugs (14 críticos) se repararon por ~4.000 USD en créditos de Claude Opus 4.6 en dos semanas. La referencia humana equivalente era 3-4 desarrolladores senior durante 8-16 semanas, por un total aproximado de 500.000 USD entre salarios y bounties. El orden de magnitud es menos del 1% del costo tradicional."
+  - question: "¿Qué es mejor, OpenClaw o Claude Code?"
+    answer: "Depende del caso. Claude Code va directo al modelo con un harness minimalista, y tiende a rendir mejor en tareas muy específicas donde no necesitas integraciones externas. OpenClaw suma una capa de flexibilidad (Telegram, Discord, archivos, skills modulares) que te permite armar un agente generalista sin programar, pero esa capa introduce overhead. La mezcla híbrida — OpenClaw como orquestador que ejecuta Claude Code para ciertas tareas — suele ser lo más práctico."
+  - question: "¿Qué es API Design First y por qué importa para agentes?"
+    answer: "API Design First es diseñar tu servicio pensando primero en que sea consumido por otros sistemas, no por una interfaz gráfica. Antes se usaba para que otros desarrolladores pudieran integrarse. Ahora importa porque los agentes de IA son quienes van a buscar, comparar y consumir servicios. Si tu producto no tiene API clara y documentación legible por máquinas, los agentes no te encuentran, y quedas fuera del flujo de decisiones automatizadas."
+  - question: "¿Cómo puedo empezar a generar ingresos con IA sin dejar mi trabajo?"
+    answer: "La recomendación del episodio: partir del dolor propio más grande, usar ese tiempo libre fuera del horario laboral (madrugada del sábado, dos horas después del trabajo), y empezar con la IA que ya tengas — Claude, ChatGPT, Gemini. Las barreras de entrada son casi cero. Construye algo que resuelva un problema real para alguien, aunque sea para ti mismo, y cuéntalo públicamente. El feedback que recibes gratis vale más que cualquier consultoría pagada."
+  - question: "¿Qué empresas van a contratar menos por la IA?"
+    answer: "Empresas que ya son rentables, con procesos digitales consolidados, y con áreas donde las tareas son repetitivas y documentadas (back-office, desarrollo, atención al cliente, análisis de datos). Mercado Libre ya anunció congelamiento de contratación en su área de desarrollo. En Chile, la legislación laboral hace que el camino sea \"no despedir, pero tampoco contratar\". En EE.UU. y otros mercados, los despidos masivos son más rápidos — Block despidió al 40% de su planilla en 2025."
 ---
 
 Hoy le tocaba ser host a Rodrigo, pero nos vamos de vacaciones la próxima semana y reorganizamos el calendario. Así que Cristian queda al mando con una agenda fuerte: **el experimento de Anthropic con Firefox, la tesis del primer trillion dollar company de Sequoia, API Design First para agentes, y la pregunta incómoda — ¿qué va a pasar con todos nosotros cuando la IA y la robótica hagan la pega?** Si los episodios anteriores te dejaron con "ok, está lindo pero ¿dónde está la plata real?", este es para ti.

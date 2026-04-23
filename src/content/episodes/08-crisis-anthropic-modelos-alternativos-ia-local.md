@@ -40,6 +40,92 @@ keywords:
   - "optimizar tokens ia empresarial"
   - "dgx spark mac studio ia local"
   - "openclaw modelos alternativos"
+keyTakeaways:
+  - "Qué cambió exactamente con Anthropic y cuál es el impacto real en costos (spoiler: 15x)"
+  - "Cómo evaluar alternativas a Opus y Sonnet: Qwen 3.5, Gemma 4, MiniMax 2.7 y modelos locales"
+  - "Por qué un modelo open source en la nube puede ser más lento que correrlo en tu Mac Mini"
+  - "Cuándo conviene hardware local (DGX Spark, Mac Studio, mini-PC) versus seguir pagando APIs"
+  - "Cómo documentar tu forma de trabajar para no perder meses de setup entre cambios de framework"
+timestamps:
+  - time: "00:01"
+    seconds: 1
+    label: "Bienvenida y qué han estado jugando esta semana"
+  - time: "03:48"
+    seconds: 228
+    label: "Benchmark de 8 modelos para el pipeline de noticias de Cristian"
+  - time: "05:09"
+    seconds: 309
+    label: "Qué pasó con Anthropic: mail del sábado y cancelación del uso con agentes"
+  - time: "10:06"
+    seconds: 606
+    label: "Gemma 4: funciona increíble local, lentísimo en la nube"
+  - time: "14:03"
+    seconds: 843
+    label: "Por qué Meta usa Claude para desarrollar Llama (y qué pasó con Llama 4)"
+  - time: "21:05"
+    seconds: 1265
+    label: "Cristian compró un NVIDIA DGX Spark y se lo cancelaron desde Chile"
+  - time: "27:49"
+    seconds: 1669
+    label: "Debate: MiniMax 2.7 vs Opus en costo/beneficio"
+  - time: "29:35"
+    seconds: 1775
+    label: "Gemma 26B corriendo local en mini-PC a 15 tokens/seg"
+  - time: "33:32"
+    seconds: 2012
+    label: "Cuándo conviene IA local: datos sensibles, IoT, visión computacional"
+  - time: "39:42"
+    seconds: 2382
+    label: "Solo el 6% usa IA activamente: la brecha con el mainstream"
+  - time: "50:37"
+    seconds: 3037
+    label: "Dos reencarnaciones de Sheldon: documentar como estrategia de migración"
+  - time: "55:51"
+    seconds: 3351
+    label: "El problema de incentivos en Meta: $5M/mes por persona en tokens"
+  - time: "1:00:42"
+    seconds: 3642
+    label: "Próximos proyectos: instancia óptima de OpenClaw sin Anthropic"
+resources:
+  - title: "OpenClaw"
+    url: "https://openclaw.ai"
+    type: "tool"
+    description: "Framework open source de agentes, base de muchos de los setups comentados."
+  - title: "OpenRouter"
+    url: "https://openrouter.ai/"
+    type: "tool"
+    description: "Ruteo unificado para consumir modelos open source como Qwen, Gemma, Kimi."
+  - title: "Gemma 4 (Google)"
+    url: "https://ai.google.dev/gemma"
+    type: "tool"
+    description: "Nuevo modelo open source de Google, corre local en Android, Mac, mini-PC."
+  - title: "NVIDIA DGX Spark"
+    url: "https://www.nvidia.com/en-us/products/workstations/dgx-spark/"
+    type: "tool"
+    description: "Hardware para desarrolladores de IA, arquitectura server en formato personal."
+  - title: "Mac Studio"
+    url: "https://www.apple.com/shop/buy-mac/mac-studio"
+    type: "tool"
+    description: "Top de gama Apple para correr modelos grandes local."
+  - title: "Ollama"
+    url: "https://ollama.com/"
+    type: "tool"
+    description: "Runtime simple para correr LLMs open source en tu computador."
+  - title: "LM Studio"
+    url: "https://lmstudio.ai/"
+    type: "tool"
+    description: "Interfaz gráfica para probar modelos open source local."
+faq:
+  - question: "¿Por qué Anthropic cortó el uso de Opus con OpenClaw si pagué el plan Max?"
+    answer: "La explicación oficial es que sus servidores no están optimizados para ese patrón de consumo — agentes externos que mantienen sesiones largas, múltiples tool calls por tarea, y contexto grande persistente. El uso esperado del plan Max es desde Claude.ai y Claude Code, donde Anthropic controla cliente y servidor. Si quieres seguir usando Opus o Sonnet desde OpenClaw, tienes que pagar tokens directamente por API — lo que para uso agéntico intensivo resulta ~15x más caro."
+  - question: "¿Qué alternativa real tengo si Sonnet ya no me conviene por costo?"
+    answer: "MiniMax 2.7 y Qwen 3.5 son los dos más mencionados por la comunidad para uso agéntico con OpenClaw en 2026. MiniMax tiene mejor uso de herramienta out-of-the-box. Qwen 3.5 es 100x más barato que Sonnet vía OpenRouter, pero tiene un bug conocido: si activas el modo thinking, no le pasa la lista de herramientas. Si necesitas escritura larga con calidad alta, GPT-5.4 o Gemini 3.1 son razonables. Para tareas sensibles a privacidad, Gemma 26B corre bien local en un mini-PC de ~$1.000."
+  - question: "¿Vale la pena comprarme hardware para correr modelos locales?"
+    answer: "Depende del volumen y la sensibilidad. Si estás pagando más de ~$300 al mes en APIs de IA para tareas que podrían correr en un modelo 7B-26B (clasificación, prevalidación, resúmenes cortos, generación de descripciones), el mini-PC se paga solo en 3-4 meses. Si además manejas datos sensibles (salud, banca, data personal), el argumento de compliance vale más que el ahorro. Lo que no conviene hoy es comprar hardware top (Mac Studio M3 Ultra, DGX Spark) solo por curiosidad — espera 3-4 meses a que salga la próxima generación y ceda la crisis de RAM."
+  - question: "¿Cómo sé si una empresa está usando mal los incentivos de tokens?"
+    answer: "Pregunta qué está optimizando. Si el KPI visible es \"tokens consumidos por persona\" sin una métrica de output real — código mergeado, clientes atendidos, decisiones acertadas, tiempo ahorrado medido — el incentivo está desalineado. Los tokens son insumo, no resultado. La pregunta correcta es: \"¿ese gasto en tokens cuánto ingreso, cuánto ahorro o cuánta velocidad me devolvió?\" Si no hay respuesta clara, estás quemando plata con un dashboard bonito."
+  - question: "¿Qué es lo mínimo que debo documentar para sobrevivir a la próxima migración?"
+    answer: "Cuatro cosas, todas en Markdown plano: (1) tu way of work — cómo abordas las tareas habituales, (2) las herramientas que usas y por qué, (3) tus reglas de negocio internas — criterios editoriales, políticas de respuesta, tono, (4) las integraciones activas — qué servicios externos tocas, con qué credenciales, qué hacen. Si tu agente puede leer esos cuatro archivos, puedes cambiar de framework en un fin de semana en lugar de dos meses."
 ---
 
 Anthropic mandó un correo el sábado diciendo que sus sistemas **no están optimizados para uso con agentes externos como OpenClaw**, solo para Claude y Claude Code. Si quieres seguir conectando Opus o Sonnet a tu propio agente, pagas por token. Cristian calcula que eso es la diferencia entre $200 al mes (plan Max) y $100 por día. En este episodio, los tres hosts documentan en vivo cómo están migrando: qué modelos alternativos funcionan, qué pasa con la latencia de los modelos open source en la nube, cuándo tiene sentido correr modelos locales y por qué la documentación es la única estrategia que escala entre migraciones.

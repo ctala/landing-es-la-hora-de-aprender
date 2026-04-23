@@ -47,6 +47,96 @@ keywords:
   - "saas muerto herramientas personales"
   - "ia democratiza acceso conocimiento"
   - "despidos masivos inteligencia artificial"
+keyTakeaways:
+  - "Cuánto invertir al mes en herramientas de IA según tu perfil (solo entrepreneur, empleado, PYME)."
+  - "La diferencia práctica entre delegación y aumentación, y cómo combinarlas en una empresa."
+  - "Por qué documentar procesos antes de despedir gente es la regla de oro que Block ignoró."
+  - "Cómo funciona el patrón de Agent Teams (desarrollador, PM, QA, experto técnico) en un proyecto real."
+  - "Por qué el inglés es el lenguaje de programación más usado del 2024 y qué implica eso para tu carrera."
+timestamps:
+  - time: "00:00"
+    seconds: 0
+    label: "Cristian vuelve de vacaciones y la frase de Jensen Huang"
+  - time: "02:56"
+    seconds: 176
+    label: "¿Cuánto invertir en IA al mes? Tres perfiles, tres rangos"
+  - time: "08:50"
+    seconds: 530
+    label: "Micro-SaaS personal con Agent Teams de Claude en un día"
+  - time: "12:33"
+    seconds: 753
+    label: "Por qué el SaaS está muerto (o casi)"
+  - time: "14:15"
+    seconds: 855
+    label: "Aumentación vs delegación: el mix que tiene sentido hoy"
+  - time: "17:22"
+    seconds: 1042
+    label: "Harvard, Block, Forrester: los datos sobre despidos por IA"
+  - time: "19:30"
+    seconds: 1170
+    label: "Documentar antes de despedir: la regla de oro"
+  - time: "22:59"
+    seconds: 1379
+    label: "Steam, OnlyFans, NVIDIA: ingresos por empleado"
+  - time: "26:39"
+    seconds: 1599
+    label: "Equipos chicos (Telegram, Obsidian) y cómo emprender en paralelo"
+  - time: "30:57"
+    seconds: 1857
+    label: "Partir por el dolor propio y la IA como tecnología democrática"
+  - time: "37:36"
+    seconds: 2256
+    label: "El plugin de link-building: caso completo"
+  - time: "41:27"
+    seconds: 2487
+    label: "El empleado en forma de T y conocimiento que amplifica la IA"
+  - time: "45:09"
+    seconds: 2709
+    label: "Distribución: la red de pesca y construir en público"
+  - time: "48:27"
+    seconds: 2907
+    label: "Hacer + contar y la cultura de comunidades en Latam"
+  - time: "57:49"
+    seconds: 3469
+    label: "La historia del plugin de 5 USD que llevó a una fintech vendida"
+resources:
+  - title: "Agent Teams de Claude"
+    url: "https://www.anthropic.com/claude"
+    type: "tool"
+    description: "La capacidad de orquestar múltiples subagentes especializados en una sola tarea compleja."
+  - title: "n8n"
+    url: "https://n8n.io"
+    type: "tool"
+    description: "Automatización open source que puedes hospedar en un VPS en 2 minutos."
+  - title: "Obsidian"
+    url: "https://obsidian.md/"
+    type: "tool"
+    description: "App de notas en Markdown con equipo de menos de 10 personas, ideal para knowledge base que la IA pueda leer."
+  - title: "Replit"
+    url: "https://replit.com/"
+    type: "tool"
+    description: "Plataforma de desarrollo en la nube cuyo CEO popularizó el patrón de vibe-coding."
+  - title: "Harvard Business Review — AI and Layoffs"
+    url: "https://hbr.org/"
+    type: "tool"
+    description: "Estudios sobre la anticipación de despidos motivada por IA."
+  - title: "Cágala, Aprende, Repite"
+    url: "https://www.skool.com/cagala-aprende-repite/about"
+    type: "other"
+    description: "Comunidad de Cristian para experimentar y aprender en grupo."
+faq:
+  - question: "¿Cuánto deberías gastar mensualmente en herramientas de IA?"
+    answer: "Como persona independiente, entre 50 y 300 USD al mes cubre a la mayoría de los casos. Con 50 USD tienes un plan Pro de un LLM (20 USD) + créditos de APIs para experimentar. Con 200-300 USD puedes sumar plan Pro más avanzado, herramientas de imagen/video, VPS para hospedar agentes propios, y APIs de pago por uso. Como empresa, calcula 25-100 USD por persona dependiendo del rol."
+  - question: "¿Qué son los Agent Teams de Claude?"
+    answer: "Agent Teams es el patrón de Anthropic donde múltiples subagentes especializados colaboran en una tarea compleja. En un proyecto típico de desarrollo, tendrías un agente Project Manager que orquesta, un agente Desarrollador que escribe código, un agente QA que prueba y reporta bugs, y agentes de expertise adicional (SEO, seguridad, accesibilidad) según el caso. Cada uno tiene contexto específico y responsabilidades claras, coordinados por el orquestador."
+  - question: "¿Qué significa delegación vs aumentación en estrategia de IA?"
+    answer: "Aumentación es darle un agente a cada persona para que sea más productiva — el humano sigue al mando. Delegación es usar un agente autónomo que ejecuta tareas operativas sin supervisión humana directa. Las empresas maduras combinan ambas: aumentación para trabajo creativo o relacional, delegación para tareas repetitivas de bajo valor humano (procesamiento de datos, actualización de sistemas, generación de reportes estándar)."
+  - question: "¿Por qué Steam es la empresa más rentable por empleado?"
+    answer: "Steam (operada por Valve) genera aproximadamente 50 millones de dólares de ingresos por empleado, más que OnlyFans (37 M) y muy por encima de NVIDIA (3,6 M). Las razones: dominio del mercado de gaming en PC, operación con planta muy chica (~100-200 personas), automatización profunda de procesos (ventas, pagos, distribución digital), y un modelo de negocio de comisión sobre cada transacción que escala sin crecer headcount."
+  - question: "¿Qué hacer con empleados que no se quieren adaptar a IA?"
+    answer: "Dos caminos complementarios. Primero, identificar la tarea que más les molesta hacer en el día (la que les duele la guata al verla en su lista de pendientes) y resolverla con IA — el incentivo intrínseco de sacarse esa lata de encima baja la resistencia. Segundo, si después de incentivos, capacitaciones y acompañamiento la persona sigue bloqueada, la respuesta honesta es que no es el perfil correcto para la empresa que estás construyendo. Cambia la mentalidad o cambia a la persona."
+  - question: "¿Por qué se dice que el inglés fue el lenguaje de programación más usado en 2024?"
+    answer: "Porque la mayoría de las interacciones de programación asistida por IA (ChatGPT, Claude, GitHub Copilot, Cursor, Replit Agent) se hacen en lenguaje natural, principalmente inglés. La IA traduce el prompt a código. Para un desarrollador moderno, escribir buen inglés técnico es tan importante como saber sintaxis — el código es el output, no el input."
 ---
 
 Cristian vuelve de vacaciones con energía renovada — y con un plugin de WordPress para link-building construido en un día con **Agent Teams de Claude** que reemplaza uno que pagaba 99 USD al año. En este episodio abrimos la pregunta que todos hacen al entrar a IA: **¿cuánto hay que gastar al mes para no quedarse atrás?**. Respuesta corta: entre 50 y 300 USD si eres persona; más si tu trabajo depende de estar en la frontera. Entramos también en delegación vs aumentación, los datos de Harvard y Block sobre despidos apresurados, Steam como la empresa más rentable por empleado del mundo, y por qué construir en público sigue siendo la mejor estrategia de distribución.

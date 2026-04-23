@@ -38,6 +38,98 @@ keywords:
   - "Perplexity Computer GenSpark"
   - "contexto como diferencial empresarial"
   - "agentes IA turismo rural"
+keyTakeaways:
+  - "Por qué el contexto empresarial (y no el modelo) se convirtió en el principal diferencial competitivo en 2026."
+  - "Cómo convertir dos años de propuestas comerciales desordenadas en un catálogo con reglas de pricing en una tarde."
+  - "Cuándo usar Claude Opus, Sonnet o GPT-5.4 para distintas etapas de un flujo (análisis, generación, validación)."
+  - "Qué preguntas concretas tienes que responder antes de desplegar agentes en tu empresa (arquitectura, canales, permisos, modelos)."
+  - "Por qué un negocio de turismo rural puede sacarle un valor enorme a la IA con solo tener internet y hablar español."
+timestamps:
+  - time: "00:01"
+    seconds: 1
+    label: "Cristian de vacaciones, la semana y estado del arte de agentes"
+  - time: "03:30"
+    seconds: 210
+    label: "Taller de turismo rural: lo que descubrieron cuando vieron el contexto"
+  - time: "05:32"
+    seconds: 332
+    label: "Propuestas comerciales en Desafío Latam con contexto compartido"
+  - time: "08:00"
+    seconds: 480
+    label: "El caso completo: 80 propuestas organizadas con Claude Cowork en una tarde"
+  - time: "13:27"
+    seconds: 807
+    label: "Skills de Claude: la habilidad reutilizable que genera propuestas en 2 clics"
+  - time: "15:24"
+    seconds: 924
+    label: "Qué modelo usar en cada etapa (Opus, Sonnet, GPT-5.4, nano)"
+  - time: "22:46"
+    seconds: 1366
+    label: "Siéntate a pensar qué tarea te duele la guata antes de automatizar"
+  - time: "26:25"
+    seconds: 1585
+    label: "Jensen Huang en GTC 2026 y la estrategia de agentes corporativa"
+  - time: "29:58"
+    seconds: 1798
+    label: "OpenClaw como categoría: Pete Stinberg, Perplexity, Manus, GenSpark"
+  - time: "36:30"
+    seconds: 2190
+    label: "Instalación local vs VPS vs empaquetado (GenSpark Cloud)"
+  - time: "42:13"
+    seconds: 2533
+    label: "Arquitectura de agentes: canales, permisos, modelos, credenciales"
+  - time: "47:13"
+    seconds: 2833
+    label: "Cómo evoluciona una empresa grande desde prompts a agentes"
+  - time: "52:35"
+    seconds: 3155
+    label: "Turismo rural: IA como tecnología democrática"
+  - time: "58:13"
+    seconds: 3493
+    label: "Evitar lock-in de proveedor y sostenibilidad"
+  - time: "1:02:28"
+    seconds: 3748
+    label: "Mensaje a gobiernos y gerencias: estrategia a nivel país"
+resources:
+  - title: "OpenClaw"
+    url: "https://openclaw.ai"
+    type: "tool"
+    description: "El framework de agentes open source creado por Pete Stinberg."
+  - title: "Claude Cowork / Claude Code"
+    url: "https://www.anthropic.com/claude"
+    type: "tool"
+    description: "Las dos herramientas de Anthropic para productividad y desarrollo con Claude."
+  - title: "Perplexity Computer"
+    url: "https://www.perplexity.ai/"
+    type: "tool"
+    description: "Versión empaquetada y empresarial del patrón de agentes locales."
+  - title: "GenSpark Cloud"
+    url: "https://genspark.com/"
+    type: "tool"
+    description: "Plataforma con agentes integrados e integraciones móviles nativas (LinkedIn, Instagram)."
+  - title: "Granola"
+    url: "https://www.granola.ai/"
+    type: "tool"
+    description: "App de grabación y transcripción de reuniones que Rodrigo usa para alimentar sus skills."
+  - title: "Método PARA — Tiago Forte"
+    url: "https://fortelabs.com/blog/para/"
+    type: "article"
+    description: "Sistema de organización de carpetas (Proyectos, Áreas, Recursos, Archivos) que facilita que los agentes naveguen tu información."
+  - title: "NVIDIA GTC 2026 — Keynote Jensen Huang"
+    url: "https://www.nvidia.com/gtc/"
+    type: "tool"
+    description: "Donde se presentó NemoClaw y la tesis de estrategia de agentes corporativa."
+faq:
+  - question: "¿Qué es Claude Cowork y en qué se diferencia de Claude Code?"
+    answer: "Claude Cowork es el agente de Anthropic orientado a tareas de oficina: trabaja con carpetas locales, genera y edita documentos Word, Excel y PowerPoint, y soporta skills — habilidades reutilizables con instrucciones, archivos de contexto y templates. Claude Code, en cambio, está enfocado en desarrollo de software: terminal, ejecución de código, integración con repos. Ambos corren sobre los mismos modelos base (Opus, Sonnet), pero el harness y las capacidades orientadas al caso de uso los hacen distintos."
+  - question: "¿Cuántos agentes debería tener una empresa?"
+    answer: "No hay un número correcto. Depende de la arquitectura que escojas: uno por persona (modelo aumentación), uno por área (modelo delegación), uno por proceso crítico (modelo operacional), o una mezcla. La recomendación práctica es partir con un agente simple y limitado, probarlo con 3-5 personas, iterar 2-3 semanas, y recién ahí decidir si expandes a toda la compañía o creas especialistas por área."
+  - question: "¿Vale la pena capacitar a empleados no técnicos en agentes o mejor contratar gente nueva?"
+    answer: "Las dos cosas, en paralelo. Capacitar empleados actuales tiene la ventaja de que ellos ya conocen el contexto del negocio — y la IA funciona mejor con contexto. Contratar perfiles nuevos que ya vienen con el mindset acelera la transformación sin tener que desmontar creencias instaladas. La jugada ganadora es identificar a tus \"champions\" internos (los curiosos que ya están probando), empoderarlos, y traer 1-2 perfiles externos que jalen al resto."
+  - question: "¿Qué industrias tienen más urgencia de adoptar agentes hoy?"
+    answer: "Retail, telco, banca, startups y tecnología — industrias donde el costo de cambio del cliente es bajo. Si tu usuario se cambia de supermercado, de operador o de app con un clic, ganar eficiencia operativa y velocidad de respuesta hoy se traduce directo en retención. En fast consumer goods (alimentos, bebidas), la IA generativa aporta menos; lo importante ahí sigue siendo IA de edición, IA robótica y optimización de supply chain."
+  - question: "¿Cómo evito que mi empresa quede amarrada a un solo proveedor de IA?"
+    answer: "Diseña una capa de abstracción: la gente habla con \"el agente de X función\" — no con un LLM específico. Por detrás, usa APIs que puedas conmutar (Claude → GPT → Qwen → Gemini) sin cambiar la experiencia del usuario final. Construye con código propio o frameworks agnósticos (LangChain, OpenClaw, n8n) que te permitan cambiar el motor. El costo inicial es mayor, pero en un mercado donde el mejor modelo cambia cada 2-3 meses, la flexibilidad se paga sola."
 ---
 
 Cristian se fue a la playa y nos dejó solos, pero no del todo — mandó links por WhatsApp toda la semana sin poder desconectar. En este episodio, **Rodrigo y Diego** abren la pregunta que Jensen Huang puso sobre la mesa en GTC 2026: *"¿Cuál es la estrategia de agentes de tu empresa?"*. Hablamos de por qué el contexto se volvió el verdadero diferencial, cómo Rodrigo automatizó dos años de propuestas comerciales en una tarde con Claude Cowork, y por qué las PYME chicas y los negocios rurales tienen hoy una ventaja que no deberían desperdiciar.

@@ -4,6 +4,47 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.11.0] - 2026-04-23
+
+### 🎯 Los 9 episodios migrados al schema estructurado + IndexNow inteligente + Cloudflare Web Analytics activado
+
+#### Migración completa a schema estructurado (ep01–ep08)
+
+Continuación del piloto de v3.10.0. Los 8 episodios restantes fueron migrados al formato estructurado extrayendo `keyTakeaways`, `timestamps`, `resources` y `faq` del body Markdown e inyectándolos en el frontmatter. Cada episodio tiene ahora ~5 key takeaways, 12–15 timestamps con `startOffset`, 4–9 recursos con type inferido (tool/article/paper/repo/video/book/other), y 4–6 FAQs.
+
+Efecto en el HTML generado (verificado en build local):
+
+- Los 9 episodios emiten `FAQPage` JSON-LD → rich result de preguntas expandibles en SERP.
+- Los 9 episodios emiten `VideoObject.hasPart` con `Clip` + `startOffset` → **chapter markers en Google SERP** + SeekToAction.
+- Los 9 emiten `PodcastEpisode.citation` con los recursos como `CreativeWork`.
+- Los 9 emiten `PodcastEpisode.about` con los takeaways como `Thing`.
+
+El body MD no se modificó — los shownotes visibles siguen idénticos. La capa estructurada es aditiva y alimenta el schema.
+
+#### `scripts/indexnow.sh` reescrito con detección automática
+
+Antes: URLs hardcoded (solo home + ep01) — no servía para publicar episodios nuevos. Desde esta versión:
+
+- **Modo auto (sin args)**: `./scripts/indexnow.sh` detecta qué `.md` de `src/content/episodes/` cambiaron en el último commit (`git diff HEAD^ HEAD`), resuelve el slug de cada uno (usando `slug:` del frontmatter si existe, sino el filename), y notifica con URLs con trailing slash consistente.
+- **Modo explícito**: `./scripts/indexnow.sh 10 11` notifica episodios específicos.
+- **Modo dry-run**: `./scripts/indexnow.sh --dry-run` imprime el payload sin enviar.
+- **URLs fijas siempre incluidas**: home, `/episodios/`, `sitemap-index.xml`, `video-sitemap.xml`, `feed.xml`.
+
+Resuelve el pain point de publicar episodios nuevos: un solo comando después del push + deploy y queda notificado Bing/Yandex/Naver/Seznam.
+
+#### Cloudflare Web Analytics activado
+
+Habilitado en el dashboard de Cloudflare Pages. El beacon se inyecta al edge (~1.4 KB gzipped, defer). Empieza a reportar pageviews + Core Web Vitals reales desde el próximo deploy. Sin cambios en el código del repo.
+
+#### Docs sincronizadas
+
+- `CLAUDE.md`: gotcha de indexnow reemplazado por instrucciones actualizadas.
+- `docs/agent-add-new-episode.md`: paso post-deploy actualizado para usar el script en modo auto.
+- `ROADMAP.md`: items "migrar 8 episodios" e "indexnow.sh" marcados done.
+- `package.json` / `README.md`: bump a v3.11.0.
+
+---
+
 ## [3.10.0] - 2026-04-23
 
 ### 📋 Schema Zod extendido con 7 campos opcionales + FAQPage JSON-LD + chapters

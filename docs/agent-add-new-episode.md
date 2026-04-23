@@ -279,7 +279,7 @@ Cloudflare Pages detecta el push a `main` y despliega automáticamente.
 
 Después del deploy, **no olvidar**:
 
-- Actualizar `scripts/indexnow.sh` para incluir la URL nueva (hoy tiene URLs hardcodeadas).
+- Correr `./scripts/indexnow.sh` desde la raíz del repo (modo auto: detecta los `.md` que cambiaron en el último commit y notifica a Bing/Yandex/Naver/Seznam.cz). Alternativa: `./scripts/indexnow.sh NN` para un episodio específico por número, o `--dry-run` para previsualizar sin enviar.
 - Probar social sharing: pegar la URL en X, LinkedIn, WhatsApp — la OG image debe renderizar correcta.
 - Validar schema con https://validator.schema.org/ pegando la URL.
 - Verificar que la URL aparece en `https://eslahoradeaprender.com/sitemap-0.xml` dentro de las 24h.
@@ -343,7 +343,7 @@ Después del deploy, **no olvidar**:
 - [ ] Validar schema con https://validator.schema.org/
 - [ ] Rich Results Test https://search.google.com/test/rich-results
 - [ ] Probar social preview (X, LinkedIn, WhatsApp)
-- [ ] Actualizar `scripts/indexnow.sh` con la URL nueva (hoy tiene lista hardcodeada)
+- [ ] Correr `./scripts/indexnow.sh` (modo auto) después del push para notificar a Bing/Yandex/Naver/Seznam.cz
 
 ---
 

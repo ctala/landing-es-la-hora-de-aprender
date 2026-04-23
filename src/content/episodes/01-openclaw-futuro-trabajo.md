@@ -36,6 +36,96 @@ keywords:
   - "futuro trabajo IA"
   - "asistente virtual IA"
   - "productividad IA 2026"
+keyTakeaways:
+  - "Qué es OpenClaw realmente y por qué no es lo mismo que tener un chat con Claude o ChatGPT"
+  - "Cuándo conviene instalarlo en un VPS de 6 USD al mes y cuándo en un computador físico"
+  - "Cómo identificar qué procesos automatizar primero sin caer en \"automatizar por automatizar\""
+  - "Por qué el impacto social del desempleo por IA ya no es debate, es cronograma"
+  - "Qué habilidades priorizar ahora para no quedar obsoleto en los próximos 24 meses"
+timestamps:
+  - time: "00:00"
+    seconds: 0
+    label: "Bienvenida al primer episodio y por qué OpenClaw es EL tema"
+  - time: "04:30"
+    seconds: 270
+    label: "Los bots de los hosts: Nyx, Rosita y Sheldon"
+  - time: "05:30"
+    seconds: 330
+    label: "¿Qué es OpenClaw exactamente?"
+  - time: "10:25"
+    seconds: 625
+    label: "La productividad como junior: por qué no es magia, es iteración"
+  - time: "12:00"
+    seconds: 720
+    label: "VPS vs computador físico: filosofías y costos reales"
+  - time: "16:30"
+    seconds: 990
+    label: "El stack real de Cristian: tres servidores y 1.500 USD ahorrados"
+  - time: "23:00"
+    seconds: 1380
+    label: "La pregunta de Diego: \"¿qué automatizo primero?\""
+  - time: "26:00"
+    seconds: 1560
+    label: "¿Cuántos empleos se pierden? El impacto social que viene"
+  - time: "33:00"
+    seconds: 1980
+    label: "Por qué la adopción en empresas grandes está tan atrasada"
+  - time: "41:00"
+    seconds: 2460
+    label: "La universidad, el colegio y para qué nos educa hoy"
+  - time: "46:30"
+    seconds: 2790
+    label: "\"No es que no tengamos miedo\": el disclaimer honesto"
+  - time: "53:00"
+    seconds: 3180
+    label: "Consejos finales: asústense y muévanse"
+  - time: "57:00"
+    seconds: 3420
+    label: "Cágala, aprende, repite"
+resources:
+  - title: "OpenClaw"
+    url: "https://openclaw.ai"
+    type: "tool"
+    description: "El framework de agentes personalizados del que hablamos durante todo el episodio"
+  - title: "Twenty CRM"
+    url: "https://twenty.com"
+    type: "tool"
+    description: "Alternativa open source al CRM que reemplazó High Level en el stack de Cristian"
+  - title: "Listmonk"
+    url: "https://listmonk.app"
+    type: "tool"
+    description: "Newsletter self-hosted que reemplazó MailerLite"
+  - title: "n8n"
+    url: "https://n8n.io"
+    type: "tool"
+    description: "Automatizaciones deterministas, complementa a OpenClaw"
+  - title: "Granola"
+    url: "https://granola.ai"
+    type: "tool"
+    description: "Transcripción de reuniones que alimenta a los agentes"
+  - title: "Obsidian"
+    url: "https://obsidian.md"
+    type: "tool"
+    description: "Notas en Markdown, ideal para que tu agente las lea directo"
+  - title: "Ollama"
+    url: "https://ollama.com"
+    type: "tool"
+    description: "Para correr modelos locales sin pasar data a proveedores externos"
+  - title: "Cágala, Aprende, Repite"
+    url: "https://www.skool.com/cagala-aprende-repite/about"
+    type: "other"
+    description: "Comunidad de Cristian para experimentar con IA"
+faq:
+  - question: "¿Qué es OpenClaw y en qué se diferencia de ChatGPT?"
+    answer: "OpenClaw es un framework de agente personalizado que instalas en tu propia máquina o servidor. A diferencia de ChatGPT, que es una aplicación web sobre un modelo cerrado, OpenClaw te deja conectar el modelo que quieras (Claude, Gemini, modelos locales) y darle acceso a tus herramientas, archivos y APIs. No solo conversa: ejecuta acciones, mantiene memoria persistente y aprende de tus flujos de trabajo."
+  - question: "¿Cuánto cuesta implementar OpenClaw en casa?"
+    answer: "Puedes partir con 0 USD si ya tienes un computador viejo y usas modelos con plan gratuito como Gemini CLI. Un setup funcional típico sale entre 6 y 20 USD al mes por un VPS, más la suscripción a un LLM (20 USD ChatGPT, Claude, o Gemini). Si quieres correr modelos locales para privacidad total, un Mac Mini con 24 GB de RAM parte en 700 USD una sola vez."
+  - question: "¿Necesito saber programar para usar OpenClaw?"
+    answer: "No, pero ayuda entender conceptos básicos (qué es una API, qué es un servidor, qué es un archivo de configuración). La propia herramienta te guía y puedes pedirle a Claude Code o al mismo agente que te ayude a instalarla. Lo que sí necesitas es tolerancia a romper cosas y volver a empezar, porque vas a equivocarte varias veces antes de tener un flujo estable."
+  - question: "¿Qué puedo automatizar con OpenClaw que no pueda hacer con n8n o Zapier?"
+    answer: "La diferencia es la naturaleza del trabajo. n8n y Zapier son deterministas: input A genera output B siempre igual. OpenClaw es útil para tareas con ambigüedad, donde se requiere criterio: resumir reuniones contextualizadas con tu negocio, priorizar tareas según tu calendario, generar contenido con tu voz editorial, hacer ingeniería inversa de APIs, responder correos en tu tono. Para procesos lineales y repetitivos, sigue usando n8n."
+  - question: "¿Cuántos trabajos se van a perder por la IA en los próximos años?"
+    answer: "Las estimaciones serias hablan de 40–50% de trabajos de oficina automatizables en la próxima década, pero el número depende del país y la industria. Lo que es seguro es que el ritmo de adopción se está acelerando: empresas como Meta ya están pidiendo a sus ingenieros que trabajen con equipos de agentes en vez de contratar más humanos. Los roles más en riesgo son los de \"apretar botones\" y procesar información sin criterio agregado."
 ---
 
 En este episodio inaugural de **Es la Hora de Aprender** arrancamos con el tema que se apoderó de nuestras conversaciones durante semanas: **OpenClaw**. Cristian lleva 21 días con su asistente Nyx funcionando, Diego ya mató y revivió tres bots distintos, y Rodrigo tiene a Sheldon suelto en grupos de WhatsApp contestándole a sus amigos. Más allá de los nombres con personalidad, el tema real es otro: este es probablemente el momento canónico que separa el trabajo antes y después de la IA agéntica.

@@ -38,6 +38,99 @@ keywords:
   - "gemini 3.1 pro"
   - "sonnet 4.6"
   - "crm ia automatización"
+keyTakeaways:
+  - "Cómo elegir el modelo correcto según la tarea real que tienes entre manos (no el hype de la semana)"
+  - "Por qué la IA no arregla tu empresa si tus procesos están hechos con cinta adhesiva"
+  - "Cuándo tiene sentido construir tu propio stack vs pagar un SaaS en 2026"
+  - "Qué es el Shadow AI y por qué está pasando en tu empresa aunque no lo sepas"
+  - "Cómo diseñar un programa de adopción de IA que no sea una charla motivacional sin follow-up"
+timestamps:
+  - time: "00:00"
+    seconds: 0
+    label: "Bienvenida al segundo episodio con Cristian como host"
+  - time: "01:00"
+    seconds: 60
+    label: "OpenClaw y la pelea con instalaciones de Diego"
+  - time: "03:00"
+    seconds: 180
+    label: "El CRM de 7.000 USD y el problema de procesos"
+  - time: "09:43"
+    seconds: 583
+    label: "Lanzamientos de la semana: Sonnet 4.6, Gemini 3.1 Pro, MiniMax/Kimi scrapeando"
+  - time: "15:00"
+    seconds: 900
+    label: "\"Es la hora de aprender\" para que ustedes no pierdan semanas probando"
+  - time: "20:00"
+    seconds: 1200
+    label: "Protestas anti-IA en Time Magazine y el costo energético"
+  - time: "26:30"
+    seconds: 1590
+    label: "Stacks reales: las herramientas que usan los tres hosts hoy"
+  - time: "37:10"
+    seconds: 2230
+    label: "Build it vs Buy it: el debate que cambió desde 2015"
+  - time: "44:20"
+    seconds: 2660
+    label: "IA no determinística vs procesos deterministas: cuándo usar cada uno"
+  - time: "48:58"
+    seconds: 2938
+    label: "Adopción en empresas grandes: compliance, licencias y Shadow AI"
+  - time: "56:03"
+    seconds: 3363
+    label: "El mermelado de Copilot y por qué todos usan ChatGPT a escondidas"
+  - time: "58:53"
+    seconds: 3533
+    label: "Consejos finales: paga tu licencia, diseña desde IA"
+resources:
+  - title: "Claude Sonnet 4.6 y Opus 4.6"
+    url: "https://www.anthropic.com/claude"
+    type: "tool"
+    description: "Los modelos de Anthropic mencionados como tope de línea"
+  - title: "Gemini 3.1 Pro"
+    url: "https://gemini.google.com"
+    type: "tool"
+    description: "El modelo de Google con salto importante en diseño y razonamiento"
+  - title: "Groq"
+    url: "https://groq.com"
+    type: "tool"
+    description: "Proveedor de inferencia rápida para Llama 3.3 gratis"
+  - title: "GenSpark"
+    url: "https://genspark.com"
+    type: "tool"
+    description: "La plataforma favorita de Diego con múltiples IAs dentro"
+  - title: "Twenty CRM"
+    url: "https://twenty.com"
+    type: "tool"
+    description: "CRM open source que reemplazó el SaaS pago"
+  - title: "Granola"
+    url: "https://granola.ai"
+    type: "tool"
+    description: "Transcripción de reuniones, mencionado como herramienta central"
+  - title: "Perplexity"
+    url: "https://perplexity.ai"
+    type: "tool"
+    description: "Buscador con IA, default de Rodrigo"
+  - title: "Claude Cowork"
+    url: "https://www.anthropic.com/claude"
+    type: "tool"
+    description: "El modo agéntico de Claude para no-técnicos"
+  - title: "Storybook de Gemini"
+    url: "https://gemini.google.com"
+    type: "tool"
+    description: "Para crear historias personalizadas con niños"
+faq:
+  - question: "¿Qué herramienta de IA conviene para empezar en una empresa en 2026?"
+    answer: "Depende del stack que ya uses: si estás en Google Workspace, activa Gemini integrado. Si estás en Microsoft 365, activa Copilot de pago (el gratuito es muy limitado). Si no tienes esa dependencia, evalúa Claude por Anthropic o ChatGPT Team. Lo crítico no es elegir la mejor sino elegir una oficial y rodar con todos, porque sin licencia oficial la gente va a usar cuentas personales y filtrar datos (Shadow AI)."
+  - question: "¿Build it o Buy it para empresas en 2026?"
+    answer: "La regla actualizada: si es core de tu negocio y existe open source maduro, constrúyelo encima de open source. Si no es core y es un SaaS nicho de menos de 30 USD/mes, cómpralo y olvídate. Si pagas más de 500 USD/mes por un SaaS y usas menos del 30% de sus features, considera construir con IA porque hoy es factible con equipos pequeños."
+  - question: "¿Por qué los procesos importan más que la IA?"
+    answer: "Porque la IA amplifica lo que ya tienes. Si tus procesos son ambiguos, no documentados y dependen del conocimiento en la cabeza de la gente, meter IA encima no los arregla — los hace fallar más rápido. La buena noticia es que la IA sí te puede ayudar a levantar y documentar procesos existentes usando transcripciones de conversaciones con tu equipo."
+  - question: "¿Qué es el Shadow AI y por qué debería preocuparme?"
+    answer: "Shadow AI es el uso no autorizado de herramientas de IA por parte de empleados usando cuentas personales para tareas laborales. El riesgo principal es que la data corporativa sensible (emails, finanzas, estrategia) termina en los servidores de los laboratorios de IA, y en el caso de cuentas gratuitas puede entrar al corpus de entrenamiento. Se previene dando licencias oficiales a todos y creando políticas claras de uso."
+  - question: "¿Qué diferencia hay entre usar ChatGPT y usar un agente como OpenClaw?"
+    answer: "ChatGPT es una conversación: tú preguntas, él responde. Un agente como OpenClaw ejecuta acciones en tu ambiente — lee tus archivos, corre código, se conecta a APIs, mantiene memoria persistente, y trabaja sin supervisión en tareas de varios pasos. ChatGPT lo usas para consultar; OpenClaw lo usas para que opere en tu nombre."
+  - question: "¿Cuándo usar OpenClaw (IA) y cuándo usar n8n (automatización tradicional)?"
+    answer: "Si el proceso es lineal, repetitivo y determinista (input A siempre genera output B), usa n8n, Make o Zapier. Consume menos recursos, es predecible y fácil de debuggear. Si el proceso requiere criterio, manejo de ambigüedad, o encadenar múltiples pasos con decisiones intermedias (resumir reuniones, investigar temas, generar contenido contextual), ahí sí conviene un agente de IA."
 ---
 
 Segundo episodio y ya tenemos lista de lanzamientos en cadena: **Claude Sonnet 4.6**, **Gemini 3.1 Pro**, Anthropic descubrió que MiniMax y Kimi estuvieron scrapeando sus respuestas para entrenarse. Pero la conversación real del día no fue esa: fue sobre cuándo conviene **construir** tus propias herramientas con IA y cuándo conviene **comprar** un SaaS, por qué casi ninguna empresa tiene los procesos necesarios para que la IA funcione, y por qué el Shadow AI está filtrando datos corporativos mientras TI sigue discutiendo el compliance.

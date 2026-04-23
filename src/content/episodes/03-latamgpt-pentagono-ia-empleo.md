@@ -41,6 +41,101 @@ keywords:
   - "llama 3.1 latinoamerica"
   - "ia en empresas niveles"
   - "groq llama gratis soporte"
+keyTakeaways:
+  - "Qué es LatamGPT realmente, por qué fue comunicado como algo que no es, y cuál es su valor real"
+  - "Por qué Anthropic renunció al Pentágono y qué dice eso sobre el ADN ético de cada laboratorio"
+  - "Cuándo conviene usar modelos de código abierto en tu empresa (y cuándo no)"
+  - "Los 4 niveles de adopción de IA que toda empresa debería recorrer en 2026"
+  - "Por qué los modelos \"deprecados\" siguen siendo perfectamente útiles para la mayoría de las tareas"
+timestamps:
+  - time: "00:00"
+    seconds: 0
+    label: "Bienvenida con Diego como host"
+  - time: "01:36"
+    seconds: 96
+    label: "LatamGPT: qué es realmente y por qué se comunicó mal"
+  - time: "05:30"
+    seconds: 330
+    label: "Cristian en modo hater pragmático, Rodrigo defendiendo el valor académico"
+  - time: "09:08"
+    seconds: 548
+    label: "El verdadero valor está en el corpus, no en el modelo"
+  - time: "17:35"
+    seconds: 1055
+    label: "Anthropic vs Pentágono y el contrato que se llevó OpenAI"
+  - time: "22:14"
+    seconds: 1334
+    label: "Licencias MIT, modelos open source y el uso militar"
+  - time: "28:20"
+    seconds: 1700
+    label: "NVIDIA en la bolsa y Block despide 4.000 personas"
+  - time: "33:00"
+    seconds: 1980
+    label: "¿Destrucción de empleo o ajuste legítimo?"
+  - time: "37:00"
+    seconds: 2220
+    label: "\"El 60% de las personas es menos eficiente usando IA\""
+  - time: "43:00"
+    seconds: 2580
+    label: "FinTalk pasó de 5 a 28 millones en gasto de Claude en un mes"
+  - time: "50:04"
+    seconds: 3004
+    label: "Los 4 niveles de adopción de IA en empresas"
+  - time: "56:36"
+    seconds: 3396
+    label: "Cágala, aprende, repite como cultura corporativa"
+  - time: "58:00"
+    seconds: 3480
+    label: "Bases de datos vectoriales vs fine-tuning"
+  - time: "1:00:41"
+    seconds: 3641
+    label: "Consejos finales: meter las manos sin parar"
+resources:
+  - title: "CENIA - Centro Nacional de Inteligencia Artificial"
+    url: "https://cenia.cl"
+    type: "tool"
+    description: "El coordinador académico detrás de LatamGPT"
+  - title: "Llama 3.1"
+    url: "https://llama.com"
+    type: "tool"
+    description: "El modelo base sobre el que se construyó LatamGPT"
+  - title: "Qwen"
+    url: "https://qwenlm.github.io"
+    type: "tool"
+    description: "Modelo open source chino con licencia permisiva"
+  - title: "Gemma de Google"
+    url: "https://ai.google.dev/gemma"
+    type: "tool"
+    description: "Modelos abiertos de Google mencionados como alternativa"
+  - title: "Groq"
+    url: "https://groq.com"
+    type: "tool"
+    description: "Proveedor de inferencia rápida para Llama 3.3 gratuito"
+  - title: "Anthropic"
+    url: "https://www.anthropic.com"
+    type: "tool"
+    description: "Laboratorio detrás de Claude con énfasis en IA segura"
+  - title: "Claude Cowork"
+    url: "https://www.anthropic.com/claude"
+    type: "tool"
+    description: "Modo agéntico de Claude ideal para no-técnicos"
+  - title: "Raycast"
+    url: "https://raycast.com"
+    type: "tool"
+    description: "Mencionado con Glaze para crear aplicaciones locales"
+faq:
+  - question: "¿Qué es LatamGPT y dónde puedo usarlo?"
+    answer: "LatamGPT es un modelo de lenguaje basado en Llama 3.1, fine-tuneado con un corpus de aproximadamente 300.000 millones de tokens en lenguas y modismos latinoamericanos. Fue desarrollado por CENIA (Chile) con participación de 15 países. No está pensado para competir con ChatGPT — es un proyecto académico cuyo mayor valor es el dataset público, que puedes usar para entrenar o fine-tunear tus propios chatbots y mejorar la localización en productos dirigidos a LATAM."
+  - question: "¿Se puede usar Llama u otro modelo open source para fines militares?"
+    answer: "Técnicamente sí, pero la licencia de Llama prohíbe explícitamente usos militares. Otros modelos open source como Qwen o Mistral tienen licencias más permisivas. Para uso legítimo en defensa o seguridad nacional, la práctica correcta es elegir un modelo con licencia compatible o negociar una licencia custom directamente con el laboratorio (Meta ha hecho acuerdos específicos con gobiernos). Saltarse esa decisión es éticamente problemático aunque técnicamente posible."
+  - question: "¿Por qué Anthropic se salió del contrato con el Pentágono?"
+    answer: "Anthropic mantiene una postura pública fuerte sobre IA segura y alineamiento con valores humanos. El Pentágono quería que flexibilizara los safeguards de Claude para usos que Anthropic consideraba fuera de su política. Tras un ultimátum directo en la reunión con el CEO Dario Amodei, Anthropic decidió renunciar al contrato. OpenAI, con una postura más flexible, tomó el contrato en paralelo."
+  - question: "¿Block despidió personas por IA o por otros motivos?"
+    answer: "Block anunció el despido de 4.000 personas (40% de su fuerza de trabajo con computador) argumentando eficiencia por IA, aunque tuvieron su mejor año financiero. La interpretación más probable es una combinación: sobrecontrataron masivamente durante la pandemia y la IA dio el pretexto narrativo para un ajuste que de todas formas venía. Es un precedente importante: empresas grandes ahora pueden justificar reducciones de headcount citando eficiencia por IA sin penalización reputacional."
+  - question: "¿Qué significa que un modelo de IA esté \"deprecado\"?"
+    answer: "En IA, \"deprecado\" significa que el laboratorio dejó de actualizarlo o darle soporte activo, pero el modelo sigue funcionando. Los modelos de hace 12–18 meses (como GPT-4 original o Llama 3.1) siguen siendo excelentes para la mayoría de tareas. El salto reciente está en tool use, razonamiento extendido y mixture of experts — no en inteligencia bruta. Para la mayor parte del trabajo de oficina, un modelo legacy bien conectado hace el trabajo."
+  - question: "¿Cuáles son los 4 niveles de adopción de IA en empresas?"
+    answer: "Nivel 1: IA como herramienta personal para cada colaborador (Copilot, Gemini, ChatGPT). Nivel 2: IA integrada en procesos de negocio específicos. Nivel 3: Agentes autónomos con persistencia que operan sin supervisión constante. Nivel 4: AI-native, donde la IA es parte natural del flujo de trabajo y la cultura tolera la experimentación. Una empresa que no está al menos en nivel 1 en 2026 está estructuralmente atrasada."
 ---
 
 Tercer episodio cargado de noticias que marcaron la semana: **LatamGPT** se lanzó oficialmente y se comunicó pésimo, **Anthropic perdió el contrato con el Pentágono** y OpenAI lo tomó, **Block despidió 4.000 personas** (el 40% de su fuerza laboral) argumentando eficiencia por IA, y NVIDIA se desplomó en la bolsa mientras el resto del mundo se pregunta si esto es una burbuja o la mayor transferencia de capital a un solo vector tecnológico en la historia. Diego, Cristian y Rodrigo desgranan cada tema con la honestidad que requiere: qué es real, qué es hype, y qué deberías hacer tú con esta información.
