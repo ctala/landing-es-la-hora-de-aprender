@@ -218,23 +218,6 @@ Rodrigo destiló el framework que viene aplicando en consultorías:
 
 **Nivel 4 — AI-native**. La IA es segunda naturaleza. Cuando aparece un problema, la primera pregunta es *"¿cómo lo resuelvo con IA más rápido?"* — no *"si uso IA"*. Requiere empleados capaces, herramientas potentes y un cambio cultural profundo: **tolerancia al error**. En LatAm la cultura corporativa tradicional castiga equivocarse. Para llegar a nivel 4 tienes que normalizar la experimentación y el fracaso rápido.
 
-## Capítulos del episodio
-
-- **00:00** — Bienvenida con Diego como host
-- **01:36** — LatamGPT: qué es realmente y por qué se comunicó mal
-- **05:30** — Cristian en modo hater pragmático, Rodrigo defendiendo el valor académico
-- **09:08** — El verdadero valor está en el corpus, no en el modelo
-- **17:35** — Anthropic vs Pentágono y el contrato que se llevó OpenAI
-- **22:14** — Licencias MIT, modelos open source y el uso militar
-- **28:20** — NVIDIA en la bolsa y Block despide 4.000 personas
-- **33:00** — ¿Destrucción de empleo o ajuste legítimo?
-- **37:00** — "El 60% de las personas es menos eficiente usando IA"
-- **43:00** — FinTalk pasó de 5 a 28 millones en gasto de Claude en un mes
-- **50:04** — Los 4 niveles de adopción de IA en empresas
-- **56:36** — Cágala, aprende, repite como cultura corporativa
-- **58:00** — Bases de datos vectoriales vs fine-tuning
-- **1:00:41** — Consejos finales: meter las manos sin parar
-
 ## Preguntas frecuentes
 
 ### ¿Qué es LatamGPT y dónde puedo usarlo?

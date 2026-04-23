@@ -212,22 +212,6 @@ Rodrigo citó a Andrej Karpathy (ex-Tesla, OpenAI), en una entrevista reciente:
 
 La implicancia práctica: hoy tienes todo para armar cosas. La pregunta ya no es "¿puedo?", es "¿qué quiero probar?". Y hacerlo rápido, con más o menos riesgo según tu contexto.
 
-## Capítulos del episodio
-
-- **00:02** — Mea culpa: Cristian se casó con Anthropic y no pudo trabajar
-- **03:42** — GitHub con SLA de 93,7% en marzo (45 horas de downtime)
-- **07:53** — Plan de contingencia: por qué Cristian no quiso usar otro modelo
-- **13:47** — Consume Claude vía AWS Bedrock o Azure, no directo
-- **16:51** — NemoClaw de NVIDIA: OpenClaw con corbata y seguridad enterprise
-- **18:19** — Hate en LinkedIn: negación de lo que está pasando
-- **35:20** — CEO de JP Morgan pide regulación para "salvar la sociedad"
-- **41:25** — Filtración del código de Claude Code: 44 flags ocultos, Kairos, clones en Rust
-- **47:26** — Claude Maitos y Claude Capibara: rumores previos a IPO
-- **52:13** — OpenClaw endureció permisos y rompió automatizaciones existentes
-- **56:56** — Vector Rodrigo: documentar en Obsidian para que lo consuma el agente
-- **1:00:17** — Diego llegó a $400 en GenSpark y lanza empresasaumentadas.com
-- **1:03:14** — Andrej Karpathy: "el cuello de botella somos los humanos"
-
 ## Preguntas frecuentes
 
 ### ¿Cómo diseño un plan de contingencia si mi agente depende de Claude?

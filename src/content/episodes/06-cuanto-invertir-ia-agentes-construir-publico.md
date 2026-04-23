@@ -281,24 +281,6 @@ Esto no significa que el conocimiento técnico deje de valer — Cristian lo rem
 
 Lección para tu carrera: si ya tienes una expertise en algún dominio (marketing, legal, finanzas, logística, operaciones), combinarla con fluidez en hablarle a la IA te hace exponencialmente más valioso que cualquiera de los dos por separado.
 
-## Capítulos del episodio
-
-- **00:00** — Cristian vuelve de vacaciones y la frase de Jensen Huang
-- **02:56** — ¿Cuánto invertir en IA al mes? Tres perfiles, tres rangos
-- **08:50** — Micro-SaaS personal con Agent Teams de Claude en un día
-- **12:33** — Por qué el SaaS está muerto (o casi)
-- **14:15** — Aumentación vs delegación: el mix que tiene sentido hoy
-- **17:22** — Harvard, Block, Forrester: los datos sobre despidos por IA
-- **19:30** — Documentar antes de despedir: la regla de oro
-- **22:59** — Steam, OnlyFans, NVIDIA: ingresos por empleado
-- **26:39** — Equipos chicos (Telegram, Obsidian) y cómo emprender en paralelo
-- **30:57** — Partir por el dolor propio y la IA como tecnología democrática
-- **37:36** — El plugin de link-building: caso completo
-- **41:27** — El empleado en forma de T y conocimiento que amplifica la IA
-- **45:09** — Distribución: la red de pesca y construir en público
-- **48:27** — Hacer + contar y la cultura de comunidades en Latam
-- **57:49** — La historia del plugin de 5 USD que llevó a una fintech vendida
-
 ## Preguntas frecuentes
 
 ### ¿Cuánto deberías gastar mensualmente en herramientas de IA?

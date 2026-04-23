@@ -202,22 +202,6 @@ El consejo práctico que surgió entre los tres, destilado:
 
 Rodrigo lo resumió con una analogía de surf: llevamos meses viendo el tsunami de IA acercarse. Cada vez está más cerca, cada vez es más grande de lo que esperábamos. La pregunta es: **¿vas a aprender a surfear ahora, o vas a tomar sol en la playa mientras la ola te aplasta?**
 
-## Capítulos del episodio
-
-- **00:00** — Bienvenida al primer episodio y por qué OpenClaw es EL tema
-- **04:30** — Los bots de los hosts: Nyx, Rosita y Sheldon
-- **05:30** — ¿Qué es OpenClaw exactamente?
-- **10:25** — La productividad como junior: por qué no es magia, es iteración
-- **12:00** — VPS vs computador físico: filosofías y costos reales
-- **16:30** — El stack real de Cristian: tres servidores y 1.500 USD ahorrados
-- **23:00** — La pregunta de Diego: "¿qué automatizo primero?"
-- **26:00** — ¿Cuántos empleos se pierden? El impacto social que viene
-- **33:00** — Por qué la adopción en empresas grandes está tan atrasada
-- **41:00** — La universidad, el colegio y para qué nos educa hoy
-- **46:30** — "No es que no tengamos miedo": el disclaimer honesto
-- **53:00** — Consejos finales: asústense y muévanse
-- **57:00** — Cágala, aprende, repite
-
 ## Preguntas frecuentes
 
 ### ¿Qué es OpenClaw y en qué se diferencia de ChatGPT?

@@ -4,6 +4,35 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.16.1] - 2026-04-23
+
+### 🧹 Remover sección "Capítulos del episodio" del body MD
+
+Continuación del commit 3.16.0 (bloque clickable de capítulos arriba del shownote). Los 9 episodios tenían la sección duplicada: el bloque nuevo clickable arriba + una sección de bullets textuales dentro del body MD. Usuario reporta: "tengo dos secciones distintas. ¿Las necesito?".
+
+**Respuesta: no.** Con el bloque clickable arriba, la sección textual del body era redundante y confusa (los bullets no eran clickables). Removida de los 9 archivos con script `/tmp/remove-chapters-section.py`.
+
+#### Cambios
+
+- Removidas las secciones `## Capítulos del episodio` + sus bullets textuales de los 9 `src/content/episodes/*.md`.
+- El TOC del shownote ya no lista "Capítulos del episodio" (ese H2 desapareció del body).
+- El bloque nuevo arriba (`.chapters`) queda como fuente única visual para capítulos.
+- El JSON-LD `Clip` con `startOffset` sigue emitiéndose — los timestamps siguen en el frontmatter `timestamps[]` y alimentan tanto el bloque visual como el schema SEO.
+
+#### Consecuencia esperada
+
+- Hash URL `#capítulos-del-episodio` antiguo ahora lleva al top de la página (comportamiento default cuando el ID no existe). Si alguien tenía un bookmark, no rompe — simplemente scroll al top y ve el bloque arriba.
+- Shownotes más limpios: ~20-30 palabras menos por episodio, sin duplicación.
+
+#### Docs sincronizadas
+
+- `CHANGELOG.md`: entrada 3.16.1.
+- `package.json` / `README.md`: bump a v3.16.1.
+
+Build: 0 errors, 0 warnings.
+
+---
+
 ## [3.16.0] - 2026-04-23
 
 ### 🎬 Capítulos clickables con timestamps en página de episodio

@@ -249,24 +249,6 @@ Es incómodo decirlo así, pero es lo que está pasando en los memos internos de
 
 Diego aprovechó para destacar el lanzamiento de **Young Ventures**, el syndicate que Rodrigo armó con 10 perfiles más de la industria. La tesis es simple: invertir en startups tempranas con señal de tracción, de base tecnológica, principalmente en Chile (abierto a LatAm). Ticket agrupado bajo, pero con acompañamiento: cada uno de los 11 aporta su expertiz — Growth, IA, Marketing, legal, VC, producto. Y una exigencia explícita: los founders tienen que estar jugando con agentes desde ya. Si no, se quedan atrás antes de levantar serie A.
 
-## Capítulos del episodio
-
-- **00:02** — Bienvenida y novedades de la semana (Qwen 3.6, Kimi 2.6, Opus 4.7 con Adaptive Thinking)
-- **05:16** — Diego se clona con HeyGen; experimentos con agentes en Slack
-- **09:54** — ¿Qué usa un solo entrepreneur? Chief of staff + especialistas
-- **14:45** — Decisión clave: tinkerer local vs empaquetado (GenSpark, Manus)
-- **19:30** — MiniMax vs Opus: 20x más barato a cambio de un poco de latencia
-- **22:00** — Latencia y ubicación de servidores: el punto que nadie discute
-- **27:49** — Migrar de Opus a MiniMax requirió rehacer todos los skills
-- **30:39** — ¿Qué necesita una PYME? Ruta de adopción en 5 pasos
-- **37:00** — OpenClaw roto por una semana sin que el cliente se diera cuenta
-- **42:13** — Empresa grande: transformación digital antes que agentes
-- **46:51** — Debate: ¿capacitar a 2.000 personas o contratar gente que ya sabe?
-- **49:38** — La técnica que mejor funciona: habilitación masiva + Champions
-- **54:49** — Young Ventures: tesis, 11 perfiles, exigencia de agentes
-- **57:23** — Cristian reconvierte grabar cursos con HeyGen + Hyperframes
-- **1:03:46** — Agentes de voz de ElevenLabs para atención a cliente y cobranza
-
 ## Preguntas frecuentes
 
 ### ¿Qué IA conviene para un solo entrepreneur que recién parte?

@@ -200,22 +200,6 @@ En el medio hay un escenario más probable: sueldo mínimo universal en algunas 
 
 Diego suma la capa extra que se suele olvidar: si además extendemos la longevidad humana por avances biomédicos, **el tiempo se vuelve el activo más valioso**, y tener patrimonio para comprarlo será la nueva brecha. Por eso, la tesis común del episodio: si hoy tienes la oportunidad de generar ingresos adicionales o emprender en paralelo, hazlo ahora. Las barreras están bajas. La ventana es corta.
 
-## Capítulos del episodio
-
-- **00:01** — Bienvenida, contexto de la semana y lanzamientos (Perplexity Computer, Copilot Cowork)
-- **05:45** — Claude Code vs OpenClaw: qué es el harness y por qué importa
-- **08:55** — El experimento Anthropic + Firefox: 22 bugs por 4.000 USD
-- **14:29** — Cómo valorizar estas capacidades desde el negocio, no desde la función
-- **19:42** — Repensar procesos: la "gomita de Tesla" aplicada a IA
-- **22:42** — API Design First: por qué los agentes son el nuevo cliente
-- **26:45** — Ventaja del segundo: por qué empezar hoy gana aunque no seas pionero
-- **31:49** — Sequoia y el primer trillion dollar company de servicios
-- **38:00** — Empaquetar contenido orgánico como producto B2B
-- **41:27** — SEO orgánico vs performance paid: el tema de los 3 meses
-- **48:21** — Mercado Libre (20K devs), Block y dos escuelas de despido
-- **51:26** — Non-competes y cultura Silicon Valley
-- **56:58** — ¿Qué va a ser de nosotros? Terminator, Grecia o algo intermedio
-
 ## Preguntas frecuentes
 
 ### ¿Cuánto cuesta hoy arreglar bugs con un agente tipo Claude Opus?

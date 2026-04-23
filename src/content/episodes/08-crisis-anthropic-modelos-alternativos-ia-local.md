@@ -216,22 +216,6 @@ Rodrigo llevaba dos "reencarnaciones" de su agente Sheldon antes de este episodi
 
 El patrón aplica también a empresas. Documentar procesos en Markdown, Obsidian, Notion — cualquier formato que el agente pueda ingerir — es lo que te permite cambiar de OpenClaw a GenSpark, de Claude a Qwen, o de un framework a otro sin reescribir todo desde cero. Si tu conocimiento vive solo en la cabeza de las personas, cada cambio de herramienta te cuesta semanas.
 
-## Capítulos del episodio
-
-- **00:01** — Bienvenida y qué han estado jugando esta semana
-- **03:48** — Benchmark de 8 modelos para el pipeline de noticias de Cristian
-- **05:09** — Qué pasó con Anthropic: mail del sábado y cancelación del uso con agentes
-- **10:06** — Gemma 4: funciona increíble local, lentísimo en la nube
-- **14:03** — Por qué Meta usa Claude para desarrollar Llama (y qué pasó con Llama 4)
-- **21:05** — Cristian compró un NVIDIA DGX Spark y se lo cancelaron desde Chile
-- **27:49** — Debate: MiniMax 2.7 vs Opus en costo/beneficio
-- **29:35** — Gemma 26B corriendo local en mini-PC a 15 tokens/seg
-- **33:32** — Cuándo conviene IA local: datos sensibles, IoT, visión computacional
-- **39:42** — Solo el 6% usa IA activamente: la brecha con el mainstream
-- **50:37** — Dos reencarnaciones de Sheldon: documentar como estrategia de migración
-- **55:51** — El problema de incentivos en Meta: $5M/mes por persona en tokens
-- **1:00:42** — Próximos proyectos: instancia óptima de OpenClaw sin Anthropic
-
 ## Preguntas frecuentes
 
 ### ¿Por qué Anthropic cortó el uso de Opus con OpenClaw si pagué el plan Max?

@@ -215,21 +215,6 @@ Peor todavía: muchos usan la cuenta **gratuita** de ChatGPT, que entrena sobre 
 
 El pattern es siempre el mismo: la empresa tiene Copilot oficial, pero la gente dice *"Copilot me contesta más lento"*. No es más tonto — es más restringido por diseño empresarial. Pero la percepción gana. Solución: política clara + licencias pagadas para todos + entrenamiento + tiempo para experimentar.
 
-## Capítulos del episodio
-
-- **00:00** — Bienvenida al segundo episodio con Cristian como host
-- **01:00** — OpenClaw y la pelea con instalaciones de Diego
-- **03:00** — El CRM de 7.000 USD y el problema de procesos
-- **09:43** — Lanzamientos de la semana: Sonnet 4.6, Gemini 3.1 Pro, MiniMax/Kimi scrapeando
-- **15:00** — "Es la hora de aprender" para que ustedes no pierdan semanas probando
-- **20:00** — Protestas anti-IA en Time Magazine y el costo energético
-- **26:30** — Stacks reales: las herramientas que usan los tres hosts hoy
-- **37:10** — Build it vs Buy it: el debate que cambió desde 2015
-- **44:20** — IA no determinística vs procesos deterministas: cuándo usar cada uno
-- **48:58** — Adopción en empresas grandes: compliance, licencias y Shadow AI
-- **56:03** — El mermelado de Copilot y por qué todos usan ChatGPT a escondidas
-- **58:53** — Consejos finales: paga tu licencia, diseña desde IA
-
 ## Preguntas frecuentes
 
 ### ¿Qué herramienta de IA conviene para empezar en una empresa en 2026?

@@ -235,24 +235,6 @@ Un punto práctico que Rodrigo dejó: cuando metes agentes en la empresa, **abst
 
 Esto se consigue con código propio + APIs especializadas por detrás de un frontend común (Slack, Teams, tu intranet). El costo de construirlo es bajo con los agentes actuales; el costo de *no* construirlo es quedar locked con un proveedor específico en un mercado que cambia de protagonista cada mes.
 
-## Capítulos del episodio
-
-- **00:01** — Cristian de vacaciones, la semana y estado del arte de agentes
-- **03:30** — Taller de turismo rural: lo que descubrieron cuando vieron el contexto
-- **05:32** — Propuestas comerciales en Desafío Latam con contexto compartido
-- **08:00** — El caso completo: 80 propuestas organizadas con Claude Cowork en una tarde
-- **13:27** — Skills de Claude: la habilidad reutilizable que genera propuestas en 2 clics
-- **15:24** — Qué modelo usar en cada etapa (Opus, Sonnet, GPT-5.4, nano)
-- **22:46** — Siéntate a pensar qué tarea te duele la guata antes de automatizar
-- **26:25** — Jensen Huang en GTC 2026 y la estrategia de agentes corporativa
-- **29:58** — OpenClaw como categoría: Pete Stinberg, Perplexity, Manus, GenSpark
-- **36:30** — Instalación local vs VPS vs empaquetado (GenSpark Cloud)
-- **42:13** — Arquitectura de agentes: canales, permisos, modelos, credenciales
-- **47:13** — Cómo evoluciona una empresa grande desde prompts a agentes
-- **52:35** — Turismo rural: IA como tecnología democrática
-- **58:13** — Evitar lock-in de proveedor y sostenibilidad
-- **1:02:28** — Mensaje a gobiernos y gerencias: estrategia a nivel país
-
 ## Preguntas frecuentes
 
 ### ¿Qué es Claude Cowork y en qué se diferencia de Claude Code?
