@@ -33,18 +33,10 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 ## Siguientes (quick wins, alto impacto)
 
 - [x] **Rellenar body editorial de episodios 01–04 y refactorizar 05–09 al estándar modo B** — hecho en v3.8.0 usando los transcripts de Riverside como fuente. Los 9 episodios ahora renderizan 2.000–3.300 palabras cada uno con las 8 secciones obligatorias.
-- [ ] **Extender schema Zod** en `src/content.config.ts` con campos opcionales para soportar la plantilla ideal sin romper los 9 `.md` actuales:
-  - `excerpt` (hook corto distinto al description largo)
-  - `keyTakeaways: z.array(z.string())`
-  - `timestamps: z.array({time, seconds, label})`
-  - `resources: z.array({title, url, type})`
-  - `faq: z.array({question, answer})`
-  - `guests: z.array({name, role, bio, linkedin?})`
-  - `primaryTopic` / `cluster` (enum)
-  - `transcriptUrl` / `transcript`
-  - `updatedAt`
-  Impacto: habilitador de todo lo demás · Esfuerzo: bajo.
-- [ ] **Renderizar key takeaways + FAQs desde frontmatter** en la página de episodio, cuando los campos existan. Emitir `FAQPage` JSON-LD automáticamente si hay FAQs.
+- [x] **Extender schema Zod con campos opcionales estructurados** — hecho en v3.10.0. Agregados: `excerpt`, `keyTakeaways[]`, `timestamps[]`, `resources[]`, `faq[]`, `guests[]`, `updatedAt`. Pendientes para futuros sprints: `primaryTopic`/`cluster`, `transcript`/`transcriptUrl`.
+- [x] **FAQPage JSON-LD automático** — hecho en v3.10.0. Si `faq[]` está definido en el frontmatter, se emite `FAQPage` schema. Mismo patrón para `timestamps[]` → `hasPart: Clip` en VideoObject (chapter markers en SERP), `resources[]` → `citation`, `keyTakeaways[]` → `about`, `guests[]` → `actor`, `updatedAt` → `dateModified`.
+- [ ] **Migrar los 8 episodios restantes al formato estructurado** (ep01-ep08). EP09 quedó migrado como piloto en v3.10.0. Los demás pueden migrarse gradualmente. Beneficio: activa FAQPage + chapter markers en SERP para esos episodios también.
+- [ ] **Render visual desde frontmatter estructurado** — complemento opcional de lo anterior. Hoy los shownotes MD tienen las FAQs/takeaways/recursos como texto. Si se define el campo en frontmatter, se podría: (a) reemplazar la sección del MD por render automático desde array (garantiza consistencia visual + schema), o (b) mantener dual para máxima flexibilidad editorial. Decidir cuando se migren los 8 episodios.
 - [ ] **Topic chips clickables** — hoy `topics[]` solo se muestra como pills decorativas. Hacer que cada chip linkee a `/temas/{slug}` (ver siguiente).
 - [x] **Links internos de episodios resueltos por número** — hecho en v3.9.0. Campo `relatedEpisodes: number[]` en el schema + render automático en el template; build falla si un número referenciado no existe. Queda pendiente la parte (b): validator post-build para los links hardcoded dentro del body Markdown (los que no usan `relatedEpisodes`).
 - [ ] **Validator de links internos del body** — complemento de `relatedEpisodes`. Script post-build que parsea el HTML generado, extrae todos los `/episodios/*` del contenido y falla si alguno apunta a un slug inexistente. Cubre los links contextuales dentro de párrafos (ej. "como vimos en [el episodio pasado](/episodios/...)").

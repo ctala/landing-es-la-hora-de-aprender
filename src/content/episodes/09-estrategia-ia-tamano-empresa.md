@@ -41,6 +41,108 @@ keywords:
   - "latencia ia servidores chile estados unidos"
   - "documentación empresa ia ventaja competitiva"
   - "young ventures fondo inversion"
+keyTakeaways:
+  - "Qué stack de IA conviene según seas solo entrepreneur, PYME o empresa grande"
+  - "Por qué un solo agente generalista fracasa y cuál es la unidad mínima viable (dos agentes)"
+  - "Cómo la latencia de servidores importa tanto como la calidad del modelo para LatAm"
+  - "Por qué la documentación empresarial es el activo más valioso en la era de agentes"
+  - "Cuándo capacitar y cuándo contratar gente ya formada en IA"
+timestamps:
+  - time: "00:02"
+    seconds: 2
+    label: "Bienvenida y novedades de la semana (Qwen 3.6, Kimi 2.6, Opus 4.7)"
+  - time: "05:16"
+    seconds: 316
+    label: "Diego se clona con HeyGen y experimenta con agentes en Slack"
+  - time: "09:54"
+    seconds: 594
+    label: "¿Qué usa un solo entrepreneur? Chief of staff + especialistas"
+  - time: "14:45"
+    seconds: 885
+    label: "Decisión clave: tinkerer local vs empaquetado (GenSpark, Manus)"
+  - time: "19:30"
+    seconds: 1170
+    label: "MiniMax vs Opus: 20x más barato a cambio de un poco de latencia"
+  - time: "22:00"
+    seconds: 1320
+    label: "Latencia y ubicación de servidores: el punto que nadie discute"
+  - time: "27:49"
+    seconds: 1669
+    label: "Migrar de Opus a MiniMax requirió rehacer todos los skills"
+  - time: "30:39"
+    seconds: 1839
+    label: "¿Qué necesita una PYME? Ruta de adopción en 5 pasos"
+  - time: "37:00"
+    seconds: 2220
+    label: "OpenClaw roto por una semana sin que el cliente se diera cuenta"
+  - time: "42:13"
+    seconds: 2533
+    label: "Empresa grande: transformación digital antes que agentes"
+  - time: "46:51"
+    seconds: 2811
+    label: "Debate: ¿capacitar a 2.000 personas o contratar gente que ya sabe?"
+  - time: "49:38"
+    seconds: 2978
+    label: "La técnica que mejor funciona: habilitación masiva + Champions"
+  - time: "54:49"
+    seconds: 3289
+    label: "Young Ventures: tesis, 11 perfiles, exigencia de agentes"
+  - time: "57:23"
+    seconds: 3443
+    label: "Cristian reconvierte grabar cursos con HeyGen + Hyperframes"
+  - time: "1:03:46"
+    seconds: 3826
+    label: "Agentes de voz de ElevenLabs para atención a cliente y cobranza"
+resources:
+  - title: "Claude Desbloqueado — curso de Rodrigo"
+    url: "https://www.linkedin.com/in/rodrigorojop/"
+    type: "video"
+    description: "Nueva edición arranca el lunes 27 de abril, 4 sesiones con los detalles de Claude."
+  - title: "OpenClaw"
+    url: "https://openclaw.ai"
+    type: "tool"
+    description: "Framework de agentes, base de los setups comentados por los tres hosts."
+  - title: "MiniMax"
+    url: "https://www.minimax.io/"
+    type: "tool"
+    description: "Suscripción de ~$40/mes que alimenta OpenClaw sin quedarse sin tokens."
+  - title: "HeyGen"
+    url: "https://www.heygen.com/"
+    type: "tool"
+    description: "Clonación de avatar en video; Avatar 5.5 y la nueva librería open source Hyperframes."
+  - title: "GenSpark"
+    url: "https://genspark.com/"
+    type: "tool"
+    description: "Plataforma de agentes empaquetada, especialmente útil para equipos comerciales."
+  - title: "Ollama"
+    url: "https://ollama.com/"
+    type: "tool"
+    description: "Runtime para correr modelos open source como Gemma localmente."
+  - title: "ElevenLabs"
+    url: "https://elevenlabs.io/"
+    type: "tool"
+    description: "Clonación de voz; sección de agentes de voz para atención a cliente y cobranza."
+  - title: "Perplexity Computer"
+    url: "https://www.perplexity.ai/"
+    type: "tool"
+    description: "Ahora con personal computer, opera aplicaciones locales en Mac."
+  - title: "Cágala, Aprende, Repite"
+    url: "https://www.skool.com/cagala-aprende-repite/about"
+    type: "other"
+    description: "Comunidad de Cristian para seguir aprendiendo juntos."
+faq:
+  - question: "¿Qué IA conviene para un solo entrepreneur que recién parte?"
+    answer: "Una suscripción de Claude con Claude Cowork, o Gemini Pro si trabajas en Google Workspace, resuelve el 80% de los casos. Si eres técnico y quieres control, OpenClaw + MiniMax a ~$40 al mes te da un agente que no se queda sin tokens y alimenta múltiples skills. Si manejas datos sensibles, Ollama con Gemma local sobre un mini-PC te asegura que nada sale de tu máquina. Lo importante no es la herramienta específica; es no montar un generalista que intenta hacer todo. Mínimo dos agentes — uno que ejecuta, otro que valida."
+  - question: "¿Por qué MiniMax es tan popular en la comunidad de agentes?"
+    answer: "Por tres razones: la suscripción no se agota fácil y alimenta múltiples agentes en paralelo con los mismos créditos; el modelo MiniMax 2.7 tiene muy buen uso de herramientas, que es lo que OpenClaw realmente necesita; y el precio es ~20 veces más barato que Opus para tareas comparables. El trade-off: Opus sigue siendo mejor en razonamiento complejo y en seguir instrucciones con poco contexto. Para uso agéntico intensivo día a día, MiniMax te saca del apuro sin quemar tarjeta."
+  - question: "¿Cómo afecta la ubicación del servidor al rendimiento de mi agente?"
+    answer: "Un agente hace muchas llamadas por tarea — planear, leer herramientas, ejecutar, validar, reintentar. Cada llamada suma latencia de red. Si tu agente corre en Alibaba Cloud en China y el modelo en servidores de EE.UU., cada ida y vuelta son cientos de milisegundos. Multiplicado por 20 tool calls, son varios segundos perdidos. Con un VPS propio cerca del modelo (EE.UU., generalmente), hablas de decenas de milisegundos por call. Además, los servicios compartidos pueden ser bloqueados por WAF si otra persona en la misma IP hizo abuso — tu agente queda sin acceso a tu propio sitio."
+  - question: "¿Cuándo tiene sentido instalar OpenClaw versus usar GenSpark o Manus?"
+    answer: "OpenClaw conviene si alguien en tu equipo puede mantenerlo (actualizaciones, permisos, credenciales), si necesitas control fino sobre qué skills y qué conectores, y si el costo de API importa y quieres poder rotar modelos. GenSpark/Manus/Claude Cowork convienen si no tienes equipo técnico, si el valor de tu tiempo supera los $30-$200 al mes, y si necesitas que funcione ya. El error común: instalar OpenClaw en una empresa y no avisar cuando se rompe el OAuth. Una semana caído sale más caro que la suscripción de GenSpark."
+  - question: "¿Qué pasa si en mi empresa grande algunos no quieren usar IA?"
+    answer: "Primero oportunidad, después salida. La secuencia recomendada es habilitación masiva (licencia para todos), capacitación de prompting, programa de Champions con los curiosos del equipo, generación de FOMO con resultados visibles. Si después de seis meses de acceso, capacitación y soporte alguien sigue sin sumarse, la conversación cambia: los criterios de evaluación de desempeño ya incluyen AI fluency en Zapier, Microsoft, y varias empresas grandes. Los memos internos de 2026 dicen \"así estamos contratando desde ahora\"."
+  - question: "¿Por qué la documentación es clave para adoptar IA en una empresa?"
+    answer: "Porque los agentes trabajan con el contexto que les das. Si tu way of work, tus reglas de negocio, tu manual de marca y tus procedimientos viven en la cabeza de las personas, cada agente nuevo que incorporas tiene que aprenderlo desde cero — y si esa persona se va, pierdes todo. Si esa información vive en Markdown, Obsidian, Notion o cualquier formato legible, puedes cambiar de framework sin reescribir meses de setup. La documentación en 2026 dejó de ser una buena práctica aspiracional y se volvió el activo que determina cuánto valor sacas de cada herramienta nueva."
 ---
 
 En el episodio 9 nos reencontramos después de una semana sin grabar y abordamos de frente la pregunta que más nos hacen: **¿qué herramientas de IA debería usar según el tamaño de mi empresa?** Desde el solo entrepreneur que hace todo hasta la corporación de 2.000 personas, cada escenario pide una estrategia distinta. Y la respuesta nunca es "instala OpenClaw y listo" — es una conversación sobre arquitectura de agentes, latencia, documentación como ventaja competitiva, y un debate existencial sobre si capacitar o contratar.

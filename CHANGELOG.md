@@ -4,6 +4,51 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.10.0] - 2026-04-23
+
+### 📋 Schema Zod extendido con 7 campos opcionales + FAQPage JSON-LD + chapters
+
+Base estructural para capturar rich results en SERP y mejores señales para AI Overviews. Todo opcional: los 9 episodios actuales siguen funcionando sin cambios, y al enriquecer el frontmatter con los campos nuevos, se activan automáticamente schemas adicionales.
+
+#### Nuevos campos en `content.config.ts`
+
+- `excerpt` (string ≤280 chars) — hook corto alternativo.
+- `keyTakeaways[]` (string) — aprendizajes accionables.
+- `timestamps[]` (`{time, seconds, label}`) — capítulos estructurados.
+- `resources[]` (`{title, url, type, description?}`) — links mencionados tipados.
+- `faq[]` (`{question, answer}`) — FAQs estructuradas.
+- `guests[]` (`{name, role?, company?, bio?, linkedin?}`) — invitados tipados.
+- `updatedAt` (YYYY-MM-DD) — fecha de última actualización para evergreens.
+
+#### JSON-LD emitidos cuando los campos existen
+
+- **`FAQPage`**: una entrada por cada `faq[]`. Habilita las preguntas expandibles en Google SERP (rich result de alto CTR).
+- **`Clip` en `VideoObject.hasPart`**: una por cada `timestamps[]`, con `startOffset` + URL a YouTube `&t=Xs`. Google los usa como **chapter markers** en la preview del video en SERP.
+- **`citation` en `PodcastEpisode`**: los resources emitidos como `CreativeWork` con URL y descripción.
+- **`about` en `PodcastEpisode`**: los keyTakeaways como `Thing`.
+- **`actor` en `PodcastEpisode`**: los guests como `Person` (con jobTitle, affiliation, bio si se define).
+- **`dateModified`**: si `updatedAt` está definido, se emite tanto en `PodcastEpisode` como en `VideoObject`.
+
+#### Piloto: EP09 migrado al formato estructurado
+
+`src/content/episodes/09-estrategia-ia-tamano-empresa.md` ahora tiene `keyTakeaways`, `timestamps` (15 chapters), `resources` (9 links tipados) y `faq` (6 Q&A) en el frontmatter. Verificado en build local:
+
+- PodcastEpisode con 5 takeaways + 9 citations
+- VideoObject con 15 Clip (chapters)
+- FAQPage con 6 Q&A
+- 0 errors, 0 warnings
+
+El body MD no se modificó — los shownotes siguen renderizando idénticos. La capa estructurada es aditiva.
+
+#### Docs sincronizadas
+
+- `docs/agent-add-new-episode.md`: sección completa nueva sobre campos estructurados con ejemplos de frontmatter.
+- EP09 queda como referencia de frontmatter completo.
+
+Los otros 8 episodios pueden migrarse a este formato gradualmente. Mientras tanto, siguen funcionando tal cual.
+
+---
+
 ## [3.9.1] - 2026-04-23
 
 ### 🐛 Footer lee versión y fecha automáticamente desde package.json

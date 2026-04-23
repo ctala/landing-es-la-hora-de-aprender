@@ -351,6 +351,53 @@ Después del deploy, **no olvidar**:
 
 Consulta `src/content.config.ts` como fuente de verdad del schema. Si algún campo cambió, el archivo del schema gana sobre este documento.
 
-Campos actuales (abril 2026): `title`, `episode`, `season`, `date`, `duration`, `durationSeconds`, `youtube`, `youtubeId`, `thumbnail?`, `spotify`, `description`, `seoTitle?`, `seoDescription?`, `ogImage?`, `hosts[]`, `topics[]`, `keywords?`.
+Campos actuales (abril 2026):
 
-Campos planificados (ver `ROADMAP.md`): `excerpt`, `keyTakeaways[]`, `timestamps[]`, `resources[]`, `faq[]`, `guests[]`, `primaryTopic`, `cluster`, `transcript`, `transcriptUrl`, `updatedAt`.
+**Obligatorios**: `title`, `episode`, `season`, `date`, `duration`, `durationSeconds`, `youtube`, `youtubeId`, `spotify`, `description`, `hosts[]`, `topics[]`.
+
+**Opcionales**: `thumbnail`, `seoTitle`, `seoDescription`, `ogImage`, `keywords[]`, `relatedEpisodes[]` (números de episodio).
+
+**Opcionales estructurados (alimentan JSON-LD, recomendados para SEO + AI Overviews)**:
+
+- `excerpt`: hook corto ≤280 caracteres. Fallback para descripciones.
+- `keyTakeaways[]`: 3-5 aprendizajes accionables. Emite como `about` en `PodcastEpisode`.
+- `timestamps[]`: array de `{time, seconds, label}`. Emite como `hasPart` (Clip con `startOffset`) en `VideoObject` — Google los muestra como **chapter markers en SERP** y en YouTube card.
+- `resources[]`: array de `{title, url, type, description?}` donde type es `tool|article|paper|book|video|repo|other`. Emite como `citation` en `PodcastEpisode`.
+- `faq[]`: array de `{question, answer}`. **Emite `FAQPage` JSON-LD** — rich result de FAQs expandibles en SERP.
+- `guests[]`: array de `{name, role?, company?, bio?, linkedin?}`. Emite como `actor` (Person) en `PodcastEpisode`.
+- `updatedAt`: YYYY-MM-DD. Emite como `dateModified` — útil para episodios evergreen que se actualizan.
+
+**Importante**: definir estos campos estructurados no cambia el render visual del body (los shownotes MD siguen igual). Solo activa el JSON-LD correspondiente. Idealmente, cuando uses estos campos, mantené los mismos datos en el body editorial para que el contenido visible y el schema estén alineados.
+
+Campos planificados futuros (ver `ROADMAP.md`): `primaryTopic`, `cluster`, `transcript`, `transcriptUrl`.
+
+### Ejemplo — frontmatter con campos estructurados
+
+```yaml
+keyTakeaways:
+  - "Primer aprendizaje accionable"
+  - "Segundo aprendizaje accionable"
+timestamps:
+  - time: "00:05"
+    seconds: 5
+    label: "Introducción"
+  - time: "10:30"
+    seconds: 630
+    label: "Primer tema clave"
+resources:
+  - title: "Nombre de la herramienta"
+    url: "https://ejemplo.com"
+    type: "tool"
+    description: "Descripción breve"
+faq:
+  - question: "¿Pregunta literal que alguien googlea?"
+    answer: "Respuesta de 40-120 palabras que resuelve directamente."
+guests:
+  - name: "Nombre Invitado"
+    role: "CEO"
+    company: "Empresa"
+    linkedin: "https://www.linkedin.com/in/..."
+updatedAt: "2026-05-15"
+```
+
+Ver `src/content/episodes/09-estrategia-ia-tamano-empresa.md` como ejemplo completo (el primer episodio migrado a este formato).
