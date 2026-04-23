@@ -47,7 +47,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 
 - [ ] **Páginas de cluster `/temas/[topic]`** — generadas desde `topics[]` (o `primaryTopic` del schema). Cada página lista episodios del cluster + intro editorial corta. 3–5 clusters iniciales propuestos en el diagnóstico: agentes-ia, openclaw, modelos-ia, futuro-trabajo, estrategia-ia.
 - [ ] **Navegación real en `SiteHeader.astro`** — añadir links internos: Episodios · Temas · Guías (cuando existan) · Suscribirse. Hoy el header solo tiene CTAs externos a YouTube/Spotify.
-- [ ] **Bloque "Episodios relacionados por tema"** al final de cada episodio — 3 cards de episodios que compartan ≥1 topic con el actual. Reemplaza/complementa el prev/next cronológico.
+- [x] **Bloque "Episodios relacionados"** al final de cada episodio — hecho en v3.9.0 con `relatedEpisodes[]`. Render automático de 3 cards. Variante respecto al item original: la selección es **manual** (el autor define los números en frontmatter) y no automática por topics compartidos. Si más adelante queremos auto-derivación por topic, se agrega un fallback que sugiera relacionados cuando `relatedEpisodes` esté vacío.
 - [ ] **OG images 1200×630 JPG por episodio** — hoy WhatsApp/LinkedIn no renderean WebP confiablemente. Opciones: (a) pre-generar JPGs, (b) endpoint `/og/[slug].png.ts` con Satori en build.
 - [x] **Analytics — medir el tráfico real** — hecho en v3.11.0. Cloudflare Web Analytics activado (opción A de la evaluación previa): beacon ~1.4 KB defer, cero cookies, cero impacto en LCP/CLS, sin banner de consentimiento. Reporta pageviews + Core Web Vitals reales desde cada deploy. Ver dashboard en Cloudflare Pages → Analytics.
 - [ ] **Analytics — opciones descartadas por ahora** (para referencia futura):
@@ -104,8 +104,6 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [ ] **Migrar a MDX (`@astrojs/mdx`)** — habilita componentes embebidos en los episodios (`<Chapters>`, `<ResourceCard>`, `<FAQ>`) sin JS cliente.
 - [ ] **Página `/suscribirse`** — hub con Apple Podcasts, Spotify, YouTube, RSS, Amazon Music.
 - [ ] **Newsletter capture** en footer — Buttondown o ConvertKit, solo email, sin backend propio.
-- [ ] **Share buttons en episodio** — X/LinkedIn/WhatsApp/copy-link. Native Web Share API en mobile.
-- [ ] **Timestamps clicables** que sincronicen con el player YouTube.
 - [ ] **Partir `BaseLayout.astro` (389 líneas)** en `SEO.astro` + `JsonLd.astro` + `global.css`.
 - [ ] **Self-hostear Google Fonts** (vía `fontsource` o API experimental de Astro 5) — elimina 2 RTT a fonts.googleapis.com, reduce CLS. Contra: +60–80KB en bundle inmutable.
 - [ ] **Revisar service worker** (`public/sw.js`) — estrategia actual puede cachear HTML viejo y demorar la actualización de fixes SEO en clientes existentes. Evaluar reescritura a stale-while-revalidate solo para assets, o eliminación con tombstone SW.
