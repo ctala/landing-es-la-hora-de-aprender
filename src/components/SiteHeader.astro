@@ -1,5 +1,7 @@
 ---
 // SiteHeader.astro — Header compacto del podcast
+const pathname = Astro.url.pathname;
+const isEpisodesPage = pathname === '/episodios/' || pathname === '/episodios' || pathname.startsWith('/episodios/');
 ---
 
 <header class="max-w-6xl mx-auto mb-4">
@@ -20,7 +22,12 @@
                     <a href="https://www.linkedin.com/in/rodrigorojo/" target="_blank" rel="noopener noreferrer" class="name-tag-sm hover:bg-electric transition-colors">Rodrigo</a>
                 </div>
                 <div class="flex gap-2">
-                    <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1" 
+                    <a href="/episodios/"
+                       class="header-nav-btn"
+                       aria-current={isEpisodesPage ? 'page' : undefined}>
+                        Episodios
+                    </a>
+                    <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1"
                        target="_blank"
                        rel="noopener noreferrer"
                        aria-label="Suscribirse en YouTube"
@@ -79,5 +86,32 @@
     .header-cta-btn:hover {
         transform: translate(1px, 1px);
         box-shadow: 1px 1px 0px 0px var(--black);
+    }
+
+    .header-nav-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 12px;
+        border: 2px solid var(--black);
+        box-shadow: 2px 2px 0px 0px var(--black);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        cursor: pointer;
+        transition: all 0.1s;
+        text-decoration: none;
+        background-color: var(--black);
+        color: var(--acid-green);
+        letter-spacing: 0.05em;
+    }
+    .header-nav-btn:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 1px 1px 0px 0px var(--black);
+        background-color: var(--electric-blue);
+        color: white;
+    }
+    .header-nav-btn[aria-current="page"] {
+        background-color: var(--electric-blue);
+        color: white;
     }
 </style>

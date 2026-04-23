@@ -4,6 +4,49 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.14.0] - 2026-04-23
+
+### 🎨 Fix visual CTAs YouTube/Spotify + link "Episodios" en header
+
+Corrección de un bug CSS sutil + implementación del item top del Sprint UX. Consulta previa al sub-agente `ux-designer` para validar enfoque antes de tocar código.
+
+#### Fix — `.brutal-btn` ahora es `inline-flex`
+
+El usuario reportó (con screenshots) que los botones YouTube/Spotify del header se veían perfectos, pero los del home featured y de la página de episodio se veían con aire muerto — el ícono pegado a la izquierda, texto centrado. Causa raíz: `.brutal-btn { display: inline-block; text-align: center }` ganaba sobre `flex items-center justify-center` (misma especificidad, orden de declaración). Los SVG y el label se alineaban inline, no como flex.
+
+Fix (`src/layouts/BaseLayout.astro`): cambiar `display: inline-block` → `display: inline-flex`, agregar `align-items: center`, `justify-content: center`, `gap: 0.5rem` por default. Esto arregla los 20+ usos de `brutal-btn` sin tocar markup. `w-full` sigue funcionando igual que con `inline-block`.
+
+Limpieza en `src/pages/index.astro` y `src/pages/episodios/[...slug].astro`: removidas las clases redundantes `flex items-center justify-center gap-X` (ya son comportamiento default de `brutal-btn`).
+
+#### Episodio individual — CTAs en fila + labels acortados
+
+`src/pages/episodios/[...slug].astro:269-281` — ajustes recomendados por `ux-designer`:
+
+- **Layout**: `flex flex-col gap-3` (apilados a ancho completo) → `grid grid-cols-2 gap-3` (fila). Los 2 CTAs secundarios ya no compiten visualmente con el título H1.
+- **Labels**: "Ver en YouTube" → "YouTube", "Escuchar en Spotify" → "Spotify". El contexto ya da la acción (página de episodio individual); menos ruido + paridad visual con header y home.
+
+#### Link "Episodios" en SiteHeader
+
+Primer item de navegación interna del Sprint UX. Antes el header solo tenía logo + hosts + CTAs externos a YouTube/Spotify. Desde esta versión:
+
+- Nuevo botón "Episodios" en el header, junto a los CTAs de plataforma (antes de YouTube).
+- Estilo diferenciado del resto: nueva clase `.header-nav-btn` con `background-color: var(--black)` + `color: var(--acid-green)` — inverso visual del header que es acid, para que se lea claramente como "navegación interna" y no como "plataforma externa".
+- Estado activo con `aria-current="page"` cuando la URL es `/episodios/` o `/episodios/{slug}/` (cualquier página de la sección): fondo cambia a `var(--electric-blue)` + texto blanco.
+- Hover: `transform` + shadow menor + hover a electric-blue como el resto de interacciones del sitio.
+- Siempre visible (sin `hidden sm:inline` como los labels de YouTube/Spotify — porque la nav interna es más crítica que los labels de plataformas).
+
+Decisión de diseño: cuando se agreguen "Temas" y "Guías" (pillars) en el futuro, se migra a una nav-row dedicada debajo del header con los mismos `.header-nav-btn`.
+
+#### Docs sincronizadas
+
+- `CHANGELOG.md`: entrada 3.14.0.
+- `package.json` / `README.md`: bump a v3.14.0.
+- `ROADMAP.md`: item "Link Episodios en SiteHeader" del Sprint UX marcado done. Nota agregada sobre migración futura a nav-row.
+
+Build: 0 errors, 0 warnings.
+
+---
+
 ## [3.13.1] - 2026-04-23
 
 ### 🎯 Sprint UX rapid-fire — 5 mejoras menores de pulido
