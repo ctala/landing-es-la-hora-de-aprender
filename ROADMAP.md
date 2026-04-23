@@ -73,6 +73,29 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 
 ---
 
+## Sprint GEO (Generative Engine Optimization) — v3.12.0
+
+- [x] **robots.txt explícito con allow de AI bots** — GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Meta/Bytespider/Amazonbot/cohere-ai/MistralAI-User y otros. Varios son opt-in por defecto.
+- [x] **`/llms.txt` generado en build** desde la collection — `src/pages/llms.txt.ts` con descripción, licencia CC BY 4.0, episodios indexados, política de atribución.
+- [x] **`ItemList` JSON-LD en home** — enumera los 9 episodios para AI crawlers.
+- [x] **`SpeakableSpecification` en episodios** — apunta a h1 + primer párrafo + key takeaways del shownotes.
+- [ ] **Direct-answer-first rewrite** (en progreso v3.12.x) — primeros 60-80 palabras post-H2 responden declarativo, no narrativo.
+- [ ] **`mentions[]` con `sameAs` a Wikidata** en top 5 entidades (Anthropic, OpenAI, Claude, NVIDIA, Karpathy) — pendiente.
+- [ ] **Person schema profundo** por host (knowsAbout, sameAs, worksFor) + página `/hosts/{slug}/` — pendiente.
+- [ ] **Custom `serialize` en `@astrojs/sitemap`** con priority y lastmod precisos — pendiente.
+
+## Sprint UX (post-auditoría ux-designer) — pendiente
+
+- [ ] Link "Episodios" en SiteHeader + fix mobile nav.
+- [ ] Reemplazar emojis 📺🎧 por SVGs consistentes en CTAs de episodio.
+- [ ] Fix contraste footer `v{version}` y breadcrumb `text-gray-500 → 700`.
+- [ ] "Temas tratados" `<h2>` → `<h3>` + `aria-label` en `.shownotes` (jerarquía H1-H2-H3 correcta para screen readers).
+- [ ] Renderizar `timestamps` como chapter markers clickeables arriba del shownotes (data ya en frontmatter).
+- [ ] Wrapper `overflow-x: auto` en tablas del shownotes (mobile).
+- [ ] TOC sticky en desktop aprovechando el espacio lateral muerto de la card de shownotes.
+- [ ] Filtros/search en `/episodios/` (solo CSS `:has()` + data-attrs, sin JS framework).
+- [ ] Compartir / copiar link en CTAs de episodio.
+
 ## Cambios más grandes / futuro
 
 - [ ] **Migrar a MDX (`@astrojs/mdx`)** — habilita componentes embebidos en los episodios (`<Chapters>`, `<ResourceCard>`, `<FAQ>`) sin JS cliente.

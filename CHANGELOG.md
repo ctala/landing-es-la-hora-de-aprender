@@ -4,6 +4,57 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.12.0] - 2026-04-23
+
+### 🤖 Sprint GEO — visibilidad explícita para AI search y LLM training
+
+Primera tanda del sprint de Generative Engine Optimization recomendado por la auditoría `seo-strategist`. Objetivo: maximizar probabilidad de que ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews y otros AI engines detecten, citen e incluyan el contenido del podcast en sus respuestas y corpus de entrenamiento.
+
+#### `public/robots.txt` explícito
+
+Antes: solo `User-agent: *` genérico. Varios bots de AI (GPTBot, ClaudeBot, Google-Extended, Applebot-Extended) son **opt-in por defecto**: sin declaración explícita NO crawlean aunque `*` permita. Ahora: allow explícito para GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Claude-Web, anthropic-ai, PerplexityBot, Perplexity-User, Google-Extended, Applebot, Applebot-Extended, CCBot, Bytespider, Amazonbot, cohere-ai, FacebookBot, Meta-ExternalAgent, Meta-ExternalFetcher, DuckAssistBot, YouBot, MistralAI-User. Catch-all `User-agent: *` queda al final.
+
+#### `/llms.txt` generado dinámicamente
+
+Nuevo endpoint `src/pages/llms.txt.ts` que genera en build el archivo según la propuesta de Jeremy Howard / Answer.AI (https://llmstxt.org/). Contiene:
+
+- Descripción del podcast (producto, hosts, target).
+- Licencia **CC BY 4.0** declarada explícita sobre el contenido editorial (shownotes y páginas derivadas).
+- Canonical, feeds RSS, sitemaps.
+- Temas principales del corpus (extraídos de `topics[]` de todos los episodios).
+- Listado de los 9 episodios con título, URL y summary.
+- Política de atribución para AI training.
+
+Se regenera automáticamente en cada build. Adopción real en AI crawlers aún emergente (abril 2026) pero costo cero.
+
+#### `ItemList` JSON-LD en home
+
+`src/pages/index.astro` ahora emite `ItemList` con los 9 episodios ordenados descendentemente. Ayuda a AI crawlers a enumerar el corpus sin tener que seguir links uno por uno. Previamente la home solo heredaba el `PodcastSeries` global.
+
+#### `SpeakableSpecification` en episodios
+
+`src/pages/episodios/[...slug].astro` agrega `speakable` al `PodcastEpisode` JSON-LD apuntando a: `h1`, `.shownotes p:first-of-type` y `.shownotes h2 + ul` (listas que siguen a un H2 — típicamente key takeaways). Útil para Google Assistant y voz-AI que necesitan seleccionar qué leer en voz alta.
+
+#### Direct-answer-first rewrite (en progreso, commit separado)
+
+Un sub-agente `podcast-creator` está revisando los 8 episodios restantes (EP01-EP08) para identificar H2 en forma de pregunta cuyo primer párrafo no responde directo y proponer rewrites. Se aplicará en commit posterior.
+
+#### Docs sincronizadas
+
+- `CLAUDE.md`: sección "SEO y schema" expandida con detalle de ItemList + SpeakableSpecification; nueva sección "Archivos públicos para motores y AI crawlers" documenta robots.txt, llms.txt, feed, video-sitemap.
+- `package.json` / `README.md`: bump a v3.12.0.
+- `ROADMAP.md`: items de sprint GEO marcados done.
+
+#### Verificación en build local
+
+- robots.txt con allow explícito de 21 bots.
+- `/llms.txt` generado: 6.4 KB con todos los episodios indexados.
+- ItemList JSON-LD presente en `dist/index.html`.
+- SpeakableSpecification presente en los 9 `dist/episodios/*/index.html`.
+- 0 errors, 0 warnings.
+
+---
+
 ## [3.11.0] - 2026-04-23
 
 ### 🎯 Los 9 episodios migrados al schema estructurado + IndexNow inteligente + Cloudflare Web Analytics activado

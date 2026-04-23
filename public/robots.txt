@@ -1,15 +1,77 @@
-# Robots.txt - Es la Hora de Aprender
+# Robots.txt — Es la Hora de Aprender
+# Queremos que los motores tradicionales y los AI crawlers nos detecten,
+# citen y puedan usar el contenido para entrenamiento (ver CC BY 4.0 en /llms.txt).
 
+# AI search & training crawlers — allow explícito
+# (varios son opt-in por defecto: sin esta declaración, NO crawlean aunque User-agent: * permita)
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+# Catch-all para todos los demás crawlers tradicionales
 User-agent: *
 Allow: /
 
 # Sitemaps
 Sitemap: https://eslahoradeaprender.com/sitemap-index.xml
 Sitemap: https://eslahoradeaprender.com/video-sitemap.xml
-
-# Crawl-delay (opcional, para bots agresivos)
-# Crawl-delay: 1
-
-# Disallow admin/testing paths (si existen en futuro)
-# Disallow: /admin/
-# Disallow: /test/

@@ -86,6 +86,10 @@ const podcastEpisodeLd: Record<string, unknown> = {
   episodeNumber: episodeData.data.episode,
   inLanguage: 'es',
   image: thumbAbs,
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', '.shownotes p:first-of-type', '.shownotes h2 + ul'],
+  },
   partOfSeries: {
     '@type': 'PodcastSeries',
     name: 'Es la Hora de Aprender',

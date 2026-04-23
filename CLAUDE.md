@@ -113,7 +113,18 @@ Agregar un episodio = crear el `.md` con frontmatter válido y push. Página, na
 
 `src/layouts/BaseLayout.astro` es el único punto donde viven: canonical, hreflang (`es`, `x-default`), meta robots (`index, follow, max-image-preview:large, max-snippet:-1`), geo tags Chile, OG/Twitter Cards, manifest PWA, registro del service worker, y el JSON-LD `PodcastSeries`. Acepta props `seoTitle` y `seoDescription` que sobrescriben los defaults si el frontmatter del episodio los define.
 
-El layout expone un slot nombrado `head-extra` para inyectar JSON-LD específico por página. La página de episodio (`src/pages/episodios/[...slug].astro`) usa ese slot para emitir `PodcastEpisode`, `VideoObject` y `BreadcrumbList` por cada episodio, además de pasar `seoTitle`, `seoDescription`, `ogType="article"`, `canonicalUrl`, `datePublished` y `keywords`.
+El layout expone un slot nombrado `head-extra` para inyectar JSON-LD específico por página:
+
+- **`src/pages/index.astro`** usa el slot para emitir `ItemList` con todos los episodios (orden descendente). Esto ayuda a AI crawlers a enumerar el corpus.
+- **`src/pages/episodios/[...slug].astro`** emite `PodcastEpisode` (con `speakable`, `about`, `citation`, `actor`, `dateModified`), `VideoObject` (con `hasPart` / `Clip` cuando hay timestamps), `BreadcrumbList`, y `FAQPage` cuando el frontmatter define `faq[]`. Además pasa al BaseLayout `seoTitle`, `seoDescription`, `ogType="article"`, `canonicalUrl` (con trailing slash), `datePublished` y `keywords`.
+
+### Archivos públicos para motores y AI crawlers
+
+- `public/robots.txt` — declaración explícita de allow para GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bytespider, Amazonbot, cohere-ai, Meta-ExternalAgent, DuckAssistBot, MistralAI-User, YouBot. Varios de estos son opt-in por defecto — sin declaración explícita NO crawlean aunque `User-agent: *` permita. Catch-all al final para los demás.
+- `src/pages/llms.txt.ts` — genera `/llms.txt` dinámicamente desde la collection siguiendo la propuesta de Jeremy Howard/Answer.AI (https://llmstxt.org/). Contiene: descripción del podcast, licencia CC BY 4.0 declarada explícita, canonical, feeds, temas principales (extraídos de `topics[]` de todos los episodios), y lista de episodios con summary + URL. Si cambia la propuesta de licencia (ej. a `CC BY-NC-SA` para preservar modelo comercial de cursos de los hosts), actualizar en ese archivo.
+- `src/pages/feed.xml.ts` — RSS del podcast (iTunes/Spotify/Google Play). URLs con trailing slash.
+- `src/pages/video-sitemap.xml.ts` — video-sitemap manual (Astro sitemap no lo cubre).
+- `sitemap-index.xml` + `sitemap-0.xml` — autogenerados por `@astrojs/sitemap`.
 
 ### Optimizaciones de performance (decisiones no obvias)
 

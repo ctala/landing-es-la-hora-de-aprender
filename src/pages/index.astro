@@ -10,9 +10,29 @@ const latest = episodes[0];
 const olderEpisodes = episodes.slice(1, 7); // máx 6 en home
 const hasMoreEpisodes = episodes.length > 7;
 const TOPICS_VISIBLE = 5;
+
+const siteUrl = 'https://eslahoradeaprender.com';
+const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Episodios — Es la Hora de Aprender',
+    description: 'Todos los episodios del podcast sobre IA, agentes y estrategia tecnológica.',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: episodes.length,
+    itemListElement: episodes.map((ep, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        url: `${siteUrl}/episodios/${ep.id}/`,
+        name: ep.data.title,
+    })),
+};
+const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c');
 ---
 
 <BaseLayout title="Tech Podcast">
+    <Fragment slot="head-extra">
+        <script is:inline type="application/ld+json" set:html={escapeJsonLd(itemListLd)} />
+    </Fragment>
     <SiteHeader/>
     <!-- Marquee -->
     <div class="marquee-slim brutal-card z-10 relative mb-8 md:mb-10">
