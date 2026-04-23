@@ -90,11 +90,11 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 ## Sprint UX (post-auditoría ux-designer) — pendiente
 
 - [ ] Link "Episodios" en SiteHeader + fix mobile nav.
-- [ ] Reemplazar emojis 📺🎧 por SVGs consistentes en CTAs de episodio.
-- [ ] Fix contraste footer `v{version}` y breadcrumb `text-gray-500 → 700`.
-- [ ] "Temas tratados" `<h2>` → `<h3>` + `aria-label` en `.shownotes` (jerarquía H1-H2-H3 correcta para screen readers).
+- [x] **Reemplazar emojis 📺🎧 por SVGs consistentes en CTAs de episodio** — hecho en v3.13.1. SVGs de YouTube/Spotify inline en `[...slug].astro:273,278`, coherentes con los del home. Los emojis del body editorial (🌐🎧📺 del footer de cada shownote) se mantienen — son contenido narrativo, no CTAs.
+- [x] **Fix contraste footer `v{version}` y breadcrumb** — hecho en v3.13.1. Footer: `#4b5563 → #9ca3af` (ahora pasa WCAG AA). Breadcrumb último item: `text-gray-500 → text-gray-700` en `[...slug].astro` y `episodios/index.astro`, más `aria-current="page"`.
+- [x] **"Temas tratados" `<h2>` → `<h3>` + `aria-label` en `.shownotes`** — hecho en v3.13.1. Jerarquía H1→H2→H3 ahora correcta; screen readers anuncian "Contenido del episodio" al entrar a los shownotes.
 - [ ] Renderizar `timestamps` como chapter markers clickeables arriba del shownotes (data ya en frontmatter).
-- [ ] Wrapper `overflow-x: auto` en tablas del shownotes (mobile).
+- [x] **Wrapper `overflow-x: auto` en tablas del shownotes** — hecho en v3.13.1. Media query `@media (max-width: 768px)` cambia `display: block; overflow-x: auto` solo en mobile; desktop mantiene `display: table` con `width: 100%`.
 - [ ] TOC sticky en desktop aprovechando el espacio lateral muerto de la card de shownotes.
 - [ ] Filtros/search en `/episodios/` (solo CSS `:has()` + data-attrs, sin JS framework).
 - [x] **Compartir / copiar link en CTAs de episodio** — hecho en v3.13.0. Componente `SocialShare.astro` con X / LinkedIn / WhatsApp (links directos sin JS) + copiar enlace (navigator.clipboard con feedback). Ubicado entre shownotes y episodios relacionados.

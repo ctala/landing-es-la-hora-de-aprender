@@ -4,6 +4,38 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.13.1] - 2026-04-23
+
+### 🎯 Sprint UX rapid-fire — 5 mejoras menores de pulido
+
+Batch de items rápidos del Sprint UX (post-auditoría `ux-designer`). Todos ~5-15 min. Sin impacto funcional, todos visibles.
+
+#### Cambios
+
+- **Emojis 📺🎧 → SVGs** en CTAs del hero de episodio (`src/pages/episodios/[...slug].astro:273, 278`). Consistencia con los SVGs ya usados en home. Pros: renderizan igual en Apple/Android/Windows (los emojis variaban), coherentes con la identidad monocroma del neo-brutalismo, `aria-hidden="true"` explícito. Los emojis en el body editorial de los shownotes (`🌐 🎧 📺` del footer del episodio) se mantienen — son contenido narrativo, no CTAs.
+- **Contraste del footer** `v{pkg.version}` (`src/components/SiteFooter.astro:116`): `#4b5563` → `#9ca3af`. El color anterior daba ratio ~2.5:1 sobre negro — fallaba WCAG AA incluso para texto pequeño. El nuevo pasa AA.
+- **Contraste breadcrumb** último item: `text-gray-500` → `text-gray-700` en `[...slug].astro:213` y `episodios/index.astro:24`. Sobre el `hero-pattern` (fondo `#f0f0f0` con dots negros) el gris 500 quedaba justo en el límite AA; el 700 pasa con holgura. Aprovechamos para agregar `aria-current="page"` al último item del breadcrumb (estaba faltando).
+- **"Temas tratados" `<h2>` → `<h3>`** en `[...slug].astro:254`. El H2 anterior competía semánticamente con los H2 del shownote y con "Episodios relacionados" — screen readers veían 3 niveles de H2 mezclando meta-info, contenido editorial y navegación. Ahora la jerarquía es correcta: H1 (título del episodio) → H2 (secciones del shownote / Episodios relacionados) → H3 (meta como "Temas tratados").
+- **`aria-label="Contenido del episodio"` en `<section class="shownotes">`** para que screen readers anuncien qué bloque están entrando.
+- **Tablas del shownote con scroll horizontal en mobile**: CSS media-query `@media (max-width: 768px)` agrega `display: block; overflow-x: auto; -webkit-overflow-scrolling: touch` a `.shownotes table`. Las tablas comparativas (p. ej. stack por tamaño de empresa en EP09) ya no rompen layout en viewports chicos. En desktop se mantiene `display: table` con `width: 100%`.
+
+#### Docs sincronizadas
+
+- `CHANGELOG.md`: entrada 3.13.1 con detalle de cada cambio.
+- `package.json` / `README.md`: bump a v3.13.1.
+- `ROADMAP.md`: 4 items del Sprint UX marcados done.
+
+#### Pendientes del Sprint UX (4)
+
+- Link "Episodios" en SiteHeader (30 min)
+- Renderizar `timestamps` como chapter markers clickeables (2-3 h)
+- TOC sticky en desktop (2-3 h)
+- Filtros/search en `/episodios/` (1-2 h)
+
+Build: 0 errors, 0 warnings.
+
+---
+
 ## [3.13.0] - 2026-04-23
 
 ### 🔗 Botones de compartir en página de episodio
