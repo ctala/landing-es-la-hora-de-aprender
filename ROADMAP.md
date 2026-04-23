@@ -49,7 +49,8 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [ ] **Navegación real en `SiteHeader.astro`** — añadir links internos: Episodios · Temas · Guías (cuando existan) · Suscribirse. Hoy el header solo tiene CTAs externos a YouTube/Spotify.
 - [ ] **Bloque "Episodios relacionados por tema"** al final de cada episodio — 3 cards de episodios que compartan ≥1 topic con el actual. Reemplaza/complementa el prev/next cronológico.
 - [ ] **OG images 1200×630 JPG por episodio** — hoy WhatsApp/LinkedIn no renderean WebP confiablemente. Opciones: (a) pre-generar JPGs, (b) endpoint `/og/[slug].png.ts` con Satori en build.
-- [ ] **Analytics — medir el tráfico real** para tomar decisiones basadas en datos. Prerequisito para validar el impacto de los cambios SEO. Opciones ordenadas por impacto/perf:
+- [x] **Analytics — medir el tráfico real** — hecho en v3.11.0. Cloudflare Web Analytics activado (opción A de la evaluación previa): beacon ~1.4 KB defer, cero cookies, cero impacto en LCP/CLS, sin banner de consentimiento. Reporta pageviews + Core Web Vitals reales desde cada deploy. Ver dashboard en Cloudflare Pages → Analytics.
+- [ ] **Analytics — opciones descartadas por ahora** (para referencia futura):
   - **Cloudflare Web Analytics** (gratis, ya estamos en Cloudflare Pages, ~0 overhead, sin cookies, privacy-friendly) — primera opción si basta con métricas básicas de tráfico.
   - **Plausible** o **Umami** (~1KB script, sin cookies, privacy-friendly, open source) — si se necesita algo más rico que Cloudflare pero manteniendo performance.
   - **GA4 via GTM** — solo si se requiere integración con Google Ads / Search Console avanzada. Aceptar el trade-off de ~45KB de JS cliente y manejo de consentimiento por GDPR/ley chilena.
@@ -69,7 +70,9 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [ ] **Transcripciones de episodios** — prioridad 5, 6, 7, 8, 9 (los que ya tienen shownotes ricos). Cristian puede aportar las que ya tenga; para las que falten se transcribe con Whisper + limpieza con LLM. Colocar como colapsable `<details>` dentro del episodio, no página aparte. Canonical al episodio.
 - [ ] **Páginas de host** `/hosts/{slug}` — bio + listado de episodios. E-E-A-T + hooks para LLMs. Datos ya existen en `hosts[]` del frontmatter.
 - [ ] **Decisión sobre RSS feed** — hoy `src/pages/feed.xml.ts:58` emite `<enclosure url="${youtube}" type="video/mp4" length="0">`. Para Apple Podcasts se necesitan MP3s reales con length en bytes. Decidir: (a) video-podcast-only → ajustar feed y no buscar ingesta en Apple, (b) audio + video → alojar MP3s y corregir enclosure.
-- [ ] **Conectar Google Search Console y Bing Webmaster Tools** — sin GSC no sabemos qué queries ya rankean. Prerequisito para medir impacto real de estos fixes.
+- [x] **Conectar Google Search Console** — ya conectado y submittido sitemap + request-indexing hecho sobre EP03 post-deploy v3.11.0.
+- [ ] **Conectar Bing Webmaster Tools** — pendiente. Cubre Bing, y también alimenta a ChatGPT Search / Copilot. Más generoso que GSC en cuota de URL Submission (10.000/día vs 10-15).
+- [ ] **Rich Results Test post-deploy** — validar en https://search.google.com/test/rich-results que una URL de episodio muestre elegibilidad para FAQ + Video + Breadcrumb + Speakable. Hacerlo cada vez que se cambian schemas.
 
 ---
 
@@ -123,6 +126,9 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 ---
 
 ## Registro de decisiones
+
+- **2026-04-23** — Licencia del contenido editorial (shownotes): **CC BY 4.0 confirmada**. Los hosts decidieron mantener la licencia más permisiva. Razones: (a) maximiza visibilidad en AI engines / training corpora (objetivo declarado del sprint GEO); (b) las otras variantes (NC/ND/SA) no aplican al caso — los cursos comerciales de cada host (Claude Desbloqueado, Cágala Aprende Repite, material de Desafío Latam) son productos separados con sus propias licencias; (c) atribución obligatoria es suficiente para asegurar reconocimiento cuando LLMs citen el contenido. Declarada explícitamente en `src/pages/llms.txt.ts`. Si algún host cambia de opinión a futuro, el cambio es una edición de 2 líneas.
+- **2026-04-23** — Analytics: elegida **Cloudflare Web Analytics** por sobre Plausible, Umami y GA4/GTM. Razón principal: ya estamos en Cloudflare Pages, cero overhead (~1.4KB defer), cero cookies (sin banner GDPR), cubre lo esencial (pageviews + Core Web Vitals reales). Re-evaluar si aparece necesidad de eventos custom o funnels de conversión complejos.
 
 - **2026-04-22** — Se prioriza video-first (YouTube) sobre audio-first. Pendiente decisión formal sobre si buscamos ingesta en Apple Podcasts (requiere MP3s alojados).
 - **2026-04-22** — Geo tags (`CL-RM`, Santiago, coordenadas) se mantienen — el podcast es de Chile factualmente, no daña SEO en otros países LATAM.
