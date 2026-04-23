@@ -4,6 +4,39 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.13.0] - 2026-04-23
+
+### 🔗 Botones de compartir en página de episodio
+
+Primer quick win del Sprint UX. Nuevo componente `src/components/SocialShare.astro` reutilizable, insertado en `[...slug].astro` entre los shownotes y el bloque "Episodios relacionados".
+
+#### Qué incluye
+
+4 botones en una barra compacta neo-brutalista:
+
+- **X (Twitter)** — link directo a `twitter.com/intent/tweet` con URL + título pre-cargados. Sin JS.
+- **LinkedIn** — link directo a `linkedin.com/sharing/share-offsite`. Sin JS.
+- **WhatsApp** — link directo a `wa.me/?text=...` con título + URL pre-cargados. Sin JS, funciona también en mobile abriendo la app nativa.
+- **Copiar enlace** — botón con `navigator.clipboard.writeText` + feedback visual (icono cambia a check + label "Copiado" por 2 s). ~250 bytes de JS inline.
+
+#### Decisiones de diseño
+
+- **Ubicación**: después del shownotes, antes de "Episodios relacionados". Patrón estándar de podcast sites (Huberman Lab, Lex Fridman). Aparece en el peak de engagement — el lector terminó el episodio y es cuando más propenso está a compartir. No compite visualmente con los CTAs primarios del hero (YouTube/Spotify).
+- **Iconos**: SVG monocromo inline, coherentes con los que ya usa el home. No se cargan assets externos.
+- **Accesibilidad**: `aria-labelledby` en el `<aside>`, `role="group"` en el contenedor de botones, `aria-label` por botón, `rel="noopener noreferrer"` en los externos, soporte de teclado nativo.
+- **Performance**: sin impacto en LCP (el bloque vive al final del episodio, fuera del viewport inicial). Sin network requests extra.
+- **URLs con trailing slash**: usa `canonical` como fuente → consistente con el resto del sitio.
+
+#### Docs sincronizadas
+
+- `CHANGELOG.md`: entrada 3.13.0.
+- `package.json` / `README.md`: bump a v3.13.0.
+- `ROADMAP.md`: item "Compartir / copiar link en CTAs de episodio" del Sprint UX marcado done.
+
+Build: 0 errors, 0 warnings. URL de X verificada correctamente encodeada con trailing slash + título del episodio.
+
+---
+
 ## [3.12.2] - 2026-04-23
 
 ### 🧹 Cleanup de documentación y registro de decisiones

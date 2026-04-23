@@ -1,7 +1,7 @@
 {
   "name": "es-la-hora-de-aprender",
   "type": "module",
-  "version": "3.12.2",
+  "version": "3.13.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

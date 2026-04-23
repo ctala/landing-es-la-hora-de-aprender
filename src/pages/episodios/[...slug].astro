@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import SocialShare from '../../components/SocialShare.astro';
 
 export async function getStaticPaths() {
   const episodes = await getCollection('episodes');
@@ -286,6 +287,9 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
         <section class="shownotes brutal-card mt-8 md:mt-10 p-6 md:p-10">
             <Content />
         </section>
+
+        <!-- Social share -->
+        <SocialShare url={canonical} title={episodeData.data.title} />
 
         <!-- Episodios relacionados (si el frontmatter define relatedEpisodes) -->
         {relatedEpisodes && relatedEpisodes.length > 0 && (

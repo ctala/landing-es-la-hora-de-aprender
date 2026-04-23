@@ -97,7 +97,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [ ] Wrapper `overflow-x: auto` en tablas del shownotes (mobile).
 - [ ] TOC sticky en desktop aprovechando el espacio lateral muerto de la card de shownotes.
 - [ ] Filtros/search en `/episodios/` (solo CSS `:has()` + data-attrs, sin JS framework).
-- [ ] Compartir / copiar link en CTAs de episodio.
+- [x] **Compartir / copiar link en CTAs de episodio** — hecho en v3.13.0. Componente `SocialShare.astro` con X / LinkedIn / WhatsApp (links directos sin JS) + copiar enlace (navigator.clipboard con feedback). Ubicado entre shownotes y episodios relacionados.
 
 ## Cambios más grandes / futuro
 
