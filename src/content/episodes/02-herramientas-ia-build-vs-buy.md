@@ -173,7 +173,7 @@ Si el proceso es lineal, repetitivo y determinista (input A siempre genera outpu
 - **[Perplexity](https://perplexity.ai)** — Buscador con IA, default de Rodrigo
 - **[Claude Cowork](https://www.anthropic.com/claude)** — El modo agéntico de Claude para no-técnicos
 - **[Storybook de Gemini](https://gemini.google.com)** — Para crear historias personalizadas con niños
-- Episodio 1: [OpenClaw y el Futuro del Trabajo](/episodios/01-openclaw-futuro-trabajo) — La base conceptual de agentes
+- Episodio 1: [OpenClaw y el Futuro del Trabajo](/episodios/01-openclaw-futuro-trabajo/) — La base conceptual de agentes
 
 ---
 

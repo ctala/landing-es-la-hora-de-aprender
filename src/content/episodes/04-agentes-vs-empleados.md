@@ -166,7 +166,7 @@ Empresas que ya son rentables, con procesos digitales consolidados, y con áreas
 - **[Claude Code](https://www.anthropic.com/claude-code)** — CLI oficial de Anthropic para desarrollo asistido con agentes.
 - **[Perplexity Computer](https://www.perplexity.ai/)** — Agente empaquetado de Perplexity, la versión "con corbata" del patrón tipo OpenClaw.
 - **[Sequoia — The $1 Trillion Dollar Opportunity](https://www.sequoiacap.com/)** — Tesis del fondo sobre la próxima generación de empresas apalancadas en IA.
-- Episodio anterior: [EP03 — LatamGPT, Pentágono y los 4 niveles de adopción de IA](/episodios/03-latamgpt-pentagono-ia-empleo)
+- Episodio anterior: [EP03 — LatamGPT, Pentágono y los 4 niveles de adopción de IA](/episodios/03-latamgpt-pentagono-ia-empleo/)
 
 ---
 

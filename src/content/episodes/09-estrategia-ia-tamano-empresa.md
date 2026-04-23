@@ -201,7 +201,7 @@ Porque los agentes trabajan con el contexto que les das. Si tu way of work, tus 
 - **[ElevenLabs](https://elevenlabs.io/)** — Clonación de voz; mencionada la nueva sección de agentes de voz para atención a cliente y cobranza.
 - **[Perplexity Computer](https://www.perplexity.ai/)** — Ahora con personal computer, opera aplicaciones locales en Mac.
 - **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — Comunidad de Cristian para seguir aprendiendo juntos.
-- Episodio anterior: [EP08 — Crisis Anthropic, alternativas y modelos locales](/episodios/08-crisis-anthropic-modelos-alternativos-ia-local)
+- Episodio anterior: [EP08 — Crisis Anthropic, alternativas y modelos locales](/episodios/08-crisis-anthropic-modelos-alternativos-ia-local/)
 
 ---
 

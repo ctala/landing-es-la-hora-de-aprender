@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
 
     const items = sorted.map((ep) => `
   <url>
-    <loc>https://eslahoradeaprender.com/episodios/${ep.id}</loc>
+    <loc>https://eslahoradeaprender.com/episodios/${ep.id}/</loc>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/${ep.data.youtubeId}/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>${ep.data.seoTitle || ep.data.title} | Es la Hora de Aprender EP${String(ep.data.episode).padStart(2, '0')}</video:title>

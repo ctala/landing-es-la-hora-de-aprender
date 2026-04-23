@@ -30,7 +30,7 @@ const defaultHomeTitle = "Es la Hora de Aprender — Podcast sobre IA, Agentes y
 const composedTitle = title === "Tech Podcast" ? defaultHomeTitle : `${title} | Es la Hora de Aprender`;
 const fullTitle = seoTitle ?? composedTitle;
 const metaDescription = seoDescription ?? description;
-const pageUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString().replace(/\/$/, '');
+const pageUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString();
 const allKeywords = [...new Set([...keywords, "podcast", "tecnología", "IA", "inteligencia artificial", "agentes", "startups"])].join(', ');
 ---
 

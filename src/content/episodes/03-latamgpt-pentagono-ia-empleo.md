@@ -175,8 +175,8 @@ Nivel 1: IA como herramienta personal para cada colaborador (Copilot, Gemini, Ch
 - **[Anthropic](https://www.anthropic.com)** — Laboratorio detrás de Claude con énfasis en IA segura
 - **[Claude Cowork](https://www.anthropic.com/claude)** — Modo agéntico de Claude ideal para no-técnicos
 - **[Raycast](https://raycast.com)** — Mencionado con Glaze para crear aplicaciones locales
-- Episodio 1: [OpenClaw y el Futuro del Trabajo](/episodios/01-openclaw-futuro-trabajo) — Base conceptual de agentes personales
-- Episodio 2: [Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más](/episodios/02-herramientas-ia-build-vs-buy) — Stack real y adopción empresarial
+- Episodio 1: [OpenClaw y el Futuro del Trabajo](/episodios/01-openclaw-futuro-trabajo/) — Base conceptual de agentes personales
+- Episodio 2: [Herramientas de IA, Build vs Buy y Por Qué los Procesos Importan Más](/episodios/02-herramientas-ia-build-vs-buy/) — Stack real y adopción empresarial
 
 ---
 

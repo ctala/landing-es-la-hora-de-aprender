@@ -250,7 +250,7 @@ Porque la mayoría de las interacciones de programación asistida por IA (ChatGP
 - **[Replit](https://replit.com/)** — Plataforma de desarrollo en la nube cuyo CEO popularizó el patrón de vibe-coding.
 - **[Harvard Business Review — AI and Layoffs](https://hbr.org/)** — Estudios sobre la anticipación de despidos motivada por IA.
 - **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — Comunidad de Cristian para experimentar y aprender en grupo.
-- Episodio anterior: [EP05 — OpenClaw, agentes IA y estrategia empresarial](/episodios/05-openclaw-agentes-estrategia)
+- Episodio anterior: [EP05 — OpenClaw, agentes IA y estrategia empresarial](/episodios/05-openclaw-agentes-estrategia/)
 
 ---
 

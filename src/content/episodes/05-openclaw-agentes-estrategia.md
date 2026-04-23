@@ -193,7 +193,7 @@ Diseña una capa de abstracción: la gente habla con "el agente de X función" �
 - **[Granola](https://www.granola.ai/)** — App de grabación y transcripción de reuniones que Rodrigo usa para alimentar sus skills.
 - **[Método PARA — Tiago Forte](https://fortelabs.com/blog/para/)** — Sistema de organización de carpetas (Proyectos, Áreas, Recursos, Archivos) que facilita que los agentes naveguen tu información.
 - **[NVIDIA GTC 2026 — Keynote Jensen Huang](https://www.nvidia.com/gtc/)** — Donde se presentó NemoClaw y la tesis de estrategia de agentes corporativa.
-- Episodio anterior: [EP04 — Firefox + Claude, API Design First y el primer trillion dollar company](/episodios/04-agentes-vs-empleados)
+- Episodio anterior: [EP04 — Firefox + Claude, API Design First y el primer trillion dollar company](/episodios/04-agentes-vs-empleados/)
 
 ---
 

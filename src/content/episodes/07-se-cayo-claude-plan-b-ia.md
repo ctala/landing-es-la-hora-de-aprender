@@ -179,8 +179,8 @@ La lectura caritativa es que busca moderar la velocidad del cambio para evitar c
 - **[Obsidian](https://obsidian.md/)** — App de notas en Markdown puro que Rodrigo usa como base de conocimiento para su agente.
 - **[Readwise y Reader](https://readwise.io/)** — El flujo de captura de contenido que Rodrigo conecta con Obsidian.
 - **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — Comunidad de Cristian para seguir aprendiendo en grupo.
-- Episodio anterior: [EP06 — Cuánto invertir en IA, Agent Teams y construir en público](/episodios/06-cuanto-invertir-ia-agentes-construir-publico)
-- Episodio siguiente: [EP08 — Crisis Anthropic, alternativas y modelos locales](/episodios/08-crisis-anthropic-modelos-alternativos-ia-local)
+- Episodio anterior: [EP06 — Cuánto invertir en IA, Agent Teams y construir en público](/episodios/06-cuanto-invertir-ia-agentes-construir-publico/)
+- Episodio siguiente: [EP08 — Crisis Anthropic, alternativas y modelos locales](/episodios/08-crisis-anthropic-modelos-alternativos-ia-local/)
 
 ---
 

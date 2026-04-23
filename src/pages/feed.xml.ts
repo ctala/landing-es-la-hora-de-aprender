@@ -40,7 +40,7 @@ export async function GET(context: APIContext) {
         `,
         items: sorted.map((ep) => ({
             title: ep.data.title,
-            link: `/episodios/${ep.id}`,
+            link: `/episodios/${ep.id}/`,
             pubDate: new Date(ep.data.date + 'T00:00:00-03:00'),
             description: ep.data.description,
             customData: `

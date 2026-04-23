@@ -176,8 +176,8 @@ Cuatro cosas, todas en Markdown plano: (1) tu way of work — cómo abordas las 
 - **[Mac Studio](https://www.apple.com/shop/buy-mac/mac-studio)** — Top de gama Apple para correr modelos grandes local.
 - **[Ollama](https://ollama.com/)** — Runtime simple para correr LLMs open source en tu computador.
 - **[LM Studio](https://lmstudio.ai/)** — Interfaz gráfica para probar modelos open source local.
-- Episodio anterior: [EP07 — Se cayó Claude y no pude trabajar](/episodios/07-se-cayo-claude-plan-b-ia)
-- Episodio siguiente: [EP09 — Estrategia de IA según el tamaño de tu empresa](/episodios/09-estrategia-ia-tamano-empresa-solo-entrepreneur)
+- Episodio anterior: [EP07 — Se cayó Claude y no pude trabajar](/episodios/07-se-cayo-claude-plan-b-ia/)
+- Episodio siguiente: [EP09 — Estrategia de IA según el tamaño de tu empresa](/episodios/09-estrategia-ia-tamano-empresa-solo-entrepreneur/)
 
 ---
 

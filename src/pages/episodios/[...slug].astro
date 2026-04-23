@@ -26,7 +26,7 @@ const { Content } = await render(episodeData);
 const TOPICS_VISIBLE = 5;
 
 const siteUrl = 'https://eslahoradeaprender.com';
-const canonical = `${siteUrl}/episodios/${episode}`;
+const canonical = `${siteUrl}/episodios/${episode}/`;
 const thumbAbs = episodeData.data.thumbnail
   ? `${siteUrl}${episodeData.data.thumbnail}`
   : `https://img.youtube.com/vi/${episodeData.data.youtubeId}/maxresdefault.jpg`;
@@ -94,8 +94,8 @@ const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Inicio', item: siteUrl },
-    { '@type': 'ListItem', position: 2, name: 'Episodios', item: `${siteUrl}/episodios` },
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'Episodios', item: `${siteUrl}/episodios/` },
     {
       '@type': 'ListItem',
       position: 3,
