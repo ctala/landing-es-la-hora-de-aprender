@@ -4,6 +4,33 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.12.2] - 2026-04-23
+
+### 🧹 Cleanup de documentación y registro de decisiones
+
+Housekeeping post-sprint GEO. Sin cambios de código ni schema; solo alinea CHANGELOG, ROADMAP, package.json con el estado real del repo.
+
+#### ROADMAP reconciliado con el estado real del código
+
+- Marcados como `done` items que ya estaban hechos pero seguían con `[ ]`:
+  - **Analytics** (Cloudflare Web Analytics activo desde v3.11.0).
+  - **Conectar Google Search Console** (conectado y request-indexing hecho post v3.11.0).
+  - **Bloque "Episodios relacionados"** — en realidad hecho en v3.9.0 via `relatedEpisodes[]`. Nota agregada sobre la variante (manual vs auto-derivado por topics).
+- Nuevo item separado: **Bing Webmaster Tools** (pendiente, también alimenta ChatGPT Search / Copilot).
+- Nuevo item recurrente: **Rich Results Test post-deploy** como checkpoint al modificar schemas.
+- Removidos 2 items duplicados de "Cambios más grandes / futuro": Share buttons y Timestamps clicables (ya estaban en el Sprint UX).
+
+#### Registro de decisiones actualizado
+
+- **Licencia del contenido editorial**: CC BY 4.0 confirmada por los hosts. Razones documentadas: maximiza visibilidad en AI engines / training corpora; los cursos comerciales de cada host son productos separados con licencias propias; atribución obligatoria basta para reconocimiento en respuestas de LLMs.
+- **Analytics**: elección de Cloudflare Web Analytics sobre Plausible/Umami/GA4 documentada con razones.
+
+#### Versión
+
+Patch bump a v3.12.2 solo para que el footer del sitio refleje correctamente el último estado documentado. Sin cambios funcionales.
+
+---
+
 ## [3.12.1] - 2026-04-23
 
 ### ✍️ Direct-answer-first rewrite — 18 primeros párrafos post-H2 reescritos en ep01-ep08
