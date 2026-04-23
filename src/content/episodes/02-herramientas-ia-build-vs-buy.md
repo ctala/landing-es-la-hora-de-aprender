@@ -29,6 +29,7 @@ topics:
   - "Shadow AI"
   - "CRM"
   - "Adopción Empresarial"
+relatedEpisodes: [5, 6, 9]
 keywords:
   - "herramientas ia 2026"
   - "build vs buy tecnología"

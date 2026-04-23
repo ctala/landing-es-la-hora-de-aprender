@@ -46,7 +46,8 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
   Impacto: habilitador de todo lo demás · Esfuerzo: bajo.
 - [ ] **Renderizar key takeaways + FAQs desde frontmatter** en la página de episodio, cuando los campos existan. Emitir `FAQPage` JSON-LD automáticamente si hay FAQs.
 - [ ] **Topic chips clickables** — hoy `topics[]` solo se muestra como pills decorativas. Hacer que cada chip linkee a `/temas/{slug}` (ver siguiente).
-- [ ] **Links internos de episodios resueltos por número** — hoy los enlaces tipo `/episodios/XX-slug` dentro del body Markdown son hardcoded y pueden romperse si el autor/agente escribe el slug incorrecto. Dos opciones: (a) campo `relatedEpisodes: number[]` en el schema + render automático en el template (resuelve slugs por número de episodio en build), (b) build-time validator que grepea todos los `/episodios/*` del contenido renderizado y falla el build si algún link apunta a un slug inexistente. Ideal las dos. Impacto: evita 404s silenciosos en cada publicación.
+- [x] **Links internos de episodios resueltos por número** — hecho en v3.9.0. Campo `relatedEpisodes: number[]` en el schema + render automático en el template; build falla si un número referenciado no existe. Queda pendiente la parte (b): validator post-build para los links hardcoded dentro del body Markdown (los que no usan `relatedEpisodes`).
+- [ ] **Validator de links internos del body** — complemento de `relatedEpisodes`. Script post-build que parsea el HTML generado, extrae todos los `/episodios/*` del contenido y falla si alguno apunta a un slug inexistente. Cubre los links contextuales dentro de párrafos (ej. "como vimos en [el episodio pasado](/episodios/...)").
 
 ---
 

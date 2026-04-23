@@ -7,20 +7,38 @@ import SiteFooter from '../../components/SiteFooter.astro';
 export async function getStaticPaths() {
   const episodes = await getCollection('episodes');
   const sorted = [...episodes].sort((a, b) => a.data.episode - b.data.episode);
+  const byEpNumber = new Map(episodes.map(e => [e.data.episode, e]));
+
   return episodes.map(ep => {
     const idx = sorted.findIndex(e => e.id === ep.id);
+    const related = (ep.data.relatedEpisodes ?? []).map(num => {
+      const found = byEpNumber.get(num);
+      if (!found) {
+        throw new Error(
+          `Episodio ${ep.data.episode} ("${ep.id}") referencia relatedEpisodes: ${num}, pero ningún episodio con ese número existe en la colección. Corrige el frontmatter.`
+        );
+      }
+      if (num === ep.data.episode) {
+        throw new Error(
+          `Episodio ${ep.data.episode} ("${ep.id}") se referencia a sí mismo en relatedEpisodes. Quítalo del frontmatter.`
+        );
+      }
+      return found;
+    });
+
     return {
       params: { slug: ep.id },
       props: {
         ep,
         prev: sorted[idx - 1] ?? null,
         next: sorted[idx + 1] ?? null,
+        related,
       },
     };
   });
 }
 
-const { ep: episodeData, prev: prevEpisode, next: nextEpisode } = Astro.props;
+const { ep: episodeData, prev: prevEpisode, next: nextEpisode, related: relatedEpisodes } = Astro.props;
 const episode = episodeData.id;
 const { Content } = await render(episodeData);
 const TOPICS_VISIBLE = 5;
@@ -214,6 +232,53 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
             <Content />
         </section>
 
+        <!-- Episodios relacionados (si el frontmatter define relatedEpisodes) -->
+        {relatedEpisodes && relatedEpisodes.length > 0 && (
+            <section class="related-episodes mt-8 md:mt-10" aria-labelledby="related-heading">
+                <h2 id="related-heading" class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6">
+                    Episodios <span class="bg-acid text-black px-2">relacionados</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                    {relatedEpisodes.map((rep) => (
+                        <article class="brutal-card episode-card-compact group">
+                            <a href={`/episodios/${rep.id}/`} class="block">
+                                <div class="relative aspect-video overflow-hidden">
+                                    <img
+                                        src={rep.data.thumbnail?.replace('.webp', '-xs.webp') || `https://img.youtube.com/vi/${rep.data.youtubeId}/mqdefault.jpg`}
+                                        srcset={rep.data.thumbnail ? `${rep.data.thumbnail.replace('.webp', '-xs.webp')} 400w, ${rep.data.thumbnail.replace('.webp', '-sm.webp')} 648w` : undefined}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        alt={`Thumbnail: ${rep.data.title}`}
+                                        width="400"
+                                        height="225"
+                                        loading="lazy"
+                                        decoding="async"
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                    <div class="absolute top-3 left-3">
+                                        <span class="bg-black text-acid px-2 py-1 text-[10px] uppercase font-black tracking-wider">
+                                            EP {rep.data.episode}
+                                        </span>
+                                    </div>
+                                    <div class="absolute bottom-3 right-3">
+                                        <span class="bg-black/80 text-white px-2 py-1 text-[10px] font-bold">
+                                            {rep.data.duration}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="p-4 md:p-5">
+                                <h3 class="text-base md:text-lg font-black leading-tight tracking-tight text-black line-clamp-2">
+                                    <a href={`/episodios/${rep.id}/`} class="hover:text-electric transition-colors">
+                                        {rep.data.title}
+                                    </a>
+                                </h3>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+        )}
+
         <!-- Navegación entre episodios -->
         <div class="flex flex-row justify-between items-center mt-8 md:mt-10 gap-4">
             {prevEpisode ? (
@@ -242,6 +307,21 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
         }
         .topics-container.expanded .topic-tag.hidden {
             display: inline-block;
+        }
+
+        /* Related episodes cards (reutiliza patrón de /episodios/index.astro) */
+        .episode-card-compact {
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .episode-card-compact:hover {
+            transform: translateY(-4px);
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         /* Shownotes: prose styles scoped al contenido renderizado */

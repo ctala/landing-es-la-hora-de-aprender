@@ -28,6 +28,7 @@ topics:
   - "Futuro del Trabajo"
   - "Perplexity Computer"
   - "OpenClaw vs Claude Code"
+relatedEpisodes: [1, 6, 9]
 keywords:
   - "agentes de inteligencia artificial empresas"
   - "claude opus bugs firefox"

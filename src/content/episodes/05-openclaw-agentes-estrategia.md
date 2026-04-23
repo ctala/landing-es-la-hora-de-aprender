@@ -29,6 +29,7 @@ topics:
   - "IA en turismo rural y negocios locales"
   - "Educación digital y curvas de adopción"
   - "CEO como cuestionador y motor de cambio"
+relatedEpisodes: [1, 6, 9]
 keywords:
   - "OpenClaw agentes IA"
   - "estrategia empresarial automatización"

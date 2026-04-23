@@ -35,6 +35,7 @@ topics:
   - "Distribución es lo más importante para monetizar"
   - "Historia del plugin gratuito → origen de Pago Fácil"
   - "El inglés como lenguaje de programación"
+relatedEpisodes: [2, 5, 9]
 keywords:
   - "cuanto invertir en inteligencia artificial"
   - "agent teams claude wordpress"

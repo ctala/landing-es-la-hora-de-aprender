@@ -86,6 +86,7 @@ keywords:
   - "keyword long-tail en minúsculas"
   - "otra variación de búsqueda"
   # 5-10 keywords SEO realistas en español
+relatedEpisodes: [X, Y, Z]      # 2-4 números de episodios relacionados por tema
 ---
 ```
 
@@ -98,6 +99,11 @@ keywords:
 - **duration / durationSeconds**: ambos son obligatorios. `durationSeconds` alimenta el schema `VideoObject.duration` como ISO 8601.
 - **topics**: texto libre en español. Pueden ser frases. Se muestran como tags y en el futuro generarán páginas `/temas/{slug}`.
 - **keywords**: son long-tail reales (piensa "qué escribiría alguien en Google"). Separadas y en minúsculas.
+- **relatedEpisodes**: array de números de episodio (`[4, 5, 9]`) con los que este episodio comparte temas. El template resuelve automáticamente los slugs y renderiza un bloque "Episodios relacionados" al final. Reglas:
+  - Números enteros positivos que existan en la colección. Si referenciás un número inexistente, el build falla con un mensaje claro.
+  - No incluir el propio número del episodio (el build también lo rechaza).
+  - Ideal: 2–4 episodios. Más de 4 satura visualmente. Elegir los que comparten topics o narrativa.
+  - Opcional pero recomendado — es la forma **segura** de enlazar episodios relacionados: no tenés que escribir slugs a mano ni recordar casos especiales (ej. EP09 tiene un slug explícito distinto del filename).
 - **No incluyas** datos sensibles, emails personales de invitados sin consentimiento, ni tokens.
 
 ---
@@ -301,6 +307,7 @@ Después del deploy, **no olvidar**:
 - [ ] Thumbnails `epXX.webp`, `epXX-sm.webp`, `epXX-xs.webp` en `public/thumbnails/`
 - [ ] URLs de YouTube y Spotify correctas y apuntan al episodio real
 - [ ] `topics` y `keywords` específicos, no genéricos
+- [ ] `relatedEpisodes` definido con 2–4 números de episodios afines por tema (todos existen)
 
 **Body editorial (estándar modo B)**
 

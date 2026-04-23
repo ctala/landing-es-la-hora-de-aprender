@@ -30,6 +30,7 @@ topics:
   - "Documentación como ventaja competitiva"
   - "MiniMax highspeed suscripción"
   - "Agentes multi-equipo"
+relatedEpisodes: [5, 6, 8]
 keywords:
   - "estrategia ia según tamaño empresa"
   - "ia solo entrepreneur herramientas"

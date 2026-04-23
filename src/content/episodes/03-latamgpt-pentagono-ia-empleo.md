@@ -29,6 +29,7 @@ topics:
   - "Block despidos"
   - "Agentes IA"
   - "IA en empresas"
+relatedEpisodes: [1, 4, 8]
 keywords:
   - "latamgpt que es"
   - "tam gpt latinoamerica"

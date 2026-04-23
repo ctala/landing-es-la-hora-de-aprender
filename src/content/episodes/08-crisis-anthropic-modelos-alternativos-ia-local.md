@@ -30,6 +30,7 @@ topics:
   - "Optimización costos tokens"
   - "OpenClaw estrategias"
   - "Hardware IA DGX Spark"
+relatedEpisodes: [3, 7, 9]
 keywords:
   - "crisis anthropic claud e 2026"
   - "alternativas a claude opus sonnet"

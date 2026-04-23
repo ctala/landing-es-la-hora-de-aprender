@@ -42,6 +42,7 @@ topics:
   - "Hate en redes: haters que niegan lo que está pasando"
   - "El cuello de botella somos los humanos (cita de Andrej Karpathy)"
   - "Proyectos: Vector Rodrigo en Obsidian, auditoría de tools, Empresas Aumentadas blog"
+relatedEpisodes: [2, 8, 9]
 keywords:
   - "se cayo claude que hacer"
   - "plan contingencia inteligencia artificial"

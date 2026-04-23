@@ -24,6 +24,7 @@ const episodes = defineCollection({
     })),
     topics: z.array(z.string()),
     keywords: z.array(z.string()).optional(),
+    relatedEpisodes: z.array(z.number().int().positive()).optional(),
   }),
 });
 

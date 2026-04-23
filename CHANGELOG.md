@@ -4,6 +4,37 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.9.0] - 2026-04-23
+
+### 🔗 Episodios relacionados por número + validación en build
+
+Nuevo campo opcional en el schema del episodio: `relatedEpisodes: number[]`. Reemplaza la escritura manual de slugs con trailing slash dentro del body Markdown — el autor define números de episodio y el template los resuelve automáticamente.
+
+#### Cambios
+
+- `src/content.config.ts`: campo `relatedEpisodes: z.array(z.number().int().positive()).optional()`.
+- `src/pages/episodios/[...slug].astro`: el `getStaticPaths` resuelve cada número a su entry de la colección y lo pasa por `props`. Si un número referenciado no existe en la colección, el build falla con error explícito. También se rechaza que un episodio se referencie a sí mismo.
+- Nuevo bloque "Episodios relacionados" en el template, al final de los shownotes (antes del prev/next). Cards compactas con thumbnail, número, duración y título — reutilizando el patrón neo-brutalista del listado.
+- Los 9 episodios actuales ya tienen `relatedEpisodes` definido basado en topics compartidos.
+
+#### Por qué
+
+Antes el único enlazado interno cross-episodio eran links hardcoded en el body Markdown (propensos a errores de slug y a olvidar el trailing slash). Ahora:
+
+- URLs resueltas en build-time con slash correcto.
+- Casos especiales manejados automáticamente (ej. EP09 con slug explícito distinto del filename).
+- Build falla si alguien referencia un episodio inexistente.
+- El bloque visual mejora el CTR interno y el discovery lateral.
+
+Los links manuales dentro del body se mantienen para contexto narrativo (frases como "como vimos en el episodio anterior"); `relatedEpisodes` es para el bloque estructurado.
+
+#### Workflow actualizado
+
+- `docs/agent-add-new-episode.md`: sección nueva explicando cuándo usar `relatedEpisodes`, con reglas de validación y recomendaciones editoriales (2–4 episodios, sin autoreferencia).
+- Checklist final del skill incluye verificar que el campo esté definido y que todos los números referenciados existan.
+
+---
+
 ## [3.8.0] - 2026-04-22
 
 ### 📝 Shownotes editoriales completos para los 9 episodios
