@@ -284,6 +284,36 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
             </div>
         </article>
 
+        <!-- Capítulos clickables (si el frontmatter define timestamps) -->
+        {timestamps && timestamps.length > 0 && (
+            <section class="chapters brutal-card mt-8 md:mt-10 p-6 md:p-8" aria-labelledby="chapters-heading">
+                <div class="flex items-baseline justify-between flex-wrap gap-2 mb-4 md:mb-5">
+                    <h2 id="chapters-heading" class="text-xl md:text-2xl font-black uppercase tracking-tighter">
+                        Capítulos <span class="bg-electric text-white px-2">del episodio</span>
+                    </h2>
+                    <p class="text-xs text-gray-700 font-bold uppercase tracking-wider">
+                        {timestamps.length} saltos · abre en YouTube
+                    </p>
+                </div>
+                <ol class="chapters-list grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3" role="list">
+                    {timestamps.map((t) => (
+                        <li>
+                            <a
+                                href={`${episodeData.data.youtube}&t=${t.seconds}s`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="chapter-link"
+                                aria-label={`Saltar al minuto ${t.time} — ${t.label}`}>
+                                <span class="chapter-time">{t.time}</span>
+                                <span class="chapter-label">{t.label}</span>
+                                <span class="chapter-arrow" aria-hidden="true">↗</span>
+                            </a>
+                        </li>
+                    ))}
+                </ol>
+            </section>
+        )}
+
         <!-- Shownotes + TOC sticky (solo desktop) -->
         <div class="shownotes-layout mt-8 md:mt-10">
             {h2Headings.length > 0 && (
@@ -571,6 +601,55 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
             background: var(--acid-green);
             color: var(--black);
             font-weight: 800;
+        }
+
+        /* Capítulos clickables (timestamps -> YouTube con ?t=Xs) */
+        .chapters-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .chapter-link {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0.85rem;
+            border: 2px solid var(--black);
+            background: white;
+            text-decoration: none;
+            color: var(--black);
+            font-size: 0.9rem;
+            line-height: 1.3;
+            transition: all 0.1s;
+        }
+        .chapter-link:hover {
+            background: var(--acid-green);
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0px 0px var(--black);
+        }
+        .chapter-time {
+            font-family: 'SFMono-Regular', Menlo, monospace;
+            font-weight: 800;
+            font-size: 0.8rem;
+            background: var(--black);
+            color: var(--acid-green);
+            padding: 0.15em 0.5em;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+        .chapter-label {
+            font-weight: 600;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .chapter-arrow {
+            font-size: 0.85rem;
+            color: var(--electric-blue);
+            font-weight: 800;
+        }
+        .chapter-link:hover .chapter-arrow {
+            color: var(--black);
         }
     </style>
 

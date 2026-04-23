@@ -4,6 +4,64 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.16.0] - 2026-04-23
+
+### 🎬 Capítulos clickables con timestamps en página de episodio
+
+Penúltimo item del Sprint UX. Los `timestamps[]` del frontmatter (13-15 por episodio, ya cargados en v3.10.0/v3.11.0 con migración de ep01-ep08) ahora se renderizan como una grilla de botones clickables que abren YouTube en el segundo exacto.
+
+#### Ubicación
+
+Entre el hero del episodio y el bloque `shownotes-layout` (arriba del TOC + shownote). El usuario que aterriza puede saltar directo al momento que le interesa **antes** de leer. Patrón estándar en podcasts (Huberman, Lex Fridman, Tim Ferriss).
+
+#### Interacción
+
+Click → abre YouTube en nueva pestaña con `?t=Xs` (segundos precisos). Simple, predecible, funciona siempre. No intenta controlar el facade embebido del sitio — una decisión que sacrifica algo de elegancia por robustez.
+
+#### Layout
+
+- **Mobile**: 1 columna (stack vertical).
+- **Desktop (`md:`)**: 2 columnas, grid.
+- Heading "Capítulos del episodio" con treatment acid/electric consistente con el resto.
+- Label descriptivo del recuento ("15 saltos · abre en YouTube") a la derecha del heading.
+
+#### Estilo visual (nuevo `.chapter-link`)
+
+- Grid interno `auto 1fr auto`: timestamp | label | flecha `↗`.
+- Timestamp en **bg-black + text-acid** con monospace (SFMono) — coherente con el design token de "tag".
+- Hover: fondo acid-green + shift `-1px,-1px` con shadow `3px 3px 0 black` (brutal micro-interacción).
+- Label en weight 600 con `text-overflow: ellipsis` si es muy largo.
+- Flecha `↗` en electric-blue para indicar "external link".
+
+#### Coexistencia con otras representaciones
+
+Los mismos datos de timestamps existen en 4 lugares:
+
+1. **`timestamps[]` del frontmatter** — fuente de verdad.
+2. **`VideoObject.hasPart` (Clip con startOffset)** en JSON-LD — chapter markers en Google SERP.
+3. **`## Capítulos del episodio` en el body MD** — lista textual para usuarios que leen linealmente + fallback accesible.
+4. **Nuevo `.chapters` block** arriba del shownote — interacción clickable primaria (este release).
+
+Todas son útiles y sirven audiencias distintas (crawlers, lectores, usuarios con mouse).
+
+#### Accesibilidad
+
+- `<section aria-labelledby="chapters-heading">` wraps el bloque.
+- Cada `<a>` tiene `aria-label` descriptivo ("Saltar al minuto MM:SS — Label").
+- `role="list"` en el `<ol>` (redundante pero explícito).
+- `rel="noopener noreferrer"` en links externos.
+- Touch targets ≥ 44px con el padding del botón.
+
+#### Docs sincronizadas
+
+- `CHANGELOG.md`: entrada 3.16.0.
+- `package.json` / `README.md`: bump a v3.16.0.
+- `ROADMAP.md`: item "Renderizar timestamps como chapter markers clickeables" del Sprint UX marcado done.
+
+Build: 0 errors, 0 warnings. Los 9 episodios renderizan el bloque con entre 13 y 15 capítulos cada uno. Links a YouTube verificados con timestamps precisos en segundos.
+
+---
+
 ## [3.15.0] - 2026-04-23
 
 ### 📑 TOC sticky en desktop para shownotes de episodio
