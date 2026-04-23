@@ -151,11 +151,7 @@ Cristian vuelve de vacaciones con energía renovada — y con un plugin de WordP
 
 ## ¿Cuánto deberías gastar al mes en IA?
 
-La frase que abrió el debate fue de Jensen Huang en la keynote reciente de NVIDIA:
-
-> "Si tu ingeniero que vale 500 mil dólares al año no está quemando 250 mil en créditos de IA, algo anda mal."
-
-Fácil decirlo cuando tú eres quien vende el hardware. Pero el fondo del argumento es sólido: **el aprendizaje activo con herramientas tiene valor**, y en 2026 ese valor es desproporcionadamente alto.
+Entre 50 y 300 USD al mes si sos persona independiente; 25-100 USD por persona si sos empresa. Con 50 USD tenés plan Pro de un LLM (Claude, ChatGPT o Gemini) más créditos para experimentar. Con 200-300 USD sumás herramientas de imagen/video, un VPS para agentes propios y APIs de pago por uso. Jensen Huang lo puso en extremo en la keynote de NVIDIA — 'si tu ingeniero de 500K USD al año no quema 250K en créditos de IA, algo anda mal' — pero fácil decirlo cuando sos quien vende el hardware.
 
 La respuesta del episodio para la mayoría de nosotros:
 
@@ -256,11 +252,7 @@ Excepción que Cristian reconoce: negocios donde el capital de trabajo es alto y
 
 ## ¿Cómo se construye en público sin que te copien?
 
-Rodrigo tiene la fórmula que más repitió:
-
-- **Hacer sin contar** = nadie sabe que existes. Puedes estar solucionando el cáncer y morir invisible.
-- **Contar sin hacer** = vendehúmo. Vendes esperanza de cambio sin entregarlo.
-- **Hacer + contar** = distribución real. La mezcla que funciona.
+No importa: el moat nunca fue la idea, es la ejecución. La fórmula que Rodrigo repite: hacer sin contar te deja invisible (podrías estar curando el cáncer y morir desconocido); contar sin hacer te convierte en vendehúmo; hacer + contar es distribución real. Cristian conoce genios que pensaron en Uber antes de Uber, en Pago Fácil antes de Pago Fácil — y no hicieron nada. Las ventajas concretas: feedback gratis, obligación autoimpuesta de cumplir, colaboradores y clientes que llegan solos, inteligencia colectiva sobre tu proyecto.
 
 El miedo típico es "me van a copiar la idea". Cristian fue directo: conoce un montón de supuestos genios que "pensaron en Uber antes de Uber, en Lime antes de Lime, en Pago Fácil antes de Pago Fácil" — y no hicieron nada. El moat no es la idea, es la ejecución.
 

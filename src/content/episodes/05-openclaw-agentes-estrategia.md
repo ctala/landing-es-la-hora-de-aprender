@@ -144,9 +144,7 @@ Cristian se fue a la playa y nos dejó solos, pero no del todo — mandó links 
 
 ## ¿Por qué el contexto es el nuevo diferencial competitivo?
 
-Todos tenemos acceso a los mismos modelos. Claude Opus, GPT-5.4, Gemini 3.1 Pro están a un clic para cualquiera que pague 20 USD al mes. Entonces, ¿dónde queda la ventaja competitiva?
-
-**En el contexto de la empresa**: los archivos, los procesos, la base de conocimiento, las reglas de negocio, los criterios que hasta hoy vivían en la cabeza de tus colaboradores.
+Porque el modelo se commoditizó. Claude Opus, GPT-5.4 y Gemini 3.1 Pro están a un clic para cualquiera con 20 USD al mes — ahí ya no hay ventaja competitiva. La ventaja pasó al contexto: archivos, procesos, base de conocimiento, reglas de negocio y criterios que hasta hoy vivían en la cabeza de tus colaboradores. Si tu información está ordenada y disponible en formatos legibles por máquina, los agentes trabajan contigo. Si vive en 'Don Juan que sabe cómo', estás en problema.
 
 > "Si vas a crear data a partir de ahora, ordénala desde ya. Y para atrás tienes que ir a hacer la limpieza, la conversión — ya sea Markdown, ya sean SQL o la base que tengas. Toda esa información tiene que quedar ordenada y disponible." — Rodrigo Rojo
 
@@ -186,7 +184,7 @@ La regla de Rodrigo: cuando diseñas un flujo, la etapa cara (probar con varios 
 
 ## ¿Qué preguntas tienes que responder antes de desplegar agentes en tu empresa?
 
-Jensen Huang lo dijo en GTC 2026: toda empresa necesita una **estrategia de agentes**. No es simplemente instalar OpenClaw y ver qué pasa. Antes de tocar código, hay decisiones de arquitectura.
+Siete preguntas antes de tocar código: cuántos agentes (uno por persona, uno por área, uno compartido); dónde viven (Discord, Slack, Teams, interfaz propia); qué pueden acceder (carpetas, credenciales, APIs, bases de datos); qué canales separan contextos; cómo comparten data entre sí; qué APIs usan por detrás y quién administra las cuentas; qué modelo para cada tarea. Jensen Huang lo planteó en GTC 2026: toda empresa necesita una estrategia de agentes explícita, no simplemente instalar OpenClaw y ver qué pasa.
 
 - **¿Cuántos agentes?** Uno por empleado, uno por área, uno compartido por todos.
 - **¿Dónde viven?** Discord, Slack, Microsoft Teams, interfaz web propia.
@@ -218,7 +216,7 @@ Andrej Karpathy lo bautizó públicamente: *"los Claws"* — los agentes con "ga
 
 ## ¿Por qué la IA es la tecnología más democrática de la historia?
 
-Rodrigo estuvo esta semana haciendo un taller en **turismo rural** — gente con conexión a internet intermitente, alfabetización digital baja, negocios 100% manuales (caballos, rutas rurales, insumos). Se esperaba poco compromiso con el tema IA. Pasó lo opuesto.
+Porque solo requiere dos cosas: saber español y tener internet. Nada más. Rodrigo lo comprobó esta semana en un taller de turismo rural — gente con conexión intermitente, alfabetización digital baja, negocios 100% manuales (caballos, rutas, insumos). Se esperaba poco compromiso con IA y pasó lo opuesto: apenas vieron que el valor estaba en su propio contexto (planillas existentes, rutinas diarias), los casos de uso aparecieron solos — traducción en vivo con turistas, redes sociales, análisis de negocio, compañía mental en jornadas largas.
 
 Apenas entendieron que el valor estaba en **el contexto** — "¿qué haces tú en tu día a día? ah, ¿tienes esta planilla? ¿puedes ordenarla?" — se les iluminó la cara. El uso real que identificaron:
 

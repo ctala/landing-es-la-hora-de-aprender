@@ -178,7 +178,7 @@ La historia técnica detrás: los modelos tope de línea **saben** cómo hacer b
 
 ## ¿Tiene sentido usar modelos open source para defensa o banca?
 
-El caso paralelo: el gobierno de Chile comunicó que estaba desarrollando un LLM propio basado en Llama. Salió una crítica diciendo que Llama 3.1 está "deprecado" y que usar un modelo abierto para fines militares viola la licencia de Meta. Cristian y Rodrigo desarmaron los dos argumentos.
+Sí, con dos matices críticos. Para casos donde la data no puede salir del servidor (banca, salud, defensa), los modelos open source self-hosted son la única opción razonable — Qwen, Llama, Gemma dan suficiente calidad para la mayoría de cargas. Los dos cuidados: que la licencia permita el caso de uso (Llama prohíbe usos militares explícitamente, Qwen es más permisiva), y no confundir deprecado con obsoleto — Llama 3.1 de hace 12 meses sigue siendo excelente para la mayor parte del trabajo de oficina.
 
 Primero, "**deprecado**" en IA no significa lo mismo que en software tradicional. Los modelos llamados legacy son de hace 12–18 meses y siguen siendo excelentes para la mayoría de tareas. El salto reciente no es de inteligencia bruta, es de **uso de herramientas** (tool use), razonamiento extendido y mixture of experts. Si tu caso de uso no requiere agentes complejos encadenando acciones, Llama 3.1 o Gemma hacen perfectamente el trabajo.
 
@@ -196,7 +196,7 @@ Para casos legítimos donde **la data no puede salir del servidor** (banca, salu
 
 ## ¿Destrucción masiva de empleo o eficiencia legítima?
 
-Block (la empresa de Jack Dorsey) despidió 4.000 personas — el 40% de los que tienen computador en la compañía — argumentando que con IA pueden hacer el mismo trabajo con menos gente. Al mismo tiempo tuvieron su mejor año financiero. ¿Esto es destrucción de empleo o ajuste legítimo de una empresa que sobrecontrató en pandemia?
+Las dos cosas, y por eso duele. Block despidió 4.000 personas (40% de su fuerza laboral con computador) argumentando eficiencia por IA, y tuvo su mejor año financiero el mismo período. La lectura más honesta: sobrecontrataron masivamente en pandemia, y la IA dio el pretexto narrativo para un ajuste que venía igual. El precedente igual es real — desde 2025, las empresas grandes pueden justificar reducciones citando eficiencia por IA sin penalización reputacional. El dolor se traslada a quienes hoy buscan trabajo.
 
 Cristian tomó la postura pragmática sin tapujos: *"Si con 4.000 personas menos la empresa hace lo mismo y sigue generando impacto positivo, ¿por qué debería tener más gente?"* Pero él mismo matizó: **esto solo aplica cuando el problema es procesos operativos repetitivos**. Si la empresa tiene problemas estructurales, la IA no los arregla — da lo mismo que despidas al 50%.
 

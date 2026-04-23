@@ -4,6 +4,46 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.12.1] - 2026-04-23
+
+### ✍️ Direct-answer-first rewrite — 18 primeros párrafos post-H2 reescritos en ep01-ep08
+
+Segunda parte del Sprint GEO. El sub-agente `podcast-creator` auditó los 8 episodios y detectó H2 en forma de pregunta cuyo primer párrafo abría con narrativa o contexto en vez de responder directo. Los LLMs (ChatGPT, Claude, Perplexity, Google AI Overviews) extraen preferentemente el primer párrafo después de un H2 — si ese párrafo es narrativo, la respuesta citable queda diluida.
+
+#### 18 rewrites aplicados
+
+| Episodio | Rewrites | H2 tocados |
+|---|---|---|
+| EP01 | 3 | VPS vs PC, automatizar primero, cuántos empleos |
+| EP02 | 1 | build vs buy 2026 |
+| EP03 | 2 | modelos open source para defensa/banca, destrucción de empleo |
+| EP04 | 2 | costo de agente arreglando bugs, cómo despiden empresas |
+| EP05 | 3 | contexto como diferencial, preguntas antes de agentes, IA democrática |
+| EP06 | 2 | cuánto gastar al mes, construir en público |
+| EP07 | 3 | qué hacer cuando LLM se cae, SLA 99%, regulación JP Morgan |
+| EP08 | 2 | modelos alternativos, cuándo correr local |
+
+Todos los rewrites preservan: citas textuales de los hosts, cifras, nombres propios, voz editorial LATAM-neutra. El cambio es estructural — mover la respuesta al primer párrafo — sin reescribir el contenido del episodio.
+
+#### Episodios con mejor baseline (menos rewrites necesarios)
+
+- **EP02** fue el más sano (1 solo rewrite). La mayoría de sus H2 abrían con tabla, regla práctica o lista.
+- **EP01, EP05 y EP07** fueron los más necesitados (3 rewrites cada uno) — varios H2 abrían con narrativa ("Rodrigo estuvo esta semana…", "El CEO del banco más grande…", "La respuesta corta:…").
+
+#### Por qué importa
+
+Los LLMs priorizan extracción del patrón `[Pregunta H2]` → `[Respuesta en primer párrafo declarativo]`. Si el primer párrafo es narrativo, la respuesta queda en el tercer o cuarto párrafo y los motores la ignoran o extraen de otras páginas mejor estructuradas. Este rewrite maximiza la probabilidad de que nuestras respuestas aparezcan citadas literalmente cuando alguien pregunte a ChatGPT "¿qué modelo de IA conviene para una PYME?" o similar.
+
+#### Docs sincronizadas
+
+- `CHANGELOG.md`: entrada 3.12.1.
+- `package.json` / `README.md`: bump a v3.12.1.
+- `ROADMAP.md`: item "direct-answer-first rewrite" marcado done.
+
+Build: 0 errors, 0 warnings.
+
+---
+
 ## [3.12.0] - 2026-04-23
 
 ### 🤖 Sprint GEO — visibilidad explícita para AI search y LLM training

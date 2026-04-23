@@ -79,7 +79,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [x] **`/llms.txt` generado en build** desde la collection — `src/pages/llms.txt.ts` con descripción, licencia CC BY 4.0, episodios indexados, política de atribución.
 - [x] **`ItemList` JSON-LD en home** — enumera los 9 episodios para AI crawlers.
 - [x] **`SpeakableSpecification` en episodios** — apunta a h1 + primer párrafo + key takeaways del shownotes.
-- [ ] **Direct-answer-first rewrite** (en progreso v3.12.x) — primeros 60-80 palabras post-H2 responden declarativo, no narrativo.
+- [x] **Direct-answer-first rewrite** — hecho en v3.12.1. 18 rewrites aplicados en ep01-ep08 (EP09 ya estaba OK como piloto). Los primeros párrafos post-H2 ahora responden declarativo.
 - [ ] **`mentions[]` con `sameAs` a Wikidata** en top 5 entidades (Anthropic, OpenAI, Claude, NVIDIA, Karpathy) — pendiente.
 - [ ] **Person schema profundo** por host (knowsAbout, sameAs, worksFor) + página `/hosts/{slug}/` — pendiente.
 - [ ] **Custom `serialize` en `@astrojs/sitemap`** con priority y lastmod precisos — pendiente.

@@ -156,7 +156,7 @@ Hay buena noticia en medio: Anthropic anunció ampliación de capacidad con serv
 
 ## ¿Qué modelos alternativos están funcionando de verdad?
 
-Cristian corrió un benchmark con 8 modelos usando los mismos 20 inputs de su pipeline de noticias en EcosistemaStartup. Varios modelos igualaron o superaron a Sonnet — con precios 20 a 100 veces menores. Lo que funciona hoy para agentes:
+Cuatro alternativas reales para uso agéntico en 2026: Qwen 3.5 vía OpenRouter (excelente tool use, ~100x más barato que Sonnet, con bug si activás thinking), Kimi K2/2.6 (contexto largo, 6x más barato que Opus), MiniMax 2.7 (default de Diego por buen uso de herramienta y bajo consumo de tokens) y Gemma 4 de Google (abierto, corre local en mini-PC). Cristian corrió benchmark con 8 modelos contra los mismos 20 inputs: varios igualaron o superaron a Sonnet con precios 20-100 veces menores.
 
 - **Qwen 3.5 (vía OpenRouter)** — Funciona excelente con OpenClaw para tool use. ~100x más barato que Sonnet. Tiene un bug reportado: cuando el modo thinking está activado, no recibe la lista de herramientas. Cristian perdió horas en ese bug.
 - **Kimi K2 / Kimi 2.6** — Contexto largo, 6x más barato que Opus. Buen candidato para tareas pesadas en contexto.
@@ -167,7 +167,7 @@ La conclusión operativa del trío: **no existe un reemplazo 1:1 de Opus**. Lo q
 
 ## ¿Cuándo conviene correr modelos locales en lugar de API?
 
-Rodrigo está corriendo **Gemma 26B** en un mini-PC AMD Ryzen 7 con 64 GB de RAM (~$1.000 USD) y lo usa para la clasificación editorial de su sitio de noticias de IA. El modelo clasifica si un post pasa el criterio editorial, le hace scoring, y recién ahí pasa a GPT-5.4 (o antes, a Sonnet) para redacción final. Velocidad de escritura en ese mini-PC: ~15 tokens/seg — aceptable para tareas cortas, lento para redacción larga.
+Cuatro escenarios donde correr local gana a la API: datos sensibles (salud, banca, data personal — en Chile la Ley de Protección de Datos entra en vigencia en diciembre de 2026), latencia crítica (IoT, visión computacional, clasificación de volumen alto), recursos ociosos (una startup puede usar MacBooks del equipo para tokens gratis) y prevalidación (el modelo local filtra qué llega al modelo caro). Rodrigo corre Gemma 26B en un mini-PC AMD Ryzen 7 de 64 GB RAM (~1.000 USD) a 15 tokens/seg para clasificación editorial antes de pasar a GPT-5.4.
 
 Los casos donde correr local tiene sentido claro:
 

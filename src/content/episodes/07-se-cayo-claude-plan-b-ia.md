@@ -140,7 +140,7 @@ Cristian abre este episodio con una confesión dura: **se casó con Anthropic** 
 
 ## ¿Qué hacer cuando tu LLM favorito se cae en medio del día laboral?
 
-La respuesta corta: tener al menos un fallback funcional antes de que lo necesites. La respuesta larga es más incómoda. Cristian confesó que sí tenía un plan de contingencia técnico — Gemini, GPT, OpenRouter para ciertos modelos — pero **no quiso usarlo**. La calidad de Claude para su flujo de trabajo es tan superior que prefirió hacer reuniones, llamar por teléfono, cualquier cosa menos cambiar de modelo.
+Tres capas de contingencia, listas antes de que las necesites. Primero, consumí el modelo desde una API alternativa (AWS Bedrock o Azure OpenAI Service para Anthropic) para que una caída directa del proveedor no te deje muerto. Segundo, definí qué tareas podés hacer a mano sin catástrofe y cuáles necesitan IA sí o sí. Tercero, mantené una segunda suscripción viva en otro proveedor (GPT, Gemini), aunque sea el plan básico, para tareas donde la calidad no es crítica y solo necesitás avanzar.
 
 > "Tomé la decisión a propósito de casarme con Anthropic. Tengo el plan de $200, Claude Code, Claude Cowork, OpenClaw. Ayer falló. El último mes se cayó como cinco veces." — Cristian Tala
 
@@ -150,7 +150,7 @@ La lección operativa es más dura que la emocional: en ambientes productivos **
 
 ## ¿Por qué un SLA de 99% ya no alcanza?
 
-Cristian trajo el dato duro del capítulo: GitHub tuvo un SLA de **93,7% en marzo**. Suena bien — está sobre 90%. Pero la matemática es brutal:
+Porque el delta entre 93,7% y 99,9% son 44 horas laborales al mes. 99,9% SLA permite 43 minutos de downtime mensual; 93,7% equivale a 45 horas — una semana laboral completa sin servicio. GitHub cerró marzo exactamente en 93,7%. Si tu productividad depende de una herramienta con ese uptime, no sos productivo, sos rehén. Rodrigo lo lleva más lejos: hay empresas que colapsan cuando Notion se cae porque toda la lista de tareas vive ahí, sin Notion giran en círculo.
 
 - 99,9% SLA permite 43 minutos de downtime mensual
 - 93,7% SLA equivale a **45 horas** de downtime
@@ -186,7 +186,7 @@ El contrapunto crítico también salió: las últimas actualizaciones de OpenCla
 
 ## ¿Es sensato pedir regulación para "salvar la sociedad"?
 
-El CEO del banco más grande de Estados Unidos — JP Morgan — después de una ola de despidos atribuida a IA, declaró en una entrevista que **apoyaría regulación gubernamental que protegiera empleos**, "para salvar la sociedad".
+Depende de si leés la jugada con generosidad o con cinismo. La lectura caritativa: el CEO de JP Morgan, después de despedir gente por IA, busca moderar la velocidad del cambio y evitar caos social. La lectura cínica: ya capturó las ganancias de la automatización y ahora quiere frenar a la competencia que aún no lo hizo. Rodrigo recuerda la carta de 2023 de Musk y Harari pidiendo pausar IA: no pasó nada, el campo aceleró. El código abierto está suelto; la política no marca el ritmo, la frontera técnica sí.
 
 Cristian lo leyó con generosidad: quizás es un llamado a moderar la velocidad del cambio y evitar caos social. Rodrigo fue más duro. Recordó la carta de 2023 firmada por Elon Musk, Yuval Noah Harari y otros científicos pidiendo pausar el desarrollo de IA — no pasó nada, el campo aceleró más que nunca.
 

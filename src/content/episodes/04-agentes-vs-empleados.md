@@ -132,7 +132,7 @@ Hoy le tocaba ser host a Rodrigo, pero nos vamos de vacaciones la próxima seman
 
 ## ¿Cuánto cuesta realmente que un agente arregle bugs en un navegador de 20 años?
 
-El dato duro: Anthropic puso a Claude Opus 4.6 a cazar bugs en Firefox durante dos semanas. Resultado: **22 bugs encontrados, 14 críticos, reparados automáticamente, costo en créditos ~4.000 USD**. La referencia humana para el mismo trabajo era 3-4 desarrolladores senior, 8-16 semanas, ~350.000 USD en salarios, más 40-280K USD en *bug bounties*. Total aproximado: **medio millón de dólares**.
+Menos del 1% del costo tradicional. Anthropic puso a Claude Opus 4.6 a cazar bugs en Firefox dos semanas: 22 bugs encontrados, 14 críticos, reparados automáticamente, costo en créditos ~4.000 USD. La referencia humana equivalente era 3-4 desarrolladores senior durante 8-16 semanas: ~350.000 USD en salarios más 40-280K USD en bug bounties, total aproximado medio millón. Y no es un modelo exótico de laboratorio — es el mismo Opus que cualquiera puede usar hoy con una suscripción de 20 USD al mes.
 
 Cristian lo pone en pantalla para anclar la magnitud: es menos del 1% del costo tradicional, en la cuarta parte del tiempo. Y no es un modelo exótico de laboratorio — es el mismo Opus que todos podemos usar hoy con una suscripción.
 
@@ -175,7 +175,7 @@ El punto provocador de Diego: una empresa puede lograr 100.000 usuarios únicos 
 
 ## ¿Cómo despiden las empresas en este nuevo mundo?
 
-La conversación se puso pesada cuando llegamos a los despidos. Dos escuelas que están en la cancha ahora mismo:
+Dos escuelas opuestas están conviviendo en 2026. La escuela Mercado Libre: 20.000 desarrolladores, no despedimos pero tampoco contratamos, esperamos que por rotación natural seamos 10.000 en 5 años. La escuela Block (Jack Dorsey): despedimos al 40%, indemnizamos bien, seguimos. Cristian prefiere Block — dejar a la gente calentando el asiento es peor humanamente y peor para la empresa. En Chile la legislación laboral hace cara la escuela Block, pero sigue siendo un flujo de caja manejable, no un impedimento real.
 
 **Escuela Mercado Libre**: tenemos 20.000 desarrolladores, no vamos a despedir, pero tampoco vamos a contratar más. Esperamos que en 5 años, por rotación natural, seamos 10.000. Anuncio público de congelamiento.
 

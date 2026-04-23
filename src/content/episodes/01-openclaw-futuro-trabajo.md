@@ -150,7 +150,7 @@ El cerebro sigue siendo un LLM (Claude Sonnet, Opus, Gemini, o modelos locales v
 
 ## ¿VPS o computador físico? La decisión que nadie te explica bien
 
-Hay dos filosofías y ambas son válidas dependiendo de para qué lo quieres.
+La regla: VPS si priorizás flexibilidad, respaldo y escalar a producción por 6 USD al mes; computador físico si necesitás privacidad total con modelos locales corriendo sin pasar data a proveedores externos. VPS gana en costo, mantenimiento y redundancia (Cristian tiene tres en paralelo: dev, producción y experimentación). Computador físico gana cuando la data no puede salir del dispositivo — Mac Mini de 24 GB de RAM mínimo, nunca 8 GB porque es caro y no sirve para nada.
 
 **Computador físico (Mac Mini, Raspberry Pi, clones chinos con Linux)**: conviene si quieres correr modelos locales para que tu data no salga del dispositivo. Rodrigo usa un clon chino del Mac Mini con Linux, comparte una carpeta de Dropbox con su máquina principal y le pasa archivos sin tener que entrar por terminal. La gran advertencia de Cristian: **si compras un Mac Mini, que sea mínimo 24 GB de RAM**, porque uno de 8 GB es caro y no sirve para nada.
 
@@ -167,7 +167,7 @@ El factor que más pesa en la decisión no es el hardware: es **si tienes tiempo
 
 ## ¿Qué automatizar primero cuando te sientas frente a OpenClaw?
 
-La pregunta que Diego trajo a la mesa es la que todo el mundo se hace al tercer día: *"Ya, bacán, puedo automatizar. Pero ¿qué automatizo?"*
+Tu trabajo operativo más pajero. Cualquier tarea repetitiva que te consume tiempo pero no aporta valor diferencial es la primera candidata: reemplazar SaaS caros, limpiar bandejas de entrada, armar reportes estándar, dar seguimiento a leads. Cristian liberó 1.500 USD mensuales en una semana reemplazando High Level CRM (297 USD/mes), dos cuentas de MailerLite (185 USD/mes), Asana y n8n cloud con versiones auto-hosteadas. La regla es partir por lo que duele y escalar desde ahí.
 
 La respuesta de Cristian fue quirúrgica: **identifica tu trabajo operativo más pajero**. Cualquier tarea repetitiva que te consume tiempo pero no aporta valor diferencial es candidata. En su caso fue reemplazar un stack completo:
 
@@ -180,7 +180,7 @@ Pero el punto más interesante es este: no es solo ser más productivo haciendo 
 
 ## El elefante en la pieza: ¿cuántos empleos se van a perder?
 
-Acá la conversación se puso pesada. Los tres coincidimos en que el impacto social viene sí o sí, la discusión es de timing, no de si pasa o no.
+Alrededor del 50% de los trabajos actuales en Chile ya eran automatizables en octubre de 2025 según un estudio citado en el episodio — y eso fue antes de OpenClaw. Los tres hosts coinciden: el impacto social viene sí o sí, la discusión es de timing, no de si pasa o no. Lo único que lo ha frenado hasta ahora es la burocracia de las empresas grandes, el compliance, la falta de procesos documentados y la cultura de no tocar lo que funciona. Las startups ya están rompiendo el juego.
 
 Un estudio citado por Cristian estimaba en octubre de 2025 que **el 50% de los trabajos actuales en Chile eran automatizables** — y eso era antes de OpenClaw. Hoy el porcentaje es peor. La razón por la que no ha explotado todavía es simple: la burocracia de las empresas grandes, el compliance, la falta de procesos documentados, y la cultura de no tocar lo que funciona.
 

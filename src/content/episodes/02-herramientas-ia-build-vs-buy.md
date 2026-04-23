@@ -161,7 +161,7 @@ Un detalle importante que tocó Rodrigo: **cuando desarrollas con API vs cuando 
 
 ## ¿Build it o buy it en 2026?
 
-Cristian reabrió un debate que tenía guardado hace más de una década en su blog. Hace años la respuesta era casi siempre "comprar" porque construir era carísimo. Luego con el boom del SaaS también era "comprar" porque todo existía. Hoy la decisión se movió otra vez, y no de forma obvia.
+La regla 2026: construir si es core de tu negocio y existe open source maduro como base; comprar si es un SaaS nicho de menos de 30 USD al mes; construir con IA si pagás más de 500 USD al mes por un SaaS y usás menos del 30% de sus features. Cristian reabrió este debate después de una década en su blog: hace años la respuesta era casi siempre comprar porque construir era carísimo, con el boom del SaaS seguía siendo comprar porque todo existía. Hoy la matemática cambió.
 
 > "Si no es core para tu negocio, buscas un open source que esté maduro y lo usas. Si no existe la solución buena o no se adapta a ti, lo creas. Yo jamás hubiera creado un CRM hace 5 años, pero hoy con Twenty open source lo tengo auto-hospedado y funciona mejor que el que pagaba 297 USD al mes." — Cristian Tala
 
