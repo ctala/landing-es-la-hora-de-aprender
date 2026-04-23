@@ -4,6 +4,18 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.9.1] - 2026-04-23
+
+### 🐛 Footer lee versión y fecha automáticamente desde package.json
+
+Bug pre-existente: el footer tenía `v3.6.0 • Apr 2, 2026` hardcoded en `src/components/SiteFooter.astro`. Al bumpear `package.json` a 3.7.0 / 3.8.0 / 3.9.0 nadie actualizó el footer, así que en producción el label de versión quedó desactualizado aunque el contenido sí se había refrescado.
+
+Fix: el footer ahora importa `pkg.version` desde `package.json` y calcula la fecha del build con `new Date().toLocaleDateString('es-CL', ...)` con timezone `America/Santiago`. Cada deploy refleja la versión + fecha correctas sin intervención manual.
+
+También agregada nota en `CLAUDE.md` (sección "Documentación sincronizada") explicando que este archivo es auto-actualizable para evitar que vuelva a ser un punto de olvido en el futuro.
+
+---
+
 ## [3.9.0] - 2026-04-23
 
 ### 🔗 Episodios relacionados por número + validación en build

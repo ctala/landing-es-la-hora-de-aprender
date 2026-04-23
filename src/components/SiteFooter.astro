@@ -1,5 +1,13 @@
 ---
 // Footer mejorado con sitios web personales (dofollow)
+import pkg from '../../package.json';
+
+const buildDate = new Date().toLocaleDateString('es-CL', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'America/Santiago',
+});
 ---
 
 <footer class="max-w-6xl mx-auto mt-12 md:mt-20 pb-20 md:pb-24">
@@ -106,7 +114,7 @@
                 Tech Podcast sobre IA, Startups y Automatización
             </p>
             <p class="text-[10px] mt-2" style="color: #4b5563;">
-                v3.6.0 • Apr 2, 2026
+                v{pkg.version} • {buildDate}
             </p>
         </div>
 

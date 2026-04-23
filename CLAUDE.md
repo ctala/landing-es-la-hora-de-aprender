@@ -77,6 +77,8 @@ Cada cambio no-trivial debe dejar al día **todos** los archivos relevantes, no 
 - `docs/*.md` — actualizar workflows documentados si cambian.
 - `CLAUDE.md` — actualizar arquitectura/gotchas si cambian contratos internos.
 
+**El footer del sitio muestra la versión automáticamente** — `src/components/SiteFooter.astro` importa `pkg.version` desde `package.json` y la fecha del build. No hay que tocarlo al bumpear versión. Histórico: hasta v3.9.0 la versión estaba hardcoded en el footer y se olvidaba actualizar a cada release; desde v3.9.1 es automático.
+
 Regla de oro: si un lector nuevo del repo no puede reconstruir qué pasó mirando `CHANGELOG.md` + `ROADMAP.md` + `git log`, falta sincronización.
 
 ## Comandos
