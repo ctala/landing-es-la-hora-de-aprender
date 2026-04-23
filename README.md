@@ -5,7 +5,7 @@
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1)
 [![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://open.spotify.com/show/7o7JR0Un1jc6wev0VjNm0C)
 
-**🌐 Live:** [eslahoradeaprender.com](https://eslahoradeaprender.com) | **v3.14.0**
+**🌐 Live:** [eslahoradeaprender.com](https://eslahoradeaprender.com) | **v3.15.0**
 
 ![Performance](https://img.shields.io/badge/Performance-99-brightgreen?style=flat-square)
 ![Accessibility](https://img.shields.io/badge/Accessibility-97-brightgreen?style=flat-square)

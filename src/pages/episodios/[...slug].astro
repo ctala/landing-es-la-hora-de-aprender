@@ -41,7 +41,8 @@ export async function getStaticPaths() {
 
 const { ep: episodeData, prev: prevEpisode, next: nextEpisode, related: relatedEpisodes } = Astro.props;
 const episode = episodeData.id;
-const { Content } = await render(episodeData);
+const { Content, headings } = await render(episodeData);
+const h2Headings = headings.filter((h) => h.depth === 2);
 const TOPICS_VISIBLE = 5;
 
 const siteUrl = 'https://eslahoradeaprender.com';
@@ -283,10 +284,22 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
             </div>
         </article>
 
-        <!-- Shownotes / Contenido del episodio -->
-        <section class="shownotes brutal-card mt-8 md:mt-10 p-6 md:p-10" aria-label="Contenido del episodio">
-            <Content />
-        </section>
+        <!-- Shownotes + TOC sticky (solo desktop) -->
+        <div class="shownotes-layout mt-8 md:mt-10">
+            {h2Headings.length > 0 && (
+                <aside class="shownotes-toc hidden lg:block" aria-label="Índice del episodio">
+                    <h2 class="text-xs font-black uppercase tracking-wider mb-4 text-gray-700">En este episodio</h2>
+                    <ol class="toc-list">
+                        {h2Headings.map((h) => (
+                            <li><a href={`#${h.slug}`}>{h.text}</a></li>
+                        ))}
+                    </ol>
+                </aside>
+            )}
+            <section class="shownotes brutal-card p-6 md:p-10" aria-label="Contenido del episodio">
+                <Content />
+            </section>
+        </div>
 
         <!-- Social share -->
         <SocialShare url={canonical} title={episodeData.data.title} />
@@ -414,6 +427,8 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
             margin: 2em 0 0.6em;
             padding-bottom: 0.3em;
             border-bottom: 3px solid var(--black);
+            /* Deja aire arriba cuando se llega por ancla #slug del TOC */
+            scroll-margin-top: 2rem;
         }
         .shownotes :global(h3) {
             font-family: 'Space Grotesk', sans-serif;
@@ -505,6 +520,58 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
             border-top: 3px solid var(--black);
             margin: 2.2em 0;
         }
+
+        /* Layout shownotes + TOC sticky (solo ≥lg) */
+        .shownotes-layout {
+            position: relative;
+        }
+        @media (min-width: 1024px) {
+            .shownotes-layout {
+                display: grid;
+                grid-template-columns: 240px 1fr;
+                gap: 2rem;
+                align-items: start;
+            }
+        }
+
+        /* TOC card (sticky en desktop, oculto en mobile) */
+        .shownotes-toc {
+            background: white;
+            border: 3px solid var(--black);
+            box-shadow: 4px 4px 0px 0px var(--black);
+            padding: 1.25rem 1.25rem 1.25rem 1rem;
+            position: sticky;
+            top: 1.5rem;
+            max-height: calc(100vh - 3rem);
+            overflow-y: auto;
+        }
+        .toc-list {
+            list-style: decimal;
+            padding-left: 1.25rem;
+            margin: 0;
+            font-size: 0.8125rem;
+            line-height: 1.45;
+            color: #1a1a1a;
+        }
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+        .toc-list a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.1s, background 0.1s;
+            padding: 0.1em 0.2em;
+        }
+        .toc-list a:hover {
+            color: var(--electric-blue);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .toc-list a.active {
+            background: var(--acid-green);
+            color: var(--black);
+            font-weight: 800;
+        }
     </style>
 
     <script is:inline>
@@ -534,5 +601,46 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
                 this.textContent = isExpanded ? 'Ver menos ↑' : `Ver ${total - visible} temas más ↓`;
             });
         });
+
+        // TOC active-section highlight (solo si el TOC existe y es visible)
+        (function () {
+            const tocLinks = document.querySelectorAll('.shownotes-toc .toc-list a');
+            if (tocLinks.length === 0 || !('IntersectionObserver' in window)) return;
+
+            const linkBySlug = new Map();
+            tocLinks.forEach((a) => {
+                const hash = a.getAttribute('href') || '';
+                if (hash.startsWith('#')) linkBySlug.set(hash.slice(1), a);
+            });
+
+            const h2Nodes = document.querySelectorAll('.shownotes h2[id]');
+            if (h2Nodes.length === 0) return;
+
+            let currentActive = null;
+            const setActive = (slug) => {
+                if (currentActive === slug) return;
+                tocLinks.forEach((a) => a.classList.remove('active'));
+                const link = linkBySlug.get(slug);
+                if (link) link.classList.add('active');
+                currentActive = slug;
+            };
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    // Priorizamos el H2 más cercano a la zona superior del viewport
+                    const visible = entries
+                        .filter((e) => e.isIntersecting)
+                        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+                    if (visible.length > 0) {
+                        setActive(visible[0].target.id);
+                    }
+                },
+                {
+                    rootMargin: '-20% 0px -70% 0px',
+                    threshold: 0,
+                }
+            );
+            h2Nodes.forEach((h) => observer.observe(h));
+        })();
     </script>
 </BaseLayout>

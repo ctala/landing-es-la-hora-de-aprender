@@ -95,7 +95,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [x] **"Temas tratados" `<h2>` → `<h3>` + `aria-label` en `.shownotes`** — hecho en v3.13.1. Jerarquía H1→H2→H3 ahora correcta; screen readers anuncian "Contenido del episodio" al entrar a los shownotes.
 - [ ] Renderizar `timestamps` como chapter markers clickeables arriba del shownotes (data ya en frontmatter).
 - [x] **Wrapper `overflow-x: auto` en tablas del shownotes** — hecho en v3.13.1. Media query `@media (max-width: 768px)` cambia `display: block; overflow-x: auto` solo en mobile; desktop mantiene `display: table` con `width: 100%`.
-- [ ] TOC sticky en desktop aprovechando el espacio lateral muerto de la card de shownotes.
+- [x] **TOC sticky en desktop** — hecho en v3.15.0. Grid de 240px + 1fr en `≥ lg`, oculto en mobile. Data viene de `render(entry).headings` filtrado por `depth === 2`. Highlight de sección activa con IntersectionObserver (rootMargin `-20% 0px -70%`). Scroll-margin-top en H2 para llegar con aire desde ancla. Brutal-card blanca coherente con el sistema.
 - [ ] Filtros/search en `/episodios/` (solo CSS `:has()` + data-attrs, sin JS framework).
 - [x] **Compartir / copiar link en CTAs de episodio** — hecho en v3.13.0. Componente `SocialShare.astro` con X / LinkedIn / WhatsApp (links directos sin JS) + copiar enlace (navigator.clipboard con feedback). Ubicado entre shownotes y episodios relacionados.
 

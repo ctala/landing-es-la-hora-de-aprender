@@ -4,6 +4,48 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.15.0] - 2026-04-23
+
+### 📑 TOC sticky en desktop para shownotes de episodio
+
+Nuevo índice de contenidos navegable a la izquierda del shownote en viewports `≥ lg` (1024px). Listo ítem top del Sprint UX: "aprovechar el espacio lateral muerto de la card de shownotes". En mobile se oculta (no hay espacio lateral).
+
+#### Qué incluye
+
+- **Data source**: `render(episodeData)` de Astro ya devuelve `headings` con los IDs autogenerados. Filtramos `depth === 2` (solo H2 del body). Cero parsing manual.
+- **Layout grid**: `grid-template-columns: 240px 1fr` solo en `≥ lg`. El TOC ocupa 240px a la izquierda del shownote, con `gap: 2rem`. En mobile colapsa a stack sin grid, TOC con `display: none`.
+- **Sticky**: `position: sticky; top: 1.5rem` con `max-height: calc(100vh - 3rem)` y scroll interno si el TOC es muy largo.
+- **Estilo**: brutal-card blanca (border negro + shadow 4px) coherente con el resto del sistema. Lista numerada con links `electric-blue` en hover.
+- **Scroll target**: `scroll-margin-top: 2rem` en los H2 del shownote para que al llegar por ancla queden con aire arriba (no pegados al top).
+- **Highlight activo**: IntersectionObserver (~25 líneas JS inline) resalta la sección actual mientras scrolleás. El link activo recibe `background: var(--acid-green)` + `font-weight: 800`. `rootMargin: '-20% 0px -70% 0px'` prioriza la sección que está en el tercio superior del viewport.
+- **Accesibilidad**: `aria-label="Índice del episodio"` en el `<aside>`, tab order correcto, enlaces nativos (no JS para la navegación — solo el highlight es JS).
+
+#### Por qué es mobile-hidden
+
+La `.shownotes` card tiene `max-width: 70ch` interno. En desktop (>1024px) eso dejaba ~220px vacíos a cada lado del contenido. El TOC ocupa ese espacio. En mobile, el layout ya es tight — un TOC agregaría fricción, no valor.
+
+#### Decisiones de implementación
+
+- **No agregué un CTA primario** "Ver Shownotes ↓" que el agent sugirió en la review anterior — con el TOC el usuario tiene una vista completa del contenido ya al cargar, es un salto equivalente.
+- **Números en la lista** (no viñetas): da jerarquía de orden y permite citar secciones ("sección 3 del episodio X").
+- **IDs automáticos de Astro**: formato `slug-del-titulo-en-kebab`. No los override manualmente.
+
+#### Performance
+
+- **CSS**: +~50 líneas scoped al template de episodio. Sin impacto en otras páginas.
+- **JS**: +~25 líneas inline con `IntersectionObserver` (nativo en todos los browsers modernos). Bailout si no hay `.toc-list` visible o si el API no existe.
+- **LCP**: cero impacto. El TOC está al mismo nivel de scroll que el shownote; ambos están fuera del hero inicial.
+
+#### Docs sincronizadas
+
+- `CHANGELOG.md`: entrada 3.15.0.
+- `package.json` / `README.md`: bump a v3.15.0.
+- `ROADMAP.md`: item "TOC sticky en desktop" del Sprint UX marcado done.
+
+Build: 0 errors, 0 warnings.
+
+---
+
 ## [3.14.0] - 2026-04-23
 
 ### 🎨 Fix visual CTAs YouTube/Spotify + link "Episodios" en header
