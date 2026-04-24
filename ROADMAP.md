@@ -27,6 +27,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [x] **Título del home LATAM-neutral** — sacamos "en Chile" del `<title>` default; las geo tags quedan intactas porque el podcast es de Chile.
 - [x] **`webFeed` en schema PodcastSeries** — enlaza al RSS feed.
 - [x] **Build limpio** — 0 errores, 0 warnings de `astro check`.
+- [x] **Bloque "Construido en público" en home + link en footer** — hecho en v3.17.0. Sección acid-green antes del footer con copy sobre el stack (Claude Code, agentes, sub-agentes, skills) y CTAs a GitHub + ROADMAP. Línea discreta "Código abierto en GitHub →" dentro del bloque Credits del footer. Refuerza build-in-public: lo que conversamos en el podcast es también lo que hacemos construyendo el sitio.
 
 ---
 
@@ -101,6 +102,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 
 ## Cambios más grandes / futuro
 
+- [ ] **Página `/recursos` — hub de herramientas y referencias del podcast** — agrupar por categoría (modelos, agentes, tooling de IA, libros, papers, etc.) todos los recursos mencionados en episodios. Por cada recurso: qué es, para qué sirve, link oficial, y lista de episodios donde se habló (con timestamp si existe). Fuente: `resources[]` del frontmatter (ya en schema Zod desde v3.10.0). Beneficios: (a) hub evergreen con alta densidad semántica para SEO, (b) valor editorial independiente — lista curada que sobrevive a cualquier episodio individual, (c) backlinks internos hacia episodios por contexto real, (d) compatible con AI Overviews (lista estructurada + definiciones cortas). Desafíos: normalización de nombres entre episodios (mismo recurso escrito distinto), clasificación consistente, decidir si `resources[]` actual basta o necesita `category` por recurso. Evaluar también `ItemList` JSON-LD por categoría. Agregado al roadmap el 2026-04-23 como follow-up del bloque "Construido en público".
 - [ ] **Migrar a MDX (`@astrojs/mdx`)** — habilita componentes embebidos en los episodios (`<Chapters>`, `<ResourceCard>`, `<FAQ>`) sin JS cliente.
 - [ ] **Página `/suscribirse`** — hub con Apple Podcasts, Spotify, YouTube, RSS, Amazon Music.
 - [ ] **Newsletter capture** en footer — Buttondown o ConvertKit, solo email, sin backend propio.

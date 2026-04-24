@@ -4,6 +4,43 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.17.0] - 2026-04-23
+
+### 🌐 Build in public — bloque en home + link en footer
+
+Hacemos en el sitio lo que conversamos en el podcast: Claude Code, agentes, sub-agentes, skills, automatización editorial. El repo ya era público desde el día 1; ahora lo declaramos explícitamente en la interfaz para que sea descubrible, no solo audit-able.
+
+#### Cambios
+
+- **`src/pages/index.astro`**: nueva `<section>` antes del `<SiteFooter/>`. Card brutal con fondo `acid-green`, título "Construido en público", bajada explicando el stack (Claude Code + agentes + skills + automatización editorial), y dos CTAs apilados (o lado a lado en desktop): "Ver código en GitHub →" (bg-black / text-acid) y "Roadmap vivo →" (bg-white).
+- **`src/components/SiteFooter.astro`**: línea adicional dentro del bloque Credits, bajo la versión/fecha de build. Link discreto "Código abierto en GitHub →" en el mismo gris `#9ca3af` que las metadata lines existentes. Abre en nueva pestaña con `rel="noopener noreferrer"`.
+
+#### Por qué ahora
+
+- El repo ya existe (`github.com/ctala/landing-es-la-hora-de-aprender`), pero quien aterrizaba en el sitio no tenía forma de saberlo. Descubribilidad baja por defecto.
+- Build-in-public ya está explícito en `ROADMAP.md` ("Documento vivo... Build in public: lo mantenemos en el repo") — faltaba el puente visible desde la home.
+- Refuerza E-E-A-T: el podcast habla de Claude Code, agentes y automatización; el sitio demuestra que lo usan realmente.
+
+#### Trade-offs
+
+- **Zero JS adicional**: el bloque es HTML+CSS puro, sin handlers. Se mantiene la política de "no agregar JS cliente sin justificación".
+- **Sin impacto en LCP**: el bloque queda después del fold, no compite con el featured episode por la atención del crawler.
+- **SEO neutral**: no se reorganizan URLs, no se tocan canonical/schema. Es contenido nuevo puramente editorial.
+
+#### Roadmap — nuevo item follow-up
+
+Agregado a `ROADMAP.md` bajo "Cambios más grandes / futuro": página `/recursos` como hub agrupado por categorías de todas las herramientas mencionadas en episodios. Usaría `resources[]` del frontmatter (ya en schema desde v3.10.0), con cross-reference hacia episodios. Pendiente de priorización.
+
+#### Docs sincronizadas
+
+- `ROADMAP.md`: item done en "Hecho (2026-04)" + nuevo item pendiente para `/recursos`.
+- `CHANGELOG.md`: entrada 3.17.0.
+- `package.json` / `README.md`: bump a v3.17.0 (minor — feature visible nueva).
+
+Build: 0 errors, 0 warnings.
+
+---
+
 ## [3.16.1] - 2026-04-23
 
 ### 🧹 Remover sección "Capítulos del episodio" del body MD
