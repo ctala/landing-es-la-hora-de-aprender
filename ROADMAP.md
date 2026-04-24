@@ -28,6 +28,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [x] **`webFeed` en schema PodcastSeries** — enlaza al RSS feed.
 - [x] **Build limpio** — 0 errores, 0 warnings de `astro check`.
 - [x] **Bloque "Construido en público" en home + link en footer** — hecho en v3.17.0. Sección acid-green antes del footer con copy sobre el stack (Claude Code, agentes, sub-agentes, skills) y CTAs a GitHub + ROADMAP. Línea discreta "Código abierto en GitHub →" dentro del bloque Credits del footer. Refuerza build-in-public: lo que conversamos en el podcast es también lo que hacemos construyendo el sitio.
+- [x] **Breadcrumb rediseñado estilo neo-brutal + schema en `/episodios/`** — hecho en v3.18.0. El `<ol>` ahora va envuelto en un box `inline-flex border-[3px] border-black bg-white` con "Inicio" como tag `bg-black text-acid` y separador `/` (en lugar de `›`). Misma estética en `/episodios/` y `/episodios/{slug}/`, sin shadow para no duplicar ruido con el `brutal-card` del artículo. Bonus SEO: se agregó `BreadcrumbList` JSON-LD al hub `/episodios/` que no lo tenía (solo el breadcrumb visual). Zero JS, delta vertical ~20px, CLS = 0.
 
 ---
 

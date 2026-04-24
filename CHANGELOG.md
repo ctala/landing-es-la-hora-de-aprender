@@ -4,6 +4,49 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.18.0] - 2026-04-24
+
+### 🧱 Breadcrumb rediseñado con identidad neo-brutal + schema en hub `/episodios/`
+
+El breadcrumb pasaba desapercibido: texto plano 14px, sin peso visual, competía por invisibilidad con el resto del neo-brutalismo del sitio. Le damos personalidad manteniendo la semántica y sumamos un `BreadcrumbList` JSON-LD que faltaba.
+
+#### Cambios
+
+**Rediseño visual** — `src/pages/episodios/[...slug].astro` y `src/pages/episodios/index.astro`:
+
+- `<ol>` ahora envuelto en `inline-flex border-[3px] border-black bg-white px-3 py-2`. No full-width — respira al costado izquierdo y no empuja el hero hacia abajo.
+- **Sin shadow** — reserva el efecto para el `brutal-card` del artículo que viene inmediatamente abajo. Evita ruido visual duplicado.
+- Primer item "Inicio" como tag invertido (`bg-black text-acid px-2 py-1`) — ancla visual que rima con el patrón del `<span class="bg-black text-acid">público</span>` del bloque "Construido en público".
+- Separador cambiado de `›` a `/` — más geométrico, legible, alineado con la estética brutal. Mantenido `aria-hidden="true"`.
+- Tipografía: `text-xs md:text-sm font-black uppercase tracking-wider`.
+- Accesibilidad: `focus-visible:outline-4 focus-visible:outline-electric focus-visible:outline-offset-2` en cada `<a>`. Contraste `text-gray-600` sobre `bg-white` = 7.5:1 (AAA). `aria-current="page"` mantenido en el último ítem. Hover de "Episodios" usa `underline` (no cambia layout, cero reflow).
+- Truncado del título en mobile bajado a `max-w-[180px]` desde `[260px]` para balancear mejor con el box.
+
+**Bonus SEO** — `src/pages/episodios/index.astro`:
+
+- Agregado `BreadcrumbList` JSON-LD al hub `/episodios/` que no lo tenía (solo emitía el breadcrumb visual). Reforzamos la jerarquía hub-and-spoke: Home → Hub → Episodio individual. Costo: 10 líneas, cero runtime, quick win para rich results y AI Overviews.
+
+#### Por qué
+
+- Validado con agentes UX Architect + SEO Specialist antes de implementar. UX recomendó Opción A (tape inline sin shadow) vs banner ancho (robaba atención) o mini brutal-card con shadow (ruido visual duplicado). SEO confirmó que el rediseño visual no tiene riesgo mientras se preserve `<nav>/<ol>/<a>` + DOM order + JSON-LD — todo lo cual se mantuvo intacto.
+- El `BreadcrumbList` JSON-LD faltante en `/episodios/` era una oportunidad identificada por el SEO Specialist. Aunque Google infiere breadcrumbs de 2 niveles, declararlo explícitamente garantiza el rich result y refuerza el link graph del sitio.
+
+#### Trade-offs
+
+- **Performance**: delta vertical ~20px por el padding del box. CLS = 0 (nada asíncrono). LCP sin impacto (el thumbnail YouTube sigue siendo el LCP).
+- **Zero JS adicional**: HTML + CSS puro, sin handlers.
+- **Consistencia visual**: misma estructura en ambos archivos (hub y episodio). La diferencia de profundidad (2 vs 3 niveles) ya comunica contexto sola.
+
+#### Docs sincronizadas
+
+- `ROADMAP.md`: item done en "Hecho (2026-04)".
+- `CHANGELOG.md`: esta entrada.
+- `package.json` / `README.md`: bump a v3.18.0 (minor — feature visible nueva + schema enhancement).
+
+Build: 0 errors, 0 warnings. `BreadcrumbList` JSON-LD verificado en ambas páginas del build (`dist/episodios/index.html` + `dist/episodios/{slug}/index.html`).
+
+---
+
 ## [3.17.1] - 2026-04-24
 
 ### 🔧 Fix: trailing slash en links internos a `/episodios/`
