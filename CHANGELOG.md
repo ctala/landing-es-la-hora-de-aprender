@@ -4,6 +4,18 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.18.1] - 2026-04-24
+
+### 🔧 Fix visual: breadcrumb full-width para coherencia con header + article
+
+El breadcrumb en v3.18.0 quedó como `inline-flex` (recomendación UX para no competir con el hero). En contexto visual real rompía el ritmo: el header acid-green de arriba y el `brutal-card` del artículo de abajo ocupan todo el ancho del contenedor, y el breadcrumb flotaba como una etiqueta huérfana en medio.
+
+Cambiado a `flex` full-width — el contenido queda a la izquierda naturalmente y el `bg-white` + border se extienden al ancho del `max-w-6xl` del main. Jerarquía visual intacta: el breadcrumb sigue siendo más liviano que el article porque no tiene shadow (la shadow queda reservada para el `brutal-card` del episodio).
+
+Archivos: `src/pages/episodios/[...slug].astro`, `src/pages/episodios/index.astro` — cambio de un utility class (`inline-flex` → `flex`) en cada uno.
+
+---
+
 ## [3.18.0] - 2026-04-24
 
 ### 🧱 Breadcrumb rediseñado con identidad neo-brutal + schema en hub `/episodios/`
