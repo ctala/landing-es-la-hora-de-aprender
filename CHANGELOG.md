@@ -4,6 +4,30 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.17.1] - 2026-04-24
+
+### 🔧 Fix: trailing slash en links internos a `/episodios/`
+
+Astro está configurado con `trailingSlash: 'always'` (`astro.config.mjs:8`), pero 9 enlaces internos apuntaban a `/episodios/...` sin la barra final. En dev aparece como un warning del dev server; en producción (Cloudflare Pages) genera un redirect 301 a la URL canónica — funciona, pero con un hop extra de latencia y desperdicio de crawl budget.
+
+#### Cambios
+
+- **`src/pages/index.astro`** (5 links): CTA "Ver Episodio Completo", thumbnail de cada card, título del card, CTA "Ver Episodio" del card, y "Ver todos los episodios".
+- **`src/pages/episodios/[...slug].astro`** (2 links): navegación prev/next entre episodios.
+- **`src/pages/episodios/index.astro`** (3 links): thumbnail, título y CTA de cada card en el archivo.
+
+Todos ahora terminan con `/` — consistentes con canonicals, sitemap, feed y el resto de links internos del sitio.
+
+#### Por qué importa
+
+- **Performance**: elimina el redirect 301 extra en cada navegación interna.
+- **SEO**: cada link internal apunta directo a la URL canónica; crawlers no malgastan presupuesto en la URL redirigida.
+- **Consistencia**: alinea con `trailingSlash: 'always'` y con los links ya correctos (ej. breadcrumbs y `SiteHeader`).
+
+Build: 0 errors, 0 warnings.
+
+---
+
 ## [3.17.0] - 2026-04-23
 
 ### 🌐 Build in public — bloque en home + link en footer

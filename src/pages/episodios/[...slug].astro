@@ -384,7 +384,7 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
         <!-- Navegación entre episodios -->
         <div class="flex flex-row justify-between items-center mt-8 md:mt-10 gap-4">
             {prevEpisode ? (
-                <a href={`/episodios/${prevEpisode.id}`} class="brutal-btn bg-white hover:bg-acid text-xs py-2 px-4">
+                <a href={`/episodios/${prevEpisode.id}/`} class="brutal-btn bg-white hover:bg-acid text-xs py-2 px-4">
                     ← Episodio {prevEpisode.data.episode}
                 </a>
             ) : <span />}
@@ -392,7 +392,7 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
                 Ver todos →
             </a>
             {nextEpisode ? (
-                <a href={`/episodios/${nextEpisode.id}`} class="brutal-btn bg-white hover:bg-acid text-xs py-2 px-4">
+                <a href={`/episodios/${nextEpisode.id}/`} class="brutal-btn bg-white hover:bg-acid text-xs py-2 px-4">
                     Episodio {nextEpisode.data.episode} →
                 </a>
             ) : <span />}

@@ -40,7 +40,7 @@ const episodes = allEpisodes.sort((a, b) => b.data.episode - a.data.episode); //
             {episodes.map((ep) => (
                 <article class="brutal-card episode-card-compact group">
                     <!-- Thumbnail -->
-                    <a href={`/episodios/${ep.id}`} class="block">
+                    <a href={`/episodios/${ep.id}/`} class="block">
                         <div class="relative aspect-video overflow-hidden">
                             <img 
                                 src={ep.data.thumbnail?.replace('.webp', '-xs.webp') || `https://img.youtube.com/vi/${ep.data.youtubeId}/mqdefault.jpg`}
@@ -69,7 +69,7 @@ const episodes = allEpisodes.sort((a, b) => b.data.episode - a.data.episode); //
                     <!-- Info -->
                     <div class="p-5">
                         <h2 class="text-lg font-black mb-2 leading-tight tracking-tight text-black line-clamp-2">
-                            <a href={`/episodios/${ep.id}`} class="hover:text-electric transition-colors">
+                            <a href={`/episodios/${ep.id}/`} class="hover:text-electric transition-colors">
                                 {ep.data.title}
                             </a>
                         </h2>
@@ -93,7 +93,7 @@ const episodes = allEpisodes.sort((a, b) => b.data.episode - a.data.episode); //
                         </div>
 
                         <!-- CTA -->
-                        <a href={`/episodios/${ep.id}`}
+                        <a href={`/episodios/${ep.id}/`}
                            class="brutal-btn bg-white hover:bg-acid w-full text-xs py-2 flex items-center justify-center">
                             Ver Episodio →
                         </a>
