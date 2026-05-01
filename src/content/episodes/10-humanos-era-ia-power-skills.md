@@ -219,6 +219,25 @@ El playbook que Rodrigo propone:
 
 Diego cerró con una autocrítica que vale: *"Yo soy el que dice que va a sacarles los agentes a los que no los usan, y siguen sin usarlos. La gente se preocupa de hacer bien su pega, no de reinventar."* La adopción es un problema de incentivos y cultura, no de tecnología disponible.
 
+## Capítulos del episodio
+
+- **00:01** — Bienvenida + la pregunta del episodio (humanos vs IA)
+- **00:59** — Rodrigo — criterio, creatividad, liderazgo y la IA estática
+- **05:07** — Diego — sentir, sobrevivir, reproducirse y desaprender
+- **12:36** — Cristian — alto ticket sigue siendo humano (el ejemplo de los $20 vs $10K)
+- **13:56** — Rodrigo — capacitaciones a empresas y la pregunta "¿dónde está Copilot?"
+- **15:11** — La ironía: la IA nació democrática y está creando una aristocracia digital
+- **19:40** — Universidades en Holanda haciendo prácticas como hace 10 años
+- **24:38** — Y Combinator RFS verano 2026 — cero SaaS, AI-native services
+- **32:33** — Rodrigo — no se obsesionen con el Ferrari, lo importante es manejar
+- **34:01** — Cristian — $200 al mes son 10% del sueldo en LATAM + benchmarks
+- **36:16** — Heisack test (needle in haystack) y por qué Opus 4.7 quedó mal
+- **40:06** — Costos reales — Llama 4 Scout vs Opus para razonamiento con citas
+- **41:10** — MiniMax como orquestador low-cost ($14/mes en lugar de $200)
+- **43:32** — Los modelos chinos top-10 (MiMo de Xiaomi) y el problema de los servidores
+- **50:53** — Cómo se adopta IA en una empresa — top-down vs bottom-up
+- **56:33** — Recomendaciones finales (Rodrigo, Diego, Cristian)
+
 ## Preguntas frecuentes
 
 ### ¿Para qué sirven los humanos si la IA puede hacer casi todo?
