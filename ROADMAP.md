@@ -120,13 +120,30 @@ Plan completo en [`docs/SEO-GROWTH-STRATEGY.md`](docs/SEO-GROWTH-STRATEGY.md). T
 - [x] **`/guias/n8n/`** — pillar ~3.220 palabras. Target `n8n` (33K/mes MX MEDIUM). Cruzado con EP02, EP12, EP14. CTA → curso "Automatiza con n8n" MC-04 (`classroom/006029ac`). v3.20.0.
 - [x] **Content collection Astro `guias`** — schema Zod en `src/content.config.ts`, route `src/pages/guias/[...slug].astro` con TOC sticky desktop + JSON-LD TechArticle + BreadcrumbList + FAQPage + funnel CTA + bloque relacionados, index en `src/pages/guias/index.astro` con ItemList. Plantilla reusable para Fase 2.
 
-### Fase 2 — Resto de hubs (2-3 sem)
-- [ ] `/guias/openclaw/` (ya rankeamos pos 5,5 con un episodio — guía deep debería empujar fuerte)
-- [ ] `/guias/agentes-de-ia/`
-- [ ] `/guias/hermes-agent/`
-- [ ] `/guias/gemini-vs-chatgpt/` (o `/comparativas/gemini-vs-chatgpt-claude/`)
-- [ ] `/guias/validar-idea-con-ia/`
-- [ ] `/guias/emprender-con-ia/`
+### Fase 2 — Resto de hubs (2-3 sem) — HECHO
+- [x] `/guias/openclaw/` — ~3.190 palabras, target `openclaw` LOW comp ~30K/mes. Cruzado a EP01, 04, 05, 08, 13, 14.
+- [x] `/guias/agentes-de-ia/` — ~3.460 palabras, hub broad de agentes. 3 tipos + agent ops + tool use en español. Cruzado a EP01, 04, 05, 12, 14.
+- [x] `/guias/hermes-agent/` — ~2.490 palabras, dreaming + skill bundles + migración desde OpenClaw post Anthropic marzo 2026. Cruzado a EP08, 13, 14.
+- [x] `/guias/gemini-vs-chatgpt/` — ~2.060 palabras, comparativa con benchmark IA propietario. Cruzado a EP08, 13.
+- [x] `/guias/validar-idea-con-ia/` — ~1.870 palabras, del MVP al criterio de disposición a pagar. Cruzado a EP11, 14.
+- [x] `/guias/emprender-con-ia/` — ~2.010 palabras, ventana LATAM + stack <USD 100/mes. Cruzado a EP11, 14.
+
+Total Fase 2: 8 hubs en producción · cluster combinado ES+MX ~36K búsquedas/mes (comp baja/media) · 100% internal-linking cruzado entre hubs y con episodios.
+
+### Fase 3 — Capa programática — EN PROGRESO
+- [x] `/glosario/` collection + route + index con `DefinedTermSet` JSON-LD.
+- [x] `/glosario/mcp/` — Model Context Protocol. Cruzado a claude-code, n8n, EP13/14.
+- [x] `/glosario/agente-de-ia/` — base + 3 tipos. Cruzado a claude-code, n8n, EP04/05/12/14.
+- [ ] Más entradas de glosario conforme aparezcan en hubs futuros: tool use, MoE, RAG, computer use, vibecoding, fine-tuning, context window.
+- [ ] `/comparativas/{a}-vs-{b}/` con benchmark IA (53 modelos × 91 tests) como dato propietario.
+- [ ] `/guias/mejores-{categoria}/` — "mejores herramientas de IA para founders / marketing / automatizar".
+
+### Fase 4 — Loop podcast→hub — HECHO
+- [x] `scripts/update_hubs_for_episode.py` en skill `elhda-new-episode` — agrega un episodio al `relatedEpisodes` del/los hub(s) que toque, idempotente, dry-run, bumpea `updatedAt`. Documentado como Paso 11 del pipeline en `SKILL.md`. Mapeo manual de hubs por episodio (v1, sin auto-derivación).
+
+### Mejoras visuales asociadas (28-may)
+- [x] **Discoverability**: link `Guías` + `Glosario` en `SiteHeader` (con `aria-current`) — visibles desde TODA la web. Bloque "Guías del podcast" destacado en home entre episodios y comunidades.
+- [x] **UI cards**: descripciones con más contraste (gray-700 → gray-900), tipografía más grande, footer "Leer la guía →" / "Ver definición →" en electric blue bold, hover lift sutil (translate-y).
 
 ### Fase 3 — Capa programática (continua, una tanda/mes)
 - [ ] `/comparativas/{a}-vs-{b}/` con benchmark IA (53 modelos × 91 tests) como dato propietario.
