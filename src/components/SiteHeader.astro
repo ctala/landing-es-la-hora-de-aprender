@@ -2,6 +2,7 @@
 // SiteHeader.astro — Header compacto del podcast
 const pathname = Astro.url.pathname;
 const isEpisodesPage = pathname === '/episodios/' || pathname === '/episodios' || pathname.startsWith('/episodios/');
+const isGuidesPage = pathname === '/guias/' || pathname === '/guias' || pathname.startsWith('/guias/');
 ---
 
 <header class="max-w-6xl mx-auto mb-4">
@@ -26,6 +27,11 @@ const isEpisodesPage = pathname === '/episodios/' || pathname === '/episodios' |
                        class="header-nav-btn"
                        aria-current={isEpisodesPage ? 'page' : undefined}>
                         Episodios
+                    </a>
+                    <a href="/guias/"
+                       class="header-nav-btn"
+                       aria-current={isGuidesPage ? 'page' : undefined}>
+                        Guías
                     </a>
                     <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1"
                        target="_blank"
