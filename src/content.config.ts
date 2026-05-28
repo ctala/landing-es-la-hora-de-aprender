@@ -97,4 +97,32 @@ const guias = defineCollection({
   }),
 });
 
-export const collections = { episodes, guias };
+/**
+ * Glosario — /glosario/{slug}/
+ *
+ * Entradas cortas de términos técnicos que aparecen recurrentemente en
+ * el podcast y los hubs (MCP, tool use, agente, MoE, RAG, computer use,
+ * vibecoding, fine-tuning, context window, etc).
+ *
+ * Funciona como capa programática de SEO: cada entrada targetea "qué es
+ * [término]" y enlaza al episodio + hub donde se desarmó. Pensado para
+ * AI Overviews — direct-answer-first, JSON-LD DefinedTerm.
+ */
+const glosario = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/glosario' }),
+  schema: z.object({
+    term: z.string(), // término canónico (ej. "MCP", "Agente de IA")
+    aliases: z.array(z.string()).optional(), // sinónimos / variantes
+    date: z.string(),
+    updatedAt: z.string().optional(),
+    description: z.string(), // definición corta para meta + cards
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    keywords: z.array(z.string()).optional(),
+    relatedEpisodes: z.array(z.number().int().positive()).optional(),
+    relatedGuides: z.array(z.string()).optional(), // slugs de hubs
+    relatedGlossary: z.array(z.string()).optional(), // slugs de otras entradas del glosario
+  }),
+});
+
+export const collections = { episodes, guias, glosario };

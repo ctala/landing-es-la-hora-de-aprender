@@ -3,6 +3,7 @@
 const pathname = Astro.url.pathname;
 const isEpisodesPage = pathname === '/episodios/' || pathname === '/episodios' || pathname.startsWith('/episodios/');
 const isGuidesPage = pathname === '/guias/' || pathname === '/guias' || pathname.startsWith('/guias/');
+const isGlossaryPage = pathname === '/glosario/' || pathname === '/glosario' || pathname.startsWith('/glosario/');
 ---
 
 <header class="max-w-6xl mx-auto mb-4">
@@ -32,6 +33,11 @@ const isGuidesPage = pathname === '/guias/' || pathname === '/guias' || pathname
                        class="header-nav-btn"
                        aria-current={isGuidesPage ? 'page' : undefined}>
                         Guías
+                    </a>
+                    <a href="/glosario/"
+                       class="header-nav-btn"
+                       aria-current={isGlossaryPage ? 'page' : undefined}>
+                        Glosario
                     </a>
                     <a href="https://www.youtube.com/@EsLaHoraDeAprender_com?sub_confirmation=1"
                        target="_blank"

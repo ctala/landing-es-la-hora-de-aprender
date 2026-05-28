@@ -1,0 +1,239 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('glosario');
+  const episodes = await getCollection('episodes');
+  const guides = await getCollection('guias');
+  const byEpNumber = new Map(episodes.map(e => [e.data.episode, e]));
+  const bySlug = new Map(guides.map(g => [g.id, g]));
+
+  return entries.map(entry => {
+    const relatedEpisodes = (entry.data.relatedEpisodes ?? []).map(num => {
+      const found = byEpNumber.get(num);
+      if (!found) {
+        throw new Error(
+          `Glosario "${entry.id}" referencia relatedEpisodes: ${num}, pero no existe ese episodio.`
+        );
+      }
+      return found;
+    });
+    const relatedGuides = (entry.data.relatedGuides ?? []).map(slug => {
+      const found = bySlug.get(slug);
+      if (!found) {
+        throw new Error(
+          `Glosario "${entry.id}" referencia relatedGuides: "${slug}", pero no existe esa guía.`
+        );
+      }
+      return found;
+    });
+    return {
+      params: { slug: entry.id },
+      props: { entry, relatedEpisodes, relatedGuides },
+    };
+  });
+}
+
+const { entry, relatedEpisodes, relatedGuides } = Astro.props;
+const { Content } = await render(entry);
+
+const siteUrl = 'https://eslahoradeaprender.com';
+const canonical = `${siteUrl}/glosario/${entry.id}/`;
+const { updatedAt, aliases } = entry.data;
+const defaultOg = `${siteUrl}/og-image.jpg`;
+
+const definedTermLd: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTerm',
+  name: entry.data.term,
+  description: entry.data.seoDescription ?? entry.data.description,
+  url: canonical,
+  inLanguage: 'es',
+  ...(aliases && aliases.length > 0 && { alternateName: aliases }),
+  inDefinedTermSet: {
+    '@type': 'DefinedTermSet',
+    name: 'Glosario de Es la Hora de Aprender',
+    url: `${siteUrl}/glosario/`,
+  },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'Glosario', item: `${siteUrl}/glosario/` },
+    { '@type': 'ListItem', position: 3, name: entry.data.term, item: canonical },
+  ],
+};
+
+const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c');
+---
+
+<BaseLayout
+  title={entry.data.term}
+  description={entry.data.description}
+  seoTitle={entry.data.seoTitle ?? `${entry.data.term}: qué es y cómo se usa`}
+  seoDescription={entry.data.seoDescription ?? entry.data.description}
+  image={defaultOg}
+  ogType="article"
+  keywords={entry.data.keywords}
+  datePublished={entry.data.date}
+  canonicalUrl={canonical}
+>
+    <Fragment slot="head-extra">
+        <script is:inline type="application/ld+json" set:html={escapeJsonLd(definedTermLd)} />
+        <script is:inline type="application/ld+json" set:html={escapeJsonLd(breadcrumbLd)} />
+    </Fragment>
+
+    <SiteHeader />
+
+    <main id="main-content" class="max-w-4xl mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-6 md:mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2 flex-wrap border-[3px] border-black bg-white px-3 py-2 text-xs md:text-sm font-black uppercase tracking-wider">
+                <li><a href="/" class="bg-black text-acid px-2 py-1 hover:bg-electric hover:text-white transition-colors">Inicio</a></li>
+                <li class="text-black font-black" aria-hidden="true">/</li>
+                <li><a href="/glosario/" class="hover:underline underline-offset-4 decoration-4 decoration-black">Glosario</a></li>
+                <li class="text-black font-black" aria-hidden="true">/</li>
+                <li class="text-gray-600 truncate max-w-[180px] md:max-w-[380px]" aria-current="page">{entry.data.term}</li>
+            </ol>
+        </nav>
+
+        <article class="brutal-card p-6 md:p-10">
+            <!-- Header -->
+            <header class="mb-6 md:mb-8">
+                <div class="mb-4">
+                    <span class="bg-black text-acid px-3 py-1 text-xs uppercase font-black tracking-wider">Glosario</span>
+                    {updatedAt && (
+                        <span class="text-sm text-gray-500 ml-3">Actualizado: {updatedAt}</span>
+                    )}
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black mb-3 leading-tight tracking-tighter text-black">
+                    {entry.data.term}
+                </h1>
+                {aliases && aliases.length > 0 && (
+                    <p class="text-sm md:text-base text-gray-600 mb-4">
+                        También conocido como: <span class="font-bold text-black">{aliases.join(' · ')}</span>
+                    </p>
+                )}
+                <p class="text-base md:text-xl leading-relaxed text-gray-800 max-w-2xl">
+                    {entry.data.description}
+                </p>
+            </header>
+
+            <div class="glosario-content">
+                <Content />
+            </div>
+
+            {(relatedGuides.length > 0 || relatedEpisodes.length > 0) && (
+                <section class="mt-12 md:mt-16" aria-labelledby="related-heading">
+                    <h2 id="related-heading" class="text-xl md:text-2xl font-black uppercase tracking-tighter mb-6">
+                        Más sobre <span class="bg-electric text-white px-2">{entry.data.term}</span>
+                    </h2>
+                    {relatedGuides.length > 0 && (
+                        <div class="mb-6">
+                            <p class="text-xs font-black uppercase tracking-wider mb-3 text-gray-600">Guías</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                                {relatedGuides.map((g) => (
+                                    <a href={`/guias/${g.id}/`} class="brutal-card p-4 bg-white hover:bg-acid transition-colors block">
+                                        <h3 class="text-base font-black tracking-tight leading-tight text-black">
+                                            {g.data.title}
+                                        </h3>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {relatedEpisodes.length > 0 && (
+                        <div>
+                            <p class="text-xs font-black uppercase tracking-wider mb-3 text-gray-600">Episodios donde se habló</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                                {relatedEpisodes.map((ep) => (
+                                    <a href={`/episodios/${ep.id}/`} class="brutal-card p-4 bg-white hover:bg-acid transition-colors block">
+                                        <p class="text-xs font-black uppercase tracking-wider mb-1 text-gray-600">EP{ep.data.episode}</p>
+                                        <h3 class="text-sm font-black tracking-tight leading-tight text-black">
+                                            {ep.data.title}
+                                        </h3>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </section>
+            )}
+        </article>
+    </main>
+
+    <SiteFooter />
+</BaseLayout>
+
+<style>
+    .glosario-content :global(h2) {
+        font-size: 1.375rem;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    @media (min-width: 768px) {
+        .glosario-content :global(h2) { font-size: 1.625rem; }
+    }
+    .glosario-content :global(h3) {
+        font-size: 1.125rem;
+        font-weight: 900;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .glosario-content :global(p) {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+    }
+    @media (min-width: 768px) {
+        .glosario-content :global(p) { font-size: 1.0625rem; }
+    }
+    .glosario-content :global(ul),
+    .glosario-content :global(ol) {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .glosario-content :global(ul) { list-style: disc; }
+    .glosario-content :global(ol) { list-style: decimal; }
+    .glosario-content :global(li) {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 0.25rem;
+        color: #1a1a1a;
+    }
+    .glosario-content :global(strong) { font-weight: 900; }
+    .glosario-content :global(a) {
+        color: var(--electric-blue, #2d5bff);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 2px;
+    }
+    .glosario-content :global(a:hover) {
+        text-decoration-color: var(--acid-green, #b8ff00);
+    }
+    .glosario-content :global(blockquote) {
+        border-left: 4px solid #000;
+        padding-left: 1rem;
+        margin: 1.25rem 0;
+        font-style: italic;
+        color: #4a4a4a;
+    }
+    .glosario-content :global(code) {
+        background: #f5f5f5;
+        padding: 0.125rem 0.4rem;
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+        font-size: 0.875em;
+        border: 1px solid #ddd;
+    }
+</style>
