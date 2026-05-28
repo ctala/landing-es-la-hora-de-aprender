@@ -1,0 +1,99 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const guides = await getCollection('guias');
+const sorted = guides.sort((a, b) => (b.data.date.localeCompare(a.data.date)));
+
+const siteUrl = 'https://eslahoradeaprender.com';
+const canonical = `${siteUrl}/guias/`;
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'Guías', item: canonical },
+  ],
+};
+
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: sorted.map((g, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `${siteUrl}/guias/${g.id}/`,
+    name: g.data.title,
+  })),
+};
+
+const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c');
+---
+
+<BaseLayout
+  title="Guías"
+  description="Guías evergreen sobre IA aplicada, agentes, automatización y herramientas — destiladas de las conversaciones del podcast."
+  seoTitle="Guías de IA aplicada, agentes y automatización | Es la Hora de Aprender"
+  seoDescription="Guías evergreen sobre Claude Code, n8n, agentes de IA, OpenClaw y más. Destiladas de las conversaciones del podcast, con casos reales y links a los episodios."
+  ogType="website"
+  canonicalUrl={canonical}
+>
+    <Fragment slot="head-extra">
+        <script is:inline type="application/ld+json" set:html={escapeJsonLd(breadcrumbLd)} />
+        {sorted.length > 0 && (
+            <script is:inline type="application/ld+json" set:html={escapeJsonLd(itemListLd)} />
+        )}
+    </Fragment>
+
+    <SiteHeader />
+
+    <main id="main-content" class="max-w-6xl mx-auto">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 md:mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2 flex-wrap border-[3px] border-black bg-white px-3 py-2 text-xs md:text-sm font-black uppercase tracking-wider">
+                <li><a href="/" class="bg-black text-acid px-2 py-1 hover:bg-electric hover:text-white transition-colors focus-visible:outline-4 focus-visible:outline-electric focus-visible:outline-offset-2">Inicio</a></li>
+                <li class="text-black font-black" aria-hidden="true">/</li>
+                <li class="text-gray-600" aria-current="page">Guías</li>
+            </ol>
+        </nav>
+
+        <header class="mb-10 md:mb-14">
+            <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight tracking-tighter text-black">
+                Guías
+            </h1>
+            <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-3xl">
+                Guías deep evergreen destiladas de lo que conversamos en el podcast. Cada una cruza el tema con los episodios donde lo desarmamos y enlaza a las comunidades de Cristian y Rodrigo para seguir profundizando.
+            </p>
+        </header>
+
+        {sorted.length === 0 && (
+            <p class="text-gray-700">Próximamente.</p>
+        )}
+
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 list-none p-0">
+            {sorted.map((g) => (
+                <li>
+                    <a href={`/guias/${g.id}/`} class="brutal-card p-6 md:p-8 bg-white hover:bg-acid transition-colors block h-full">
+                        <p class="text-xs font-black uppercase tracking-wider mb-3 text-gray-600">
+                            {g.data.focusKeyword ?? 'Guía'}
+                            {g.data.updatedAt && (
+                                <span class="ml-2 text-gray-500 font-bold">· act. {g.data.updatedAt}</span>
+                            )}
+                        </p>
+                        <h2 class="text-xl md:text-2xl font-black tracking-tighter leading-tight mb-3 text-black">
+                            {g.data.title}
+                        </h2>
+                        <p class="text-sm md:text-base leading-relaxed text-gray-700">
+                            {g.data.description}
+                        </p>
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </main>
+
+    <SiteFooter />
+</BaseLayout>

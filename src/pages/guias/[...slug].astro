@@ -1,0 +1,356 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guias');
+  const episodes = await getCollection('episodes');
+  const byEpNumber = new Map(episodes.map(e => [e.data.episode, e]));
+
+  return guides.map(g => {
+    const related = (g.data.relatedEpisodes ?? []).map(num => {
+      const found = byEpNumber.get(num);
+      if (!found) {
+        throw new Error(
+          `Guía "${g.id}" referencia relatedEpisodes: ${num}, pero ningún episodio con ese número existe. Corrige el frontmatter.`
+        );
+      }
+      return found;
+    });
+    return {
+      params: { slug: g.id },
+      props: { guide: g, related },
+    };
+  });
+}
+
+const { guide, related } = Astro.props;
+const { Content, headings } = await render(guide);
+const h2Headings = headings.filter((h) => h.depth === 2);
+
+const siteUrl = 'https://eslahoradeaprender.com';
+const canonical = `${siteUrl}/guias/${guide.id}/`;
+
+const { faq, resources, funnel, updatedAt } = guide.data;
+const defaultOg = `${siteUrl}/og-image.jpg`;
+const ogImage = guide.data.ogImage ?? defaultOg;
+
+const techArticleLd: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: guide.data.title,
+  description: guide.data.seoDescription ?? guide.data.description,
+  datePublished: guide.data.date,
+  ...(updatedAt && { dateModified: updatedAt }),
+  inLanguage: 'es',
+  url: canonical,
+  image: ogImage,
+  author: {
+    '@type': 'Organization',
+    name: 'Es la Hora de Aprender',
+    url: siteUrl,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Es la Hora de Aprender',
+    url: siteUrl,
+    logo: { '@type': 'ImageObject', url: defaultOg },
+  },
+  ...(guide.data.keywords && guide.data.keywords.length > 0 && {
+    keywords: guide.data.keywords.join(', '),
+  }),
+  ...(resources && resources.length > 0 && {
+    citation: resources.map(r => ({
+      '@type': 'CreativeWork',
+      name: r.title,
+      url: r.url,
+      ...(r.description && { description: r.description }),
+    })),
+  }),
+};
+
+const faqPageLd = (faq && faq.length > 0) ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(f => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+} : null;
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'Guías', item: `${siteUrl}/guias/` },
+    { '@type': 'ListItem', position: 3, name: guide.data.title, item: canonical },
+  ],
+};
+
+const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c');
+
+const funnelButtonText = funnel?.ctaButton ?? 'Ir a la comunidad →';
+---
+
+<BaseLayout
+  title={guide.data.title}
+  description={guide.data.description}
+  seoTitle={guide.data.seoTitle}
+  seoDescription={guide.data.seoDescription}
+  image={ogImage}
+  ogType="article"
+  keywords={guide.data.keywords}
+  datePublished={guide.data.date}
+  canonicalUrl={canonical}
+>
+    <Fragment slot="head-extra">
+        <script is:inline type="application/ld+json" set:html={escapeJsonLd(techArticleLd)} />
+        <script is:inline type="application/ld+json" set:html={escapeJsonLd(breadcrumbLd)} />
+        {faqPageLd && (
+            <script is:inline type="application/ld+json" set:html={escapeJsonLd(faqPageLd)} />
+        )}
+    </Fragment>
+
+    <SiteHeader />
+
+    <main id="main-content" class="max-w-6xl mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-6 md:mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2 flex-wrap border-[3px] border-black bg-white px-3 py-2 text-xs md:text-sm font-black uppercase tracking-wider">
+                <li><a href="/" class="bg-black text-acid px-2 py-1 hover:bg-electric hover:text-white transition-colors focus-visible:outline-4 focus-visible:outline-electric focus-visible:outline-offset-2">Inicio</a></li>
+                <li class="text-black font-black" aria-hidden="true">/</li>
+                <li><a href="/guias/" class="hover:underline underline-offset-4 decoration-4 decoration-black focus-visible:outline-4 focus-visible:outline-electric focus-visible:outline-offset-2">Guías</a></li>
+                <li class="text-black font-black" aria-hidden="true">/</li>
+                <li class="text-gray-600 truncate max-w-[180px] md:max-w-[380px]" aria-current="page">{guide.data.title}</li>
+            </ol>
+        </nav>
+
+        <article class="brutal-card p-6 md:p-10">
+            <!-- Header -->
+            <header class="mb-8 md:mb-10">
+                <div class="mb-4">
+                    <span class="bg-black text-acid px-3 py-1 text-xs uppercase font-black tracking-wider">Guía</span>
+                    {updatedAt && (
+                        <span class="text-sm text-gray-500 ml-3">Actualizada: {updatedAt}</span>
+                    )}
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight tracking-tighter text-black">
+                    {guide.data.title}
+                </h1>
+                <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-3xl">
+                    {guide.data.description}
+                </p>
+            </header>
+
+            <!-- Layout: TOC sticky + content -->
+            <div class="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-8 lg:gap-12">
+                <!-- TOC sticky (desktop only) -->
+                {h2Headings.length > 0 && (
+                    <aside class="hidden lg:block">
+                        <nav class="sticky top-6 brutal-card p-5 bg-white" aria-label="Índice de la guía">
+                            <p class="text-xs font-black uppercase tracking-wider mb-3 text-gray-700">En esta guía</p>
+                            <ol class="space-y-2 list-none">
+                                {h2Headings.map((h) => (
+                                    <li>
+                                        <a href={`#${h.slug}`} class="text-sm hover:underline underline-offset-4 decoration-2 decoration-acid leading-tight inline-block text-black hover:text-electric">
+                                            {h.text}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ol>
+                        </nav>
+                    </aside>
+                )}
+
+                <!-- Content rendered del markdown -->
+                <div class="guide-content">
+                    <Content />
+                </div>
+            </div>
+
+            <!-- Funnel CTA (contextual al final de la guía) -->
+            {funnel && (
+                <aside class="mt-12 md:mt-16 brutal-card p-6 md:p-10 bg-acid" aria-labelledby="funnel-heading">
+                    <h2 id="funnel-heading" class="text-2xl md:text-3xl font-black tracking-tighter mb-4 leading-tight text-black">
+                        {funnel.label}
+                    </h2>
+                    {funnel.cta && (
+                        <p class="text-base md:text-lg leading-relaxed mb-6 text-black max-w-3xl">
+                            {funnel.cta}
+                        </p>
+                    )}
+                    <a href={funnel.url} target="_blank" rel="noopener noreferrer"
+                       class="brutal-btn bg-black text-acid hover:bg-electric hover:text-white text-sm md:text-base font-black inline-flex items-center gap-2">
+                        {funnelButtonText}
+                    </a>
+                </aside>
+            )}
+
+            <!-- Episodios relacionados -->
+            {related && related.length > 0 && (
+                <section class="mt-12 md:mt-16" aria-labelledby="related-heading">
+                    <h2 id="related-heading" class="text-xl md:text-2xl font-black uppercase tracking-tighter mb-6">
+                        Lo hablamos en estos <span class="bg-electric text-white px-2">episodios</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                        {related.map((ep) => (
+                            <a href={`/episodios/${ep.id}/`} class="brutal-card p-5 bg-white hover:bg-acid transition-colors block">
+                                <p class="text-xs font-black uppercase tracking-wider mb-2 text-gray-600">Episodio {ep.data.episode}</p>
+                                <h3 class="text-base md:text-lg font-black tracking-tight leading-tight text-black">
+                                    {ep.data.title}
+                                </h3>
+                            </a>
+                        ))}
+                    </div>
+                </section>
+            )}
+        </article>
+    </main>
+
+    <SiteFooter />
+</BaseLayout>
+
+<style>
+    /* Render del markdown rendered por <Content /> */
+    .guide-content :global(h2) {
+        font-size: 1.5rem;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        scroll-margin-top: 1.5rem;
+    }
+    @media (min-width: 768px) {
+        .guide-content :global(h2) {
+            font-size: 1.875rem;
+        }
+    }
+    .guide-content :global(h3) {
+        font-size: 1.25rem;
+        font-weight: 900;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    @media (min-width: 768px) {
+        .guide-content :global(h3) {
+            font-size: 1.5rem;
+        }
+    }
+    .guide-content :global(p) {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+    }
+    @media (min-width: 768px) {
+        .guide-content :global(p) {
+            font-size: 1.0625rem;
+        }
+    }
+    .guide-content :global(ul),
+    .guide-content :global(ol) {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .guide-content :global(ul) { list-style: disc; }
+    .guide-content :global(ol) { list-style: decimal; }
+    .guide-content :global(li) {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: 0.3rem;
+        color: #1a1a1a;
+    }
+    @media (min-width: 768px) {
+        .guide-content :global(li) {
+            font-size: 1.0625rem;
+        }
+    }
+    .guide-content :global(li > ul),
+    .guide-content :global(li > ol) {
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+    }
+    .guide-content :global(strong) {
+        font-weight: 900;
+    }
+    .guide-content :global(a) {
+        color: var(--electric-blue, #2d5bff);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 2px;
+    }
+    .guide-content :global(a:hover) {
+        text-decoration-color: var(--acid-green, #b8ff00);
+    }
+    .guide-content :global(blockquote) {
+        border-left: 4px solid #000;
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #4a4a4a;
+    }
+    .guide-content :global(table) {
+        width: 100%;
+        border: 2px solid #000;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.875rem;
+    }
+    .guide-content :global(th),
+    .guide-content :global(td) {
+        border: 1px solid #000;
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+    }
+    .guide-content :global(th) {
+        background: #000;
+        color: var(--acid-green, #b8ff00);
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+    }
+    .guide-content :global(code) {
+        background: #f5f5f5;
+        padding: 0.125rem 0.4rem;
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+        font-size: 0.875em;
+        border: 1px solid #ddd;
+    }
+    .guide-content :global(pre) {
+        background: #000;
+        color: var(--acid-green, #b8ff00);
+        padding: 1rem;
+        overflow-x: auto;
+        border: 2px solid #000;
+        margin: 1.25rem 0;
+        font-size: 0.875rem;
+    }
+    .guide-content :global(pre code) {
+        background: transparent;
+        border: 0;
+        color: inherit;
+    }
+    .guide-content :global(hr) {
+        border: 0;
+        border-top: 3px solid #000;
+        margin: 2rem 0;
+    }
+    .guide-content :global(table) {
+        overflow-x: auto;
+        display: block;
+    }
+    @media (min-width: 768px) {
+        .guide-content :global(table) {
+            display: table;
+        }
+    }
+</style>

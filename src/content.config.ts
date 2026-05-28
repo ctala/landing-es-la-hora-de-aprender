@@ -54,4 +54,47 @@ const episodes = defineCollection({
   }),
 });
 
-export const collections = { episodes };
+/**
+ * Guías pilar evergreen — /guias/{slug}/
+ *
+ * Páginas-pilar de tema cruzadas a los episodios donde se habló del tema.
+ * Plan completo en docs/SEO-GROWTH-STRATEGY.md (Sprint SEO Growth 2026-05).
+ *
+ * Distinto de `/temas/{slug}/` (cluster pages ligeras, pendientes en
+ * ROADMAP) — `/guias/` son guías deep evergreen que rankean head terms.
+ */
+const guias = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/guias' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.string(), // YYYY-MM-DD — fecha de publicación
+    updatedAt: z.string().optional(), // YYYY-MM-DD — última actualización
+    description: z.string(), // resumen corto para cards y meta fallback
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    focusKeyword: z.string().optional(), // keyword head del cluster
+    ogImage: z.string().url().optional(),
+    keywords: z.array(z.string()).optional(),
+    relatedEpisodes: z.array(z.number().int().positive()).optional(),
+    relatedGuides: z.array(z.string()).optional(), // slugs de otras guías
+    // Funnel CTA contextual al final de la guía (CAR, comunidad Rodrigo, etc.)
+    funnel: z.object({
+      type: z.enum(['premium', 'free', 'community']).default('community'),
+      label: z.string(), // título del bloque CTA
+      cta: z.string().optional(), // copy del párrafo CTA
+      ctaButton: z.string().optional(), // texto del botón (default: "Ir →")
+      url: z.string().url(), // destino con UTM
+    }).optional(),
+    faq: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
+    resources: z.array(z.object({
+      title: z.string(),
+      url: z.string().url(),
+      description: z.string().optional(),
+    })).optional(),
+  }),
+});
+
+export const collections = { episodes, guias };
