@@ -17,6 +17,7 @@ keywords:
   - "openclaw vps servidor"
 relatedEpisodes: [1, 4, 5, 8, 13, 14]
 relatedGuides:
+  - "hermes-agent"
   - "claude-code"
   - "n8n"
   - "agentes-de-ia"

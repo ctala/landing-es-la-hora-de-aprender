@@ -18,6 +18,7 @@ keywords:
 relatedEpisodes: [1, 4, 5, 12, 14]
 relatedGuides:
   - "openclaw"
+  - "hermes-agent"
   - "claude-code"
   - "n8n"
 funnel:
