@@ -58,3 +58,7 @@ El orden mental que funciona, sintetizado de varios episodios:
 3. **Una forma de que te avise cuando termina o cuando se atasca** (Telegram, log de archivo, otro agente que lo supervise).
 
 Sin esos tres, el agente trabaja al vacío. Con ellos, lo dejas corriendo y el costo de tu próximo empleado podría no ser humano (EP04).
+
+## Ver también
+
+El [glosario de Ecosistema Startup](https://ecosistemastartup.com/glosario/ai-agent/) cubre la definición de **AI Agent** desde el ángulo del ecosistema startup — qué pasa con tu cap table, tu pricing y tu producto cuando agregás agentes. Esta entrada de ELHDA se enfoca en el deep-dive técnico (3 tipos, agent ops, cuellos de botella reales del podcast). Son complementarias.

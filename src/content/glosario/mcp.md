@@ -41,3 +41,7 @@ Hay un gotcha repetido: **conectar el MCP no es enseñarle al agente a usar la h
 Una API tradicional la consume tu código. Un MCP server expone funciones que **el modelo de lenguaje** decide cuándo llamar, en base al contexto de la conversación. Es la diferencia entre escribir _"si la intención es revisar calendario, llama a la API del calendario"_ y dejar que el agente decida solo cuándo el calendario es relevante.
 
 Esa autonomía es lo que hace a los agentes potentes — y también lo que los hace impredecibles si el tool use del modelo no está afinado, especialmente al operar en español.
+
+## Ver también
+
+MCP no aparece como término en el [glosario de Ecosistema Startup](https://ecosistemastartup.com/glosario/) porque es muy del nicho técnico — esa es la diferencia entre los dos glosarios. Para términos más amplios del cluster que sí están en eco: [LLM](https://ecosistemastartup.com/glosario/llm/) (el modelo que orquesta el MCP) y [Fine-tuning](https://ecosistemastartup.com/glosario/fine-tuning/) (cómo se especializa el cerebro).
