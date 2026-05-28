@@ -109,16 +109,16 @@ Plan completo en [`docs/SEO-GROWTH-STRATEGY.md`](docs/SEO-GROWTH-STRATEGY.md). T
 
 **Oportunidad (DataForSEO ES+MX, comp ≤ MEDIUM):** `claude code` ~71.700/mes, `n8n` 33.100+, `openclaw` ~30.300, `agentes de ia` ~1.720, `hermes agent` ~1.690 (CPC alto), `gemini vs chatgpt` ~2.480. >100K búsquedas/mes capturadas hoy: ~0.
 
-### Fase 0 — Quick-wins técnicos (1-2 días)
-- [ ] **Funnel en home** — bloque "Comunidades" antes del footer con CAR (`skool.com/cagala-aprende-repite/about`) + comunidad de Rodrigo (`skool.com/rojo/about`). Hoy = 0 enlaces salientes a las comunidades desde home. Es el agujero más grande para el objetivo declarado del sitio.
-- [ ] **Reescribir `seoTitle` / `seoDescription` de EP03, EP04, EP05, EP06** (impresiones reales, 0 clics). CTR objetivo >3% post-cambio. Replicar patrón de EP08 (que sí trae clics).
-- [ ] **Canonical y trailing-slash** — verificar que `/episodios/01-...` 301-redirige a `/episodios/01-.../` (config Astro `trailingSlash: 'always'` ya en lugar; faltaría que Cloudflare/Astro emita el 301). GSC muestra ambas variantes.
-- [ ] **UTMs en CTAs a Skool** desde el sitio (`utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_{tema}`) para medir conversión.
+### Fase 0 — Quick-wins técnicos (1-2 días) — HECHO
+- [x] **Funnel en home** — bloque "Comunidades" en `src/pages/index.astro` antes de "Construido en público", con CAR + comunidad de Rodrigo y UTMs `home_funnel_{car,rojo}`. v3.19.0.
+- [x] **Reescribir `seoTitle` / `seoDescription` de EP03, EP04, EP05, EP06** — siguiendo el patrón de EP08 (el que sí capta clics): keywords concretos adelante, cifras reales, trim a ≤60 / ≤170 chars. v3.19.0.
+- [x] **Canonical y trailing-slash** — verificado 28-may: el sitio emite 308 desde URLs sin slash hacia las con slash. No requiere `_redirects` manual; las duplicadas en GSC se reconsolidan orgánicamente con el sitemap_resubmit.
+- [x] **UTMs en CTAs a Skool** — incluidos en el bloque de home (`home_funnel_*`) y en los funnel CTA de los pillars (`hub_claude_code`, `hub_n8n`).
 
-### Fase 1 — Pilotos hub (1 sem, medir 4-6 sem)
-- [ ] **`/guias/claude-code/`** — pillar evergreen 2.500-3.500 palabras. Target `claude code` (LOW comp ~72K/mes ES+MX). Cruzado con EP07, EP08, EP13, EP14. CTA → Cofre del Pirata.
-- [ ] **`/guias/n8n/`** — pillar 2.500-3.500 palabras. Target `n8n` (33K/mes MX MEDIUM). Cruzado con EP02, EP12, EP14. CTA → curso "Automatiza con n8n" (MC-04) en CAR.
-- [ ] **Content collection Astro `guias`** — schema Zod, route `/guias/[...slug].astro`, sitemap, breadcrumb schema. Plantilla reusable para Fase 2.
+### Fase 1 — Pilotos hub (1 sem, medir 4-6 sem) — HECHO
+- [x] **`/guias/claude-code/`** — pillar evergreen ~2.770 palabras. Target `claude code` (LOW comp ~72K/mes ES+MX, creció 25x en 12 meses). Cruzado con EP07, EP08, EP13, EP14. CTA → Cofre del Pirata (`classroom/013cda18`). v3.20.0.
+- [x] **`/guias/n8n/`** — pillar ~3.220 palabras. Target `n8n` (33K/mes MX MEDIUM). Cruzado con EP02, EP12, EP14. CTA → curso "Automatiza con n8n" MC-04 (`classroom/006029ac`). v3.20.0.
+- [x] **Content collection Astro `guias`** — schema Zod en `src/content.config.ts`, route `src/pages/guias/[...slug].astro` con TOC sticky desktop + JSON-LD TechArticle + BreadcrumbList + FAQPage + funnel CTA + bloque relacionados, index en `src/pages/guias/index.astro` con ItemList. Plantilla reusable para Fase 2.
 
 ### Fase 2 — Resto de hubs (2-3 sem)
 - [ ] `/guias/openclaw/` (ya rankeamos pos 5,5 con un episodio — guía deep debería empujar fuerte)
@@ -169,6 +169,8 @@ Plan completo en [`docs/SEO-GROWTH-STRATEGY.md`](docs/SEO-GROWTH-STRATEGY.md). T
 
 ## Registro de decisiones
 
+- **2026-05-28** — Sprint SEO Growth: Fase 0 + Fase 1 desplegadas. Funnel home (CAR + Rodrigo) + CTR rewrites EP03-06 + 2 pilotos `/guias/claude-code/` y `/guias/n8n/` con TOC, JSON-LD TechArticle/FAQPage/BreadcrumbList y CTA al curso CAR con deep-link verificado. Quedan Fase 2 (resto de hubs) + Fase 3 (capa programática) + Fase 4 (loop podcast→hub) en backlog.
+- **2026-05-28** — Trailing-slash: verificado en producción que el sitio emite **308** desde URLs sin slash hacia las con slash. No requiere `_redirects` manual de Cloudflare. Las duplicadas que aparecen en GSC se reconsolidarán orgánicamente.
 - **2026-05-28** — Sprint SEO Growth aprobado. Diagnóstico GSC (23 clics/90d, queries-noticia) + DataForSEO (claude code 72K, n8n 33K, openclaw 30K — todo comp baja/media) ⇒ se construye capa evergreen `/guias/` con hubs por tema cruzados a episodios + funnel a comunidades. Pilotos: `claude-code` y `n8n`. Plan completo en `docs/SEO-GROWTH-STRATEGY.md`.
 - **2026-04-23** — Licencia del contenido editorial (shownotes): **CC BY 4.0 confirmada**. Los hosts decidieron mantener la licencia más permisiva. Razones: (a) maximiza visibilidad en AI engines / training corpora (objetivo declarado del sprint GEO); (b) las otras variantes (NC/ND/SA) no aplican al caso — los cursos comerciales de cada host (Claude Desbloqueado, Cágala Aprende Repite, material de Desafío Latam) son productos separados con sus propias licencias; (c) atribución obligatoria es suficiente para asegurar reconocimiento cuando LLMs citen el contenido. Declarada explícitamente en `src/pages/llms.txt.ts`. Si algún host cambia de opinión a futuro, el cambio es una edición de 2 líneas.
 - **2026-04-23** — Analytics: elegida **Cloudflare Web Analytics** por sobre Plausible, Umami y GA4/GTM. Razón principal: ya estamos en Cloudflare Pages, cero overhead (~1.4KB defer), cero cookies (sin banner GDPR), cubre lo esencial (pageviews + Core Web Vitals reales). Re-evaluar si aparece necesidad de eventos custom o funnels de conversión complejos.
