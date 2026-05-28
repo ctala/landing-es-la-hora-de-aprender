@@ -65,12 +65,14 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
         </nav>
 
         <header class="mb-10 md:mb-14">
-            <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight tracking-tighter text-black">
-                Glosario
-            </h1>
-            <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-3xl">
-                Términos técnicos de IA, agentes y automatización que vuelven en cada episodio. Definiciones cortas, cero jerga inútil, con enlaces a los episodios y guías donde los desarmamos.
-            </p>
+            <div class="brutal-card p-6 md:p-10 bg-white">
+                <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight tracking-tighter text-black">
+                    Glosario
+                </h1>
+                <p class="text-gray-900 text-base md:text-lg leading-relaxed max-w-3xl">
+                    Términos técnicos de IA, agentes y automatización que vuelven en cada episodio. Definiciones cortas, cero jerga inútil, con enlaces a los episodios y guías donde los desarmamos.
+                </p>
+            </div>
         </header>
 
         {sorted.length === 0 && (

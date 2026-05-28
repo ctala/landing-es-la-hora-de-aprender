@@ -61,12 +61,14 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
         </nav>
 
         <header class="mb-10 md:mb-14">
-            <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight tracking-tighter text-black">
-                Guías
-            </h1>
-            <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-3xl">
-                Guías deep evergreen destiladas de lo que conversamos en el podcast. Cada una cruza el tema con los episodios donde lo desarmamos y enlaza a las comunidades de Cristian y Rodrigo para seguir profundizando.
-            </p>
+            <div class="brutal-card p-6 md:p-10 bg-white">
+                <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight tracking-tighter text-black">
+                    Guías
+                </h1>
+                <p class="text-gray-900 text-base md:text-lg leading-relaxed max-w-3xl">
+                    Guías deep evergreen destiladas de lo que conversamos en el podcast. Cada una cruza el tema con los episodios donde lo desarmamos y enlaza a las comunidades de Cristian, Diego y Rodrigo para seguir profundizando.
+                </p>
+            </div>
         </header>
 
         {sorted.length === 0 && (
