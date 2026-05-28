@@ -76,19 +76,23 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 list-none p-0">
             {sorted.map((g) => (
                 <li>
-                    <a href={`/guias/${g.id}/`} class="brutal-card p-6 md:p-8 bg-white hover:bg-acid transition-colors block h-full">
-                        <p class="text-xs font-black uppercase tracking-wider mb-3 text-gray-600">
-                            {g.data.focusKeyword ?? 'Guía'}
+                    <a href={`/guias/${g.id}/`} class="guia-card brutal-card p-6 md:p-8 bg-white hover:bg-acid block h-full flex flex-col transition-all duration-150 hover:-translate-y-1">
+                        <p class="text-xs font-black uppercase tracking-wider mb-4 flex items-center gap-2 flex-wrap">
+                            <span class="bg-black text-acid px-2 py-1">{g.data.focusKeyword ?? 'Guía'}</span>
                             {g.data.updatedAt && (
-                                <span class="ml-2 text-gray-500 font-bold">· act. {g.data.updatedAt}</span>
+                                <span class="text-gray-500 font-bold normal-case tracking-normal">act. {g.data.updatedAt}</span>
                             )}
                         </p>
-                        <h2 class="text-xl md:text-2xl font-black tracking-tighter leading-tight mb-3 text-black">
+                        <h2 class="text-xl md:text-2xl font-black tracking-tighter leading-tight mb-4 text-black">
                             {g.data.title}
                         </h2>
-                        <p class="text-sm md:text-base leading-relaxed text-gray-700">
+                        <p class="text-base md:text-lg leading-relaxed text-gray-900 mb-5 flex-grow">
                             {g.data.description}
                         </p>
+                        <span class="text-sm md:text-base font-black uppercase tracking-wider text-electric inline-flex items-center gap-2 mt-auto">
+                            Leer la guía
+                            <span aria-hidden="true">→</span>
+                        </span>
                     </a>
                 </li>
             ))}
