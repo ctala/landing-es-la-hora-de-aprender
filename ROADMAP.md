@@ -101,6 +101,47 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 - [ ] Filtros/search en `/episodios/` (solo CSS `:has()` + data-attrs, sin JS framework).
 - [x] **Compartir / copiar link en CTAs de episodio** — hecho en v3.13.0. Componente `SocialShare.astro` con X / LinkedIn / WhatsApp (links directos sin JS) + copiar enlace (navigator.clipboard con feedback). Ubicado entre shownotes y episodios relacionados.
 
+## Sprint SEO Growth (2026-05) — datos GSC + DataForSEO
+
+Plan completo en [`docs/SEO-GROWTH-STRATEGY.md`](docs/SEO-GROWTH-STRATEGY.md). TL;DR: pasar de "archivo de episodios" a motor de discoverability + funnel a las comunidades, sumando una capa evergreen de pillars `/guias/{tema}/` cruzados a los episodios donde se habló del tema.
+
+**Diagnóstico (90d):** 23 clics · 1.468 imp · CTR 1,57% · pos 7,7. Solo rankeamos queries-noticia transitorias (`cayó claude` → 0 clics). EP08 se lleva el 42% de las impresiones.
+
+**Oportunidad (DataForSEO ES+MX, comp ≤ MEDIUM):** `claude code` ~71.700/mes, `n8n` 33.100+, `openclaw` ~30.300, `agentes de ia` ~1.720, `hermes agent` ~1.690 (CPC alto), `gemini vs chatgpt` ~2.480. >100K búsquedas/mes capturadas hoy: ~0.
+
+### Fase 0 — Quick-wins técnicos (1-2 días)
+- [ ] **Funnel en home** — bloque "Comunidades" antes del footer con CAR (`skool.com/cagala-aprende-repite/about`) + comunidad de Rodrigo (`skool.com/rojo/about`). Hoy = 0 enlaces salientes a las comunidades desde home. Es el agujero más grande para el objetivo declarado del sitio.
+- [ ] **Reescribir `seoTitle` / `seoDescription` de EP03, EP04, EP05, EP06** (impresiones reales, 0 clics). CTR objetivo >3% post-cambio. Replicar patrón de EP08 (que sí trae clics).
+- [ ] **Canonical y trailing-slash** — verificar que `/episodios/01-...` 301-redirige a `/episodios/01-.../` (config Astro `trailingSlash: 'always'` ya en lugar; faltaría que Cloudflare/Astro emita el 301). GSC muestra ambas variantes.
+- [ ] **UTMs en CTAs a Skool** desde el sitio (`utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_{tema}`) para medir conversión.
+
+### Fase 1 — Pilotos hub (1 sem, medir 4-6 sem)
+- [ ] **`/guias/claude-code/`** — pillar evergreen 2.500-3.500 palabras. Target `claude code` (LOW comp ~72K/mes ES+MX). Cruzado con EP07, EP08, EP13, EP14. CTA → Cofre del Pirata.
+- [ ] **`/guias/n8n/`** — pillar 2.500-3.500 palabras. Target `n8n` (33K/mes MX MEDIUM). Cruzado con EP02, EP12, EP14. CTA → curso "Automatiza con n8n" (MC-04) en CAR.
+- [ ] **Content collection Astro `guias`** — schema Zod, route `/guias/[...slug].astro`, sitemap, breadcrumb schema. Plantilla reusable para Fase 2.
+
+### Fase 2 — Resto de hubs (2-3 sem)
+- [ ] `/guias/openclaw/` (ya rankeamos pos 5,5 con un episodio — guía deep debería empujar fuerte)
+- [ ] `/guias/agentes-de-ia/`
+- [ ] `/guias/hermes-agent/`
+- [ ] `/guias/gemini-vs-chatgpt/` (o `/comparativas/gemini-vs-chatgpt-claude/`)
+- [ ] `/guias/validar-idea-con-ia/`
+- [ ] `/guias/emprender-con-ia/`
+
+### Fase 3 — Capa programática (continua, una tanda/mes)
+- [ ] `/comparativas/{a}-vs-{b}/` con benchmark IA (53 modelos × 91 tests) como dato propietario.
+- [ ] `/glosario/{termino}/` — qué es MoE, RAG, tool use, computer use, MCP, agente, vibecoding, fine-tuning, context window. Internal-linking masivo hacia pillars y episodios.
+- [ ] `/guias/mejores-{categoria}/` — "mejores herramientas de IA para founders / marketing / automatizar". Lista curada con dato propietario ("las que de verdad usamos en el podcast").
+
+### Fase 4 — Loop con cada episodio nuevo
+- [ ] Extender skill `elhda-new-episode` para que, al publicar EPxx, actualice el/los hub(s) del tema (agrega el episodio al bloque "Lo hablamos en estos episodios"). Cierra el círculo podcast→pillar.
+
+**Ejecución:** Fase 0 la implemento desde la sesión principal (code edits puntuales). Fase 1 la trabaja el agente **SEO Content Distribution Strategist** en paralelo — produce content briefs + draft body para los 2 hubs piloto en `docs/seo-hubs/`, listos para renderizar. DataForSEO afina cada cluster.
+
+**KPIs (baseline GSC 2026-05-25):** 23 clics / 90d, CTR 1,57%, pos 7,7. Meta Fase 1 (90d post-pilotos): x3-x5 clics + CTR >3% + indexación de los 2 hubs + signups a Skool con UTM `eslahoradeaprender` > 0.
+
+---
+
 ## Cambios más grandes / futuro
 
 - [ ] **Página `/recursos` — hub de herramientas y referencias del podcast** — agrupar por categoría (modelos, agentes, tooling de IA, libros, papers, etc.) todos los recursos mencionados en episodios. Por cada recurso: qué es, para qué sirve, link oficial, y lista de episodios donde se habló (con timestamp si existe). Fuente: `resources[]` del frontmatter (ya en schema Zod desde v3.10.0). Beneficios: (a) hub evergreen con alta densidad semántica para SEO, (b) valor editorial independiente — lista curada que sobrevive a cualquier episodio individual, (c) backlinks internos hacia episodios por contexto real, (d) compatible con AI Overviews (lista estructurada + definiciones cortas). Desafíos: normalización de nombres entre episodios (mismo recurso escrito distinto), clasificación consistente, decidir si `resources[]` actual basta o necesita `category` por recurso. Evaluar también `ItemList` JSON-LD por categoría. Agregado al roadmap el 2026-04-23 como follow-up del bloque "Construido en público".
@@ -128,6 +169,7 @@ Formato por item: `[estado] Título — impacto / esfuerzo / riesgo-performance`
 
 ## Registro de decisiones
 
+- **2026-05-28** — Sprint SEO Growth aprobado. Diagnóstico GSC (23 clics/90d, queries-noticia) + DataForSEO (claude code 72K, n8n 33K, openclaw 30K — todo comp baja/media) ⇒ se construye capa evergreen `/guias/` con hubs por tema cruzados a episodios + funnel a comunidades. Pilotos: `claude-code` y `n8n`. Plan completo en `docs/SEO-GROWTH-STRATEGY.md`.
 - **2026-04-23** — Licencia del contenido editorial (shownotes): **CC BY 4.0 confirmada**. Los hosts decidieron mantener la licencia más permisiva. Razones: (a) maximiza visibilidad en AI engines / training corpora (objetivo declarado del sprint GEO); (b) las otras variantes (NC/ND/SA) no aplican al caso — los cursos comerciales de cada host (Claude Desbloqueado, Cágala Aprende Repite, material de Desafío Latam) son productos separados con sus propias licencias; (c) atribución obligatoria es suficiente para asegurar reconocimiento cuando LLMs citen el contenido. Declarada explícitamente en `src/pages/llms.txt.ts`. Si algún host cambia de opinión a futuro, el cambio es una edición de 2 líneas.
 - **2026-04-23** — Analytics: elegida **Cloudflare Web Analytics** por sobre Plausible, Umami y GA4/GTM. Razón principal: ya estamos en Cloudflare Pages, cero overhead (~1.4KB defer), cero cookies (sin banner GDPR), cubre lo esencial (pageviews + Core Web Vitals reales). Re-evaluar si aparece necesidad de eventos custom o funnels de conversión complejos.
 
