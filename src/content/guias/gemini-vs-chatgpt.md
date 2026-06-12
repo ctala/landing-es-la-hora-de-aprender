@@ -14,6 +14,8 @@ keywords:
 - que ia es mejor
 - benchmark modelos ia
 - comparativa modelos ia 2026
+- fable 5 anthropic
+- fable 5 vs opus
 relatedEpisodes:
 - 15
 - 8
@@ -29,6 +31,8 @@ funnel:
   ctaButton: Acceder al módulo Intro a LLMs →
   url: https://www.skool.com/cagala-aprende-repite/classroom/8d3910b1?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_gemini_vs_chatgpt
 faq:
+- question: ¿Qué es Fable 5 de Anthropic?
+  answer: 'El primer modelo de la línea Mythos de Anthropic, lanzado en junio de 2026 un escalón por encima de Opus. Mythos 5 es el modelo completo para organizaciones aprobadas; Fable 5 es la variación para el público general. Cuesta aproximadamente el doble que Opus 4.8 por token y está incluido en los planes de suscripción solo hasta el 22 de junio de 2026 — después se usa con créditos aparte. Brilla en tareas agénticas complejas; para el día a día, Opus o Sonnet siguen rindiendo de sobra.'
 - question: ¿Gemini es mejor que ChatGPT en 2026?
   answer: 'Depende del contexto. Si vives en Google Workspace (Gmail, Drive, Meet), Gemini llega sin costo extra y sin configuración adicional — esa fricción cero lo hace mejor para adopción masiva en empresas con ese stack. Si necesitas agentes de código que trabajen en repositorios complejos, Claude Code sigue siendo el estándar. ChatGPT tiene la base de usuarios más grande pero el 90% son gratuitos y con bajo costo de cambio. No hay un ganador universal: hay un mejor candidato para cada trabajo.'
 - question: ¿Por qué KPMG y PwC migraron de Anthropic a Gemini?
@@ -96,6 +100,27 @@ Anthropic eligió un carril específico y lo está ejecutando bien: empresa, pro
 Rodrigo Rojo dicta cursos de ChatGPT, Gemini y Claude en Platzi. El dato que tiró en el episodio 13 es elocuente: hoy le piden mucho más el de Claude. Las empresas que viven en el ecosistema de Microsoft preguntan por Claude. Las que están en Google Workspace preguntan por Gemini. Las personas independientes siguen llegando con ChatGPT — pero cuando necesitan agentes serios, terminan en Claude Code.
 
 El fichaje de Andrej Karpathy para armar un equipo de preentrenamiento dice mucho del rumbo. Cuando el talento apunta en una dirección, suele tener razón.
+
+---
+
+## Fable 5 y Mythos 5: el nuevo techo de Anthropic (junio 2026)
+
+En junio de 2026 Anthropic estrenó una línea nueva por encima de Opus: **Mythos**, el modelo más grande, y **Fable 5**, la variación disponible para el público general con suscripción. Mythos era el modelo que se había filtrado semanas antes bajo el proyecto Glasswing, donde grandes compañías recibieron acceso anticipado para ciberseguridad. El episodio 15 del podcast se dedicó casi entero a destriparlo.
+
+Los datos duros que importan para decidir:
+
+- **Cuesta el doble que Opus 4.8** por token. Cristian hizo la cuenta en el episodio: replicar por API el uso de una suscripción Max de $200/mes costaría unos $18.500 con Opus 4.8 — y unos $36.000 con Fable. El matiz de Rodrigo: Fable resuelve la misma tarea con menos tokens, así que el costo neto real está más cerca de 1.8x que de 2x.
+- **Está en los planes de suscripción solo hasta el 22 de junio**; después se usa con créditos aparte mientras Anthropic calibra qué límites puede dar por plan.
+- **Dónde se nota:** tareas agénticas complejas (Claude Code, repositorios grandes). En la prueba de Cristian — Fable 5 contra Opus 4.8 revisando sus más de cien workflows productivos de n8n en busca de bugs y vulnerabilidades — Fable encontró más, demorándose casi lo mismo. El detalle completo está en [su blog post](https://cristiantala.com/probe-fable-5-vs-opus-4-8/).
+- **Dónde no se justifica:** en el benchmark aplicado para emprendedores (casos reales en español, costo ponderado), [Opus 4.8 le sigue ganando a Fable 5 en score global](https://benchmarks.cristiantala.com/fable-5-vs-opus-4-8/) — porque cuando el precio entra en la ecuación, el flagship más caro deja de ser la respuesta automática.
+
+La heurística que dejó el episodio 15 para elegir modelo dentro de cualquier suscripción:
+
+1. **Si no llegas a los límites de tu plan**, usa el modelo más poderoso disponible con razonamiento activado — son tus tokens de mayor inteligencia, y si no los ocupas los pierdes.
+2. **Si llegas a los límites**, baja a Sonnet 4.6 (o GPT-5.5 ajustando el esfuerzo) para el día a día y reserva el flagship para tareas complejas.
+3. **Si pagas por API** — automatizaciones, soporte, clasificación — los modelos baratos o abiertos (Haiku, Qwen, MiniMax) suelen dar la misma calidad por una fracción del precio.
+
+> "Si la calidad es igual de buena, ¿por qué vas a usar el flagship?" — Cristian Tala, EP15
 
 ---
 
