@@ -1,45 +1,51 @@
 ---
-title: "Agentes de IA: qué son, cómo funcionan y cómo crear el tuyo"
-date: "2026-05-28"
-updatedAt: "2026-05-28"
-description: "Los agentes de IA no son chatbots: ejecutan tareas, mantienen memoria y trabajan solos. Qué son, qué tipos hay, cuándo usar n8n vs un agente y cómo construir el primero."
-seoTitle: "Agentes de IA: qué son, cómo funcionan y cómo crear el tuyo"
-seoDescription: "Los agentes de IA no son chatbots: ejecutan tareas, mantienen memoria y trabajan solos. Tipos, cuándo usar n8n vs un agente y cómo construir el primero. Guía 2026."
-focusKeyword: "agentes de ia"
+title: 'Agentes de IA: qué son, cómo funcionan y cómo crear el tuyo'
+date: '2026-05-28'
+updatedAt: '2026-06-12'
+description: 'Los agentes de IA no son chatbots: ejecutan tareas, mantienen memoria y trabajan solos. Qué son, qué tipos hay, cuándo usar n8n vs un agente y cómo construir el primero.'
+seoTitle: 'Agentes de IA: qué son, cómo funcionan y cómo crear el tuyo'
+seoDescription: 'Los agentes de IA no son chatbots: ejecutan tareas, mantienen memoria y trabajan solos. Tipos, cuándo usar n8n vs un agente y cómo construir el primero. Guía 2026.'
+focusKeyword: agentes de ia
 keywords:
-  - "agentes de ia"
-  - "agentes inteligencia artificial"
-  - "agente de ia que es"
-  - "como crear agentes de ia"
-  - "agentes ia empresas"
-  - "agentes autonomos ia"
-  - "agente personal ia"
-  - "agent ops"
-relatedEpisodes: [1, 4, 5, 12, 14]
+- agentes de ia
+- agentes inteligencia artificial
+- agente de ia que es
+- como crear agentes de ia
+- agentes ia empresas
+- agentes autonomos ia
+- agente personal ia
+- agent ops
+relatedEpisodes:
+- 15
+- 1
+- 4
+- 5
+- 12
+- 14
 relatedGuides:
-  - "openclaw"
-  - "hermes-agent"
-  - "claude-code"
-  - "n8n"
+- openclaw
+- hermes-agent
+- claude-code
+- n8n
 funnel:
-  type: "premium"
-  label: "Construye tu primer agente — AI Agents Starter Kit (CAR)"
-  cta: "El curso AI Agents Starter Kit en la comunidad Cágala, Aprende, Repite es el camino más directo para pasar de 'entiendo qué es un agente' a 'tengo un agente funcionando en producción'. Cubre la arquitectura, la elección del cerebro, cómo construir skills y cómo conectar herramientas reales. No es teoría: es lo que Cristian, Diego y Rodrigo construyeron, rompieron y reconstruyeron en el podcast, empaquetado para que lo puedas replicar."
-  ctaButton: "Ver el curso de agentes →"
-  url: "https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_agentes_de_ia"
+  type: premium
+  label: Construye tu primer agente — AI Agents Starter Kit (CAR)
+  cta: 'El curso AI Agents Starter Kit en la comunidad Cágala, Aprende, Repite es el camino más directo para pasar de ''entiendo qué es un agente'' a ''tengo un agente funcionando en producción''. Cubre la arquitectura, la elección del cerebro, cómo construir skills y cómo conectar herramientas reales. No es teoría: es lo que Cristian, Diego y Rodrigo construyeron, rompieron y reconstruyeron en el podcast, empaquetado para que lo puedas replicar.'
+  ctaButton: Ver el curso de agentes →
+  url: https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_agentes_de_ia
 faq:
-  - question: "¿Un agente de IA puede reemplazar a un empleado?"
-    answer: "En tareas repetitivas y bien definidas, sí. En roles que requieren criterio contextual complejo, relaciones humanas o responsabilidad legal, no del todo. Lo que la mayoría de los founders encuentra es que el agente libera al humano de las tareas de bajo valor para concentrarse en las de alto valor."
-  - question: "¿Qué es un harness y por qué importa en un agente de IA?"
-    answer: "El harness es la capa de software que envuelve al LLM y le da capacidades de acción: acceso a archivos, conectores de herramientas, gestión de memoria, canales de comunicación. OpenClaw, Hermes y Claude Code son harnesses distintos. Un mismo cerebro rinde diferente dependiendo del harness."
-  - question: "¿Cuándo usar un agente y cuándo usar n8n?"
-    answer: "Si necesitás que el output sea idéntico cada vez, usá n8n (automatización determinista). Si la tarea requiere razonamiento sobre información no estructurada o decisiones de criterio, usá un agente. Para procesos con pasos fijos pero que necesitan IA en uno de esos pasos, combiná n8n con un nodo de LLM."
-  - question: "¿Por qué mi agente de IA falla cuando le hablo en español?"
-    answer: "Muchos modelos fueron entrenados principalmente en inglés y chino. El tool use (saber cuándo invocar una herramienta descrita en español) es menos confiable en otros idiomas. La solución práctica: escribir el system prompt y las descripciones de herramientas en inglés aunque el contenido producido sea en español."
-  - question: "¿Conviene un agente por persona o un agente por función en la empresa?"
-    answer: "Hoy, para empresas con varios empleados, los agentes temáticos compartidos (uno de marketing, uno de operaciones) son más prácticos. El agente personal requiere que su dueño lo mantenga; si no es técnico, cuando se rompe nadie lo arregla. El agente por función centraliza el mantenimiento y construye memoria colectiva del equipo."
-  - question: "¿Cuánto cuesta tener un agente de IA funcionando?"
-    answer: "El framework es gratuito (OpenClaw, Hermes, Claude Code son open source o gratis). El costo real es el LLM: desde USD 0 con modelos locales vía Ollama, hasta USD 20-40/mes con MiniMax o Claude Sonnet para uso diario. Con uso agéntico intensivo usando Opus la cuenta puede llegar a USD 200/mes."
+- question: ¿Un agente de IA puede reemplazar a un empleado?
+  answer: En tareas repetitivas y bien definidas, sí. En roles que requieren criterio contextual complejo, relaciones humanas o responsabilidad legal, no del todo. Lo que la mayoría de los founders encuentra es que el agente libera al humano de las tareas de bajo valor para concentrarse en las de alto valor.
+- question: ¿Qué es un harness y por qué importa en un agente de IA?
+  answer: 'El harness es la capa de software que envuelve al LLM y le da capacidades de acción: acceso a archivos, conectores de herramientas, gestión de memoria, canales de comunicación. OpenClaw, Hermes y Claude Code son harnesses distintos. Un mismo cerebro rinde diferente dependiendo del harness.'
+- question: ¿Cuándo usar un agente y cuándo usar n8n?
+  answer: Si necesitás que el output sea idéntico cada vez, usá n8n (automatización determinista). Si la tarea requiere razonamiento sobre información no estructurada o decisiones de criterio, usá un agente. Para procesos con pasos fijos pero que necesitan IA en uno de esos pasos, combiná n8n con un nodo de LLM.
+- question: ¿Por qué mi agente de IA falla cuando le hablo en español?
+  answer: 'Muchos modelos fueron entrenados principalmente en inglés y chino. El tool use (saber cuándo invocar una herramienta descrita en español) es menos confiable en otros idiomas. La solución práctica: escribir el system prompt y las descripciones de herramientas en inglés aunque el contenido producido sea en español.'
+- question: ¿Conviene un agente por persona o un agente por función en la empresa?
+  answer: Hoy, para empresas con varios empleados, los agentes temáticos compartidos (uno de marketing, uno de operaciones) son más prácticos. El agente personal requiere que su dueño lo mantenga; si no es técnico, cuando se rompe nadie lo arregla. El agente por función centraliza el mantenimiento y construye memoria colectiva del equipo.
+- question: ¿Cuánto cuesta tener un agente de IA funcionando?
+  answer: 'El framework es gratuito (OpenClaw, Hermes, Claude Code son open source o gratis). El costo real es el LLM: desde USD 0 con modelos locales vía Ollama, hasta USD 20-40/mes con MiniMax o Claude Sonnet para uso diario. Con uso agéntico intensivo usando Opus la cuenta puede llegar a USD 200/mes.'
 ---
 
 Un agente de IA no es un chatbot con mejor marketing. Es un sistema que puede ejecutar acciones reales en tu entorno: editar archivos, llamar APIs, recordar lo que le dijiste la semana pasada, encadenar tareas de varios pasos sin que tengas que supervisar cada uno, y mejorar su forma de trabajar a medida que lo usa más. La diferencia es operativa, no filosófica.

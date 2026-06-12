@@ -1,45 +1,52 @@
 ---
-title: "OpenClaw: qué es, cómo instalarlo y cuándo usarlo"
-date: "2026-05-28"
-updatedAt: "2026-05-28"
-description: "OpenClaw es el framework open source de agentes que instala en tu máquina o VPS y trabaja contigo 24/7. Qué es, cómo funciona, cuánto cuesta el cerebro, y por qué la gente está migrando."
-seoTitle: "OpenClaw: qué es, cómo instalarlo y cuándo usarlo (2026)"
-seoDescription: "OpenClaw: el agente IA open source que instala en tu máquina y trabaja contigo 24/7. Qué es, cómo funciona, VPS vs local, comparativa con Claude Code y Hermes. Guía 2026."
-focusKeyword: "openclaw"
+title: 'OpenClaw: qué es, cómo instalarlo y cuándo usarlo'
+date: '2026-05-28'
+updatedAt: '2026-06-12'
+description: OpenClaw es el framework open source de agentes que instala en tu máquina o VPS y trabaja contigo 24/7. Qué es, cómo funciona, cuánto cuesta el cerebro, y por qué la gente está migrando.
+seoTitle: 'OpenClaw: qué es, cómo instalarlo y cuándo usarlo (2026)'
+seoDescription: 'OpenClaw: el agente IA open source que instala en tu máquina y trabaja contigo 24/7. Qué es, cómo funciona, VPS vs local, comparativa con Claude Code y Hermes. Guía 2026.'
+focusKeyword: openclaw
 keywords:
-  - "openclaw"
-  - "openclaw que es"
-  - "openclaw vs claude code"
-  - "openclaw vs hermes"
-  - "openclaw instalar"
-  - "openclaw agente ia"
-  - "agente ia personalizado"
-  - "openclaw vps servidor"
-relatedEpisodes: [1, 4, 5, 8, 13, 14]
+- openclaw
+- openclaw que es
+- openclaw vs claude code
+- openclaw vs hermes
+- openclaw instalar
+- openclaw agente ia
+- agente ia personalizado
+- openclaw vps servidor
+relatedEpisodes:
+- 15
+- 1
+- 4
+- 5
+- 8
+- 13
+- 14
 relatedGuides:
-  - "hermes-agent"
-  - "claude-code"
-  - "n8n"
-  - "agentes-de-ia"
+- hermes-agent
+- claude-code
+- n8n
+- agentes-de-ia
 funnel:
-  type: "premium"
-  label: "Construye tu primer agente — AI Agents Starter Kit (CAR)"
-  cta: "Si querés construir tu primer agente de forma estructurada — no solo instalar OpenClaw y ver qué pasa, sino entender la arquitectura, elegir el cerebro correcto y armar skills que funcionen en producción — el curso AI Agents Starter Kit está en la comunidad Cágala, Aprende, Repite. Lo ves, lo copias, lo adaptas. CAR es educación: nadie te arma el flujo a medida."
-  ctaButton: "Ver el curso de agentes →"
-  url: "https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_openclaw"
+  type: premium
+  label: Construye tu primer agente — AI Agents Starter Kit (CAR)
+  cta: 'Si querés construir tu primer agente de forma estructurada — no solo instalar OpenClaw y ver qué pasa, sino entender la arquitectura, elegir el cerebro correcto y armar skills que funcionen en producción — el curso AI Agents Starter Kit está en la comunidad Cágala, Aprende, Repite. Lo ves, lo copias, lo adaptas. CAR es educación: nadie te arma el flujo a medida.'
+  ctaButton: Ver el curso de agentes →
+  url: https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_openclaw
 faq:
-  - question: "¿OpenClaw es gratis?"
-    answer: "El framework es gratis y de código abierto. El costo viene del LLM que uses como cerebro: MiniMax parte en USD 20/mes, Qwen vía OpenRouter puede costar menos de un dólar al día con uso moderado, y modelos locales con Ollama son gratuitos si ya tenés el hardware."
-  - question: "¿Necesito saber programar para instalar OpenClaw?"
-    answer: "No necesitás programar, pero sí entender conceptos básicos: qué es un terminal, cómo editar un archivo de configuración, qué es una API key. Lo que sí necesitás es tolerancia para equivocarte varias veces antes de tener algo estable."
-  - question: "¿Cuál es la diferencia entre OpenClaw y n8n?"
-    answer: "n8n es determinista: input A siempre genera output B. OpenClaw razona y decide. Es útil para tareas con ambigüedad —resumir reuniones en tu contexto, priorizar tareas, generar contenido con tu voz editorial—. Para procesos lineales y repetitivos, n8n sigue siendo mejor. Son complementarios."
-  - question: "¿Por qué OpenClaw dejó de rendir para algunos usuarios en 2026?"
-    answer: "Porque Anthropic dejó de cubrir el uso de Opus y Sonnet desde agentes externos con el plan Max. El framework sigue funcionando, pero el cerebro más potente pasó a costar mucho más al mes. Quienes migraron a MiniMax, Qwen o Hermes como cerebro reportan resultados variables."
-  - question: "¿Es mejor OpenClaw o Hermes Agent?"
-    answer: "Depende del momento. En mayo de 2026, Hermes superó a OpenClaw en instalaciones y tanto Cristian como Rodrigo migraron. La función dreaming de Hermes (que aprende de los logs del día) es una ventaja concreta. Si estás empezando hoy, mirá los dos antes de elegir."
-  - question: "¿OpenClaw funciona en Windows?"
-    answer: "Funciona mejor en Linux y macOS. Para Windows se recomienda usar WSL2. Un VPS de Linux es la alternativa más limpia si no querés lidiar con la configuración de WSL."
+- question: ¿OpenClaw es gratis?
+  answer: 'El framework es gratis y de código abierto. El costo viene del LLM que uses como cerebro: MiniMax parte en USD 20/mes, Qwen vía OpenRouter puede costar menos de un dólar al día con uso moderado, y modelos locales con Ollama son gratuitos si ya tenés el hardware.'
+- question: ¿Necesito saber programar para instalar OpenClaw?
+  answer: 'No necesitás programar, pero sí entender conceptos básicos: qué es un terminal, cómo editar un archivo de configuración, qué es una API key. Lo que sí necesitás es tolerancia para equivocarte varias veces antes de tener algo estable.'
+- question: ¿Cuál es la diferencia entre OpenClaw y n8n?
+  answer: 'n8n es determinista: input A siempre genera output B. OpenClaw razona y decide. Es útil para tareas con ambigüedad —resumir reuniones en tu contexto, priorizar tareas, generar contenido con tu voz editorial—. Para procesos lineales y repetitivos, n8n sigue siendo mejor. Son complementarios.'
+- question: ¿Por qué OpenClaw dejó de rendir para algunos usuarios en 2026?
+  answer: Porque Anthropic dejó de cubrir el uso de Opus y Sonnet desde agentes externos con el plan Max. El framework sigue funcionando, pero el cerebro más potente pasó a costar mucho más al mes. Quienes migraron a MiniMax, Qwen o Hermes como cerebro reportan resultados variables.
+- question: ¿Es mejor OpenClaw o Hermes Agent?
+  answer: Depende del momento. En mayo de 2026, Hermes superó a OpenClaw en instalaciones y tanto Cristian como Rodrigo migraron. La función dreaming de Hermes (que aprende de los logs del día) es una ventaja concreta. Si estás empezando hoy, mirá los dos antes de elegir.
+- question: ¿OpenClaw funciona en Windows?
+  answer: Funciona mejor en Linux y macOS. Para Windows se recomienda usar WSL2. Un VPS de Linux es la alternativa más limpia si no querés lidiar con la configuración de WSL.
 ---
 
 OpenClaw es el agente de IA personalizado que instala directamente en tu máquina o servidor — no en la nube de otra empresa, sino en la tuya — y desde ahí accede a tus herramientas, archivos, APIs y flujos de trabajo. No es un chatbot con ventana de contexto. Es un agente que tiene las llaves de tu casa.

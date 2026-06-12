@@ -1,44 +1,48 @@
 ---
-title: "Hermes Agent: qué es, cómo funciona y por qué la gente está migrando"
-date: "2026-05-28"
-updatedAt: "2026-05-28"
-description: "Hermes es el agente IA open source de Nous Research que superó a OpenClaw en instalaciones tras los cambios de Anthropic. Qué es, por qué la gente migra, cómo empezar y cuándo OpenClaw aún tiene sentido."
-seoTitle: "Hermes Agent: qué es y por qué supera a OpenClaw (2026)"
-seoDescription: "Hermes Agent es el framework open source de Nous Research que superó a OpenClaw en instalaciones. Dreaming, skill bundles, qué cerebro usar y cómo empezar. Guía 2026."
-focusKeyword: "hermes agent"
+title: 'Hermes Agent: qué es, cómo funciona y por qué la gente está migrando'
+date: '2026-05-28'
+updatedAt: '2026-06-12'
+description: Hermes es el agente IA open source de Nous Research que superó a OpenClaw en instalaciones tras los cambios de Anthropic. Qué es, por qué la gente migra, cómo empezar y cuándo OpenClaw aún tiene sentido.
+seoTitle: 'Hermes Agent: qué es y por qué supera a OpenClaw (2026)'
+seoDescription: Hermes Agent es el framework open source de Nous Research que superó a OpenClaw en instalaciones. Dreaming, skill bundles, qué cerebro usar y cómo empezar. Guía 2026.
+focusKeyword: hermes agent
 keywords:
-  - "hermes agent"
-  - "hermes nous research"
-  - "hermes vs openclaw"
-  - "hermes agent que es"
-  - "hermes agent instalar"
-  - "dreaming hermes"
-  - "skill bundles hermes"
-relatedEpisodes: [8, 13, 14]
+- hermes agent
+- hermes nous research
+- hermes vs openclaw
+- hermes agent que es
+- hermes agent instalar
+- dreaming hermes
+- skill bundles hermes
+relatedEpisodes:
+- 15
+- 8
+- 13
+- 14
 relatedGuides:
-  - "openclaw"
-  - "claude-code"
-  - "agentes-de-ia"
-  - "n8n"
+- openclaw
+- claude-code
+- agentes-de-ia
+- n8n
 funnel:
-  type: "premium"
-  label: "Aprende a armar tu stack agéntico — AI Agents Starter Kit (CAR)"
-  cta: "El curso AI Agents Starter Kit en Cágala, Aprende, Repite cubre la arquitectura de agentes — incluyendo cuándo elegir Hermes, OpenClaw o Claude Code según el caso de uso — junto con cómo elegir el cerebro, construir skills y conectar herramientas reales. Lo ves, lo copias, lo adaptas a tu contexto. CAR es educación: nadie te arma el flujo a medida."
-  ctaButton: "Ver el curso de agentes →"
-  url: "https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_hermes_agent"
+  type: premium
+  label: Aprende a armar tu stack agéntico — AI Agents Starter Kit (CAR)
+  cta: 'El curso AI Agents Starter Kit en Cágala, Aprende, Repite cubre la arquitectura de agentes — incluyendo cuándo elegir Hermes, OpenClaw o Claude Code según el caso de uso — junto con cómo elegir el cerebro, construir skills y conectar herramientas reales. Lo ves, lo copias, lo adaptas a tu contexto. CAR es educación: nadie te arma el flujo a medida.'
+  ctaButton: Ver el curso de agentes →
+  url: https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_hermes_agent
 faq:
-  - question: "¿Qué es Nous Research?"
-    answer: "Nous Research es el laboratorio de IA que desarrolló Hermes Agent. Es conocido por sus modelos de fine-tuning de código abierto, especialmente la familia 'Hermes' que mejora el uso de herramientas en LLMs base como Llama y Qwen."
-  - question: "¿Qué es el dreaming en Hermes Agent?"
-    answer: "Es una función que activa al final del día y revisa los logs de las conversaciones para detectar patrones: tareas resueltas de forma inconsistente, herramientas mal usadas, instrucciones repetidas. Luego propone mejoras a las skills. El agente aprende de su propio uso."
-  - question: "¿Hermes reemplaza a OpenClaw?"
-    answer: "No necesariamente. Para usuarios que usaban OpenClaw con Opus como cerebro, Hermes es más estable después del cambio de Anthropic en marzo 2026. Para quien tiene OpenClaw funcionando bien con otro cerebro, el cambio no es urgente."
-  - question: "¿Es Hermes gratis?"
-    answer: "El framework es de código abierto. El costo viene del LLM que uses como cerebro: desde USD 0 con modelos locales vía Ollama, hasta las suscripciones de MiniMax, GPT-5.5 o los modelos que elijas."
-  - question: "¿Por qué Hermes superó a OpenClaw en instalaciones en 2026?"
-    answer: "Porque Anthropic bloqueó el uso de Opus con agentes externos en marzo 2026, lo que afectó el rendimiento de OpenClaw que fue diseñado con ese modelo en mente. Hermes mantuvo mejor comportamiento con los cerebros alternativos (GPT-5.5, MiniMax, modelos locales), y la función dreaming lo hizo más atractivo para founders que quieren que el agente mejore solo."
-  - question: "¿Puedo usar Hermes con modelos locales?"
-    answer: "Sí. Rodrigo corre Hermes con Nemotron y Qwen 3.6 en su DGX Spark usando Ollama. Con hardware adecuado (mínimo 24 GB RAM para modelos 7B-13B), el costo de tokens es cero y los datos no salen de tu sistema."
+- question: ¿Qué es Nous Research?
+  answer: Nous Research es el laboratorio de IA que desarrolló Hermes Agent. Es conocido por sus modelos de fine-tuning de código abierto, especialmente la familia 'Hermes' que mejora el uso de herramientas en LLMs base como Llama y Qwen.
+- question: ¿Qué es el dreaming en Hermes Agent?
+  answer: 'Es una función que activa al final del día y revisa los logs de las conversaciones para detectar patrones: tareas resueltas de forma inconsistente, herramientas mal usadas, instrucciones repetidas. Luego propone mejoras a las skills. El agente aprende de su propio uso.'
+- question: ¿Hermes reemplaza a OpenClaw?
+  answer: No necesariamente. Para usuarios que usaban OpenClaw con Opus como cerebro, Hermes es más estable después del cambio de Anthropic en marzo 2026. Para quien tiene OpenClaw funcionando bien con otro cerebro, el cambio no es urgente.
+- question: ¿Es Hermes gratis?
+  answer: 'El framework es de código abierto. El costo viene del LLM que uses como cerebro: desde USD 0 con modelos locales vía Ollama, hasta las suscripciones de MiniMax, GPT-5.5 o los modelos que elijas.'
+- question: ¿Por qué Hermes superó a OpenClaw en instalaciones en 2026?
+  answer: Porque Anthropic bloqueó el uso de Opus con agentes externos en marzo 2026, lo que afectó el rendimiento de OpenClaw que fue diseñado con ese modelo en mente. Hermes mantuvo mejor comportamiento con los cerebros alternativos (GPT-5.5, MiniMax, modelos locales), y la función dreaming lo hizo más atractivo para founders que quieren que el agente mejore solo.
+- question: ¿Puedo usar Hermes con modelos locales?
+  answer: Sí. Rodrigo corre Hermes con Nemotron y Qwen 3.6 en su DGX Spark usando Ollama. Con hardware adecuado (mínimo 24 GB RAM para modelos 7B-13B), el costo de tokens es cero y los datos no salen de tu sistema.
 ---
 
 Hermes Agent es el framework de agente personalizado de Nous Research que en la semana del 21 de mayo de 2026 superó a OpenClaw en instalaciones globales. No es ruido de Twitter: tanto Cristian Tala como Rodrigo Rojo migraron sus agentes en producción a Hermes, y en el podcast explicaron por qué.

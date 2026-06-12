@@ -1,36 +1,41 @@
 ---
-title: "Claude Code: qué es, cómo empezar y cuánto cuesta"
-date: "2026-05-28"
-updatedAt: "2026-05-28"
-description: "Claude Code es la CLI de Anthropic para programar con IA desde la terminal. Qué hace, cuánto cuesta, cómo instalarlo y cuándo conviene — desde la cancha del podcast."
-seoTitle: "Claude Code: qué es, cómo empezar y cuánto cuesta (2026)"
-seoDescription: "Claude Code es la CLI de Anthropic para programar con IA desde tu terminal. Qué hace, precio, cómo instalarlo y cuándo conviene usarlo. Guía práctica 2026."
-focusKeyword: "claude code"
+title: 'Claude Code: qué es, cómo empezar y cuánto cuesta'
+date: '2026-05-28'
+updatedAt: '2026-06-12'
+description: Claude Code es la CLI de Anthropic para programar con IA desde la terminal. Qué hace, cuánto cuesta, cómo instalarlo y cuándo conviene — desde la cancha del podcast.
+seoTitle: 'Claude Code: qué es, cómo empezar y cuánto cuesta (2026)'
+seoDescription: Claude Code es la CLI de Anthropic para programar con IA desde tu terminal. Qué hace, precio, cómo instalarlo y cuándo conviene usarlo. Guía práctica 2026.
+focusKeyword: claude code
 keywords:
-  - "claude code"
-  - "claude code que es"
-  - "claude code precio"
-  - "claude code vs cursor"
-  - "claude code gratis"
-  - "claude code tutorial"
-  - "como usar claude code"
-  - "claude code mcp"
-relatedEpisodes: [7, 8, 13, 14]
+- claude code
+- claude code que es
+- claude code precio
+- claude code vs cursor
+- claude code gratis
+- claude code tutorial
+- como usar claude code
+- claude code mcp
+relatedEpisodes:
+- 15
+- 7
+- 8
+- 13
+- 14
 funnel:
-  type: "premium"
-  label: "Lo que usamos de verdad: Cofre del Pirata"
-  cta: "Si quieres los prompts y workflows de Claude Code que usamos en producción — no los de la documentación oficial, sino los que salen de armar agentes de marketing, producir cursos y automatizar operaciones reales — están en el Cofre del Pirata de Cágala, Aprende, Repite. Una biblioteca de prompts, workflows, CLAUDE.md de referencia, plantillas y cheatsheets que se actualiza con lo que de verdad cambia el flujo. CAR es educación: lo ves, lo copias y lo adaptas a tu contexto."
-  ctaButton: "Ver el Cofre del Pirata →"
-  url: "https://www.skool.com/cagala-aprende-repite/classroom/013cda18?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_claude_code"
+  type: premium
+  label: 'Lo que usamos de verdad: Cofre del Pirata'
+  cta: 'Si quieres los prompts y workflows de Claude Code que usamos en producción — no los de la documentación oficial, sino los que salen de armar agentes de marketing, producir cursos y automatizar operaciones reales — están en el Cofre del Pirata de Cágala, Aprende, Repite. Una biblioteca de prompts, workflows, CLAUDE.md de referencia, plantillas y cheatsheets que se actualiza con lo que de verdad cambia el flujo. CAR es educación: lo ves, lo copias y lo adaptas a tu contexto.'
+  ctaButton: Ver el Cofre del Pirata →
+  url: https://www.skool.com/cagala-aprende-repite/classroom/013cda18?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_claude_code
 faq:
-  - question: "¿Claude Code reemplaza a Cursor o a GitHub Copilot?"
-    answer: "No del todo. Cursor es un IDE con IA integrada para programar de forma interactiva. Copilot es autocompletado en el editor. Claude Code es un agente autónomo en tu terminal. Se superponen en algunas capacidades, pero el perfil de uso es distinto. Muchos developers los usan en paralelo."
-  - question: "¿Claude Code funciona con cualquier lenguaje de programación?"
-    answer: "Sí. Al ser un modelo de lenguaje, entiende la mayoría de los lenguajes populares. La calidad varía: para Python, JavaScript, TypeScript y Rust es excelente. Para lenguajes más oscuros o muy específicos, la calidad baja."
-  - question: "¿Qué es el CLAUDE.md y por qué importa?"
-    answer: "Es un archivo que colocas en la raíz de tu proyecto donde le das instrucciones persistentes a Claude Code: cómo está estructurado el proyecto, qué convenciones de código sigues, qué no debe tocar, qué herramientas tienes configuradas. Es lo que separa a un agente que entiende tu contexto de uno que empieza de cero cada sesión."
-  - question: "¿Claude Code puede acceder a Internet?"
-    answer: "Por defecto, no. Accede a tu sistema de archivos local y puede ejecutar comandos del sistema. Si quieres que haga búsquedas web o llame a APIs externas, necesitas configurar los MCPs correspondientes."
+- question: ¿Claude Code reemplaza a Cursor o a GitHub Copilot?
+  answer: No del todo. Cursor es un IDE con IA integrada para programar de forma interactiva. Copilot es autocompletado en el editor. Claude Code es un agente autónomo en tu terminal. Se superponen en algunas capacidades, pero el perfil de uso es distinto. Muchos developers los usan en paralelo.
+- question: ¿Claude Code funciona con cualquier lenguaje de programación?
+  answer: 'Sí. Al ser un modelo de lenguaje, entiende la mayoría de los lenguajes populares. La calidad varía: para Python, JavaScript, TypeScript y Rust es excelente. Para lenguajes más oscuros o muy específicos, la calidad baja.'
+- question: ¿Qué es el CLAUDE.md y por qué importa?
+  answer: 'Es un archivo que colocas en la raíz de tu proyecto donde le das instrucciones persistentes a Claude Code: cómo está estructurado el proyecto, qué convenciones de código sigues, qué no debe tocar, qué herramientas tienes configuradas. Es lo que separa a un agente que entiende tu contexto de uno que empieza de cero cada sesión.'
+- question: ¿Claude Code puede acceder a Internet?
+  answer: Por defecto, no. Accede a tu sistema de archivos local y puede ejecutar comandos del sistema. Si quieres que haga búsquedas web o llame a APIs externas, necesitas configurar los MCPs correspondientes.
 ---
 
 Claude Code es la interfaz de línea de comandos de Anthropic que convierte a Claude en un asistente de código que trabaja directamente en tu computador. En lugar de copiar y pegar fragmentos de un chat, Claude Code lee tus archivos, entiende el contexto del proyecto y hace cambios reales en el código — en un terminal, sin salir de tu flujo de trabajo.

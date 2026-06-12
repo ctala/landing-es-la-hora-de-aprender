@@ -1,43 +1,46 @@
 ---
-title: "Gemini vs ChatGPT vs Claude: la comparativa real de 2026"
-date: "2026-05-28"
-updatedAt: "2026-05-28"
-description: "Gemini, ChatGPT y Claude no hacen lo mismo. Cuándo elegir cada uno según tu caso real, qué pasó con KPMG y Google, y qué dice el benchmark de 53 modelos del podcast."
-seoTitle: "Gemini vs ChatGPT vs Claude: comparativa real (2026)"
-seoDescription: "Gemini, ChatGPT y Claude no hacen lo mismo. Cuándo elegir cada uno según tu caso real, qué pasó con KPMG y Google, y qué dice el benchmark de 53 modelos."
-focusKeyword: "gemini vs chatgpt"
+title: 'Gemini vs ChatGPT vs Claude: la comparativa real de 2026'
+date: '2026-05-28'
+updatedAt: '2026-06-12'
+description: Gemini, ChatGPT y Claude no hacen lo mismo. Cuándo elegir cada uno según tu caso real, qué pasó con KPMG y Google, y qué dice el benchmark de 53 modelos del podcast.
+seoTitle: 'Gemini vs ChatGPT vs Claude: comparativa real (2026)'
+seoDescription: Gemini, ChatGPT y Claude no hacen lo mismo. Cuándo elegir cada uno según tu caso real, qué pasó con KPMG y Google, y qué dice el benchmark de 53 modelos.
+focusKeyword: gemini vs chatgpt
 keywords:
-  - "gemini vs chatgpt"
-  - "gemini vs claude"
-  - "claude vs chatgpt"
-  - "gemini vs chatgpt vs claude"
-  - "que ia es mejor"
-  - "benchmark modelos ia"
-  - "comparativa modelos ia 2026"
-relatedEpisodes: [8, 13]
+- gemini vs chatgpt
+- gemini vs claude
+- claude vs chatgpt
+- gemini vs chatgpt vs claude
+- que ia es mejor
+- benchmark modelos ia
+- comparativa modelos ia 2026
+relatedEpisodes:
+- 15
+- 8
+- 13
 relatedGuides:
-  - "claude-code"
-  - "openclaw"
-  - "agentes-de-ia"
+- claude-code
+- openclaw
+- agentes-de-ia
 funnel:
-  type: "premium"
-  label: "Aprende los fundamentos: Intro a LLMs (CAR)"
-  cta: "El módulo Intro a LLMs en Cágala, Aprende, Repite te enseña por qué el contexto importa, por qué el tool use falla en español y por qué un prompt bien armado rinde tres veces más que uno impulsivo. Eso aplica a cualquier modelo que exista hoy y a los que vengan en seis meses — y te ahorra perseguir cada lanzamiento. Lo ves, lo replicás, lo aplicás a tu contexto."
-  ctaButton: "Acceder al módulo Intro a LLMs →"
-  url: "https://www.skool.com/cagala-aprende-repite/classroom/8d3910b1?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_gemini_vs_chatgpt"
+  type: premium
+  label: 'Aprende los fundamentos: Intro a LLMs (CAR)'
+  cta: El módulo Intro a LLMs en Cágala, Aprende, Repite te enseña por qué el contexto importa, por qué el tool use falla en español y por qué un prompt bien armado rinde tres veces más que uno impulsivo. Eso aplica a cualquier modelo que exista hoy y a los que vengan en seis meses — y te ahorra perseguir cada lanzamiento. Lo ves, lo replicás, lo aplicás a tu contexto.
+  ctaButton: Acceder al módulo Intro a LLMs →
+  url: https://www.skool.com/cagala-aprende-repite/classroom/8d3910b1?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_gemini_vs_chatgpt
 faq:
-  - question: "¿Gemini es mejor que ChatGPT en 2026?"
-    answer: "Depende del contexto. Si vives en Google Workspace (Gmail, Drive, Meet), Gemini llega sin costo extra y sin configuración adicional — esa fricción cero lo hace mejor para adopción masiva en empresas con ese stack. Si necesitas agentes de código que trabajen en repositorios complejos, Claude Code sigue siendo el estándar. ChatGPT tiene la base de usuarios más grande pero el 90% son gratuitos y con bajo costo de cambio. No hay un ganador universal: hay un mejor candidato para cada trabajo."
-  - question: "¿Por qué KPMG y PwC migraron de Anthropic a Gemini?"
-    answer: "Por costo de cambio bajo más ecosistema ya instalado. KPMG y PwC viven en Google Workspace. Cuando Gemini llegó como capa de IA gratuita sobre ese mismo ecosistema, el argumento para pagar por Anthropic se debilitó. No fue porque Claude sea peor: fue porque Gemini no requería nueva configuración, nuevo contrato ni convencer a IT. El costo de cambio era casi cero. Cuando el ecosistema ya está capturado, la distribución gana a la calidad marginal."
-  - question: "¿Qué es Gemini Spark?"
-    answer: "El agente personalizado 24/7 de Google anunciado en el I/O 2026. Vive en Google Cloud en un espacio asignado solo a ti, tiene acceso a tu contexto de Google (correos, archivos, calendario) y conectores a servicios de terceros con computer use. Por ahora disponible solo en planes Ultra en Estados Unidos. Es la respuesta de Google a Claude Code y ChatGPT Operator: el agente que vive contigo, con tu contexto ya cargado."
-  - question: "¿Qué es el benchmark de 53 modelos de Cristian Tala?"
-    answer: "Una calculadora pública en benchmarks.cristiantala.com donde ingresas tu presupuesto mensual, llamadas al mes y caso de uso, y el sistema filtra los modelos que pasan tus criterios. Corre 91 tests — redacción, código, razonamiento, tool use, contexto largo — contra 53 modelos. Cristian lo usó en el episodio 8 cuando Anthropic encareció el acceso a Opus y necesitaba evaluar alternativas con datos propios en vez de confiar en los benchmarks de marketing de cada laboratorio."
-  - question: "¿Por qué Claude Code es distinto de Claude.ai?"
-    answer: "Claude.ai es la interfaz web: chateas, copias la respuesta, no toca tu sistema de archivos. Claude Code es un agente que opera en tu terminal: lee el árbol de archivos de tu proyecto, ejecuta comandos del sistema, modifica archivos reales y encadena tareas de varios pasos sin supervisión continua. Si le dices 'analiza este repositorio y genera tests para todas las funciones que no los tengan', lo hace solo. Es para trabajo técnico en contexto de proyecto, no para conversación general."
-  - question: "¿El prompting que aprendo en ChatGPT sirve para Gemini y Claude?"
-    answer: "En gran medida, sí. Los tres son transformers que responden a contexto. Las habilidades de dar contexto relevante, construir instrucciones claras y estructurar el output esperado se transfieren entre plataformas. Lo que cambia son los detalles de implementación — cómo se manejan los archivos adjuntos, cómo se configuran los agentes, qué conectores están disponibles — pero la mecánica central del prompting es la misma."
+- question: ¿Gemini es mejor que ChatGPT en 2026?
+  answer: 'Depende del contexto. Si vives en Google Workspace (Gmail, Drive, Meet), Gemini llega sin costo extra y sin configuración adicional — esa fricción cero lo hace mejor para adopción masiva en empresas con ese stack. Si necesitas agentes de código que trabajen en repositorios complejos, Claude Code sigue siendo el estándar. ChatGPT tiene la base de usuarios más grande pero el 90% son gratuitos y con bajo costo de cambio. No hay un ganador universal: hay un mejor candidato para cada trabajo.'
+- question: ¿Por qué KPMG y PwC migraron de Anthropic a Gemini?
+  answer: 'Por costo de cambio bajo más ecosistema ya instalado. KPMG y PwC viven en Google Workspace. Cuando Gemini llegó como capa de IA gratuita sobre ese mismo ecosistema, el argumento para pagar por Anthropic se debilitó. No fue porque Claude sea peor: fue porque Gemini no requería nueva configuración, nuevo contrato ni convencer a IT. El costo de cambio era casi cero. Cuando el ecosistema ya está capturado, la distribución gana a la calidad marginal.'
+- question: ¿Qué es Gemini Spark?
+  answer: 'El agente personalizado 24/7 de Google anunciado en el I/O 2026. Vive en Google Cloud en un espacio asignado solo a ti, tiene acceso a tu contexto de Google (correos, archivos, calendario) y conectores a servicios de terceros con computer use. Por ahora disponible solo en planes Ultra en Estados Unidos. Es la respuesta de Google a Claude Code y ChatGPT Operator: el agente que vive contigo, con tu contexto ya cargado.'
+- question: ¿Qué es el benchmark de 53 modelos de Cristian Tala?
+  answer: Una calculadora pública en benchmarks.cristiantala.com donde ingresas tu presupuesto mensual, llamadas al mes y caso de uso, y el sistema filtra los modelos que pasan tus criterios. Corre 91 tests — redacción, código, razonamiento, tool use, contexto largo — contra 53 modelos. Cristian lo usó en el episodio 8 cuando Anthropic encareció el acceso a Opus y necesitaba evaluar alternativas con datos propios en vez de confiar en los benchmarks de marketing de cada laboratorio.
+- question: ¿Por qué Claude Code es distinto de Claude.ai?
+  answer: 'Claude.ai es la interfaz web: chateas, copias la respuesta, no toca tu sistema de archivos. Claude Code es un agente que opera en tu terminal: lee el árbol de archivos de tu proyecto, ejecuta comandos del sistema, modifica archivos reales y encadena tareas de varios pasos sin supervisión continua. Si le dices ''analiza este repositorio y genera tests para todas las funciones que no los tengan'', lo hace solo. Es para trabajo técnico en contexto de proyecto, no para conversación general.'
+- question: ¿El prompting que aprendo en ChatGPT sirve para Gemini y Claude?
+  answer: En gran medida, sí. Los tres son transformers que responden a contexto. Las habilidades de dar contexto relevante, construir instrucciones claras y estructurar el output esperado se transfieren entre plataformas. Lo que cambia son los detalles de implementación — cómo se manejan los archivos adjuntos, cómo se configuran los agentes, qué conectores están disponibles — pero la mecánica central del prompting es la misma.
 ---
 
 Google I/O 2026 tuvo más de 100 anuncios en un día. En ese mismo ciclo, KPMG y PwC migraron parte de sus operaciones de Anthropic a Gemini. Y Andrej Karpathy — cofundador de OpenAI, diseñador del sistema de conducción autónoma de Tesla — anunció que se sumaba a Anthropic. Una semana bochornosa para el análisis de tendencias.
