@@ -69,6 +69,8 @@ En el podcast lo hemos usado para:
 
 No es la mejor herramienta para tareas de conversación pura, generación de imágenes ni procesamiento de video.
 
+¿Y si no programas? El nombre asusta, pero Claude Code también sirve para operar un negocio sin escribir una línea de código: ordenar archivos, cuadrar gastos, armar el reporte del lunes, investigar prospectos. Cristian lo enseña paso a paso para founders no técnicos en su curso [Claude Code para Emprendedores](https://cristiantala.com/cursos/claude-code-para-emprendedores/?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_claude_code).
+
 ---
 
 ## ¿Cómo funciona Claude Code?
