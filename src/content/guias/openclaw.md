@@ -1,7 +1,7 @@
 ---
 title: 'OpenClaw: qué es, cómo instalarlo y cuándo usarlo'
 date: '2026-05-28'
-updatedAt: '2026-06-30'
+updatedAt: '2026-07-07'
 description: OpenClaw es el framework open source de agentes que instala en tu máquina o VPS y trabaja contigo 24/7. Qué es, cómo funciona, cuánto cuesta el cerebro, y por qué la gente está migrando.
 seoTitle: 'OpenClaw: qué es, cómo instalarlo y cuándo usarlo (2026)'
 seoDescription: 'OpenClaw: el agente IA open source que instala en tu máquina y trabaja contigo 24/7. Qué es, cómo funciona, VPS vs local, comparativa con Claude Code y Hermes. Guía 2026.'
@@ -16,6 +16,7 @@ keywords:
 - agente ia personalizado
 - openclaw vps servidor
 relatedEpisodes:
+- 17
 - 16
 - 15
 - 1

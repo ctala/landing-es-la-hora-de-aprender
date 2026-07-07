@@ -1,7 +1,7 @@
 ---
 title: 'Agentes de IA: qué son, cómo funcionan y cómo crear el tuyo'
 date: '2026-05-28'
-updatedAt: '2026-06-30'
+updatedAt: '2026-07-07'
 description: 'Los agentes de IA no son chatbots: ejecutan tareas, mantienen memoria y trabajan solos. Qué son, qué tipos hay, cuándo usar n8n vs un agente y cómo construir el primero.'
 seoTitle: 'Agentes de IA: qué son, cómo funcionan y cómo crear el tuyo'
 seoDescription: 'Los agentes de IA no son chatbots: ejecutan tareas, mantienen memoria y trabajan solos. Tipos, cuándo usar n8n vs un agente y cómo construir el primero. Guía 2026.'
@@ -16,6 +16,7 @@ keywords:
 - agente personal ia
 - agent ops
 relatedEpisodes:
+- 17
 - 16
 - 15
 - 1
