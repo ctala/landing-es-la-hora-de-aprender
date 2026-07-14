@@ -4,6 +4,20 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.18.2] - 2026-07-14
+
+### 🔗 Link al Manual de Marca en el footer
+
+El manual de marca del podcast vivía en R2 (`assets.cristiantala.com/brand/hora.html`) sin estar enlazado desde ningún lado — para encontrarlo había que recordar la URL, y el archivo se llama `hora.html`, no `elhda.html`, así que buscarlo por el nombre obvio daba 404.
+
+Ahora cuelga de la línea de créditos del footer, junto al link de GitHub y con el mismo estilo discreto (gris `#9ca3af`, 10px, `target="_blank"` + `rel="noopener noreferrer"`).
+
+Nota: es un link de utilidad, no una jugada de SEO. Va a un subdominio de assets y es sitewide en el footer, así que no transfiere autoridad. El backlink dofollow a `cristiantala.com` que sí cuenta ya estaba en la tarjeta de hosts.
+
+Archivos: `src/components/SiteFooter.astro`.
+
+---
+
 ## [3.18.1] - 2026-04-24
 
 ### 🔧 Fix visual: breadcrumb full-width para coherencia con header + article
