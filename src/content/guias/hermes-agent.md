@@ -26,6 +26,7 @@ relatedGuides:
 - claude-code
 - agentes-de-ia
 - n8n
+- ia-local
 funnel:
   type: premium
   label: Aprende a armar tu stack agéntico — AI Agents Starter Kit (CAR)

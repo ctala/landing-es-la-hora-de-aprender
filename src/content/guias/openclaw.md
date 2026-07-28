@@ -31,6 +31,7 @@ relatedGuides:
 - claude-code
 - n8n
 - agentes-de-ia
+- ia-local
 funnel:
   type: premium
   label: Construye tu primer agente — AI Agents Starter Kit (CAR)

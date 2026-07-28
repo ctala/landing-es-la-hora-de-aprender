@@ -25,6 +25,7 @@ relatedGuides:
 - claude-code
 - openclaw
 - agentes-de-ia
+- ia-local
 funnel:
   type: premium
   label: 'Aprende los fundamentos: Intro a LLMs (CAR)'

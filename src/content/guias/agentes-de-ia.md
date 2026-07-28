@@ -30,6 +30,7 @@ relatedGuides:
 - hermes-agent
 - claude-code
 - n8n
+- ia-local
 funnel:
   type: premium
   label: Construye tu primer agente — AI Agents Starter Kit (CAR)
