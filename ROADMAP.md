@@ -128,13 +128,17 @@ Plan completo en [`docs/SEO-GROWTH-STRATEGY.md`](docs/SEO-GROWTH-STRATEGY.md). T
 - [x] `/guias/validar-idea-con-ia/` — ~1.870 palabras, del MVP al criterio de disposición a pagar. Cruzado a EP11, 14.
 - [x] `/guias/emprender-con-ia/` — ~2.010 palabras, ventana LATAM + stack <USD 100/mes. Cruzado a EP11, 14.
 
-Total Fase 2: 8 hubs en producción · cluster combinado ES+MX ~36K búsquedas/mes (comp baja/media) · 100% internal-linking cruzado entre hubs y con episodios.
+- [x] `/guias/ia-local/` — ~2.730 palabras, target `ia local` + long-tail transaccional de hardware ("cuánta RAM", "qué computador", "cuánto cuesta"). RAM vs bandwidth, tabla de costos por tipo de equipo, los 5 escenarios donde el local gana. Cruzado a EP08, 15, 17, 18. Creado 28-jul-2026 a partir del EP18 — primer hub nacido de un episodio (el input que la Fase 4 dejaba pendiente cuando no existe hub del tema).
+
+Total Fase 2: 9 hubs en producción · cluster combinado ES+MX ~36K búsquedas/mes (comp baja/media) · 100% internal-linking cruzado entre hubs y con episodios.
 
 ### Fase 3 — Capa programática — EN PROGRESO
 - [x] `/glosario/` collection + route + index con `DefinedTermSet` JSON-LD.
 - [x] `/glosario/mcp/` — Model Context Protocol. Cruzado a claude-code, n8n, EP13/14.
 - [x] `/glosario/agente-de-ia/` — base + 3 tipos. Cruzado a claude-code, n8n, EP04/05/12/14.
-- [ ] Más entradas de glosario conforme aparezcan en hubs futuros: tool use, MoE, RAG, computer use, vibecoding, fine-tuning, context window.
+- [x] `/glosario/temperatura/` — parámetro de aleatoriedad del modelo.
+- [x] **Tanda 28-jul-2026 (EP18)** — 4 entradas derivadas del episodio: `/glosario/pesos-abiertos/` (open weights vs open source), `/glosario/bandwidth/` (RAM vs ancho de banda en IA local), `/glosario/harness/` (por qué el mismo modelo rinde distinto), `/glosario/mixture-of-experts/` (MoE). Todas cruzadas al hub `ia-local` y entre sí. Verificadas contra el glosario de eco antes de crear (las 4 daban 404 → sin riesgo de canibalización).
+- [ ] Más entradas de glosario conforme aparezcan en hubs futuros: tool use, RAG, computer use, vibecoding, fine-tuning, context window.
 - [ ] `/comparativas/{a}-vs-{b}/` con benchmark IA (53 modelos × 91 tests) como dato propietario.
 - [ ] `/guias/mejores-{categoria}/` — "mejores herramientas de IA para founders / marketing / automatizar".
 
