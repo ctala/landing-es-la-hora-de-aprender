@@ -1,7 +1,7 @@
 ---
 title: 'Claude Code: qué es, cómo empezar y cuánto cuesta'
 date: '2026-05-28'
-updatedAt: '2026-07-07'
+updatedAt: '2026-07-28'
 description: Claude Code es la CLI de Anthropic para programar con IA desde la terminal. Qué hace, cuánto cuesta, cómo instalarlo y cuándo conviene — desde la cancha del podcast.
 seoTitle: 'Claude Code: qué es, cómo empezar y cuánto cuesta (2026)'
 seoDescription: Claude Code es la CLI de Anthropic para programar con IA desde tu terminal. Qué hace, precio, cómo instalarlo y cuándo conviene usarlo. Guía práctica 2026.
@@ -16,6 +16,7 @@ keywords:
 - como usar claude code
 - claude code mcp
 relatedEpisodes:
+- 18
 - 17
 - 16
 - 15

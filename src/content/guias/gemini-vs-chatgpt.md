@@ -1,7 +1,7 @@
 ---
 title: 'Gemini vs ChatGPT vs Claude: la comparativa real de 2026'
 date: '2026-05-28'
-updatedAt: '2026-06-12'
+updatedAt: '2026-07-28'
 description: Gemini, ChatGPT y Claude no hacen lo mismo. Cuándo elegir cada uno según tu caso real, qué pasó con KPMG y Google, y qué dice el benchmark de 53 modelos del podcast.
 seoTitle: 'Gemini vs ChatGPT vs Claude: comparativa real (2026)'
 seoDescription: Gemini, ChatGPT y Claude no hacen lo mismo. Cuándo elegir cada uno según tu caso real, qué pasó con KPMG y Google, y qué dice el benchmark de 53 modelos.
@@ -17,6 +17,7 @@ keywords:
 - fable 5 anthropic
 - fable 5 vs opus
 relatedEpisodes:
+- 18
 - 15
 - 8
 - 13
@@ -32,7 +33,7 @@ funnel:
   url: https://www.skool.com/cagala-aprende-repite/classroom/8d3910b1?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_gemini_vs_chatgpt
 faq:
 - question: ¿Qué es Fable 5 de Anthropic?
-  answer: 'El primer modelo de la línea Mythos de Anthropic, lanzado en junio de 2026 un escalón por encima de Opus. Mythos 5 es el modelo completo para organizaciones aprobadas; Fable 5 es la variación para el público general. Cuesta aproximadamente el doble que Opus 4.8 por token y está incluido en los planes de suscripción solo hasta el 22 de junio de 2026 — después se usa con créditos aparte. Brilla en tareas agénticas complejas; para el día a día, Opus o Sonnet siguen rindiendo de sobra.'
+  answer: El primer modelo de la línea Mythos de Anthropic, lanzado en junio de 2026 un escalón por encima de Opus. Mythos 5 es el modelo completo para organizaciones aprobadas; Fable 5 es la variación para el público general. Cuesta aproximadamente el doble que Opus 4.8 por token y está incluido en los planes de suscripción solo hasta el 22 de junio de 2026 — después se usa con créditos aparte. Brilla en tareas agénticas complejas; para el día a día, Opus o Sonnet siguen rindiendo de sobra.
 - question: ¿Gemini es mejor que ChatGPT en 2026?
   answer: 'Depende del contexto. Si vives en Google Workspace (Gmail, Drive, Meet), Gemini llega sin costo extra y sin configuración adicional — esa fricción cero lo hace mejor para adopción masiva en empresas con ese stack. Si necesitas agentes de código que trabajen en repositorios complejos, Claude Code sigue siendo el estándar. ChatGPT tiene la base de usuarios más grande pero el 90% son gratuitos y con bajo costo de cambio. No hay un ganador universal: hay un mejor candidato para cada trabajo.'
 - question: ¿Por qué KPMG y PwC migraron de Anthropic a Gemini?
