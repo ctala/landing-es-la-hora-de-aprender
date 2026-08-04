@@ -1,7 +1,7 @@
 ---
 title: 'Gemini vs ChatGPT vs Claude: la comparativa real de 2026'
 date: '2026-05-28'
-updatedAt: '2026-07-28'
+updatedAt: '2026-08-04'
 description: Gemini, ChatGPT y Claude no hacen lo mismo. Cuándo elegir cada uno según tu caso real, qué pasó con KPMG y Google, y qué dice el benchmark de 53 modelos del podcast.
 seoTitle: 'Gemini vs ChatGPT vs Claude: comparativa real (2026)'
 seoDescription: Gemini, ChatGPT y Claude no hacen lo mismo. Cuándo elegir cada uno según tu caso real, qué pasó con KPMG y Google, y qué dice el benchmark de 53 modelos.
@@ -17,6 +17,7 @@ keywords:
 - fable 5 anthropic
 - fable 5 vs opus
 relatedEpisodes:
+- 19
 - 18
 - 15
 - 8
