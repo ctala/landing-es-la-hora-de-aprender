@@ -1,7 +1,7 @@
 ---
 title: 'Emprender con IA en 2026: la ventana que se está cerrando'
 date: '2026-05-28'
-updatedAt: '2026-08-04'
+updatedAt: '2026-08-18'
 description: Coinbase echó a 7.000 personas por IA. Las contrataciones hacia LATAM crecieron 250%. Hay una ventana y se está cerrando. Cómo emprender con IA desde hoy, con o sin inversión.
 seoTitle: 'Emprender con IA en 2026: la ventaja que no va a durar'
 seoDescription: Coinbase echó a 7.000 por IA. Las contrataciones hacia LATAM crecieron 250%. La ventana existe y se cierra. Cómo emprender con IA hoy, con o sin sueldo.
@@ -15,6 +15,7 @@ keywords:
 - founder ia solo
 - ventana latam ia 2026
 relatedEpisodes:
+- 20
 - 19
 - 11
 - 14

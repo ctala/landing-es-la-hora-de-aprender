@@ -1,7 +1,7 @@
 ---
 title: 'IA local: cuánto cuesta de verdad correr tus propios modelos'
 date: '2026-07-28'
-updatedAt: '2026-08-04'
+updatedAt: '2026-08-18'
 description: Los modelos abiertos alcanzaron a los de frontera y correr IA en tu propio computador dejó de ser un experimento. Qué hardware necesitas, cuánto cuesta en 2026 y cuándo conviene más pagar una suscripción de US$20.
 seoTitle: 'IA local 2026: cuánto cuesta correr tus propios modelos'
 seoDescription: 'Cuánto cuesta correr modelos de IA en local en 2026: RAM vs bandwidth, precios reales de Mac Studio y DGX Spark, y en qué casos conviene más una suscripción.'
@@ -17,6 +17,7 @@ keywords:
 - dgx spark vs mac studio
 - modelos locales vs suscripcion
 relatedEpisodes:
+- 20
 - 19
 - 18
 - 17

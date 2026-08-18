@@ -1,7 +1,7 @@
 ---
 title: 'Hermes Agent: qué es, cómo funciona y por qué la gente está migrando'
 date: '2026-05-28'
-updatedAt: '2026-08-04'
+updatedAt: '2026-08-18'
 description: Hermes es el agente IA open source de Nous Research que superó a OpenClaw en instalaciones tras los cambios de Anthropic. Qué es, por qué la gente migra, cómo empezar y cuándo OpenClaw aún tiene sentido.
 seoTitle: 'Hermes Agent: qué es y por qué supera a OpenClaw (2026)'
 seoDescription: Hermes Agent es el framework open source de Nous Research que superó a OpenClaw en instalaciones. Dreaming, skill bundles, qué cerebro usar y cómo empezar. Guía 2026.
@@ -15,6 +15,7 @@ keywords:
 - dreaming hermes
 - skill bundles hermes
 relatedEpisodes:
+- 20
 - 19
 - 18
 - 17
