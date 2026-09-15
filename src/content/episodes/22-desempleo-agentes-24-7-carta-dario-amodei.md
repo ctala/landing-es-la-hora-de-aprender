@@ -33,7 +33,7 @@ topics:
   - "El ensayo de Dario Amodei: pausar la frontera, no frenarla"
   - "RSI en Google y la guerra fría de la IA con China"
   - "Un pipeline de 175 noticias en un lunes por US$200 a US$300 al mes"
-relatedEpisodes: [19, 17, 11, 10]
+relatedEpisodes: [21, 19, 17, 11]
 keywords:
   - "carta dario amodei pausar la ia"
   - "we must pace the frontier resumen"
@@ -329,6 +329,7 @@ Es hacer que el agente escriba primero la especificación y recién después la 
 
 **Episodios relacionados**
 
+- [EP21 — GPT-6 Astra, Fable 5.1, Grok Bot y Muse](/episodios/21-gpt-6-astra-fable-5-1-grok-bot-muse) — las dos semanas que cambiaron todo, con los mismos protagonistas de este episodio.
 - [EP19 — Tu primer empleado digital cuesta US$20 al mes](/episodios/19-primer-empleado-digital-20-dolares-mes) — cuándo un agente y cuándo una automatización.
 - [EP17 — Dejé de usar la IA como herramienta y la contraté](/episodios/17-ia-como-socio-agentes-en-el-negocio) — la IA como socio del negocio.
 - [EP11 — Coinbase echó 7.000 personas por IA](/episodios/11-coinbase-robots-ventana-latam-emprender) — la ventana LATAM para emprender.
