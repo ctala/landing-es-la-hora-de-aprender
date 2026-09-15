@@ -9,9 +9,9 @@ durationSeconds: 3225
 youtube: "https://www.youtube.com/watch?v=mU276qlJBGU"
 youtubeId: "mU276qlJBGU"
 spotify: "https://open.spotify.com/episode/2Op521llY5GIn6FjmaKVUo"
-description: "OpenAI dice que 10.000 agentes resolvieron un problema matemático de 80 años, el desempleo en Chile toca 9,9% y Dario Amodei pide pausar la frontera. Entre medio, Cristian cuenta cómo maneja un negocio entero con agentes 24/7."
+description: "OpenAI dice que 10.000 agentes resolvieron uno de los siete problemas del milenio, el desempleo en Chile toca 9,5% y Dario Amodei pide pausar la frontera. Entre medio, Cristian cuenta cómo maneja un negocio entero con agentes 24/7."
 seoTitle: "Desempleo, agentes 24/7 y la carta de Dario Amodei | EP22"
-seoDescription: "Qué pide el ensayo de Dario Amodei, qué resolvió OpenAI con 10.000 agentes, por qué Chile toca 9,9% de desempleo y cómo operar un negocio con agentes 24/7."
+seoDescription: "Qué pide el ensayo de Dario Amodei, qué resolvió OpenAI con 10.000 agentes, por qué Chile toca 9,5% de desempleo y cómo operar un negocio con agentes 24/7."
 ogImage: "https://eslahoradeaprender.com/thumbnails/ep22.webp"
 hosts:
   - name: "Cristian Tala"
@@ -25,7 +25,7 @@ topics:
   - "Hombros de gigantes: por qué todo avance científico es un remix"
   - "Día del programador: un año sin tocar código y desarrollando más que nunca"
   - "OpenSpec y TDD: el prompt inicial decide si tu plataforma escala"
-  - "Desempleo en Chile al 9,9% y los estudios contradictorios de Estados Unidos"
+  - "Desempleo en Chile al 9,5% y los estudios contradictorios de Estados Unidos"
   - "La IA reveló grasa corporativa: qué perfiles se reemplazan y cuáles se contratan más"
   - "Manejar un negocio entero solo con agentes trabajando 24/7"
   - "Grok Bot, Muse y Spark: agentes para quien le teme al terminal"
@@ -46,7 +46,7 @@ keywords:
   - "hermes desktop app agente"
   - "spec driven development openspec"
 keyTakeaways:
-  - "Los agentes ya hacen investigación, no solo tareas operativas: OpenAI puso 10.000 agentes 88 horas sobre un problema abierto hace más de 80 años y el modelo dedicó 17 horas más a formalizar la prueba en Lean"
+  - "Los agentes ya hacen investigación, no solo tareas operativas: OpenAI puso 10.000 agentes 88 horas sobre uno de los siete problemas del milenio y el modelo dedicó 17 horas más a formalizar la prueba en Lean"
   - "Un programador hoy define el proceso, no teclea el código: Cristian lleva un año sin tocar código y desarrolla más que nunca porque el agente escribe el spec, las pruebas y la implementación"
   - "La IA no reemplaza al que aporta criterio sino al que solo ejecuta: por eso caen perfiles en corporaciones gigantes mientras otras empresas contratan más Product Managers que nunca"
   - "Un negocio entero puede operar con agentes 24/7, pero el cuello de botella pasa a ser tu atención: revisar y validar lo que hacen"
@@ -87,7 +87,7 @@ timestamps:
     label: "OpenSpec, TDD y el prompt inicial que decide si escala"
   - time: "37:10"
     seconds: 2230
-    label: "Desempleo en Chile al 9,9% y la grasa corporativa"
+    label: "Desempleo en Chile al 9,5% y la grasa corporativa"
   - time: "43:50"
     seconds: 2630
     label: "Spark de Google funciona, pero nadie lo empuja"
@@ -157,17 +157,17 @@ resources:
 faq:
   - question: "¿Qué dice el ensayo We Must Pace the Frontier de Dario Amodei?"
     answer: "Que hay que ponerle pausa a la frontera, no frenarla. Rodrigo lo diferencia de la carta de hace un par de años que pedía detener el desarrollo de la IA y que firmó hasta Elon Musk. El argumento es que los modelos actuales ya sostienen tareas complejas por mucho tiempo, y hace falta evaluarlos bien antes de lanzarlos, con coordinación global y estructuras formales que permitan mantener control. En el episodio notan que Musk, Sam Altman y Satya Nadella salieron a decir que están de acuerdo, pero ninguno coincide en las formas ni quiere ser el primero en sumarse."
-  - question: "¿OpenAI realmente resolvió un problema matemático de 80 años con agentes?"
+  - question: "¿OpenAI realmente resolvió uno de los siete problemas del milenio con agentes?"
     answer: "Según lo que comentan, OpenAI anunció que 10.000 agentes llegaron a la solución tras 88 horas y que GPT-6 Astra usó 17 horas adicionales para formalizar y verificar la prueba en Lean. El problema es la suavidad de Navier-Stokes, uno de los siete problemas del milenio. El debate vino después: investigadores de Anthropic habían adelantado una parte, y varios matemáticos discuten si eso cuenta como resolverlo. Para los tres hosts, cuenta: la ciencia siempre se construye sobre lo anterior y los agentes hacen exactamente lo mismo."
   - question: "¿La inteligencia artificial está destruyendo empleo o creándolo?"
-    answer: "Las dos cosas a la vez, y por eso los estudios se contradicen. Diego trae la nota de La Tercera: el desempleo en Chile llegó a 9,9% y la gente pasa más tiempo desempleada, mientras en Estados Unidos un estudio dice que se crean más empleos de los que se destruyen y otros dicen lo contrario. Rodrigo separa dos fenómenos: en corporaciones gigantes la IA reveló perfiles que solo ejecutaban, y esa ejecución la absorbe la máquina; en el resto de las empresas los equipos van tan rápido que faltan Product Managers, y la gente que adoptó IA está trabajando más que antes."
+    answer: "Las dos cosas a la vez, y por eso los estudios se contradicen. Diego trae la nota de La Tercera: el desempleo en Chile llegó a 9,5%, el más alto en cinco años según el INE, y la gente pasa más tiempo desempleada, mientras en Estados Unidos un estudio dice que se crean más empleos de los que se destruyen y otros dicen lo contrario. Rodrigo separa dos fenómenos: en corporaciones gigantes la IA reveló perfiles que solo ejecutaban, y esa ejecución la absorbe la máquina; en el resto de las empresas los equipos van tan rápido que faltan Product Managers, y la gente que adoptó IA está trabajando más que antes."
   - question: "¿Se puede manejar un negocio entero solo con agentes de IA?"
     answer: "Cristian dice que sí, y que es lo que hace: pagar un plan caro para tener agentes 24/7 equivale a tener especialistas trabajando 24/7. Rodrigo lo confirma con su operación: cursos para empresas, cursos online y cursos en Platzi que administra solo, con un contador y una persona por horas. Su agente revisa el correo, le avisa una vez al día qué contestar, le lee los mensajes de WhatsApp y avanza tareas mientras él descansa. La advertencia es que el cuello de botella pasa a ser tu atención: alguien tiene que mirar y validar lo que hacen los agentes."
   - question: "¿Qué es Spec Driven Development y por qué importa si no programo?"
     answer: "Es hacer que el agente escriba primero la especificación de lo que vas a construir y recién después la ejecute. Rodrigo usa la skill OpenSpec: le dices al agente qué quieres, te hace preguntas, redacta el spec y otro nivel lo toma y desarrolla, en Claude Code, Codex o Cursor. Cristian suma TDD: el agente genera las pruebas antes de programar. Importa aunque no programes porque el prompt inicial decide si sale una plataforma escalable o una que no lo es, y si no estudiaste programación puedes preguntarle al mismo agente cuáles son las buenas prácticas y pedirle que las siga."
 ---
 
-El episodio 22 junta tres noticias que parecen de universos distintos y son la misma pregunta. OpenAI dice que 10.000 agentes resolvieron en 88 horas un problema matemático abierto hace más de 80 años. En Chile, el desempleo llegó a 9,9% y una nota de La Tercera lo conecta con la automatización. Y Dario Amodei publicó un ensayo pidiendo ponerle pausa a la frontera. Entre medio, qué probaron los tres esta semana, de Grok Bot a la aplicación de escritorio de Hermes, y una confesión de Cristian que resume el episodio: lleva un año sin tocar código y desarrolla más que nunca.
+El episodio 22 junta tres noticias que parecen de universos distintos y son la misma pregunta. OpenAI dice que 10.000 agentes resolvieron en 88 horas uno de los siete problemas del milenio. En Chile, el desempleo llegó a 9,5% y una nota de La Tercera lo conecta con la automatización. Y Dario Amodei publicó un ensayo pidiendo ponerle pausa a la frontera. Entre medio, qué probaron los tres esta semana, de Grok Bot a la aplicación de escritorio de Hermes, y una confesión de Cristian que resume el episodio: lleva un año sin tocar código y desarrolla más que nunca.
 
 ## Lo que vas a aprender
 
@@ -177,9 +177,9 @@ El episodio 22 junta tres noticias que parecen de universos distintos y son la m
 - Verás cómo se opera un negocio solo con agentes trabajando 24/7 y dónde queda el cuello de botella
 - Y vas a salir sabiendo qué pide el ensayo de Dario Amodei, quién dijo estar de acuerdo y por qué nadie se suma primero
 
-## ¿Puede un agente resolver un problema matemático de 80 años?
+## ¿Puede un agente resolver uno de los siete problemas del milenio?
 
-Según OpenAI, ya pasó. Diego abre el tema con el anuncio: uno de los problemas más grandes de la matemática, sin resolver por más de 80 años, resuelto con 10.000 agentes trabajando 88 horas. El detalle que aporta después ordena la historia: los agentes llegaron a la solución unas 88 horas después de partir, y GPT-6 Astra usó 17 horas adicionales para formalizar y verificar la prueba en Lean. El problema era la suavidad de Navier-Stokes, uno de los siete problemas del milenio.
+Según OpenAI, ya pasó. Diego abre el tema con el anuncio: uno de los problemas más grandes de la matemática, sin resolver desde hace décadas, resuelto con 10.000 agentes trabajando 88 horas. El detalle que aporta después ordena la historia: los agentes llegaron a la solución unas 88 horas después de partir, y GPT-6 Astra usó 17 horas adicionales para formalizar y verificar la prueba en Lean. El problema era la suavidad de Navier-Stokes, uno de los siete problemas del milenio.
 
 Lo que vino después fue ruido: investigadores de Anthropic habían adelantado una parte, y varios matemáticos discuten si eso cuenta como resolverlo. Para Cristian, el debate se pierde lo importante. Nadie desarrolla un lenguaje de programación nuevo para armar una página web; los investigadores tampoco parten de cero. Los agentes hacen exactamente lo mismo, y el punto es que ya están haciendo investigación: detectar patrones en ADN, resolver problemas complejos. Trabajo que nosotros ni siquiera imaginamos pedirles.
 
@@ -207,7 +207,7 @@ Su ejemplo es Ecosistema Startup: no es una página genérica, tiene el estilo, 
 
 ## ¿La IA está destruyendo empleo o revelando grasa corporativa?
 
-Los datos apuntan en direcciones opuestas y Diego los pone sobre la mesa. La Tercera publicó que Chile es uno de los países con más puestos expuestos, el desempleo llegó a 9,9% y el tiempo que la gente pasa desempleada es cada vez más largo. En Estados Unidos, un estudio reciente dice que se han creado más trabajos de los que se destruyeron, pero otros hechos casi al mismo tiempo dicen lo contrario. Y Sam Altman acaba de decir algo parecido a lo que Cristian venía diciendo: pensábamos que todo iba a pasar más rápido, pero la inercia de las empresas frenó los despidos.
+Los datos apuntan en direcciones opuestas y Diego los pone sobre la mesa. La Tercera publicó que Chile es uno de los países con más puestos expuestos, el desempleo llegó a 9,5%, el más alto en cinco años según el INE (en el episodio se cita 9,9%), y el tiempo que la gente pasa desempleada es cada vez más largo. En Estados Unidos, un estudio reciente dice que se han creado más trabajos de los que se destruyeron, pero otros hechos casi al mismo tiempo dicen lo contrario. Y Sam Altman acaba de decir algo parecido a lo que Cristian venía diciendo: pensábamos que todo iba a pasar más rápido, pero la inercia de las empresas frenó los despidos.
 
 Rodrigo separa dos fenómenos que los titulares mezclan. El primero son las olas de despidos en multinacionales gigantes de telecomunicaciones, banca y tecnología: empresas que por tamaño podían sumar una persona más para ejecutar sin que pesara. Esos perfiles no aportan criterio: le preguntan al jefe, ejecutan y se van. Esa ejecución la absorbe la IA.
 
@@ -246,7 +246,7 @@ Cristian pensaba que la herramienta para el usuario normal iba a ser Spark, de G
 
 ## ¿Qué pide de verdad el ensayo de Dario Amodei?
 
-Más que una carta, es un ensayo, y Rodrigo lo ubica en la serie: el clásico es Machines of Loving Grace y el nuevo se llama We Must Pace the Frontier, publicado el jueves o viernes de la semana pasada. Lo central es ponerle pausa a la frontera, no frenarla. La distinción importa porque hace un par de años circuló una carta para detener el desarrollo de la IA, firmada hasta por Elon Musk, y ChatGPT cumple cuatro años el 30 de noviembre.
+Más que una carta, es un ensayo, y Rodrigo lo ubica en la serie: el clásico es Machines of Loving Grace y el nuevo se llama We Must Pace the Frontier, publicado el sábado 12 de septiembre. Lo central es ponerle pausa a la frontera, no frenarla. La distinción importa porque hace un par de años circuló una carta para detener el desarrollo de la IA, firmada hasta por Elon Musk, y ChatGPT cumple cuatro años el 30 de noviembre.
 
 El argumento de fondo es que los modelos llegaron a un punto de disrupción seria. Los que han usado Astra o Fable saben que toman una tarea compleja y la sostienen por mucho tiempo; Astra tiene el récord de velocidad jugando Pokémon, y para Rodrigo ese es el benchmark que importa, no los de Cristian. De ahí el llamado: evaluar bien estas tecnologías antes de lanzarlas, coordinación global y democrática, estructuras formales que permitan mantener el control. Con una aclaración de Rodrigo: cuando dicen coordinación global, hablan de Estados Unidos y sus gobiernos aliados.
 
@@ -275,7 +275,7 @@ Rodrigo terminó un curso de Copilot para una empresa, donde la versión empresa
 - **27:10** — Navier-Stokes, Lean y por qué todo es un remix
 - **31:20** — Día del programador: un año sin tocar código
 - **32:00** — OpenSpec, TDD y el prompt inicial que decide si escala
-- **37:10** — Desempleo en Chile al 9,9% y la grasa corporativa
+- **37:10** — Desempleo en Chile al 9,5% y la grasa corporativa
 - **43:50** — Spark de Google funciona, pero nadie lo empuja
 - **45:50** — El ensayo de Dario Amodei: pausar, no frenar
 - **50:05** — Cierre: deja al agente con /goal y sigue aprendiendo
@@ -286,13 +286,13 @@ Rodrigo terminó un curso de Copilot para una empresa, donde la versión empresa
 
 Que hay que ponerle pausa a la frontera, no frenarla, a diferencia de la carta de hace un par de años que pedía detener el desarrollo. Los modelos ya sostienen tareas complejas por mucho tiempo y hace falta evaluarlos bien antes de lanzarlos, con coordinación global. Musk, Altman y Nadella dijeron estar de acuerdo; ninguno quiere sumarse primero.
 
-### ¿OpenAI realmente resolvió un problema matemático de 80 años con agentes?
+### ¿OpenAI realmente resolvió uno de los siete problemas del milenio con agentes?
 
 Según el anuncio, 10.000 agentes llegaron a la solución tras 88 horas y GPT-6 Astra usó 17 horas más para verificar la prueba en Lean. El problema es la suavidad de Navier-Stokes, uno de los siete problemas del milenio. Que investigadores de Anthropic hubieran adelantado una parte no resta: la ciencia siempre se construye sobre lo anterior.
 
 ### ¿La inteligencia artificial está destruyendo empleo o creándolo?
 
-Las dos cosas, y por eso los estudios se contradicen. En Chile el desempleo llegó a 9,9%; en Estados Unidos hay estudios en ambas direcciones. Rodrigo separa dos fenómenos: en corporaciones gigantes la IA reveló perfiles que solo ejecutaban; en el resto de las empresas faltan Product Managers porque los equipos van más rápido de lo que alguien alcanza a dirigir.
+Las dos cosas, y por eso los estudios se contradicen. En Chile el desempleo llegó a 9,5%, el más alto en cinco años según el INE; en Estados Unidos hay estudios en ambas direcciones. Rodrigo separa dos fenómenos: en corporaciones gigantes la IA reveló perfiles que solo ejecutaban; en el resto de las empresas faltan Product Managers porque los equipos van más rápido de lo que alguien alcanza a dirigir.
 
 ### ¿Se puede manejar un negocio entero solo con agentes de IA?
 
