@@ -4,6 +4,19 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.19.0] - 2026-09-22
+
+### 🔗 Página de LinkedIn del podcast
+
+El podcast estrenó página de empresa en LinkedIn: https://www.linkedin.com/company/eslahoradeaprender/
+
+- **Footer:** «Síguenos en LinkedIn →» en la línea de créditos, en lima para que se vea (el resto de esa línea es gris a propósito).
+- **JSON-LD `PodcastSeries`:** `sameAs` con YouTube, Spotify, Apple Podcasts y LinkedIn, más `sameAs` de LinkedIn en el `publisher`. Sirve para que Google y los buscadores con IA junten los perfiles del show como una sola entidad.
+
+Sin JS nuevo. Archivos: `src/components/SiteFooter.astro`, `src/layouts/BaseLayout.astro`.
+
+---
+
 ## [3.18.2] - 2026-07-14
 
 ### 🔗 Link al Manual de Marca en el footer
