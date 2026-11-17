@@ -34,12 +34,6 @@ relatedGuides:
 - openclaw
 - agentes-de-ia
 - ia-local
-funnel:
-  type: premium
-  label: 'Aprende los fundamentos: Intro a LLMs (CAR)'
-  cta: El módulo Intro a LLMs en Cágala, Aprende, Repite te enseña por qué el contexto importa, por qué el tool use falla en español y por qué un prompt bien armado rinde tres veces más que uno impulsivo. Eso aplica a cualquier modelo que exista hoy y a los que vengan en seis meses — y te ahorra perseguir cada lanzamiento. Lo ves, lo replicas, lo aplicas a tu contexto.
-  ctaButton: Acceder al módulo Intro a LLMs →
-  url: https://www.skool.com/cagala-aprende-repite/classroom/8d3910b1?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_gemini_vs_chatgpt
 faq:
 - question: ¿Claude, ChatGPT o Gemini, cuál conviene para el trabajo de todos los días?
   answer: 'Para correos, outreach y filtros básicos, los mejores modelos rinden casi igual: en el benchmark de Cristian Tala los 37 primeros quedaron casi empatados (episodio 28). Deciden el costo, la velocidad y las herramientas de cada producto. En el trabajo difícil hay diferencia: en un ERP con diez años de errores, de siete solo Opus los resolvió todos (episodio 25).'

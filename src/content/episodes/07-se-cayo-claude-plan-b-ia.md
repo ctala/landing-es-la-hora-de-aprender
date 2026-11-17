@@ -114,9 +114,9 @@ resources:
     type: "tool"
     description: "El flujo de captura de contenido que Rodrigo conecta con Obsidian."
   - title: "Cágala, Aprende, Repite"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep07"
     type: "other"
-    description: "Comunidad de Cristian para seguir aprendiendo en grupo."
+    description: "Comunidad de Cristian para seguir aprendiendo en grupo. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
 faq:
   - question: "¿Cómo diseño un plan de contingencia si mi agente depende de Claude?"
     answer: "Tres capas: primero, consume el modelo desde una API alternativa (AWS Bedrock o Azure OpenAI Service para Anthropic) para que una caída de Anthropic directa no te deje muerto. Segundo, define qué tareas puedes hacer a mano sin catástrofe y cuáles necesitan IA sí o sí. Tercero, ten una segunda suscripción viva en otro proveedor (GPT, Gemini) aunque sea el plan básico, para tareas donde la calidad no es crítica y solo necesitas avanzar."
@@ -235,7 +235,7 @@ La lectura caritativa es que busca moderar la velocidad del cambio para evitar c
 - **[OpenClaw](https://openclaw.ai)** — Framework open source de agentes, base de muchos de los flujos comentados.
 - **[Obsidian](https://obsidian.md/)** — App de notas en Markdown puro que Rodrigo usa como base de conocimiento para su agente.
 - **[Readwise y Reader](https://readwise.io/)** — El flujo de captura de contenido que Rodrigo conecta con Obsidian.
-- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — Comunidad de Cristian para seguir aprendiendo en grupo.
+- **[Cágala, Aprende, Repite](https://go.aprenderepite.com/podcast?utm_content=ep07)** — Comunidad de Cristian para seguir aprendiendo en grupo. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 - Episodio anterior: [EP06 — Cuánto invertir en IA, Agent Teams y construir en público](/episodios/06-cuanto-invertir-ia-agentes-construir-publico/)
 - Episodio siguiente: [EP08 — Crisis Anthropic, alternativas y modelos locales](/episodios/08-crisis-anthropic-modelos-alternativos-ia-local/)
 

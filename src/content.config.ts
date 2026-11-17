@@ -78,13 +78,7 @@ const guias = defineCollection({
     relatedEpisodes: z.array(z.number().int().positive()).optional(),
     relatedGuides: z.array(z.string()).optional(), // slugs de otras guías
     // Funnel CTA contextual al final de la guía (CAR, comunidad Rodrigo, etc.)
-    funnel: z.object({
-      type: z.enum(['premium', 'free', 'community']).default('community'),
-      label: z.string(), // título del bloque CTA
-      cta: z.string().optional(), // copy del párrafo CTA
-      ctaButton: z.string().optional(), // texto del botón (default: "Ir →")
-      url: z.string().url(), // destino con UTM
-    }).optional(),
+    // El cierre de cada guía (Kit y lista de espera) no va en el frontmatter: vive en src/data/comunidad.ts.
     faq: z.array(z.object({
       question: z.string(),
       answer: z.string(),

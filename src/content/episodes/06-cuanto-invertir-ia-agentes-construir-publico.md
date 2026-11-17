@@ -121,9 +121,9 @@ resources:
     type: "tool"
     description: "Estudios sobre la anticipación de despidos motivada por IA."
   - title: "Cágala, Aprende, Repite"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep06"
     type: "other"
-    description: "Comunidad de Cristian para experimentar y aprender en grupo."
+    description: "Comunidad de Cristian para experimentar y aprender en grupo. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
 faq:
   - question: "¿Cuánto deberías gastar mensualmente en herramientas de IA?"
     answer: "Como persona independiente, entre 50 y 300 USD al mes cubre a la mayoría de los casos. Con 50 USD tienes un plan Pro de un LLM (20 USD) + créditos de APIs para experimentar. Con 200-300 USD puedes sumar plan Pro más avanzado, herramientas de imagen/video, VPS para hospedar agentes propios, y APIs de pago por uso. Como empresa, calcula 25-100 USD por persona dependiendo del rol."
@@ -314,7 +314,7 @@ Porque la mayoría de las interacciones de programación asistida por IA (ChatGP
 - **[Obsidian](https://obsidian.md/)** — App de notas en Markdown con equipo de menos de 10 personas, ideal para knowledge base que la IA pueda leer.
 - **[Replit](https://replit.com/)** — Plataforma de desarrollo en la nube cuyo CEO popularizó el patrón de vibe-coding.
 - **[Harvard Business Review — AI and Layoffs](https://hbr.org/)** — Estudios sobre la anticipación de despidos motivada por IA.
-- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — Comunidad de Cristian para experimentar y aprender en grupo.
+- **[Cágala, Aprende, Repite](https://go.aprenderepite.com/podcast?utm_content=ep06)** — Comunidad de Cristian para experimentar y aprender en grupo. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 - Episodio anterior: [EP05 — OpenClaw, agentes IA y estrategia empresarial](/episodios/05-openclaw-agentes-estrategia/)
 
 ---

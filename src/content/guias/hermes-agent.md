@@ -38,12 +38,6 @@ relatedGuides:
 - agentes-de-ia
 - n8n
 - ia-local
-funnel:
-  type: premium
-  label: Aprende a armar tu stack agéntico — AI Agents Starter Kit (CAR)
-  cta: 'El curso AI Agents Starter Kit en Cágala, Aprende, Repite cubre la arquitectura de agentes — incluyendo cuándo elegir Hermes, OpenClaw o Claude Code según el caso de uso — junto con cómo elegir el cerebro, construir skills y conectar herramientas reales. Lo ves, lo copias, lo adaptas a tu contexto. CAR es educación: nadie te arma el flujo a medida.'
-  ctaButton: Ver el curso de agentes →
-  url: https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_hermes_agent
 faq:
 - question: ¿Qué es Nous Research?
   answer: Nous Research es el laboratorio de IA que desarrolló Hermes Agent. Es conocido por sus modelos de fine-tuning de código abierto, especialmente la familia 'Hermes' que mejora el uso de herramientas en LLMs base como Llama y Qwen.

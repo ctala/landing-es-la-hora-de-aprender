@@ -180,9 +180,10 @@ Corre al inicio de `npm run build`, en local y en Cloudflare Pages. No usa git: 
 - **Una guía lista un episodio (≥ `coberturaDesde`, hoy 30) y el cuerpo no lo cita** con su enlace `/episodios/NN-…/`. Sumar el episodio a `relatedEpisodes` no actualiza la guía.
 - **Hay voseo** («podés», «usá»). Detector portado de `cursos/scripts/etapas/comun.py` (lista cerrada + terminación); un falso positivo se agrega a `NO_VOSEO` con su caso, en las tres copias.
 - **Un enlace interno no existe** (`/episodios/…/`, `/guias/…/`, `/glosario/…/`).
+- **Un enlace directo a `skool.com/cagala-aprende-repite`** en cualquier archivo de `src/` o `public/`, o una frase que junta la comunidad de Cristian con «gratis», «gratuita» o «freemium» (esto último no se revisa en las notas de episodios, que cuentan lo que se dijo en su fecha).
 - Hay cambios coherentes sin registrar en el lock.
 
-«Contenido» = cuerpo + `title`/`term` + `description` + `aliases` + `faq` + `resources`. No cuentan `relatedEpisodes`, `relatedGuides`, `relatedGlossary`, `keywords`, `seoTitle`, `seoDescription` ni `funnel`.
+«Contenido» = cuerpo + `title`/`term` + `description` + `aliases` + `faq` + `resources`. No cuentan `relatedEpisodes`, `relatedGuides`, `relatedGlossary`, `keywords`, `seoTitle` ni `seoDescription`.
 
 ```bash
 npm run contenido:registrar                                   # tras editar texto + fecha; commitear el lock junto al cambio
@@ -192,6 +193,16 @@ npm run test:contenido                                        # pruebas del cand
 ```
 
 `--registrar` se niega a registrar un estado incoherente, así que el lock no sirve para blanquear una fecha. Las dos salidas exigen motivo escrito y quedan en el lock (`cambiosMenores`, `sinTexto`).
+
+### Enlace y llamado a la comunidad de Cristian (`src/data/comunidad.ts`)
+
+CAR (Cágala, Aprende, Repite) es de pago y está cerrada a nuevos miembros desde el 27-oct-2026. En este sitio el enlace y el texto del llamado viven en un solo archivo, `src/data/comunidad.ts`:
+
+- `enlaceListaDeEspera(pieza)` devuelve `https://go.aprenderepite.com/podcast?utm_content=<pieza>`. La pieza es `guia-<slug>`, `home` o `ep<NN>`. El destino (hoy el formulario de la lista de espera) se cambia en el Worker del acortador, no acá.
+- `CTA_KIT` es el bloque de cierre de **todas** las guías (la plantilla lo pone sola; el frontmatter ya no tiene `funnel`) y `CTA_KIT_PORTADA` la tarjeta de la portada. El gancho es el Kit «tu mano derecha con IA»; «la comunidad está cerrada» va como línea de apoyo, nunca como titular.
+- En las notas de un episodio, el recurso de la comunidad enlaza a `https://go.aprenderepite.com/podcast?utm_content=ep<NN>` y su descripción avisa que está cerrada.
+
+Cuando CAR reabra se reescribe el texto de ese archivo y las descripciones de los episodios; los bloques por guía que apuntaban a cada curso están en el historial de git (commit anterior a la v3.21.0).
 
 ### Optimizaciones de performance (decisiones no obvias)
 

@@ -146,9 +146,9 @@ resources:
     type: "tool"
     description: "Los modelos que Cristian quiere correr en un laptop con tarjeta NVIDIA para corregir la mirada a cámara en sus videos."
   - title: "Cágala, Aprende, Repite"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep21"
     type: "other"
-    description: "La comunidad de Cristian. En la página Acerca de está el video de un minuto que editó su agente."
+    description: "La comunidad de Cristian. En el episodio se menciona el video de un minuto que editó su agente, publicado en la página Acerca de de la comunidad. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
   - title: "Platzi"
     url: "https://platzi.com/"
     type: "other"
@@ -330,7 +330,7 @@ Elige un agente y durante un día pídele todo lo que tengas que hacer. Si no sa
 - **[Artificial Analysis](https://artificialanalysis.ai/)** — el ranking que reordenó el podio.
 - **[Benchmark de Cristian Tala](https://benchmarks.cristiantala.com/)** — modelos evaluados en tareas de negocio.
 - **[Screen Studio](https://screen.studio/)** — la aplicación que Rodrigo replicó para Linux con Astra en Codex.
-- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — en Acerca de está el video que editó el agente de Cristian.
+- **[Cágala, Aprende, Repite](https://go.aprenderepite.com/podcast?utm_content=ep21)** — la comunidad de Cristian. En el episodio se menciona el video que editó su agente, publicado en la página Acerca de de la comunidad. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 - **[Platzi](https://platzi.com/)** — la charla de Rodrigo sobre la era de la exploración 2.0.
 
 **Episodios relacionados**

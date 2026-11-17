@@ -22,6 +22,14 @@
  *     corresponde a un archivo existente bloquea (17-nov-2026: un slug de episodio escrito de
  *     memoria compiló sin aviso).
  *
+ *  5. LA COMUNIDAD DE CRISTIAN, POR EL ACORTADOR Y SIN «GRATIS». CAR es de pago y está cerrada
+ *     a nuevos miembros: ningún archivo de `src/` o `public/` enlaza directo a
+ *     skool.com/cagala-aprende-repite (va por go.aprenderepite.com, desde `src/data/comunidad.ts`),
+ *     y fuera de las notas de episodios ninguna frase junta la comunidad con «gratis», «gratuita»
+ *     o «freemium» (17-nov-2026: las nueve guías y la portada mandaban a una puerta cerrada y
+ *     tres decían «gratis para entrar»). Las notas de episodios cuentan lo que se dijo en su
+ *     fecha y por eso solo se les revisa el enlace.
+ *
  * Cómo funciona: `scripts/contenido.lock.json` guarda, por archivo, la huella del contenido
  * y su `updatedAt`. El chequeo compara el estado actual contra ese registro. No usa git, así
  * que corre igual en local y en Cloudflare Pages.
@@ -42,7 +50,7 @@
  *   --hoy <fecha>  fecha de hoy AAAA-MM-DD (para las pruebas)
  */
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
@@ -150,6 +158,45 @@ export function enlacesRotos(texto, root) {
     if (!existsSync(join(root, 'src', 'content', CARPETA[m[1]], `${m[2]}.md`))) rotos.push(url);
   }
   return rotos;
+}
+
+// ---------- la comunidad de Cristian: por el acortador y sin «gratis» ----------
+const TEXTO = /\.(md|mdx|astro|ts|js|mjs|json|txt|html)$/;
+const SKOOL_CAR = /https?:\/\/(?:www\.)?skool\.com\/cagala-aprende-repite/i;
+const NOMBRA_CAR = /\bCAR\b|Cágala, Aprende|comunidad de Cristian/;
+const DICE_GRATIS = /\bgratis\b|\bgratuit[ao]s?\b|\bfreemium\b/i;
+
+function archivosDe(dir) {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).sort().flatMap((n) => {
+    const ruta = join(dir, n);
+    if (statSync(ruta).isDirectory()) return archivosDe(ruta);
+    return TEXTO.test(n) ? [ruta] : [];
+  });
+}
+
+/** Errores de la regla 5 en `src/` y `public/`. */
+export function comunidadEn(root) {
+  const errores = [];
+  for (const abs of [...archivosDe(join(root, 'src')), ...archivosDe(join(root, 'public'))]) {
+    const ruta = relative(root, abs).split('\\').join('/');
+    const esEpisodio = ruta.startsWith('src/content/episodes/');
+    readFileSync(abs, 'utf8').split(/\r?\n/).forEach((linea, i) => {
+      if (SKOOL_CAR.test(linea)) {
+        errores.push(
+          `${ruta}:${i + 1}: enlace directo a skool.com/cagala-aprende-repite.\n` +
+          `    CAR está cerrada: el enlace va por go.aprenderepite.com (enlaceListaDeEspera en src/data/comunidad.ts).`,
+        );
+      }
+      if (esEpisodio) return;
+      for (const frase of linea.split(/(?<=[.!?:;])\s+/)) {
+        if (NOMBRA_CAR.test(frase) && DICE_GRATIS.test(frase)) {
+          errores.push(`${ruta}:${i + 1}: junta la comunidad con «gratis»: «${frase.trim().slice(0, 140)}». CAR es de pago y está cerrada.`);
+        }
+      }
+    });
+  }
+  return errores;
 }
 
 export function leerEstado(root) {
@@ -304,9 +351,10 @@ export function correr(argv, salida = console) {
   }
 
   const { errores, pendientes } = evaluar(estado, lock, hoy);
+  errores.push(...comunidadEn(root));
 
   if (errores.length > 0) {
-    salida.error(`\n✗ check-contenido: ${errores.length} problema(s) en guías o glosario\n`);
+    salida.error(`\n✗ check-contenido: ${errores.length} problema(s) de contenido\n`);
     for (const e of errores) salida.error(`  • ${e}\n`);
     return 1;
   }

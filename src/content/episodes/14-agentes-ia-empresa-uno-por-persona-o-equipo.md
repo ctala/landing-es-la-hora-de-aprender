@@ -141,9 +141,9 @@ resources:
     type: "other"
     description: "Rodrigo dicta ahí sus cursos de ChatGPT, Gemini, Claude y Perplexity, con más en camino."
   - title: "Cágala, Aprende, Repite (CAR)"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep14"
     type: "other"
-    description: "La comunidad de Cristian para founders que emprenden con IA. Todos los cursos son gratis: solo tienes que aportar tu tiempo ayudando a otros."
+    description: "La comunidad de Cristian para founders que emprenden con IA. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
   - title: "Comunidad de Rodrigo Rojo"
     url: "https://www.skool.com/rojo/about"
     type: "other"
@@ -304,7 +304,7 @@ El Papa León XIV publicó una encíclica —Magnífica Humanitas— centrada en
 - **[HubSpot](https://www.hubspot.com/)** — el caso que muestra que conectar una API no basta: hay que enseñarle al agente a usarla.
 - **[Handy](https://handy.computer/)** — herramienta de dictado de código abierto para hablarle al computador.
 - **[Platzi](https://platzi.com/)** — donde Rodrigo dicta sus cursos de ChatGPT, Gemini, Claude y Perplexity.
-- **[Cágala, Aprende, Repite (CAR)](https://www.skool.com/cagala-aprende-repite/about)** — la comunidad de Cristian para founders que emprenden con IA; cursos gratis a cambio de aportar tu tiempo.
+- **[Cágala, Aprende, Repite (CAR)](https://go.aprenderepite.com/podcast?utm_content=ep14)** — la comunidad de Cristian para founders que emprenden con IA. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 - **[Comunidad de Rodrigo Rojo](https://www.skool.com/rojo/about)** — la comunidad de Rodrigo, con contenido gratuito y sus cursos.
 
 ---

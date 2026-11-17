@@ -139,9 +139,9 @@ resources:
     type: "other"
     description: "De donde viene la idea de Garry Tan que inspiró a Rodrigo: todo lo que resuelves, conviértelo en una skill repetible."
   - title: "Cágala, Aprende, Repite (CAR)"
-    url: "https://www.skool.com/cagala-aprende-repite"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep13"
     type: "other"
-    description: "La comunidad de Cristian para founders solos con IA, donde está probando la campaña que armó su equipo de agentes de marketing."
+    description: "La comunidad de Cristian para founders solos con IA, donde en ese momento probaba la campaña que armó su equipo de agentes de marketing. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
 faq:
   - question: "¿Por qué la contratación de Karpathy hizo más ruido que los 100 anuncios de Google?"
     answer: "Porque Andrej Karpathy es una de las figuras que mejor explica la IA a nivel mundial — fue del equipo fundador de OpenAI y diseñó el sistema de conducción autónoma original de Tesla. Cuando alguien así anuncia que se va a Anthropic a armar un equipo de preentrenamiento, en Twitter (donde está el nicho) eso marca más pauta que un keynote con productos. Es una validación de hacia dónde apunta el talento, no solo del marketing de un evento."
@@ -308,7 +308,7 @@ Para Rodrigo es la teoría de las restricciones. La mayor productividad no se de
 - **[Claude Code](https://www.claude.com/product/claude-code)** — donde Cristian armó y supervisó a sus 10 agentes de marketing.
 - **[Platzi](https://platzi.com/)** — donde Rodrigo dicta cursos de ChatGPT, Gemini y Claude; hoy le piden mucho más el de Claude.
 - **[Y Combinator](https://www.ycombinator.com/)** — de donde viene la idea de Garry Tan que inspiró a Rodrigo: todo lo que resuelves, conviértelo en una skill.
-- **[Cágala, Aprende, Repite (CAR)](https://www.skool.com/cagala-aprende-repite)** — la comunidad de Cristian para founders solos con IA, donde está probando la campaña de su equipo de agentes.
+- **[Cágala, Aprende, Repite (CAR)](https://go.aprenderepite.com/podcast?utm_content=ep13)** — la comunidad de Cristian para founders solos con IA, donde en ese momento probaba la campaña de su equipo de agentes. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 
 ---
 

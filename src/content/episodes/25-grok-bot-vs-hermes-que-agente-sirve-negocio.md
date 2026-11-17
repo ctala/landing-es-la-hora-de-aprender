@@ -168,9 +168,9 @@ resources:
     type: "other"
     description: "Becas de formación en IA para pymes en Chile, lanzadas por Desafío Latam."
   - title: "Cágala, Aprende, Repite"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep25"
     type: "other"
-    description: "La comunidad de Cristian, con el taller de Chief of Staff en Grok Bot."
+    description: "La comunidad de Cristian, con el taller de Chief of Staff en Grok Bot. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
   - title: "Comunidad de Rodrigo Rojo"
     url: "https://www.skool.com/rojo/about"
     type: "other"
@@ -368,7 +368,7 @@ Uno con onboarding corto, como Claude Cowork o Grok Bot. Cuando ya saben lo que 
 **Comunidades y formación**
 
 - **[Becas Pacto Pyme](https://pactopyme.cl)** — formación en IA para pymes en Chile.
-- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — la comunidad de Cristian, con el taller de Chief of Staff.
+- **[Cágala, Aprende, Repite](https://go.aprenderepite.com/podcast?utm_content=ep25)** — la comunidad de Cristian, con el taller de Chief of Staff. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 - **[Comunidad de Rodrigo Rojo](https://www.skool.com/rojo/about)** — donde va a estar su curso de Grok Bot.
 
 **Episodios relacionados**

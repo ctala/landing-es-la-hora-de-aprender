@@ -24,12 +24,6 @@ relatedEpisodes:
 - 14
 relatedGuides:
 - claude-code
-funnel:
-  type: premium
-  label: 'Aprender n8n paso a paso: el curso en CAR'
-  cta: 'Si la guía te generó más preguntas que respuestas, el curso "Automatiza tu Negocio con n8n" de Cágala, Aprende, Repite cubre el camino completo desde cero. 16 lecciones cortas, sin presuposición de conocimiento técnico, con los workflows reales descargables. CAR es educación: el curso es Premium de la comunidad, lo ves, lo copias y lo replicas en tu propio negocio.'
-  ctaButton: Ver el curso de n8n en CAR →
-  url: https://www.skool.com/cagala-aprende-repite/classroom/006029ac?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_n8n
 faq:
 - question: ¿n8n sirve para principiantes o necesito saber programar?
   answer: 'Para flujos básicos no necesitas saber programar: el editor visual es suficiente. Para flujos complejos que requieren condiciones personalizadas o transformaciones de datos no estándar, n8n tiene nodos de código donde puedes escribir JavaScript. Puedes empezar sin código y agregar complejidad cuando la necesites.'
@@ -311,6 +305,8 @@ Si quieres aprender n8n desde cero, el curso "Automatiza tu Negocio con n8n" de 
 - Bonus: Workshops originales de n8n
 
 Las 16 lecciones son texto primero (videos en proceso). Cada lección que incluye un workflow tiene el archivo .json adjunto como recurso descargable.
+
+Hoy la comunidad está cerrada a nuevos miembros. Al final de esta guía está la lista de espera.
 
 ---
 

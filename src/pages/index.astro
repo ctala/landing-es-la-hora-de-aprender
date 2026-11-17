@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { CTA_KIT_PORTADA, enlaceListaDeEspera } from '../data/comunidad';
 
 const allEpisodes = await getCollection('episodes');
 const episodes = allEpisodes.sort((a, b) => b.data.episode - a.data.episode); // newest first
@@ -279,13 +280,13 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
                             Cágala, Aprende, Repite
                         </h3>
                         <p class="text-sm md:text-base leading-relaxed mb-5 text-black flex-grow">
-                            Comunidad de founders hispanohablantes que emprenden con IA. Cursos gratis aportando tu tiempo a la comunidad, eventos en vivo y biblioteca de prompts y workflows reales.
+                            {CTA_KIT_PORTADA.texto}
                         </p>
-                        <a href="https://www.skool.com/cagala-aprende-repite/about?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=home_funnel_car"
+                        <a href={enlaceListaDeEspera('home')}
                            target="_blank"
                            rel="noopener noreferrer"
                            class="brutal-btn bg-black text-acid hover:bg-electric hover:text-white text-xs md:text-sm font-black inline-flex items-center gap-2 mt-auto">
-                            Unirme a CAR →
+                            {CTA_KIT_PORTADA.boton}
                         </a>
                     </article>
                     <article class="brutal-card p-5 md:p-6 flex flex-col" style="background-color: #0a0a0a;">

@@ -35,12 +35,6 @@ relatedGuides:
 - n8n
 - agentes-de-ia
 - ia-local
-funnel:
-  type: premium
-  label: Construye tu primer agente — AI Agents Starter Kit (CAR)
-  cta: 'Si quieres construir tu primer agente de forma estructurada — no solo instalar OpenClaw y ver qué pasa, sino entender la arquitectura, elegir el cerebro correcto y armar skills que funcionen en producción — el curso AI Agents Starter Kit está en la comunidad Cágala, Aprende, Repite. Lo ves, lo copias, lo adaptas. CAR es educación: nadie te arma el flujo a medida.'
-  ctaButton: Ver el curso de agentes →
-  url: https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_openclaw
 faq:
 - question: ¿OpenClaw es gratis?
   answer: 'El framework es gratis y de código abierto. El costo viene del LLM que uses como cerebro: MiniMax parte en USD 20/mes, Qwen vía OpenRouter puede costar menos de un dólar al día con uso moderado, y modelos locales con Ollama son gratuitos si ya tienes el hardware.'

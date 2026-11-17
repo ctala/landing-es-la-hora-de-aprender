@@ -19,12 +19,6 @@ relatedGuides:
   - "emprender-con-ia"
   - "agentes-de-ia"
   - "claude-code"
-funnel:
-  type: "free"
-  label: "Aprende a validar tu idea antes de construirla"
-  cta: "Si tienes una idea y quieres saber si vale la pena construirla antes de invertir tiempo real, hay un curso en CAR dedicado exactamente a eso: cómo pasar del problema al experimento de validación, cómo leer la señal correcta y cómo iterar sin quemarte. Es el proceso que Cristian usó en sus propios proyectos — con las herramientas que existen hoy, no las de hace cinco años. Gratis para entrar."
-  ctaButton: "Acceder al módulo de Validación de Ideas →"
-  url: "https://www.skool.com/cagala-aprende-repite/classroom/df8bdae0?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_validar_idea_con_ia"
 faq:
   - question: "¿Qué cambió en la validación de ideas con la llegada de la IA?"
     answer: "Antes la validación implicaba construir un MVP porque ejecutar era caro. Hoy puedes construir una landing page en horas y medir interés sin producto. Pero el cambio más importante es en el criterio: lo que validas ya no es el producto, sino si existe disposición real a pagar. La gente que dice 'me interesa' sin poner dinero de por medio no es señal suficiente — el dolor existe pero no es urgente. La disposición a pagar sí indica que el problema les está costando algo real ahora."
@@ -40,7 +34,7 @@ faq:
     answer: "Con las herramientas actuales, puedes tener una landing básica operativa en un día. Documentar el proceso y construir la propuesta de valor puede tomar otro día si usas el modo de dictado. Los primeros datos de tráfico y conversión tardan entre 1 y 2 semanas, dependiendo de si usas canales orgánicos o paid para traer tráfico. En total, una validación mínima rigurosa puede hacerse en 2 a 4 semanas — versus los 3 a 6 meses que tomaba un MVP tradicional."
 ---
 
-En el episodio 14 de *Es la Hora de Aprender*, alguien le escribió a Cristian Tala por WhatsApp después de ver el video "cómo hacer una página web en 20 minutos", se metió gratis a la comunidad y arrancó a hacer landing pages para validar ideas. Alguien más, en Instagram, preguntó escéptico: "¿qué van a validar con una página web?"
+En el episodio 14 de *Es la Hora de Aprender*, alguien le escribió a Cristian Tala por WhatsApp después de ver el video "cómo hacer una página web en 20 minutos", se metió a la comunidad y arrancó a hacer landing pages para validar ideas. Alguien más, en Instagram, preguntó escéptico: "¿qué van a validar con una página web?"
 
 La pregunta tiene sentido si piensas en la validación como la conocías hace tres años. Esta guía responde por qué el concepto cambió — y cuál es el criterio que hoy realmente distingue una idea con futuro de una con solo aprobación social.
 

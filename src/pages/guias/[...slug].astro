@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import { CTA_KIT, enlaceListaDeEspera } from '../../data/comunidad';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guias');
@@ -33,7 +34,7 @@ const h2Headings = headings.filter((h) => h.depth === 2);
 const siteUrl = 'https://eslahoradeaprender.com';
 const canonical = `${siteUrl}/guias/${guide.id}/`;
 
-const { faq, resources, funnel, updatedAt } = guide.data;
+const { faq, resources, updatedAt } = guide.data;
 const defaultOg = `${siteUrl}/og-image.jpg`;
 const ogImage = guide.data.ogImage ?? defaultOg;
 
@@ -93,7 +94,7 @@ const breadcrumbLd = {
 
 const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c');
 
-const funnelButtonText = funnel?.ctaButton ?? 'Ir a la comunidad →';
+const enlaceKit = enlaceListaDeEspera(`guia-${guide.id}`);
 ---
 
 <BaseLayout
@@ -173,23 +174,19 @@ const funnelButtonText = funnel?.ctaButton ?? 'Ir a la comunidad →';
                 </div>
             </div>
 
-            <!-- Funnel CTA (contextual al final de la guía) -->
-            {funnel && (
-                <aside class="mt-12 md:mt-16 brutal-card p-6 md:p-10 bg-acid" aria-labelledby="funnel-heading">
-                    <h2 id="funnel-heading" class="text-2xl md:text-3xl font-black tracking-tighter mb-4 leading-tight text-black">
-                        {funnel.label}
-                    </h2>
-                    {funnel.cta && (
-                        <p class="text-base md:text-lg leading-relaxed mb-6 text-black max-w-3xl">
-                            {funnel.cta}
-                        </p>
-                    )}
-                    <a href={funnel.url} target="_blank" rel="noopener noreferrer"
-                       class="brutal-btn bg-black text-acid hover:bg-electric hover:text-white text-sm md:text-base font-black inline-flex items-center gap-2">
-                        {funnelButtonText}
-                    </a>
-                </aside>
-            )}
+            <!-- Cierre: Kit y lista de espera. Texto y enlace vienen de src/data/comunidad.ts -->
+            <aside class="mt-12 md:mt-16 brutal-card p-6 md:p-10 bg-acid" aria-labelledby="funnel-heading">
+                <h2 id="funnel-heading" class="text-2xl md:text-3xl font-black tracking-tighter mb-4 leading-tight text-black">
+                    {CTA_KIT.titulo}
+                </h2>
+                <p class="text-base md:text-lg leading-relaxed mb-6 text-black max-w-3xl">
+                    {CTA_KIT.texto}
+                </p>
+                <a href={enlaceKit} target="_blank" rel="noopener noreferrer"
+                   class="brutal-btn bg-black text-acid hover:bg-electric hover:text-white text-sm md:text-base font-black inline-flex items-center gap-2">
+                    {CTA_KIT.boton}
+                </a>
+            </aside>
 
             <!-- Episodios relacionados -->
             {related && related.length > 0 && (

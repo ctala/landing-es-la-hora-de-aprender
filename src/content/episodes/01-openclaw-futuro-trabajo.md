@@ -112,9 +112,9 @@ resources:
     type: "tool"
     description: "Para correr modelos locales sin pasar data a proveedores externos"
   - title: "Cágala, Aprende, Repite"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep01"
     type: "other"
-    description: "Comunidad de Cristian para experimentar con IA"
+    description: "Comunidad de Cristian para experimentar con IA. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
 faq:
   - question: "¿Qué es OpenClaw y en qué se diferencia de ChatGPT?"
     answer: "OpenClaw es un framework de agente personalizado que instalas en tu propia máquina o servidor. A diferencia de ChatGPT, que es una aplicación web sobre un modelo cerrado, OpenClaw te deja conectar el modelo que quieras (Claude, Gemini, modelos locales) y darle acceso a tus herramientas, archivos y APIs. No solo conversa: ejecuta acciones, mantiene memoria persistente y aprende de tus flujos de trabajo."
@@ -233,7 +233,7 @@ Las estimaciones serias hablan de 40–50% de trabajos de oficina automatizables
 - **[Granola](https://granola.ai)** — Transcripción de reuniones que alimenta a los agentes
 - **[Obsidian](https://obsidian.md)** — Notas en Markdown, ideal para que tu agente las lea directo
 - **[Ollama](https://ollama.com)** — Para correr modelos locales sin pasar data a proveedores externos
-- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — Comunidad de Cristian para experimentar con IA
+- **[Cágala, Aprende, Repite](https://go.aprenderepite.com/podcast?utm_content=ep01)** — Comunidad de Cristian para experimentar con IA. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 
 ---
 

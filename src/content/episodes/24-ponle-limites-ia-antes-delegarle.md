@@ -156,9 +156,9 @@ resources:
     type: "tool"
     description: "El agente personal que Cristian y Rodrigo siguen prefiriendo por control y por poder cambiar de modelo."
   - title: "Cágala, Aprende, Repite"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep24"
     type: "other"
-    description: "La comunidad de Cristian, donde está su curso de Hermes."
+    description: "La comunidad de Cristian, donde está su curso de Hermes. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
   - title: "Comunidad de Rodrigo Rojo"
     url: "https://www.skool.com/rojo/about"
     type: "other"
@@ -356,7 +356,7 @@ El empaquetado es más fácil de partir y Grok Bot es lo más barato. El propio 
 
 **Comunidades**
 
-- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — la comunidad de Cristian, con su curso de Hermes.
+- **[Cágala, Aprende, Repite](https://go.aprenderepite.com/podcast?utm_content=ep24)** — la comunidad de Cristian, con su curso de Hermes. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 - **[Comunidad de Rodrigo Rojo](https://www.skool.com/rojo/about)** — la comunidad de Rodrigo en Skool.
 
 **Episodios relacionados**

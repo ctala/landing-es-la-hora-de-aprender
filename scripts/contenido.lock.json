@@ -47,11 +47,11 @@
       "updatedAt": "2026-11-17"
     },
     "src/content/guias/claude-code.md": {
-      "hash": "5b4717d200febb04",
+      "hash": "fe7cc62494de0627",
       "updatedAt": "2026-11-17"
     },
     "src/content/guias/emprender-con-ia.md": {
-      "hash": "c565f2a87f50847e",
+      "hash": "a0b29758ff20715b",
       "updatedAt": "2026-05-28"
     },
     "src/content/guias/gemini-vs-chatgpt.md": {
@@ -67,7 +67,7 @@
       "updatedAt": "2026-07-28"
     },
     "src/content/guias/n8n.md": {
-      "hash": "b6883363d6cda332",
+      "hash": "9e3304911af3b560",
       "updatedAt": "2026-05-28"
     },
     "src/content/guias/openclaw.md": {
@@ -75,10 +75,31 @@
       "updatedAt": "2026-05-28"
     },
     "src/content/guias/validar-idea-con-ia.md": {
-      "hash": "1cb8020f0546a215",
+      "hash": "6c901315527f9717",
       "updatedAt": "2026-05-28"
     }
   },
-  "cambiosMenores": [],
+  "cambiosMenores": [
+    {
+      "archivo": "src/content/guias/claude-code.md",
+      "fecha": "2026-11-18",
+      "motivo": "CAR cerrada: se quita «gratis» y se avisa de la lista de espera; el cierre va al Kit"
+    },
+    {
+      "archivo": "src/content/guias/emprender-con-ia.md",
+      "fecha": "2026-11-18",
+      "motivo": "CAR cerrada: se quita «gratis» y se avisa de la lista de espera; el cierre va al Kit"
+    },
+    {
+      "archivo": "src/content/guias/n8n.md",
+      "fecha": "2026-11-18",
+      "motivo": "CAR cerrada: se quita «gratis» y se avisa de la lista de espera; el cierre va al Kit"
+    },
+    {
+      "archivo": "src/content/guias/validar-idea-con-ia.md",
+      "fecha": "2026-11-18",
+      "motivo": "CAR cerrada: se quita «gratis» y se avisa de la lista de espera; el cierre va al Kit"
+    }
+  ],
   "sinTexto": []
 }

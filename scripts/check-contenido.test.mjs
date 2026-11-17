@@ -132,3 +132,26 @@ test('un enlace interno a un episodio que no existe bloquea', () => {
   writeFileSync(join(root, 'src', 'content', 'episodes', '05-no-existe.md'), '---\ntitle: x\n---\n');
   assert.equal(run(root, '--registrar'), 0);
 });
+
+test('un enlace directo a la comunidad en Skool bloquea en cualquier archivo de src; por el acortador pasa', () => {
+  const root = repo();
+  guia(root);
+  assert.equal(run(root, '--registrar'), 0);
+  mkdirSync(join(root, 'src', 'pages'));
+  const pagina = join(root, 'src', 'pages', 'index.astro');
+  writeFileSync(pagina, '<a href="https://www.skool.com/cagala-aprende-repite/about">Unirme</a>\n');
+  assert.equal(run(root), 1);
+  writeFileSync(pagina, '<a href="https://go.aprenderepite.com/podcast?utm_content=home">Quiero el Kit</a>\n<a href="https://www.skool.com/rojo/about">Rodrigo</a>\n');
+  assert.equal(run(root), 0);
+});
+
+test('«gratis» junto a la comunidad bloquea en una guía; en las notas de un episodio y hablando de otra cosa no', () => {
+  const root = repo();
+  guia(root, { cuerpo: 'n8n tiene una versión gratis. CAR es la comunidad de Cristian.' });
+  assert.equal(run(root, '--registrar'), 0);
+  mkdirSync(join(root, 'src', 'content', 'episodes'));
+  writeFileSync(join(root, 'src', 'content', 'episodes', '14-algo.md'), '---\ntitle: x\n---\n\nAlguien se metió gratis a la comunidad de Cristian.\n');
+  assert.equal(run(root), 0);
+  guia(root, { cuerpo: 'CAR es la comunidad de Cristian. Gratis para entrar a CAR.', updatedAt: '2026-11-17' });
+  assert.equal(run(root, '--registrar'), 1);
+});

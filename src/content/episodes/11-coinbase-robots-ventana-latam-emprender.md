@@ -119,9 +119,9 @@ resources:
     type: "tool"
     description: "Calculadora pública de Cristian: ingresas presupuesto, llamadas/mes y caso de uso, y te devuelve los modelos que pasan."
   - title: "Cágala, Aprende, Repite (CAR)"
-    url: "https://www.skool.com/cagala-aprende-repite"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep11"
     type: "other"
-    description: "La comunidad de Cristian para founders solos que emprenden con IA — gratuita para entrar y conversar."
+    description: "La comunidad de Cristian para founders solos que emprenden con IA. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
   - title: "Ecosistema Startup"
     url: "https://ecosistemastartup.com/"
     type: "article"
@@ -272,7 +272,7 @@ Porque las carreras se diseñaron para un mundo donde la ejecución la hacían l
 - **[Zernio](https://zernio.com/)** — el ex-Later. Cambió de nombre porque buscar "later" en Google era imposible. Cristian lo usa para calendarizar redes desde n8n.
 - **[n8n](https://n8n.io/)** — la plataforma de automatización que Cristian sigue prefiriendo por sobre los agentes para tareas determinísticas.
 - **[benchmarks.cristiantala.com](https://benchmarks.cristiantala.com/)** — calculadora pública de Cristian: ingresas presupuesto, llamadas/mes y caso de uso, te devuelve los modelos que pasan tus filtros.
-- **[Cágala, Aprende, Repite (CAR)](https://www.skool.com/cagala-aprende-repite)** — la comunidad de Cristian para founders solos que emprenden con IA. Acceso gratis para sumarse a las conversaciones.
+- **[Cágala, Aprende, Repite (CAR)](https://go.aprenderepite.com/podcast?utm_content=ep11)** — la comunidad de Cristian para founders solos que emprenden con IA. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 - **[Ecosistema Startup](https://ecosistemastartup.com/)** — el blog 100% agéntico de Cristian. 200 mil visitantes únicos mensuales después de filtrar el contenido que no le gustaba publicar.
 
 ---

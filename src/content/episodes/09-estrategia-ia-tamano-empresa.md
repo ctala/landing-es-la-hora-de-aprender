@@ -127,9 +127,9 @@ resources:
     type: "tool"
     description: "Ahora con personal computer, opera aplicaciones locales en Mac."
   - title: "Cágala, Aprende, Repite"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep09"
     type: "other"
-    description: "Comunidad de Cristian para seguir aprendiendo juntos."
+    description: "Comunidad de Cristian para seguir aprendiendo juntos. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
 faq:
   - question: "¿Qué IA conviene para un solo entrepreneur que recién parte?"
     answer: "Una suscripción de Claude con Claude Cowork, o Gemini Pro si trabajas en Google Workspace, resuelve el 80% de los casos. Si eres técnico y quieres control, OpenClaw + MiniMax a ~$40 al mes te da un agente que no se queda sin tokens y alimenta múltiples skills. Si manejas datos sensibles, Ollama con Gemma local sobre un mini-PC te asegura que nada sale de tu máquina. Lo importante no es la herramienta específica; es no montar un generalista que intenta hacer todo. Mínimo dos agentes — uno que ejecuta, otro que valida."
@@ -285,7 +285,7 @@ Porque los agentes trabajan con el contexto que les das. Si tu way of work, tus 
 - **[Ollama](https://ollama.com/)** — Runtime para correr modelos open source como Gemma localmente.
 - **[ElevenLabs](https://elevenlabs.io/)** — Clonación de voz; mencionada la nueva sección de agentes de voz para atención a cliente y cobranza.
 - **[Perplexity Computer](https://www.perplexity.ai/)** — Ahora con personal computer, opera aplicaciones locales en Mac.
-- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — Comunidad de Cristian para seguir aprendiendo juntos.
+- **[Cágala, Aprende, Repite](https://go.aprenderepite.com/podcast?utm_content=ep09)** — Comunidad de Cristian para seguir aprendiendo juntos. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 - Episodio anterior: [EP08 — Crisis Anthropic, alternativas y modelos locales](/episodios/08-crisis-anthropic-modelos-alternativos-ia-local/)
 
 ---

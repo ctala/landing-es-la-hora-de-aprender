@@ -138,9 +138,9 @@ resources:
     type: "video"
     description: "Streaming de 8 horas en YouTube y X mostrando robots haciendo trabajos manuales — empaquetar bolsas, mover cosas."
   - title: "Cágala, Aprende, Repite (CAR)"
-    url: "https://www.skool.com/cagala-aprende-repite"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep12"
     type: "other"
-    description: "La comunidad de Cristian para founders solos con IA. Ahora con pivote: el conocimiento aportado vale lo mismo que pagar."
+    description: "La comunidad de Cristian para founders solos con IA. En el episodio cuenta el pivote de ese momento: el conocimiento aportado valía lo mismo que pagar. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
 faq:
   - question: "¿La ley de IA en Chile va a habilitar o frenar la innovación?"
     answer: "Depende mucho de cómo se cierne. La indicación de IA dentro de la mega reforma abre carta blanca para entrenar modelos con cualquier dato, lo que pone en riesgo derechos de autor. Por otro lado, la ley específica de IA que llevaba dos años se rechazó por mal diseñada. Rodrigo sugiere agregar capítulos a la ley de protección de datos en lugar de armar una ley de IA aparte. Cristian preferiría no regular nada porque el ritmo de la IA es demasiado rápido para una ley con ciclo de 3 años."
@@ -304,7 +304,7 @@ Porque está optimizando su propio rol. Cristian lo vivió en una cobranza con 2
 - **[deeplearning.ai](https://www.deeplearning.ai/)** — cursos gratis sobre IA (incluido Introducción a workflows agénticos) hechos con Anthropic, OpenAI y otros laboratorios. Solo cobran el certificado.
 - **[ILIA del CENIA](https://indicelatam.cl/)** — el Índice Latinoamericano de IA con los datos de adopción regional al que Rodrigo apuntó.
 - **[Figure](https://www.figure.ai/)** — la empresa de robots haciendo streaming de 8 horas con sus robots realizando trabajos blue collar.
-- **[Cágala, Aprende, Repite (CAR)](https://www.skool.com/cagala-aprende-repite)** — la comunidad de Cristian para founders solos con IA, ahora con pivote: el conocimiento aportado vale lo mismo que pagar.
+- **[Cágala, Aprende, Repite (CAR)](https://go.aprenderepite.com/podcast?utm_content=ep12)** — la comunidad de Cristian para founders solos con IA. En el episodio cuenta el pivote de ese momento: el conocimiento aportado valía lo mismo que pagar. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».
 
 ---
 

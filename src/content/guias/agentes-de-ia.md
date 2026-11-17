@@ -46,12 +46,6 @@ relatedGuides:
 - claude-code
 - n8n
 - ia-local
-funnel:
-  type: premium
-  label: Construye tu primer agente — AI Agents Starter Kit (CAR)
-  cta: 'El curso AI Agents Starter Kit en la comunidad Cágala, Aprende, Repite es el camino más directo para pasar de ''entiendo qué es un agente'' a ''tengo un agente funcionando en producción''. Cubre la arquitectura, la elección del cerebro, cómo construir skills y cómo conectar herramientas reales. No es teoría: es lo que Cristian, Diego y Rodrigo construyeron, rompieron y reconstruyeron en el podcast, empaquetado para que lo puedas replicar.'
-  ctaButton: Ver el curso de agentes →
-  url: https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_agentes_de_ia
 faq:
 - question: ¿Un agente de IA puede reemplazar a un empleado?
   answer: En tareas repetitivas y bien definidas, sí. En roles que requieren criterio contextual complejo, relaciones humanas o responsabilidad legal, no del todo. Lo que la mayoría de los founders encuentra es que el agente libera al humano de las tareas de bajo valor para concentrarse en las de alto valor.

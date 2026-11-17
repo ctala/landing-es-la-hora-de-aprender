@@ -155,9 +155,9 @@ resources:
     type: "other"
     description: "Donde está el curso de Grok Bot de Rodrigo, a US$15 suelto o incluido en la suscripción."
   - title: "Cágala, Aprende, Repite"
-    url: "https://www.skool.com/cagala-aprende-repite/about"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep26"
     type: "other"
-    description: "La comunidad de Cristian, con el taller grabado de Grok Bot."
+    description: "La comunidad de Cristian, con el taller grabado de Grok Bot. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA»."
 faq:
   - question: "¿Es mejor un agente con muchas skills o muchos agentes?"
     answer: "Ninguno de los extremos. Rodrigo prefiere un agente principal con muchas skills y separa uno nuevo solo cuando el ámbito es distinto, como un agente de diseño web o uno de Pokémon. Cristian pasó de 15 agentes a 4 y un orquestador, con muchas skills. Cada traspaso entre agentes cuesta tiempo y contexto, así que solo vale la pena separar cuando hace falta contexto limpio."
@@ -342,4 +342,4 @@ El cobro por asiento deja de cuadrar si el puesto lo ocupa un agente. Los SaaS e
 - **[Higgsfield](https://higgsfield.ai)** — el MCP de video mejor logrado según Cristian
 - **[Screen Studio](https://screen.studio)** — grabación de pantalla en Mac
 - **[Comunidad de Rodrigo Rojo](https://www.skool.com/rojo/about)** — con el curso de Grok Bot
-- **[Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about)** — la comunidad de Cristian, con el taller grabado de Grok Bot
+- **[Cágala, Aprende, Repite](https://go.aprenderepite.com/podcast?utm_content=ep26)** — la comunidad de Cristian, con el taller grabado de Grok Bot. Hoy está cerrada a nuevos miembros: el enlace lleva a la lista de espera y al Kit «tu mano derecha con IA».

@@ -153,7 +153,7 @@ resources:
     type: "other"
     description: "Las becas de cursos que Diego invita a postular."
   - title: "Kit «Tu mano derecha con IA»"
-    url: "https://go.aprenderepite.com/podcast"
+    url: "https://go.aprenderepite.com/podcast?utm_content=ep29"
     type: "other"
     description: "El kit de Cristian para usar Grok Bot en tareas sencillas de negocio."
 faq:
@@ -358,7 +358,7 @@ Rodrigo recomienda Make para partir, por su interfaz más simple. n8n necesita u
 - **[Claude Meetings](https://www.axios.com/2026/11/10/anthropic-claude-meetings-knowledge-work)**: la cobertura del lanzamiento
 - **[Flip Legal en el Diario Financiero](https://www.df.cl/df-mas/punto-de-partida/un-estudio-de-abogados-agentico-la-nueva-empresa-que-une-a-tantauco)**: la nota sobre el estudio agéntico
 - **[Becas Pacto Pyme](https://pactopyme.cl/regiones)**: los cursos que recomienda Diego
-- **[Kit «Tu mano derecha con IA»](https://go.aprenderepite.com/podcast)**: el kit de Cristian con Grok Bot
+- **[Kit «Tu mano derecha con IA»](https://go.aprenderepite.com/podcast?utm_content=ep29)**: el kit de Cristian con Grok Bot
 - Episodio anterior: **[El escándalo de Jensen Huang y la IA que se volvió política](/episodios/28-escandalo-jensen-huang-ia-politica)**
 
 ---

@@ -32,12 +32,6 @@ relatedGuides:
 - agentes-de-ia
 - gemini-vs-chatgpt
 - openclaw
-funnel:
-  type: free
-  label: 'Monta tu primer agente: AI Agents Starter Kit (CAR)'
-  cta: 'Decidir el hardware es la parte fácil; lo difícil es que el modelo local termine haciendo trabajo de verdad y no quede como un juguete caro. En Cágala, Aprende, Repite hay más de mil emprendedores metiendo IA en negocios que ya existen —montando su primer agente, conectándolo a lo que ya usan, contando qué les funcionó y qué les explotó—. El AI Agents Starter Kit está de respaldo para que llegues con el mismo idioma y vayamos directo a lo tuyo. Entrar es gratis: llegas, te presentas y cuentas en qué estás atascado.'
-  ctaButton: Entrar y presentarte →
-  url: https://www.skool.com/cagala-aprende-repite/classroom/f970d84d?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_ia_local
 faq:
 - question: ¿Cuánta RAM necesito para correr un modelo de IA en local?
   answer: 'Depende de qué quieras hacer. Para dictado o transcripción basta con casi cualquier computador: esos modelos pesan menos de 1 GB. Para un asistente de uso diario necesitas al menos una tarjeta de video con 24 GB de VRAM, o un equipo con memoria unificada de 64 GB en adelante. Con 128 GB de memoria unificada ya entran modelos de 200 mil millones de parámetros. Pero la RAM sola no basta: el bandwidth define la velocidad, así que puedes tener mucha memoria y respuestas lentas.'

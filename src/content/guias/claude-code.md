@@ -31,12 +31,6 @@ relatedEpisodes:
 - 8
 - 13
 - 14
-funnel:
-  type: premium
-  label: 'Lo que usamos de verdad: Cofre del Pirata'
-  cta: 'Si quieres los prompts y workflows de Claude Code que usamos en producción — no los de la documentación oficial, sino los que salen de armar agentes de marketing, producir cursos y automatizar operaciones reales — están en el Cofre del Pirata de Cágala, Aprende, Repite. Una biblioteca de prompts, workflows, CLAUDE.md de referencia, plantillas y cheatsheets que se actualiza con lo que de verdad cambia el flujo. CAR es educación: lo ves, lo copias y lo adaptas a tu contexto.'
-  ctaButton: Ver el Cofre del Pirata →
-  url: https://www.skool.com/cagala-aprende-repite/classroom/013cda18?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_claude_code
 faq:
 - question: ¿Claude Code reemplaza a Cursor o a GitHub Copilot?
   answer: No del todo. Cursor es un IDE con IA integrada para programar de forma interactiva. Copilot es autocompletado en el editor. Claude Code es un agente autónomo en tu terminal. Se superponen en algunas capacidades, pero el perfil de uso es distinto. Muchos developers los usan en paralelo.
@@ -286,6 +280,8 @@ Diego lo usa en paralelo con otros agentes y destaca su capacidad para orquestar
 Si quieres ir más rápido, en el Cofre del Pirata de la comunidad CAR están los prompts y workflows de Claude Code que usamos de verdad: desde cómo estructurar un CLAUDE.md para que el agente entienda tu proyecto hasta workflows de n8n que se coordinan con Claude Code para tareas automatizadas.
 
 No es una lista de prompts genéricos de internet. Son los recursos que Cristian usa en su operación diaria y que actualiza cuando algo nuevo aparece que de verdad cambia el flujo. Los puedes ver, copiar y adaptar — sin que nadie te los arme a medida.
+
+Hoy la comunidad está cerrada a nuevos miembros. Al final de esta guía está la lista de espera.
 
 ### ¿Necesito saber programar para usarlo?
 

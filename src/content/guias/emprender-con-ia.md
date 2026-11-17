@@ -28,12 +28,6 @@ relatedGuides:
 - agentes-de-ia
 - n8n
 - claude-code
-funnel:
-  type: community
-  label: Únete a la comunidad de founders que emprenden con IA
-  cta: 'CAR (Cágala, Aprende, Repite) es la comunidad de founders hispanohablantes que están usando IA para operar, validar y escalar sus proyectos. Hay cursos de validación de ideas, automatización con n8n, agentes de IA, producción de contenido y más. No es una agencia: es educación. Aprendes, replicas y adaptas a tu contexto. Gratis para entrar.'
-  ctaButton: Unirme a CAR →
-  url: https://www.skool.com/cagala-aprende-repite/about?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_emprender_con_ia
 faq:
 - question: ¿Por qué Cristian dice que hay que emprender con sueldo y no después del despido?
   answer: Porque el margen importa. Con ingresos definidos tienes tiempo para validar sin presión de supervivencia, puedes cometer errores y seguir iterando, y puedes lanzar uno o dos MVPs en paralelo sin apostar todo a que el primero funcione. Si esperas a que te echen, pasas 6 a 12 meses buscando trabajo antes de poder dedicarle tiempo real a tu idea — y en ese tiempo la ventana se estrecha más. Emprender con sueldo no significa hacer las dos cosas mal; significa aprovechar el margen mientras existe.
@@ -46,7 +40,7 @@ faq:
 - question: ¿Qué tipo de negocios se pueden construir con IA en LATAM?
   answer: 'Los más sólidos son los que resuelven un dolor local que el founder conoce en carne propia. No hay una categoría predefinida — puede ser automatización de procesos para una industria específica, contenido en escala para un vertical de mercado, soporte con IA para servicios locales, análisis de datos para sectores con baja digitalización, o educación especializada en idioma y contexto local. El criterio no es la categoría: es si el founder conoce el problema mejor que nadie y si hay alguien dispuesto a pagar por resolverlo.'
 - question: ¿Cómo es la comunidad CAR y para quién es?
-  answer: 'CAR (Cágala, Aprende, Repite) es una comunidad de founders hispanohablantes que están usando IA para operar sus proyectos. Tiene cursos de validación de ideas, automatización con n8n, agentes de IA, producción de contenido y más. No es una agencia ni un servicio de consultoría: es educación práctica. El modelo es freemium — puedes acceder a los cursos gratis y la comunidad activa también es gratuita para entrar. La premisa es que emprender no se delega, se aprende haciendo, y que la comunidad acelera ese proceso.'
+  answer: 'CAR (Cágala, Aprende, Repite) es una comunidad de founders hispanohablantes que están usando IA para operar sus proyectos. Tiene cursos de validación de ideas, automatización con n8n, agentes de IA, producción de contenido y más. No es una agencia ni un servicio de consultoría: es educación práctica. Hoy está cerrada a nuevos miembros: al final de esta guía está la lista de espera, donde además recibes el Kit «tu mano derecha con IA». La premisa es que emprender no se delega, se aprende haciendo, y que la comunidad acelera ese proceso.'
 ---
 
 En mayo de 2026, Coinbase despidió al 14% de su planta — 7.000 personas — y dijo abiertamente que la causa era la IA tomando esos trabajos. No fue un rumor, no fue una proyección para 2030: fue un comunicado corporativo en tiempo real.
