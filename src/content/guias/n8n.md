@@ -1,43 +1,48 @@
 ---
-title: "n8n: qué es, para qué sirve y cómo automatizar sin código"
-date: "2026-05-28"
-updatedAt: "2026-05-28"
-description: "n8n es la herramienta de automatización open source con editor visual. Qué es, cómo funciona, cuánto cuesta, casos de uso reales y cuándo conviene frente a un agente de IA."
-seoTitle: "n8n: qué es, para qué sirve y cómo automatizar sin código (2026)"
-seoDescription: "n8n es la herramienta de automatización open source que conecta apps y servicios con flujos visuales. Qué es, cómo funciona, cuánto cuesta y casos de uso reales en 2026."
-focusKeyword: "n8n"
+title: 'n8n: qué es, para qué sirve y cómo automatizar sin código'
+date: '2026-05-28'
+updatedAt: '2026-11-17'
+description: n8n es la herramienta de automatización open source con editor visual. Qué es, cómo funciona, cuánto cuesta, casos de uso reales y cuándo conviene frente a un agente de IA.
+seoTitle: 'n8n: qué es, para qué sirve y cómo automatizar sin código (2026)'
+seoDescription: n8n es la herramienta de automatización open source que conecta apps y servicios con flujos visuales. Qué es, cómo funciona, cuánto cuesta y casos de uso reales en 2026.
+focusKeyword: n8n
 keywords:
-  - "n8n"
-  - "n8n que es"
-  - "n8n gratis"
-  - "n8n precio"
-  - "n8n tutorial"
-  - "n8n vs zapier"
-  - "n8n vs make"
-  - "n8n automatizacion"
-  - "n8n para empresas"
-  - "n8n self hosted"
-relatedEpisodes: [2, 12, 14]
-relatedGuides: ["claude-code"]
+- n8n
+- n8n que es
+- n8n gratis
+- n8n precio
+- n8n tutorial
+- n8n vs zapier
+- n8n vs make
+- n8n automatizacion
+- n8n para empresas
+- n8n self hosted
+relatedEpisodes:
+- 29
+- 2
+- 12
+- 14
+relatedGuides:
+- claude-code
 funnel:
-  type: "premium"
-  label: "Aprender n8n paso a paso: el curso en CAR"
-  cta: "Si la guía te generó más preguntas que respuestas, el curso \"Automatiza tu Negocio con n8n\" de Cágala, Aprende, Repite cubre el camino completo desde cero. 16 lecciones cortas, sin presuposición de conocimiento técnico, con los workflows reales descargables. CAR es educación: el curso es Premium de la comunidad, lo ves, lo copias y lo replicás en tu propio negocio."
-  ctaButton: "Ver el curso de n8n en CAR →"
-  url: "https://www.skool.com/cagala-aprende-repite/classroom/006029ac?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_n8n"
+  type: premium
+  label: 'Aprender n8n paso a paso: el curso en CAR'
+  cta: 'Si la guía te generó más preguntas que respuestas, el curso "Automatiza tu Negocio con n8n" de Cágala, Aprende, Repite cubre el camino completo desde cero. 16 lecciones cortas, sin presuposición de conocimiento técnico, con los workflows reales descargables. CAR es educación: el curso es Premium de la comunidad, lo ves, lo copias y lo replicás en tu propio negocio.'
+  ctaButton: Ver el curso de n8n en CAR →
+  url: https://www.skool.com/cagala-aprende-repite/classroom/006029ac?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_n8n
 faq:
-  - question: "¿n8n sirve para principiantes o necesito saber programar?"
-    answer: "Para flujos básicos no necesitas saber programar: el editor visual es suficiente. Para flujos complejos que requieren condiciones personalizadas o transformaciones de datos no estándar, n8n tiene nodos de código donde puedes escribir JavaScript. Puedes empezar sin código y agregar complejidad cuando la necesites."
-  - question: "¿n8n funciona en español?"
-    answer: "La interfaz está en inglés, pero los flujos que construyes funcionan con cualquier idioma en los datos. Los nodos de IA (OpenAI, Anthropic) procesan español sin problemas. La comunidad hispana de n8n es activa en foros y grupos de Telegram."
-  - question: "¿Cuántas automatizaciones puedo correr en la versión gratuita (self-hosted)?"
-    answer: "Sin límite técnico desde el lado de n8n. El límite práctico es el hardware del servidor donde lo instalas y los límites de las APIs que conectas (límites de rate de Google Sheets, Telegram, etc.)."
-  - question: "¿n8n puede conectarse a cualquier API?"
-    answer: "Sí. Tiene nodos nativos para más de 400 servicios. Para los que no están nativamente, tiene el nodo HTTP Request que conecta con cualquier API REST. Para casos más complejos (GraphQL, WebSockets, APIs con autenticación compleja), puedes usar el nodo de código JavaScript."
-  - question: "¿n8n es seguro para datos empresariales?"
-    answer: "Con el self-hosted, sí — los datos no salen de tu infraestructura. Con el cloud oficial, los datos pasan por los servidores de n8n GmbH (empresa alemana, GDPR-compliant). Para datos muy sensibles (salud, banca, datos personales bajo regulación), self-hosted es la única opción realmente segura."
-  - question: "¿Cuál es la diferencia entre n8n y un agente de IA?"
-    answer: "n8n ejecuta workflows deterministas: pasos fijos, condiciones claras, outputs predecibles. Un agente de IA (Claude Code, Hermes, OpenClaw) razona, explora y decide el camino. Son complementarios, no sustitutos. Para la mayoría de los procesos de negocio, n8n más un nodo de IA en los pasos que lo necesitan es la arquitectura más eficiente y menos costosa."
+- question: ¿n8n sirve para principiantes o necesito saber programar?
+  answer: 'Para flujos básicos no necesitas saber programar: el editor visual es suficiente. Para flujos complejos que requieren condiciones personalizadas o transformaciones de datos no estándar, n8n tiene nodos de código donde puedes escribir JavaScript. Puedes empezar sin código y agregar complejidad cuando la necesites.'
+- question: ¿n8n funciona en español?
+  answer: La interfaz está en inglés, pero los flujos que construyes funcionan con cualquier idioma en los datos. Los nodos de IA (OpenAI, Anthropic) procesan español sin problemas. La comunidad hispana de n8n es activa en foros y grupos de Telegram.
+- question: ¿Cuántas automatizaciones puedo correr en la versión gratuita (self-hosted)?
+  answer: Sin límite técnico desde el lado de n8n. El límite práctico es el hardware del servidor donde lo instalas y los límites de las APIs que conectas (límites de rate de Google Sheets, Telegram, etc.).
+- question: ¿n8n puede conectarse a cualquier API?
+  answer: Sí. Tiene nodos nativos para más de 400 servicios. Para los que no están nativamente, tiene el nodo HTTP Request que conecta con cualquier API REST. Para casos más complejos (GraphQL, WebSockets, APIs con autenticación compleja), puedes usar el nodo de código JavaScript.
+- question: ¿n8n es seguro para datos empresariales?
+  answer: Con el self-hosted, sí — los datos no salen de tu infraestructura. Con el cloud oficial, los datos pasan por los servidores de n8n GmbH (empresa alemana, GDPR-compliant). Para datos muy sensibles (salud, banca, datos personales bajo regulación), self-hosted es la única opción realmente segura.
+- question: ¿Cuál es la diferencia entre n8n y un agente de IA?
+  answer: 'n8n ejecuta workflows deterministas: pasos fijos, condiciones claras, outputs predecibles. Un agente de IA (Claude Code, Hermes, OpenClaw) razona, explora y decide el camino. Son complementarios, no sustitutos. Para la mayoría de los procesos de negocio, n8n más un nodo de IA en los pasos que lo necesitan es la arquitectura más eficiente y menos costosa.'
 ---
 
 n8n es una herramienta de automatización de flujos de trabajo de código abierto que conecta aplicaciones, servicios y APIs mediante un editor visual. Con n8n puedes crear automatizaciones sin escribir código: defines los pasos con nodos, los conectas visualmente y el flujo se ejecuta de forma automática cuando se cumple la condición que definas.
