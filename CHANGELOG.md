@@ -12,7 +12,7 @@ CAR (Cágala, Aprende, Repite) es de pago y está cerrada a nuevos miembros desd
 
 - **Guías:** el bloque de cierre es uno solo para todas, con el Kit «tu mano derecha con IA» como gancho y botón «Quiero el Kit →». Texto y enlace viven en `src/data/comunidad.ts`; el campo `funnel` salió del frontmatter y del schema.
 - **Portada:** la tarjeta de Cágala, Aprende, Repite usa el mismo texto y enlace.
-- **Episodios 1, 6, 7, 9, 11, 12, 13, 14, 21, 24, 25 y 26:** el recurso de la comunidad enlaza a la lista de espera y su descripción avisa que está cerrada. Fuera «gratuita para entrar» (EP11) y «todos los cursos son gratis» (EP14). El relato de cada episodio no se tocó.
+- **Episodios 1, 6, 7, 9, 11, 12, 13, 14, 21, 24, 25 y 26:** el recurso de la comunidad enlaza a la lista de espera y su descripción avisa que está cerrada. Fuera «gratuita para entrar» (EP11) y «todos los cursos son gratis» (EP14). Del relato solo cambió una frase del EP14 («se metió gratis a la comunidad» pasa a «se metió a la comunidad»).
 - **Texto de guías:** `emprender-con-ia` ya no dice «freemium» ni «gratuita»; `validar-idea-con-ia` ya no dice «se metió gratis»; `n8n` y `claude-code` avisan que la comunidad está cerrada donde hablan de su curso y del Cofre. Registrados como cambio menor: `updatedAt` no se movió.
 - **Enlaces:** todos por `go.aprenderepite.com/podcast?utm_content=<pieza>` (`guia-<slug>`, `home`, `ep<NN>`), para leer en la lista de espera qué página trajo a cada persona.
 - **Candado:** `check-contenido.mjs` bloquea un enlace directo a `skool.com/cagala-aprende-repite` en cualquier archivo de `src/` o `public/`, y una frase que junte la comunidad con «gratis» fuera de las notas de episodios. 12 pruebas.
