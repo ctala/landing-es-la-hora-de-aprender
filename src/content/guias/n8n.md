@@ -1,7 +1,7 @@
 ---
 title: 'n8n: qué es, para qué sirve y cómo automatizar sin código'
 date: '2026-05-28'
-updatedAt: '2026-11-17'
+updatedAt: '2026-05-28'
 description: n8n es la herramienta de automatización open source con editor visual. Qué es, cómo funciona, cuánto cuesta, casos de uso reales y cuándo conviene frente a un agente de IA.
 seoTitle: 'n8n: qué es, para qué sirve y cómo automatizar sin código (2026)'
 seoDescription: n8n es la herramienta de automatización open source que conecta apps y servicios con flujos visuales. Qué es, cómo funciona, cuánto cuesta y casos de uso reales en 2026.
@@ -27,7 +27,7 @@ relatedGuides:
 funnel:
   type: premium
   label: 'Aprender n8n paso a paso: el curso en CAR'
-  cta: 'Si la guía te generó más preguntas que respuestas, el curso "Automatiza tu Negocio con n8n" de Cágala, Aprende, Repite cubre el camino completo desde cero. 16 lecciones cortas, sin presuposición de conocimiento técnico, con los workflows reales descargables. CAR es educación: el curso es Premium de la comunidad, lo ves, lo copias y lo replicás en tu propio negocio.'
+  cta: 'Si la guía te generó más preguntas que respuestas, el curso "Automatiza tu Negocio con n8n" de Cágala, Aprende, Repite cubre el camino completo desde cero. 16 lecciones cortas, sin presuposición de conocimiento técnico, con los workflows reales descargables. CAR es educación: el curso es Premium de la comunidad, lo ves, lo copias y lo replicas en tu propio negocio.'
   ctaButton: Ver el curso de n8n en CAR →
   url: https://www.skool.com/cagala-aprende-repite/classroom/006029ac?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_n8n
 faq:
@@ -71,7 +71,7 @@ Las tres plataformas hacen cosas parecidas. La diferencia práctica:
 
 Si eres una empresa que maneja datos sensibles o quieres control total sobre la infraestructura, n8n self-hosted es la elección obvia. Si necesitas algo rápido sin tocar un servidor, Zapier o Make arrancan más fácil — pero el costo sube cuando los flujos se vuelven intensivos.
 
-En el podcast, Cristian lo resumió en EP02: "Si usas menos del 30% de las features del SaaS que pagás, es señal de que hay oversourcing". Con Zapier y Make ese problema es frecuente.
+En el podcast, Cristian lo resumió en EP02: "Si usas menos del 30% de las features del SaaS que pagas, es señal de que hay oversourcing". Con Zapier y Make ese problema es frecuente.
 
 ### ¿n8n es de código abierto y gratuito?
 

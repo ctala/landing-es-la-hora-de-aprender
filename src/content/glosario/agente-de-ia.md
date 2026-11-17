@@ -21,6 +21,9 @@ relatedGuides:
   - "n8n"
 relatedGlossary:
   - "mcp"
+  - "tool-use"
+  - "computer-use"
+  - "alucinacion"
 ---
 
 Un **agente de IA** es un sistema basado en un modelo de lenguaje que percibe contexto, decide los pasos a seguir y ejecuta acciones para alcanzar un objetivo. La diferencia con un asistente conversacional clásico es la autonomía: el agente no espera tu próxima instrucción en cada paso, sino que itera solo hasta cumplir el objetivo o toparse con un bloqueo.
@@ -61,4 +64,4 @@ Sin esos tres, el agente trabaja al vacío. Con ellos, lo dejas corriendo y el c
 
 ## Ver también
 
-El [glosario de Ecosistema Startup](https://ecosistemastartup.com/glosario/ai-agent/) cubre la definición de **AI Agent** desde el ángulo del ecosistema startup — qué pasa con tu cap table, tu pricing y tu producto cuando agregás agentes. Esta entrada de ELHDA se enfoca en el deep-dive técnico (3 tipos, agent ops, cuellos de botella reales del podcast). Son complementarias.
+El [glosario de Ecosistema Startup](https://ecosistemastartup.com/glosario/ai-agent/) cubre la definición de **AI Agent** desde el ángulo del ecosistema startup — qué pasa con tu cap table, tu pricing y tu producto cuando agregas agentes. Esta entrada de ELHDA se enfoca en el deep-dive técnico (3 tipos, agent ops, cuellos de botella reales del podcast). Son complementarias.

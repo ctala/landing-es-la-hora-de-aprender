@@ -15,6 +15,11 @@ keywords:
 - agentes autonomos ia
 - agente personal ia
 - agent ops
+- que es un agente de ia
+- como funcionan los agentes de ia
+- cual es el mejor agente de ia
+- por que alucina un agente de ia
+- agentes de ia para pymes
 relatedEpisodes:
 - 29
 - 27
@@ -53,13 +58,17 @@ faq:
 - question: ¿Qué es un harness y por qué importa en un agente de IA?
   answer: 'El harness es la capa de software que envuelve al LLM y le da capacidades de acción: acceso a archivos, conectores de herramientas, gestión de memoria, canales de comunicación. OpenClaw, Hermes y Claude Code son harnesses distintos. Un mismo cerebro rinde diferente dependiendo del harness.'
 - question: ¿Cuándo usar un agente y cuándo usar n8n?
-  answer: Si necesitás que el output sea idéntico cada vez, usá n8n (automatización determinista). Si la tarea requiere razonamiento sobre información no estructurada o decisiones de criterio, usá un agente. Para procesos con pasos fijos pero que necesitan IA en uno de esos pasos, combiná n8n con un nodo de LLM.
+  answer: Si necesitas que el output sea idéntico cada vez, usa n8n (automatización determinista). Si la tarea requiere razonamiento sobre información no estructurada o decisiones de criterio, usa un agente. Para procesos con pasos fijos pero que necesitan IA en uno de esos pasos, combina n8n con un nodo de LLM.
 - question: ¿Por qué mi agente de IA falla cuando le hablo en español?
   answer: 'Muchos modelos fueron entrenados principalmente en inglés y chino. El tool use (saber cuándo invocar una herramienta descrita en español) es menos confiable en otros idiomas. La solución práctica: escribir el system prompt y las descripciones de herramientas en inglés aunque el contenido producido sea en español.'
 - question: ¿Conviene un agente por persona o un agente por función en la empresa?
   answer: Hoy, para empresas con varios empleados, los agentes temáticos compartidos (uno de marketing, uno de operaciones) son más prácticos. El agente personal requiere que su dueño lo mantenga; si no es técnico, cuando se rompe nadie lo arregla. El agente por función centraliza el mantenimiento y construye memoria colectiva del equipo.
 - question: ¿Cuánto cuesta tener un agente de IA funcionando?
   answer: 'El framework es gratuito (OpenClaw, Hermes, Claude Code son open source o gratis). El costo real es el LLM: desde USD 0 con modelos locales vía Ollama, hasta USD 20-40/mes con MiniMax o Claude Sonnet para uso diario. Con uso agéntico intensivo usando Opus la cuenta puede llegar a USD 200/mes.'
+- question: ¿Cómo funciona un agente de IA?
+  answer: Un modelo hace de cerebro y un arnés le suma el system prompt, las herramientas y las reglas para usar conectores y skills. El tool use le permite actuar y no solo responder.
+- question: ¿Por qué alucina un agente de IA y cómo se controla?
+  answer: Alucina porque el modelo predice lo que puede venir después. Se reduce con un agente revisor con el contexto vacío, una skill de verificación y una persona al final, pero nunca llega a cero.
 ---
 
 Un agente de IA no es un chatbot con mejor marketing. Es un sistema que puede ejecutar acciones reales en tu entorno: editar archivos, llamar APIs, recordar lo que le dijiste la semana pasada, encadenar tareas de varios pasos sin que tengas que supervisar cada uno, y mejorar su forma de trabajar a medida que lo usa más. La diferencia es operativa, no filosófica.
@@ -140,6 +149,26 @@ Para procesos lineales y repetitivos, n8n sigue siendo la mejor opción. Un agen
 
 ---
 
+## ¿Cuál es el mejor agente de IA para ti?
+
+El mejor agente de IA depende de dos cosas: dónde quieres que corra y cuánto estás dispuesto a configurar. Cristian lo resumió en el [episodio 29](/episodios/29-alucinaciones-ia-como-evitarlas-nod-n8n/). Si no programas y quieres tu información en tu computador, Nod. Si prefieres algo muy sencillo que viva en la nube, Grok Bot. Si quieres todo en tu máquina y aceptas que parta con las puertas abiertas, OpenClaw. Si buscas el más capaz y aceptas configurarlo, Hermes.
+
+| Tu caso | Agente | Por qué |
+|---|---|---|
+| No programas y quieres tu información en tu computador | Nod, de los creadores de n8n | Corre en local y sus rutinas se pueden convertir en flujos de n8n. Con seis días publicado al grabar, es una beta |
+| Quieres algo sencillo que viva en la nube | Grok Bot | No depende de tu computador. Cristian lo usa para lo operativo y hace la estrategia con Claude (EP26, EP27) |
+| Quieres todo en tu máquina y aceptas las puertas abiertas | OpenClaw | Con un modelo local si le pasas información privada |
+| Quieres el más capaz y aceptas configurarlo | Hermes | Eliges el modelo. Sus subagentes ahora trabajan como equipos internos |
+| Tu equipo es poco técnico | Claude Cowork o Grok Bot | En las clases de Diego la gente hacía mucho con poco usando Cowork (EP25) |
+
+Grok Bot es un agente empaquetado: creas la cuenta y le hablas, sin terminal. Según Rodrigo, viene en la suscripción unificada de X, de US$30 al mes ([episodio 25](/episodios/25-grok-bot-vs-hermes-que-agente-sirve-negocio/)). De esa categoría son Muse de Meta, los Dots de ChatGPT y Claude Duet, que en los episodios 24 a 26 tenían acceso restringido por país o por plan. A cambio, dice Rodrigo, le confías tus datos al proveedor y no eliges el modelo.
+
+Fuera de la tabla quedó DeepSeek Harness, una interfaz parecida a ChatGPT donde Cristian armó un dashboard de su empresa con un modelo local.
+
+¿Uno o varios agentes? En el [episodio 26](/episodios/26-un-agente-muchas-skills-o-muchos-agentes/), Rodrigo parte con uno principal con muchas skills y separa otro solo cuando el ámbito es distinto. Cristian pasó de 15 agentes a 4 y un orquestador.
+
+---
+
 ## ¿Por qué los agentes de IA fallan cuando les hablas en español?
 
 Esta pregunta la respondió Cristian en EP14 con una franqueza que vale repetir.
@@ -178,6 +207,8 @@ El cerebro determina en gran medida qué tan bien funciona el agente. La tabla d
 
 La regla que destila el trío: el modelo caro para las decisiones críticas, el modelo barato para la iteración. Una vez aceitado el proceso, la inversión inicial en probar modelos se recupera rápido.
 
+Los nombres de la tabla envejecen; la regla se mantiene. En el [episodio 28](/episodios/28-escandalo-jensen-huang-ia-politica/), casi todo el top 20 del benchmark de Cristian hacía bien el trabajo y la conclusión fue irse con el más barato.
+
 ### Darle herramientas: conectar APIs sin que "sepa" usarlas
 
 Este es el error más frecuente de quien empieza. Rodrigo lo vivió con HubSpot y lo resumió con una analogía perfecta en EP14:
@@ -210,6 +241,22 @@ El primer agente útil suele ser el más aburrido: el que procesa una tarea repe
 
 ---
 
+## ¿Por qué alucina un agente de IA y cómo se controla?
+
+Un agente de IA alucina por cómo está construido el modelo que lo mueve. Cristian lo explicó en el [episodio 29](/episodios/29-alucinaciones-ia-como-evitarlas-nod-n8n/): el modelo predice lo que puede venir después. Rodrigo agregó que lo mismo que lo hace generativo deja siempre un espacio para inventar. Ninguna IA lleva la [alucinación](/glosario/alucinacion/) a cero. Se reduce con mejores prompts, un modelo más inteligente para la tarea, más contexto y reglas de verificación.
+
+Diego contó en ese episodio que un dato alucinado en una postulación de su equipo les costó, en sus palabras, cientos de millones de pesos. Cinco capas lo controlan:
+
+1. **Un revisor aparte y con el contexto vacío.** Pedirle la revisión al mismo chat que escribió el documento no sirve: usa el mismo contexto. Cristian usa un agente separado que no sabe cómo se escribió.
+2. **Una skill de verificación.** La de Rodrigo revisa las fuentes y levanta una alerta cuando no encuentra una.
+3. **Una persona al final.** La regla de Rodrigo para lo que sale hacia afuera: la IA verifica primero y una persona verifica al final.
+4. **Etapas con el estado en una base de datos.** En procesos largos la IA se salta pasos ([episodio 24](/episodios/24-ponle-limites-ia-antes-delegarle/)). Cristian guarda el estado en una base de datos: lo que no pasa el control de calidad vuelve a edición.
+5. **Un navegador real para páginas con JavaScript.** Las páginas de jurisprudencia o de un banco cargan su contenido con JavaScript. La mayoría de las IA navega sin JavaScript, no ve nada e inventa. Escribe en la skill que ahí use un navegador real o [computer use](/glosario/computer-use/).
+
+Antes de delegar, Rodrigo recomienda ponerle límites al agente: qué conectores y skills usa y qué no debe inventar. El [tool use](/glosario/tool-use/) y el computer use son lo que le permite actuar y no solo responder (EP28).
+
+---
+
 ## Agentes de IA en la empresa: el debate que cambió de respuesta
 
 El capítulo 14 del podcast fue una reversión pública. Rodrigo cambió de opinión respecto a episodios anteriores, y lo dijo con todas sus letras.
@@ -229,7 +276,7 @@ Las ventajas sobre el agente personal:
 - Skills y conectores compartidos: no tienes que que configurar lo mismo para 50 personas.
 - Mantenimiento centralizado en un rol de *agent ops* — la persona que mantiene los agentes corriendo, los optimiza y les conecta los mejores modelos.
 
-El agente personal masivo se vuelve más viable cuando plataformas como Gemini Spark lleguen al estado donde ya tienen tu contexto (Gmail, Drive, calendario) y el administrador de la empresa solo tiene que conectar las skills corporativas encima.
+El agente personal masivo se vuelve más viable cuando plataformas como Gemini Spark lleguen al estado donde ya tienen tu contexto (Gmail, Drive, calendario) y el administrador de la empresa solo tiene que conectar las skills corporativas encima. Spark ya está en el plan de US$20 de Google y funciona, pero los conectores todavía se configuran a mano ([episodio 22](/episodios/22-desempleo-agentes-24-7-carta-dario-amodei/)).
 
 ### El rol emergente de agent ops
 
@@ -306,7 +353,7 @@ En el lenguaje cotidiano se mezclan, pero hay diferencia técnica. Un bot sigue 
 Funciona en español, pero hay una limitación de entrenamiento conocida: el tool use (saber cuándo invocar una herramienta descrita en español) es menos confiable que en inglés. Los modelos nuevos están mejorando en esa dimensión. La solución práctica: escribir el system prompt y las descripciones de herramientas en inglés aunque el contenido producido sea en español.
 
 **¿Necesito saber programar para usar agentes de IA?**
-Para usar frameworks como OpenClaw o Hermes, no es imprescindible — pero sí ayuda entender conceptos básicos (qué es una API, qué es un servidor, cómo editar un archivo de configuración). Para construir automatizaciones agénticas en n8n, la curva es más visual y no requiere código. Para construir agentes con Claude Code, se recomienda tener contexto técnico básico.
+Para usar frameworks como OpenClaw o Hermes, no es imprescindible — pero sí ayuda entender conceptos básicos (qué es una API, qué es un servidor, cómo editar un archivo de configuración). Para construir automatizaciones agénticas en n8n, la curva es más visual y no requiere código. Para construir agentes con Claude Code, se recomienda tener contexto técnico básico. Desde el [episodio 21](/episodios/21-gpt-6-astra-fable-5-1-grok-bot-muse/) hay una vía sin terminal: agentes empaquetados como Grok Bot. La aplicación de escritorio de Hermes tampoco pide consola (EP22).
 
 ---
 

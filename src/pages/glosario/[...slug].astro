@@ -10,6 +10,7 @@ export async function getStaticPaths() {
   const guides = await getCollection('guias');
   const byEpNumber = new Map(episodes.map(e => [e.data.episode, e]));
   const bySlug = new Map(guides.map(g => [g.id, g]));
+  const byTermSlug = new Map(entries.map(t => [t.id, t]));
 
   return entries.map(entry => {
     const relatedEpisodes = (entry.data.relatedEpisodes ?? []).map(num => {
@@ -30,14 +31,23 @@ export async function getStaticPaths() {
       }
       return found;
     });
+    const relatedGlossary = (entry.data.relatedGlossary ?? []).map(slug => {
+      const found = byTermSlug.get(slug);
+      if (!found) {
+        throw new Error(
+          `Glosario "${entry.id}" referencia relatedGlossary: "${slug}", pero no existe esa entrada.`
+        );
+      }
+      return found;
+    });
     return {
       params: { slug: entry.id },
-      props: { entry, relatedEpisodes, relatedGuides },
+      props: { entry, relatedEpisodes, relatedGuides, relatedGlossary },
     };
   });
 }
 
-const { entry, relatedEpisodes, relatedGuides } = Astro.props;
+const { entry, relatedEpisodes, relatedGuides, relatedGlossary } = Astro.props;
 const { Content } = await render(entry);
 
 const siteUrl = 'https://eslahoradeaprender.com';
@@ -130,7 +140,7 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
                 <Content />
             </div>
 
-            {(relatedGuides.length > 0 || relatedEpisodes.length > 0) && (
+            {(relatedGuides.length > 0 || relatedEpisodes.length > 0 || relatedGlossary.length > 0) && (
                 <section class="mt-12 md:mt-16" aria-labelledby="related-heading">
                     <h2 id="related-heading" class="text-xl md:text-2xl font-black uppercase tracking-tighter mb-6">
                         Más sobre <span class="bg-electric text-white px-2">{entry.data.term}</span>
@@ -143,6 +153,20 @@ const escapeJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003
                                     <a href={`/guias/${g.id}/`} class="brutal-card p-4 bg-white hover:bg-acid transition-colors block">
                                         <h3 class="text-base font-black tracking-tight leading-tight text-black">
                                             {g.data.title}
+                                        </h3>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {relatedGlossary.length > 0 && (
+                        <div class="mb-6">
+                            <p class="text-xs font-black uppercase tracking-wider mb-3 text-gray-600">Términos relacionados</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                                {relatedGlossary.map((t) => (
+                                    <a href={`/glosario/${t.id}/`} class="brutal-card p-4 bg-white hover:bg-acid transition-colors block">
+                                        <h3 class="text-base font-black tracking-tight leading-tight text-black">
+                                            {t.data.term}
                                         </h3>
                                     </a>
                                 ))}

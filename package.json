@@ -1,11 +1,13 @@
 {
   "name": "es-la-hora-de-aprender",
   "type": "module",
-  "version": "3.19.0",
+  "version": "3.20.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "node scripts/check-contenido.mjs && astro check && astro build",
+    "contenido:registrar": "node scripts/check-contenido.mjs --registrar",
+    "test:contenido": "node --test scripts/check-contenido.test.mjs",
     "preview": "astro preview",
     "validate": "bash scripts/validate-build.sh",
     "astro": "astro"
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "js-yaml": "^4.1.1",
     "typescript": "^5.9.3"
   }
 }

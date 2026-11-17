@@ -20,6 +20,7 @@ relatedGuides:
   - "n8n"
 relatedGlossary:
   - "agente-de-ia"
+  - "tool-use"
 ---
 
 **MCP (Model Context Protocol)** es un estándar abierto creado por Anthropic en 2024 para que un modelo de lenguaje —Claude, GPT, Gemini— pueda invocar herramientas externas (bases de datos, APIs, servicios web, otros agentes) de forma uniforme. Define cómo el modelo "ve" y llama a esas herramientas, sin que el desarrollador tenga que reinventar la conexión para cada modelo.

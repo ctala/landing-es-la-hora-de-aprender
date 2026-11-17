@@ -96,18 +96,34 @@ No hay framework de tests configurado. `astro check` dentro de `npm run build` e
 
 **Sitio estático Astro 5** que renderiza un podcast como páginas individuales por episodio, más feeds/sitemaps generados en build. Zero JS bundle excepto un script inline de facade de YouTube.
 
-### Content Collection como única fuente de verdad
+### Content Collections como única fuente de verdad
 
-Un episodio = un archivo en `src/content/episodes/XX-slug.md`. Todo lo demás se deriva:
+`src/content.config.ts` define 3 collections vía Zod. Cada entry es un `.md` y todo lo demás se deriva.
 
-- `src/content.config.ts` define el schema Zod del frontmatter. El `id` de cada entry es el nombre del archivo sin extensión (ej. `09-estrategia-ia-tamano-empresa`) y se usa como slug de URL en `/episodios/{id}`.
-- `src/pages/episodios/[...slug].astro` genera `getStaticPaths()` desde la colección y calcula `prevEpisode`/`nextEpisode` ordenando por `data.episode`.
+| Collection | Path source | URL | Schema JSON-LD emitido | Propósito |
+|---|---|---|---|---|
+| `episodes` | `src/content/episodes/XX-slug.md` | `/episodios/{id}/` | `PodcastEpisode` + `VideoObject` + `BreadcrumbList` + `FAQPage`* | Cada episodio del podcast |
+| `guias` | `src/content/guias/{slug}.md` | `/guias/{id}/` | `TechArticle` + `BreadcrumbList` + `FAQPage`* | Pillars evergreen del Sprint SEO Growth |
+| `glosario` | `src/content/glosario/{slug}.md` | `/glosario/{id}/` | `DefinedTerm` + `BreadcrumbList` | Términos técnicos de IA aplicada |
+
+\* `FAQPage` se emite solo cuando el frontmatter define `faq[]`.
+
+**Convenciones compartidas:**
+- El `id` de cada entry es el nombre del archivo sin extensión y se usa como slug de URL.
+- `relatedEpisodes: number[]` y `relatedGuides: string[]` son validados en `getStaticPaths()` de cada route — referencia inválida BLOQUEA el build (mensaje explícito).
+- `[...slug].astro` de cada collection emite los JSON-LD via `<Fragment slot="head-extra">` del BaseLayout (mismo patrón).
+- Agregar contenido = crear el `.md` con frontmatter válido y push. Sitemap, índices y schemas se regeneran solos.
+
+**Routes especializadas:**
+- `src/pages/episodios/[...slug].astro` calcula `prevEpisode`/`nextEpisode` ordenando por `data.episode`.
+- `src/pages/guias/[...slug].astro` resuelve `relatedEpisodes` + `relatedGuides` y emite el funnel CTA contextual al final (deep-link a curso CAR + UTM).
+- `src/pages/glosario/[...slug].astro` resuelve `relatedEpisodes` + `relatedGuides` (de hubs) + `relatedGlossary` (otros términos) y emite `DefinedTerm` con `inDefinedTermSet`.
+
+**Feeds y sitemaps:**
 - `src/pages/feed.xml.ts` genera el RSS de podcast con extensiones `itunes:`, `googleplay:`, `spotify:` (usa `@astrojs/rss`).
 - `src/pages/video-sitemap.xml.ts` emite el video sitemap de Google manualmente (no usa `@astrojs/sitemap`).
 - `@astrojs/sitemap` genera `sitemap-index.xml` automáticamente (filtra `/404`).
-- `src/pages/index.astro` muestra `latest` + `olderEpisodes.slice(1, 7)` (máximo 6 en home, 7 totales incluyendo el featured).
-
-Agregar un episodio = crear el `.md` con frontmatter válido y push. Página, navegación, RSS, video-sitemap y sitemap se regeneran solos.
+- `src/pages/index.astro` muestra `latest` + `olderEpisodes.slice(1, 7)` (máximo 6 en home) + `featuredGuides.slice(0, 4)` (máximo 4 guías en home) + bloque Comunidades.
 
 ### SEO y schema centralizados en BaseLayout
 
@@ -125,6 +141,57 @@ El layout expone un slot nombrado `head-extra` para inyectar JSON-LD específico
 - `src/pages/feed.xml.ts` — RSS del podcast (iTunes/Spotify/Google Play). URLs con trailing slash.
 - `src/pages/video-sitemap.xml.ts` — video-sitemap manual (Astro sitemap no lo cubre).
 - `sitemap-index.xml` + `sitemap-0.xml` — autogenerados por `@astrojs/sitemap`.
+
+### Capa SEO Growth (`/guias/` y `/glosario/`)
+
+Sprint construido en mayo 2026 sobre datos GSC + DataForSEO. Plan completo en `docs/SEO-GROWTH-STRATEGY.md`; estado por fase en `ROADMAP.md` § "Sprint SEO Growth (2026-05)".
+
+**Arquitectura hub-and-spoke en 3 capas:** `/guias/{slug}/` (pillars evergreen deep, ~2-3K palabras, rankean head terms) ↔ episodios (cross-link via `relatedEpisodes`) ↔ comunidades (funnel via CTA). Lista de hubs vive en `src/content/guias/` — al momento 8 piezas activas (claude-code, n8n, openclaw, agentes-de-ia, hermes-agent, gemini-vs-chatgpt, validar-idea-con-ia, emprender-con-ia).
+
+**Funnel a comunidades (frontmatter `funnel{}`):** cada hub cierra con CTA contextual con deep-link al recurso CAR específico + UTM convención fija:
+```
+?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_{slug}
+```
+Short ids verificados de cursos CAR (resuelven 307→200, robustos a rename del slug largo): Cofre del Pirata `013cda18`, AI Agents Starter Kit `f970d84d`, Automatiza con n8n MC-04 `006029ac`, Intro a LLMs `8d3910b1`, Validación de Ideas `df8bdae0`. **Usar el SHORT id, NO el id 32-hex** (este último da 404). Para obtener short id de cualquier curso: `client.classroom.listCourses()` y leer el campo `name`.
+
+**Bloque Comunidades en home (`src/pages/index.astro`):** 3 columnas CAR (Cristian, Skool) + Diego (WhatsApp) + Rodrigo (Skool), cada uno con UTM `home_funnel_{car,diego,rojo}`. Es el único funnel del home que enlaza a recursos externos del ecosistema de los hosts. La card de Diego usa `style="background-color: #0a0a0a;"` inline porque `bg-black` no rinde en este Tailwind v4 setup (ver Gotchas).
+
+**Glosario complementario con eco** (`ecosistemastartup.com/glosario/`, ~550 términos broad startup):
+- Eco cubre términos broad (AI Agent, LLM, Fine-tuning conceptuales) — ELHDA cubre deep-dive técnico (MCP, tool use, harness, agent ops, vibecoding, dreaming).
+- **Antes de crear cualquier entry nueva en ELHDA glosario**: `curl -sIL https://ecosistemastartup.com/glosario/{slug}/` — 301 = existe en eco; decidir cross-link o skip. Si no existe (404), crear sin restricción.
+- Cross-link estándar en entries con companion en eco: sección "Ver también" al final usando el short slug (`/glosario/{slug}/`), no el canonical largo `/glosario/{slug}-que-es-guia-completa-2026/`.
+- Regla operativa completa en `~/.claude/projects/.../memory/feedback_glosario_complementario.md`.
+
+**Loop podcast → hub (Fase 4 del sprint):** al publicar un episodio nuevo via el skill `elhda-new-episode`, correr como Paso 11 el script que agrega el episodio al `relatedEpisodes[]` de los hubs que toque. Idempotente, dry-run support:
+```bash
+python3 .claude/skills/elhda-new-episode/scripts/update_hubs_for_episode.py \
+    --episode N --hubs slug1,slug2,slug3 [--dry-run]
+```
+El script vive en el repo padre privado `Estrategias`, no acá. Documentado en el `SKILL.md` del skill.
+
+**El script ya no toca `updatedAt`** (17-nov-2026): sumar un episodio no es una actualización de contenido.
+
+### Candado de guías y glosario (`scripts/check-contenido.mjs`)
+
+Corre al inicio de `npm run build`, en local y en Cloudflare Pages. No usa git: compara cada archivo de `src/content/guias/` y `src/content/glosario/` contra `scripts/contenido.lock.json` (huella del contenido + `updatedAt`). Bloquea el build cuando:
+
+- **`updatedAt` se movió y el texto no cambió.** La fecha alimenta `dateModified` y el «Actualizada:» visible; una fecha fresca sin cambio real es un engaño que los buscadores pueden penalizar.
+- **El texto cambió y `updatedAt` no.** Una actualización que no mueve la fecha no se vuelve a rastrear.
+- **Una guía lista un episodio (≥ `coberturaDesde`, hoy 30) y el cuerpo no lo cita** con su enlace `/episodios/NN-…/`. Sumar el episodio a `relatedEpisodes` no actualiza la guía.
+- **Hay voseo** («podés», «usá»). Detector portado de `cursos/scripts/etapas/comun.py` (lista cerrada + terminación); un falso positivo se agrega a `NO_VOSEO` con su caso, en las tres copias.
+- **Un enlace interno no existe** (`/episodios/…/`, `/guias/…/`, `/glosario/…/`).
+- Hay cambios coherentes sin registrar en el lock.
+
+«Contenido» = cuerpo + `title`/`term` + `description` + `aliases` + `faq` + `resources`. No cuentan `relatedEpisodes`, `relatedGuides`, `relatedGlossary`, `keywords`, `seoTitle`, `seoDescription` ni `funnel`.
+
+```bash
+npm run contenido:registrar                                   # tras editar texto + fecha; commitear el lock junto al cambio
+node scripts/check-contenido.mjs --menor "motivo" <archivo>   # errata o enlace roto: registra sin mover la fecha
+node scripts/check-contenido.mjs --sin-texto <guia> <N> "motivo"  # el episodio N no aporta nada a esa guía
+npm run test:contenido                                        # pruebas del candado
+```
+
+`--registrar` se niega a registrar un estado incoherente, así que el lock no sirve para blanquear una fecha. Las dos salidas exigen motivo escrito y quedan en el lock (`cambiosMenores`, `sinTexto`).
 
 ### Optimizaciones de performance (decisiones no obvias)
 
@@ -147,3 +214,6 @@ Cloudflare Pages auto-deploy on push a `main`. Framework preset: Astro, build `n
 - **El `slug` del frontmatter (si existe) gana sobre el filename para la URL**. Ejemplo real: `09-estrategia-ia-tamano-empresa.md` con `slug: "09-estrategia-ia-tamano-empresa-solo-entrepreneur"` → URL final `/episodios/09-estrategia-ia-tamano-empresa-solo-entrepreneur/`. Si el frontmatter no tiene `slug`, el filename (sin extensión) es el `ep.id`. En ambos casos: **nunca cambiar el slug/filename de un episodio publicado** — rompe links externos y canónicos. Si hay que renombrar, agregar redirect 301 en `public/_headers` y mantener viva la URL vieja.
 - **El `build` ejecuta `astro check`**: los errores de tipo en `.astro`/`.ts` bloquean el deploy. Si se agrega un campo al schema Zod, todas las referencias `episode.data.*` deben compilar.
 - **Service worker activo** (`public/sw.js`): cambios en assets pueden quedar cacheados en clientes existentes hasta que el SW se actualice.
+- **Tailwind v4 `bg-black` no siempre rinde**: el `@theme` en `src/styles/global.css` solo declara `--color-acid` y `--color-electric`. La utility `bg-black` puede colisionar con el `background:var(--white)` shorthand del `.brutal-card` y perder por cascade — incluso el arbitrary `bg-[#0a0a0a]` puede no ser pickeado por el JIT v4 en algunos casos. **Workaround verificado**: usar `style="background-color: #hex;"` inline (gana siempre). Aplicado en la card de Diego (`src/pages/index.astro`).
+- **Headers de páginas índice deben ir dentro de `brutal-card bg-white`**: el `.hero-pattern` del body (dotted) atraviesa letras de peso regular (font-weight normal) cuando se ven directamente sobre él — genera ilusión de "outline" por baja contraste. Los H1 con `font-black` no tienen el bug por letras gruesas. Patrón aplicado en `/episodios/`, `/guias/`, `/glosario/` index. Si agregás una página índice nueva, envolvé el `<header>` en `<div class="brutal-card p-6 md:p-10 bg-white">`.
+- **ELHDA glosario es complementario con eco glosario, NO competidor**: ver sección "Capa SEO Growth" arriba. Antes de crear cualquier entry en `src/content/glosario/`, verificar si el término ya está en eco y decidir cross-link vs skip vs deep-dive. La regla operativa completa está en la auto-memoria de Claude Code (`~/.claude/projects/.../memory/feedback_glosario_complementario.md`).

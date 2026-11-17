@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "coberturaDesde": 30,
+  "archivos": {
+    "src/content/glosario/agente-de-ia.md": {
+      "hash": "d91cf00f60743b22",
+      "updatedAt": "2026-05-28"
+    },
+    "src/content/glosario/alucinacion.md": {
+      "hash": "aa48de722e9600e7",
+      "updatedAt": "2026-11-17"
+    },
+    "src/content/glosario/bandwidth.md": {
+      "hash": "e8e0d956503caeb1",
+      "updatedAt": "2026-07-28"
+    },
+    "src/content/glosario/computer-use.md": {
+      "hash": "865a94848e2d6b26",
+      "updatedAt": "2026-11-17"
+    },
+    "src/content/glosario/harness.md": {
+      "hash": "8d823881f42d4efc",
+      "updatedAt": "2026-07-28"
+    },
+    "src/content/glosario/mcp.md": {
+      "hash": "cb8af65cc9a2ce68",
+      "updatedAt": "2026-05-28"
+    },
+    "src/content/glosario/mixture-of-experts.md": {
+      "hash": "0d7fbfc21512738c",
+      "updatedAt": "2026-07-28"
+    },
+    "src/content/glosario/pesos-abiertos.md": {
+      "hash": "01861de1dfffb5bf",
+      "updatedAt": "2026-07-28"
+    },
+    "src/content/glosario/temperatura.md": {
+      "hash": "340aa4f2392957a8",
+      "updatedAt": "2026-06-12"
+    },
+    "src/content/glosario/tool-use.md": {
+      "hash": "b746457e357ca19f",
+      "updatedAt": "2026-11-17"
+    },
+    "src/content/guias/agentes-de-ia.md": {
+      "hash": "e929c8cd6b332436",
+      "updatedAt": "2026-11-17"
+    },
+    "src/content/guias/claude-code.md": {
+      "hash": "5b4717d200febb04",
+      "updatedAt": "2026-11-17"
+    },
+    "src/content/guias/emprender-con-ia.md": {
+      "hash": "c565f2a87f50847e",
+      "updatedAt": "2026-05-28"
+    },
+    "src/content/guias/gemini-vs-chatgpt.md": {
+      "hash": "a227a3a934e2b309",
+      "updatedAt": "2026-11-17"
+    },
+    "src/content/guias/hermes-agent.md": {
+      "hash": "f0304e89928293fe",
+      "updatedAt": "2026-05-28"
+    },
+    "src/content/guias/ia-local.md": {
+      "hash": "5cc354c467f8098a",
+      "updatedAt": "2026-07-28"
+    },
+    "src/content/guias/n8n.md": {
+      "hash": "b6883363d6cda332",
+      "updatedAt": "2026-05-28"
+    },
+    "src/content/guias/openclaw.md": {
+      "hash": "63679efe46a89a65",
+      "updatedAt": "2026-05-28"
+    },
+    "src/content/guias/validar-idea-con-ia.md": {
+      "hash": "1cb8020f0546a215",
+      "updatedAt": "2026-05-28"
+    }
+  },
+  "cambiosMenores": [],
+  "sinTexto": []
+}

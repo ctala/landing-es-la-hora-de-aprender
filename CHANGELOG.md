@@ -4,6 +4,34 @@ Todos los cambios notables del proyecto se documentan aquí.
 
 ---
 
+## [3.20.0] - 2026-11-17
+
+### 📚 Guías y glosario al día, con candado para que no se vuelvan a quedar atrás
+
+Las guías y el glosario traen el 90 % de los clics de Google del sitio (Search Console, 17-ago a 15-nov: guías 690, glosario 106, episodios 76). Su texto no se editaba desde julio y no tenían nada de los episodios 19 a 29.
+
+**Contenido** (todo sale de los episodios publicados, con su enlace):
+
+- **Glosario, 3 entradas nuevas:** `alucinacion`, `tool-use` y `computer-use`. Las cuatro entradas existentes que las tocan las enlazan.
+- **`/guias/agentes-de-ia/`:** secciones nuevas «¿Cuál es el mejor agente de IA para ti?» y «¿Por qué alucina un agente de IA y cómo se controla?».
+- **`/guias/gemini-vs-chatgpt/`:** respuesta directa actualizada y sección nueva «Qué cambió desde junio». La sección de Fable 5 queda marcada como foto de junio.
+- **`/guias/claude-code/`:** secciones nuevas para quien no programa y para evitar que invente datos. La sección de precios no se tocó: no se persiguen búsquedas de precios.
+- Los títulos de sección que ya existían no cambiaron (Google los indexa por su ancla).
+
+**Fechas reales.** `updatedAt` alimenta `dateModified` y el «Actualizada:» visible. Un script del pipeline del podcast la movía a hoy cada vez que sumaba un episodio a una guía, sin cambio de texto. Se corrigió el script y cada guía volvió a la fecha de su último cambio real de cuerpo: `n8n`, `openclaw`, `hermes-agent` y `emprender-con-ia` al 28-may-2026; `ia-local` al 28-jul-2026. Las tres guías editadas hoy quedan en 17-nov-2026.
+
+**Candado en el build (`scripts/check-contenido.mjs`).** Corre antes de `astro check`, en local y en Cloudflare. Bloquea una fecha movida sin cambio de texto, un texto cambiado sin fecha, y (desde el episodio 30) una guía que lista un episodio sin citarlo en el cuerpo. También bloquea el voseo (mismo detector que la fábrica de cursos) y los enlaces internos a un episodio, guía o término que no existe. Registro en `scripts/contenido.lock.json`; pruebas en `npm run test:contenido`. Detalle en `CLAUDE.md` § Candado de guías y glosario.
+
+**Español neutro.** El candado encontró 43 formas de voseo en 6 guías y una entrada del glosario («podés», «tenés», «usá»), en texto de mayo. Pasaron a tú, sin mover la fecha de las páginas que no tuvieron otro cambio.
+
+**Correcciones que marcó la revisión.** Gemini Spark ya no figura como «solo en planes Ultra» (episodios 19 y 22). La sección de precios de `claude-code` lleva una nota con lo que cambió según los episodios 19 y 26.
+
+**Plantilla del glosario.** Cada entrada ahora muestra sus «Términos relacionados» (`relatedGlossary` estaba en el esquema y no se renderizaba). Una referencia a una entrada que no existe bloquea el build, igual que con guías y episodios.
+
+Sin JS nuevo. `js-yaml` pasa a dependencia de desarrollo explícita (ya venía con Astro). Archivos: `scripts/check-contenido.mjs`, `scripts/check-contenido.test.mjs`, `scripts/contenido.lock.json`, `package.json`, `src/pages/glosario/[...slug].astro`, `src/content/guias/*`, `src/content/glosario/*`, `CLAUDE.md`.
+
+---
+
 ## [3.19.0] - 2026-09-22
 
 ### 🔗 Página de LinkedIn del podcast

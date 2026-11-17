@@ -15,6 +15,11 @@ keywords:
 - claude code tutorial
 - como usar claude code
 - claude code mcp
+- claude code para que sirve
+- claude code sin programar
+- claude code sin saber programar
+- claude code para emprendedores
+- claude code alucinaciones
 relatedEpisodes:
 - 29
 - 19
@@ -41,6 +46,10 @@ faq:
   answer: 'Es un archivo que colocas en la raíz de tu proyecto donde le das instrucciones persistentes a Claude Code: cómo está estructurado el proyecto, qué convenciones de código sigues, qué no debe tocar, qué herramientas tienes configuradas. Es lo que separa a un agente que entiende tu contexto de uno que empieza de cero cada sesión.'
 - question: ¿Claude Code puede acceder a Internet?
   answer: Por defecto, no. Accede a tu sistema de archivos local y puede ejecutar comandos del sistema. Si quieres que haga búsquedas web o llame a APIs externas, necesitas configurar los MCPs correspondientes.
+- question: ¿Para qué sirve Claude Code si no programas?
+  answer: Para delegar trabajo de varios pasos cuyo resultado sabes revisar, como editar un video o definir una estrategia de contenidos.
+- question: ¿Cómo evitar que Claude Code invente datos?
+  answer: 'Con capas: un agente revisor con contexto vacío, una skill de verificación, etapas con estado y una persona que conozca la materia al final.'
 ---
 
 Claude Code es la interfaz de línea de comandos de Anthropic que convierte a Claude en un asistente de código que trabaja directamente en tu computador. En lugar de copiar y pegar fragmentos de un chat, Claude Code lee tus archivos, entiende el contexto del proyecto y hace cambios reales en el código — en un terminal, sin salir de tu flujo de trabajo.
@@ -61,7 +70,9 @@ Claude.ai es la interfaz web. Es donde la mayoría de la gente empieza: entras, 
 
 Claude Code es otra cosa. Funciona en tu terminal, tiene acceso directo a tu sistema de archivos y puede ejecutar comandos del sistema operativo. Si le dices "analiza este repositorio y genera tests unitarios para todas las funciones que no los tengan", lo hace solo, archivo por archivo.
 
-Claude Cowork — que Rodrigo Rojo usa en el podcast — es una tercera variante: el modo agente para no técnicos dentro de Claude.ai, donde le dejas una carpeta y trabaja sobre los archivos sin que abras un terminal. Es útil para escritores, diseñadores o founders que no quieren ver una CLI.
+Claude Cowork — que Rodrigo Rojo usa en el podcast — es una tercera variante: el modo agente para no técnicos dentro de Claude.ai, donde le dejas una carpeta y trabaja sobre los archivos sin que abras un terminal. Es útil para escritores, diseñadores o founders que no quieren ver una CLI. Rodrigo contó en el [EP25](/episodios/25-grok-bot-vs-hermes-que-agente-sirve-negocio/), de octubre de 2026, que Anthropic fusionó el chat de Claude con Cowork: según la complejidad, contesta como chat o activa el modo agente.
+
+Anthropic sumó otras piezas: Claude Tag, el agente de Claude dentro de Slack ([EP23](/episodios/23-jev-typesafe-probamos-noticias-reales/)); Claude Duet, de la categoría de Grok Bot y los Dots, que al grabar el [EP26](/episodios/26-un-agente-muchas-skills-o-muchos-agentes/) estaba solo en Estados Unidos y con lista de espera; y Claude como participante en las reuniones ([EP29](/episodios/29-alucinaciones-ia-como-evitarlas-nod-n8n/)).
 
 ### ¿Para qué tipo de tareas sirve?
 
@@ -110,7 +121,41 @@ Un gotcha importante que salió en el podcast (EP14): conectar una API no es ens
 
 ---
 
+## Claude Code para quien no programa: qué le delegas y qué no
+
+Si no programas, a Claude Code le delegas trabajo de varios pasos cuyo resultado sabes revisar, como editar un video o definir una estrategia de contenidos. Tú pones el proceso y el criterio. Rodrigo lo llama el agente «hazlo tú mismo»: una carpeta con sus instrucciones y sus skills que, una vez armada, funciona perfecto para ese proyecto ([EP25](/episodios/25-grok-bot-vs-hermes-que-agente-sirve-negocio/)). Lo que no sabes evaluar, no se lo delegas.
+
+Lo que los hosts le delegaron sin escribir código:
+
+- **Video.** Rodrigo deja una sesión remota de Claude Code en su computador y le pide las ediciones desde el celular. Así editó las 13 cápsulas de un curso ([EP26](/episodios/26-un-agente-muchas-skills-o-muchos-agentes/)) y hoy saca reels ([EP29](/episodios/29-alucinaciones-ia-como-evitarlas-nod-n8n/)).
+- **Estrategia.** Cristian genera la estrategia de contenidos de su marca personal con Claude, directo desde Claude Code ([EP27](/episodios/27-hay-que-refundar-tu-empresa-era-agentes/)).
+
+Lo que no le delegas:
+
+- **Lo que no sabes juzgar.** Rodrigo reconoce que sus años editando en Premiere le dieron el lenguaje para guiar a la IA ([EP29](/episodios/29-alucinaciones-ia-como-evitarlas-nod-n8n/)).
+- **Un camino fijo, sin decisiones.** Para Cristian eso es una automatización ([EP19](/episodios/19-primer-empleado-digital-20-dolares-mes/)).
+- **El seguimiento diario.** Para recordatorios o facturas pendientes, Cristian usa un agente personal persistente ([EP26](/episodios/26-un-agente-muchas-skills-o-muchos-agentes/)).
+
+Si la terminal te frena, empieza por Cowork. Diego vio en sus clases que a los emprendedores poco técnicos les permite hacer mucho con poco ([EP25](/episodios/25-grok-bot-vs-hermes-que-agente-sirve-negocio/)), y con Cowork pidió en una noche unos 20 informes por ley de transparencia ([EP28](/episodios/28-escandalo-jensen-huang-ia-politica/)).
+
+---
+
+## Cómo evitar que Claude Code te invente cosas
+
+Con capas de revisión, porque a cero no llega. Rodrigo dijo en el [EP29](/episodios/29-alucinaciones-ia-como-evitarlas-nod-n8n/) que reducir la [alucinación](/glosario/alucinacion/) es trabajo nuestro: mejores prompts, más contexto, skills y reglas de verificación. Al equipo de Diego se le coló un dato inventado en una postulación y, en sus palabras, costó una oportunidad de cientos de millones de pesos. Las cuatro capas:
+
+1. **Un revisor aparte, con contexto vacío.** El chat que escribió el texto revisa con el mismo contexto. Cristian usa un agente separado que no sabe cómo se desarrolló el documento.
+2. **Una skill de verificación.** La de Rodrigo revisa las fuentes y alerta cuando no encuentra una. La de su editor de video con Claude Code revisa el resultado antes de entregarlo ([EP28](/episodios/28-escandalo-jensen-huang-ia-politica/)).
+3. **Etapas con estado.** En procesos largos la IA se salta pasos. Cristian hace que el agente anote en un archivo en qué etapa va ([EP24](/episodios/24-ponle-limites-ia-antes-delegarle/)), y terminó llevando ese estado a una base de datos. Lo que no pasa el control de calidad vuelve a edición.
+4. **Una persona que conoce la materia, al final.** Rodrigo lo advierte: si no conoces el tema, el dato inventado pasa de largo.
+
+El detalle de cada capa está en la [guía de agentes de IA](/guias/agentes-de-ia/).
+
+---
+
 ## ¿Cuánto cuesta Claude Code?
+
+*Esta sección es de mediados de 2026 y los planes cambian seguido: confirma los valores en la página de Anthropic. Dos cosas cambiaron después según el podcast. Con el Claude Agent SDK puedes conectar otras herramientas a tu suscripción sin pasar por Claude Code ([EP19](/episodios/19-primer-empleado-digital-20-dolares-mes/)), y las suscripciones de Claude ahora incluyen créditos de API ([EP26](/episodios/26-un-agente-muchas-skills-o-muchos-agentes/)).*
 
 ### Plan gratuito vs. plan Max de $200
 
@@ -147,7 +192,7 @@ Cursor es un IDE completo (fork de VS Code) con IA integrada. Su ventaja está e
 
 Claude Code no es un IDE: es un agente en tu terminal. Su ventaja está en la autonomía y el contexto amplio: puede leer y editar múltiples archivos en un directorio, ejecutar comandos del sistema, encadenar tareas sin intervención humana y operar con objetivos de largo plazo. Cuando necesitas que un agente trabaje solo durante horas, Claude Code supera a Cursor.
 
-También importa el modelo subyacente. Claude Sonnet y Opus tienen, según los benchmarks de quienes los usan en producción, un estilo de razonamiento y escritura distinto que para ciertos tipos de tareas (código complejo, documentación, análisis de sistemas) resulta más consistente.
+También importa el modelo subyacente. Claude Sonnet y Opus tienen, según los benchmarks de quienes los usan en producción, un estilo de razonamiento y escritura distinto que para ciertos tipos de tareas (código complejo, documentación, análisis de sistemas) resulta más consistente. Después llegaron Opus 5.5 ([EP24](/episodios/24-ponle-limites-ia-antes-delegarle/)) y Fable 5.2 ([EP28](/episodios/28-escandalo-jensen-huang-ia-politica/)).
 
 ### ¿Puedo usar los dos?
 
@@ -263,6 +308,12 @@ Es un archivo que colocas en la raíz de tu proyecto donde le das instrucciones 
 
 **¿Claude Code puede acceder a Internet?**
 Por defecto, no. Accede a tu sistema de archivos local y puede ejecutar comandos del sistema. Si quieres que haga búsquedas web o llame a APIs externas, necesitas configurar los MCPs correspondientes.
+
+**¿Para qué sirve Claude Code si no programas?**
+Para delegar trabajo de varios pasos cuyo resultado sabes revisar, como editar un video o definir una estrategia de contenidos.
+
+**¿Cómo evitar que Claude Code invente datos?**
+Con capas: un agente revisor con contexto vacío, una skill de verificación, etapas con estado y una persona que conozca la materia al final.
 
 **¿Qué pasó con Kairos, la función filtrada de Claude Code?**
 En abril de 2026 se filtró el código fuente del cliente de Claude Code, y la comunidad encontró 44 funcionalidades detrás de feature flags, incluida una llamada Kairos, descrita como un agente autónomo de largo plazo (EP07). Anthropic no se pronunció sobre el accidente, y los propios desarrolladores del equipo reaccionaron con orgullo ante lo que se encontró. Kairos no está disponible públicamente en ninguna versión lanzada; solo existe en el código filtrado.

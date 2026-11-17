@@ -190,6 +190,7 @@ Total Fase 2: 9 hubs en producción · cluster combinado ES+MX ~36K búsquedas/m
 
 ## Registro de decisiones
 
+- **2026-11-17** — Guías y glosario: se priorizan las búsquedas que le sirven al negocio (un dueño de negocio que quiere delegar en agentes), no las de más volumen; las de precios de herramientas no se persiguen. `updatedAt` es la fecha del último cambio real de texto y lo impone `scripts/check-contenido.mjs` en el build. Cada episodio nuevo deja texto en su guía y términos en el glosario (v3.20.0).
 - **2026-05-28** — Sprint SEO Growth: Fase 0 + Fase 1 desplegadas. Funnel home (CAR + Rodrigo) + CTR rewrites EP03-06 + 2 pilotos `/guias/claude-code/` y `/guias/n8n/` con TOC, JSON-LD TechArticle/FAQPage/BreadcrumbList y CTA al curso CAR con deep-link verificado. Quedan Fase 2 (resto de hubs) + Fase 3 (capa programática) + Fase 4 (loop podcast→hub) en backlog.
 - **2026-05-28** — Trailing-slash: verificado en producción que el sitio emite **308** desde URLs sin slash hacia las con slash. No requiere `_redirects` manual de Cloudflare. Las duplicadas que aparecen en GSC se reconsolidarán orgánicamente.
 - **2026-05-28** — Sprint SEO Growth aprobado. Diagnóstico GSC (23 clics/90d, queries-noticia) + DataForSEO (claude code 72K, n8n 33K, openclaw 30K — todo comp baja/media) ⇒ se construye capa evergreen `/guias/` con hubs por tema cruzados a episodios + funnel a comunidades. Pilotos: `claude-code` y `n8n`. Plan completo en `docs/SEO-GROWTH-STRATEGY.md`.

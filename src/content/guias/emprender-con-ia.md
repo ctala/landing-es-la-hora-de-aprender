@@ -1,7 +1,7 @@
 ---
 title: 'Emprender con IA en 2026: la ventana que se está cerrando'
 date: '2026-05-28'
-updatedAt: '2026-11-03'
+updatedAt: '2026-05-28'
 description: Coinbase echó a 7.000 personas por IA. Las contrataciones hacia LATAM crecieron 250%. Hay una ventana y se está cerrando. Cómo emprender con IA desde hoy, con o sin inversión.
 seoTitle: 'Emprender con IA en 2026: la ventaja que no va a durar'
 seoDescription: Coinbase echó a 7.000 por IA. Las contrataciones hacia LATAM crecieron 250%. La ventana existe y se cierra. Cómo emprender con IA hoy, con o sin sueldo.
@@ -31,12 +31,12 @@ relatedGuides:
 funnel:
   type: community
   label: Únete a la comunidad de founders que emprenden con IA
-  cta: 'CAR (Cágala, Aprende, Repite) es la comunidad de founders hispanohablantes que están usando IA para operar, validar y escalar sus proyectos. Hay cursos de validación de ideas, automatización con n8n, agentes de IA, producción de contenido y más. No es una agencia: es educación. Aprendés, replicás y adaptás a tu contexto. Gratis para entrar.'
+  cta: 'CAR (Cágala, Aprende, Repite) es la comunidad de founders hispanohablantes que están usando IA para operar, validar y escalar sus proyectos. Hay cursos de validación de ideas, automatización con n8n, agentes de IA, producción de contenido y más. No es una agencia: es educación. Aprendes, replicas y adaptas a tu contexto. Gratis para entrar.'
   ctaButton: Unirme a CAR →
   url: https://www.skool.com/cagala-aprende-repite/about?utm_source=eslahoradeaprender&utm_medium=organic&utm_campaign=hub_emprender_con_ia
 faq:
 - question: ¿Por qué Cristian dice que hay que emprender con sueldo y no después del despido?
-  answer: Porque el margen importa. Con ingresos definidos tenés tiempo para validar sin presión de supervivencia, podés cometer errores y seguir iterando, y podés lanzar uno o dos MVPs en paralelo sin apostar todo a que el primero funcione. Si esperás a que te echen, pasás 6 a 12 meses buscando trabajo antes de poder dedicarle tiempo real a tu idea — y en ese tiempo la ventana se estrecha más. Emprender con sueldo no significa hacer las dos cosas mal; significa aprovechar el margen mientras existe.
+  answer: Porque el margen importa. Con ingresos definidos tienes tiempo para validar sin presión de supervivencia, puedes cometer errores y seguir iterando, y puedes lanzar uno o dos MVPs en paralelo sin apostar todo a que el primero funcione. Si esperas a que te echen, pasas 6 a 12 meses buscando trabajo antes de poder dedicarle tiempo real a tu idea — y en ese tiempo la ventana se estrecha más. Emprender con sueldo no significa hacer las dos cosas mal; significa aprovechar el margen mientras existe.
 - question: ¿Qué es la ventana LATAM y cuánto va a durar?
   answer: 'Las contrataciones desde EE.UU. hacia LATAM crecieron alrededor del 250% en el ciclo actual. La razón es arbitraje de costos: un trabajador de oficina en EE.UU. vale ~USD 100.000/año; uno en LATAM con habilidades comparables vale USD 10.000-20.000. La ventana existe mientras esa diferencia sea rentable para las empresas. Cuando la automatización alcance esos roles — que están en el horizonte, no en proyecciones lejanas — el arbitraje desaparece. El timing para aprovecharla es ahora, no en tres años.'
 - question: ¿Cuánto cuesta realmente operar una startup con IA en 2026?
@@ -46,7 +46,7 @@ faq:
 - question: ¿Qué tipo de negocios se pueden construir con IA en LATAM?
   answer: 'Los más sólidos son los que resuelven un dolor local que el founder conoce en carne propia. No hay una categoría predefinida — puede ser automatización de procesos para una industria específica, contenido en escala para un vertical de mercado, soporte con IA para servicios locales, análisis de datos para sectores con baja digitalización, o educación especializada en idioma y contexto local. El criterio no es la categoría: es si el founder conoce el problema mejor que nadie y si hay alguien dispuesto a pagar por resolverlo.'
 - question: ¿Cómo es la comunidad CAR y para quién es?
-  answer: 'CAR (Cágala, Aprende, Repite) es una comunidad de founders hispanohablantes que están usando IA para operar sus proyectos. Tiene cursos de validación de ideas, automatización con n8n, agentes de IA, producción de contenido y más. No es una agencia ni un servicio de consultoría: es educación práctica. El modelo es freemium — podés acceder a los cursos gratis y la comunidad activa también es gratuita para entrar. La premisa es que emprender no se delega, se aprende haciendo, y que la comunidad acelera ese proceso.'
+  answer: 'CAR (Cágala, Aprende, Repite) es una comunidad de founders hispanohablantes que están usando IA para operar sus proyectos. Tiene cursos de validación de ideas, automatización con n8n, agentes de IA, producción de contenido y más. No es una agencia ni un servicio de consultoría: es educación práctica. El modelo es freemium — puedes acceder a los cursos gratis y la comunidad activa también es gratuita para entrar. La premisa es que emprender no se delega, se aprende haciendo, y que la comunidad acelera ese proceso.'
 ---
 
 En mayo de 2026, Coinbase despidió al 14% de su planta — 7.000 personas — y dijo abiertamente que la causa era la IA tomando esos trabajos. No fue un rumor, no fue una proyección para 2030: fue un comunicado corporativo en tiempo real.

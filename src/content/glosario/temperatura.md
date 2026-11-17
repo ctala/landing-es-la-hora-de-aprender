@@ -19,6 +19,7 @@ relatedGuides:
   - "gemini-vs-chatgpt"
 relatedGlossary:
   - "agente-de-ia"
+  - "alucinacion"
 ---
 
 **La temperatura** es el parámetro que regula cuán predecible o creativa es la salida de un modelo de lenguaje. Es un índice —típicamente de 0 a 1, o de 0 a 2 según la plataforma— que ajusta la probabilidad con la que el modelo elige cada palabra siguiente. En 0, ante el mismo prompt el modelo responde casi siempre lo mismo: preciso pero plano. A medida que sube, baja la probabilidad de las palabras más obvias y el modelo se vuelve más creativo —y más propenso a inventar.

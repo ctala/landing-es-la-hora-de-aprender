@@ -22,6 +22,7 @@ relatedGuides:
 relatedGlossary:
   - "agente-de-ia"
   - "mcp"
+  - "tool-use"
 ---
 
 El **harness** es la capa de software que envuelve a un modelo de lenguaje y lo convierte en una herramienta usable: cómo administra el contexto, qué herramientas puede ejecutar, cómo encadena pasos, qué conectores trae y cómo se recupera de un error. El modelo es el motor; el harness es el auto completo.
