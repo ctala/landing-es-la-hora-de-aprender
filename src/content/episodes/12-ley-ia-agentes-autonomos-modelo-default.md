@@ -94,7 +94,7 @@ timestamps:
     label: "Evento presencial: workshop con entregable, no solo charla"
   - time: "52:40"
     seconds: 3160
-    label: "Pivote de CAR: aportar conocimiento vale lo mismo que pagar"
+    label: "Pivote de CAR en ese momento: aportar conocimiento valía lo mismo que pagar"
   - time: "56:11"
     seconds: 3371
     label: "Cristian: agentes 100% autónomos con CrewAI y Langchain"
@@ -263,7 +263,7 @@ Y el descubrimiento técnico que cierra el episodio: tanto **Claude Code** como 
 - **41:49** — Círculo vicioso: si despiden a todos, ¿quién compra?
 - **43:09** — Figure en streaming + Tesla Optimus a USD 20.000 reemplazando blue collar
 - **47:45** — Evento presencial: workshop con entregable, no solo charla
-- **52:40** — Pivote de CAR: aportar conocimiento vale lo mismo que pagar
+- **52:40** — Pivote de CAR en ese momento: aportar conocimiento valía lo mismo que pagar
 - **56:11** — Cristian: agentes 100% autónomos con CrewAI y Langchain
 - **57:34** — Rodrigo: a veces una automatización bien hecha funciona mejor que un agente
 - **57:44** — Slash goal en Claude Code y Codex — agentes con objetivo durante la noche
